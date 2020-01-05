@@ -1,0 +1,232 @@
+- Bubble Sort(옆에 있는 애랑 비교)
+
+1. for num in range(len(data_list)) 반복
+2. swap = False (교환이 되었는지를 확인하는 변수를 두자)
+3. 반복문 안에서, for index in range(len(data_list) - num - 1) n-1번 반복해야 하므로
+4. 반복문안의 반복문 안에서, if data_list[index] > data_list[index + 1] 이면
+5. data_list[index], data_list[index + 1] = data_list[index + 1], data_list[index]
+6. swap = True 
+7. 반복문 안에서, if swap == False 이면, break 끝
+
+
+- Selection Sort(기준점이랑 기준점 밑중 최솟값을  비교, 기준점 +=1 )
+
+1. for stand in range(len(data_list) - 1)로 반복
+2. lowest = stand 로 놓고,
+3. for num in range(stand, len(data_list)) stand 이후부터 반복
+	- 내부 반복문 안에서 data_list[lowest] > data_list[num]이면, 
+		- lowest = num
+4. data_list[stand], data_list[lowest] = data_list[lowest], data_list[stand] 
+
+
+- Insertion sort(값을 빼놓고 순서가 앞인 애들과 비교)
+
+1.
+def insertion_sort(data):
+    for index in range(len(data)-1):
+        for index2 in range(index +1, 0, -1):
+            if data[index2] < data[index2 -1]:
+                data[index2], data[index2 - 1] = data[index2 - 1], data[index2]
+            else:
+                break
+    return data
+
+
+- Recursive call(재귀용법 - 함수안에 동일한 함수 호출)
+
+1.
+def fuction(입력):
+    if 입력 > 일정값: 
+        return function(입력보다 작은 값)
+    else:
+        return 일정값, 입력값, 또는 특정값
+2.
+def function(입력):
+    if 입력 <= 일정값:
+        return 일정값, 입력값, 또는 특정값 
+    fuction(입력보다 작은 값) 
+    return 결과값
+
+
+- Dynamic Programming(동적 계획법)과 Divide and Conquer(분할 정복)
+
+1. 공통점
+	- 문제를 잘게 쪼개서, 가장 작은 단위로 분할
+2. 차이점
+	-동적 계획법
+		- 부분 문제는 중복되어, 상위 문제 해결 시 재활용 됨
+		- Memoization 기법 사용 (부분 문제의 해답을 저장해서 재활용하는 최적화 기법으로 사용)
+
+	- 분할 정복
+		- 부분 문제는 서로 중복되지 않음 
+		- Memorization 기법 사용 안함
+
+
+- Quick Sort(퀵 정렬 - pivot(기준점)을 정하여 크기에 따라 왼쪽과 오른쪽으로 나누는 함수를 반복하여 리턴하는 것)
+
+1. 만약 리스트 갯수가 한개이면 해당 리스트 리턴
+2. 그렇지 않으면, 리스트 맨 앞의 데이터를 기준점(pivot)으로 놓기
+3. left, right 리스트 변수를 만들고,
+4. 맨 앞의 데이터를 뺀 나머지 데이터를 기준점과 비교(pivot)
+	- 기준점보다 작으면 left.append(해당 데이터)
+	- 기준점보다 크면 right.append(해당 데이터)
+5. return quicksort(left) + pivot + quicksort(right) 로 재귀 호출( 리스트로 만들어서 리턴)
+
+1.
+def qsort(data):
+    if len(data) <= 1:
+        return data 
+    
+    left, right = list(), list() 
+    pivot = data[0]
+
+    for index in range(1, len(data)):
+        if pivot > data[index]:
+            left.append(data[index])
+        else:
+            right.append(data[index])
+
+    return qsort(left) + [pivot] + qsort(right)
+
+2.
+def qsort(data):
+    if len(data) <= 1:
+        return data 
+   
+    pivot = data[0] 
+
+    left = [ item for item in data[1:] if pivot > item]
+    right = [ itme for item in data[1:] if pivot <= item]
+
+    return qsort(left) + [pivot] + qsort(right)
+
+
+- Merge Sort(병합 정렬 - 다 분리해서 합병해 나간다 )
+
+1.
+def split(list):
+    if len(list) <= 1:
+        return list 
+    데이터 2등분 = list//2
+    left = list[: 데이터 2등분]
+    right = list[데이터 2등분 :]
+        return merge(split(left),split(right))
+
+def merge(left, right):
+    list = list()
+    lp,rp = 0,0
+    if left[lp] < right[rp]:
+        list.append(left[lp])
+        lp += 1
+    else:
+        list.append(right[rp])
+        rp += 1
+    return list
+
+
+- Sequential Search(순차 탐색 - 리스트를 앞에서 부터 하나씩 비교해서 원하는 데이터 찾는 방법)
+
+1.
+def sequencial(data_list, search_data):
+    for index in range(len(data_list)):
+        if data_list[index] == search_data:
+            return index
+    return -1
+
+
+- Binary Search(이진 탐색 - 탐색할 자료를 둘로 나눠 해당 데이터가 있을 만한 곳 탐색)
+
+1. 이진 탐색은 데이터가 정렬되있는 상태에서 진행
+2. 데이터가 [2, 3, 8, 12, 20] 일 때,
+	- binaray_search(data_list, find_data) 함수를 만들고
+		- find_data는 찾는 숫자
+		- data_list는 데이터 리스트
+		- data_list의 중간값을 find_data와 비교해서
+			- find_data < data_list의 중간값 이라면
+				- 맨 앞부터 data_list의 중간까지에서 다시 find_data 찾기
+			- data_list의 중간값 < find_data 이라면
+				- data_list의 중간부터 맨 끝까지에서 다시 find_data 찾기
+			- 그렇지 않다면, data_list의 중간값은 find_data인 경우로, return data_list 중간 위치 
+
+1.
+def binary_search(data, search):
+    data.sort()
+    print(data)
+    if len(data) == 1 and search == data[0]:
+        return True
+    if len(data) == 1 and search != data[0]:
+        return False
+    if len(data) == 0:
+        return False 
+
+    medium = len(data) // 2
+    if search == data[medium]:
+        return True 
+    else:
+        if search > data[medium]:
+            return binary_search(data[medium+1:], search)
+        else:
+            return binary_search(data[:medium], search)
+
+- Graph(그래프)
+    - 실제 세계의 현상이나 사물을 정점(Vertex) 또는 노드(Node) 와 간선(Edge, Link, Branch)로 표현하기 위해 사용
+
+
+- BFS(너비 우선 탐색)
+
+1. 우선 첫번째 key를 need_visit 큐에 넣는다.
+2. need_visit의 0번째 가 빠질때 0번째가 visited 큐에 없으면 
+3. visited 큐에 0번째를 채워 넣고 need_visit 큐에 해당 value를 넣는다.
+4. 계속 반복 하여 need_visit 큐에 아무 것도 없을 시 정지 한다.
+ 
+graph = dict() 
+graph['A'] = ['B', 'C']
+graph['B'] = ['A', 'D']
+graph['C'] = ['A', 'G', 'H', 'I']
+graph['D'] = ['B', 'E', 'F']
+graph['E'] = ['D']
+graph['F'] = ['D']
+graph['G'] = ['C']
+graph['H'] = ['C']
+graph['I'] = ['C', 'J']
+graph['J'] = ['I']
+
+def bfs(graph, start_node):
+    visited = list()  # queue
+    need_visit = list()  #queue
+    
+    need_visit.append(start_node)
+    count = 0
+
+    while need_visit:
+        count += 1
+        node = need_visit.pop(0)
+        if node not in visited:
+            visited.append(node)
+            need_visit.extend(graph[node])
+    print(count)
+
+    return visited
+
+- DFS(깊이 우선 탐색)
+
+1. 우선 첫번째 값을 need_visit 스택에 넣는다.
+2. need_visit 맨 마지막 값을 꺼낸 후 그 값이 visited큐 에 없을 시 visited 큐에 넣는다.
+3. 그리고 꺼낸 값의 value를 need_visit 스택에 추가 한다.
+4. need_visit가 없어질 때 까지 반복한다.
+
+def dfs(graph, start_node):
+    visited = list()  #queue
+    need_visit = list()  #stack 
+
+    need_visit.append(start_node)
+
+    while need_visit: 
+        node = need_visit.pop()
+        if node not in visited:
+            visited.append(node)
+            need_visit.extend(graph[node])
+
+    return visited
+
+
