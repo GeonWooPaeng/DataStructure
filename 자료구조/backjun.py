@@ -60,3 +60,16 @@
 # encoded_data = data.encode()
 # result = hashlib.sha256(encoded_data).hexdigest()
 # print(result)
+
+
+1.
+N = int(input())
+num1 = set(map(int,input().split()))
+N2 = int(input())
+num2 = list(map(int,input().split()))
+
+for index2 in num2:
+    if index2 not in num1:
+        print(0)    
+    else:
+        print(1)
