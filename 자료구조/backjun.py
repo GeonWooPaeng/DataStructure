@@ -51,3 +51,12 @@
 
 #     stack_l.extend(reversed(stack_r))
 #     print(''.join(stack_l))
+
+
+# 1.
+# import hashlib
+
+# data = str(input())
+# encoded_data = data.encode()
+# result = hashlib.sha256(encoded_data).hexdigest()
+# print(result)
