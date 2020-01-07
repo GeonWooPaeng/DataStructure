@@ -230,3 +230,21 @@ def dfs(graph, start_node):
     return visited
 
 
+- Union-Find(합 집합 찾기 - 부모 테이블을 이용해서 자신이 어떤 곳에 속해있는지 알기)
+	- 원소들의 연결 여부를 확인하는 알고리즘
+
+def find(x):
+    if x == parent[x]:
+        return x
+    else:
+        p = find(parent[x])
+        parent[x] = p 
+        return parent[x]
+
+def union(x, y):
+    x = find(x)
+    y = find(y)
+
+    parent[y] = x
+
+

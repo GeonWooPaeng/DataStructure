@@ -118,6 +118,17 @@ def bfs(graph, start_node):
     return visited
 
 
+def dfs(graph,start_node):
+    visited = list() #queue
+    need_visit = list() #stack 
 
+    need_visit.append(start_node)
 
+    while need_visit:
+        node = need_visit.pop()
+        if node not in visited:
+            visited.append(node)
+            need_visit.extend(graph[node])
+    
+    return visited
 
