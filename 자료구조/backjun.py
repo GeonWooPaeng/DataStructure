@@ -191,3 +191,15 @@
 # for i in array:
 #     print(i[0],i[1])
 
+# 11650.
+# n = int(input())
+# location = []
+
+# for _ in range(n):
+#     x,y = map(int,input().split(' '))
+#     location.append((x,y))
+
+# location = sorted(location)
+
+# for i in location:
+#     print(i[0],i[1])
