@@ -131,6 +131,7 @@
 
 # for i in data:
 #     print(i)
+
       
 # 1427.
 # 1.
@@ -191,6 +192,7 @@
 # for i in array:
 #     print(i[0],i[1])
 
+
 # 11650.
 # n = int(input())
 # location = []
@@ -203,3 +205,47 @@
 
 # for i in location:
 #     print(i[0],i[1])
+
+
+# 10989.
+# import sys
+
+# n = int(sys.stdin.readline())
+# array = [0] * 10001 
+
+# for _ in range(n):
+#     data = int(sys.stdin.readline())
+#     array[data] += 1
+
+# for i in range(10001):
+#     if array[i] != 0:
+#         for j in range(array[i]):
+#             print(i)
+
+
+# 2747.
+# 1.
+# def pibo(n):
+#     if n == 0:
+#         return 0
+#     elif n == 1:
+#         return 1
+
+#     return pibo(n-1) + pibo(n-2)
+
+# n = int(input())
+# print(pibo(n))
+
+# 2.
+# n = int(input())
+
+# a,b = 0,1
+# while n > 0:
+#     a,b = b, a+b 
+#     n -= 1
+
+# print(a)
+
+
+
+    
