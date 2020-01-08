@@ -247,7 +247,6 @@
 # print(a)
 
 # 1074.
-
 # def Z(n,x,y):
 #     global result 
 #     if n == 2:
@@ -267,7 +266,7 @@
 #         result += 1
 
 #         if x+1 == X and y+1 == Y:
-#             print(result)
+#             print(result)``
 #             return 
 #         result += 1
 #         return
@@ -281,6 +280,43 @@
 # N,X,Y = map(int,input().split(' '))
 # Z(2**N,0,0)
 
+# 7490.
+# import copy
 
+# def recursive(array,n):
+#     if len(array) == n:
+#         operator_list.append(copy.deepcopy(array))
+#         return 
 
+#     array.append(' ')
+#     recursive(array,n)
+#     array.pop()
+
+#     array.append('+')
+#     recursive(array,n)
+#     array.pop()
+
+#     array.append('-')
+#     recursive(array,n)
+#     array.pop()
+
+# case_test = int(input())
+
+# for _ in range(case_test):
+#     operator_list = []
+#     n = int(input())
+#     recursive([],n-1)
+
+#     integer = [i for i in range(1,n+1)]
+
+#     for operator in operator_list:
+#         string = ""
+#         for i in range(n-1):
+#             string += str(integer[i]) + operator[i]
+#         string += str(integer[-1])
+
+#         if eval(string.replace(" ","")) == 0:
+#             print(string)
+#     print()
+    
     
