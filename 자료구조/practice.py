@@ -80,12 +80,12 @@ def merge(left,right):
         else:
             merged.append(left[left_point])
             left_point += 1 
-    #case2 - left 데이터가 없을 때 
+    #case2 - left 만 있을 때 
     while len(left) > left_point:
         merged.append(left[left_point])
         right_point += 1
 
-    #case3 - right 데이터가 없을 때 
+    #case3 - right 만 있을 때 
     while len(right) > right_point:
         merged.append(right[right_point])
         right_point += 1

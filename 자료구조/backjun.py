@@ -381,3 +381,47 @@
 
 # for i in sorted_num:
 #     print(i)
+
+
+# 1300.
+
+# N = int(input())
+# k = int(input())
+
+# B = set() 
+# for i in range(N+1):
+#     for j in range(N+1):
+#         B.add(i*j)
+
+# list(B).sort() 
+# print(list(B)[k-2])
+
+# 2110.
+# # 사이 간격(gap)을 중점으로 생각 해야 한다.
+# n, c = list(map(int,input().split(' '))) # n(집수), c(공유기수)
+# array = []
+# for _ in range(n):
+#     array.append(int(input()))
+# array = sorted(array)
+
+# start = array[1] - array[0] #start(min => 최소 gap)
+# end = array[-1] - array[0] #end(max => 최대 gap)
+# result = 0 #최적의 gap (start랑 end가 같을 때)
+
+# while (start <= end): # 최대 최소가 바뀔때 
+#     mid = (start+end)//2 #이분법 위한 평균 gap 
+#     value = array[0] #초기 공유기가 설치 되있는 집
+#     count = 1 #공유기 count (array[0]에 설치 되어 있으므로 1)
+
+#     for i in range(1,len(array)):
+#         if array[i] >= value + mid: #공유기가 있는 곳에서 + gap 한 값에 공유기를 놓을 수 있다.
+#             value = array[i] # 다음 공유기 놓을 수 있는 곳
+#             count += 1 #공유기수 += 1
+    
+#     if count >= c: #c개 이상의 공유기수 설치 
+#         start = mid + 1 #gap 간격 넓혀보기
+#         result = mid #모든 조건 다 됬으므로 저장
+#     else: #c개 미만의 공유기수 설치
+#         end = mid - 1 # gap 간격 줄이기
+
+# print(result) 
