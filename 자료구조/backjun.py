@@ -310,13 +310,74 @@
 #     integer = [i for i in range(1,n+1)]
 
 #     for operator in operator_list:
-#         string = ""
+#         string = " "
 #         for i in range(n-1):
 #             string += str(integer[i]) + operator[i]
 #         string += str(integer[-1])
 
 #         if eval(string.replace(" ","")) == 0:
 #             print(string)
-#     print()
     
+# 2751.
+
+# def qsort(data):
+#     if len(data) <= 1:
+#         return data
     
+#     pivot = data[0]
+#     left,right = list(),list()
+
+#     for index in range(1,len(data)):
+#         if data[index] < pivot:
+#             left.append(data[index])
+        
+#         else:
+#             right.append(data[index])
+
+#     return qsort(left) + [pivot] + qsort(right)
+
+# def split(data):
+#     if len(data) <= 1:
+#         return data
+
+#     med = len(data) // 2
+
+#     left = split(data[:med])
+#     right = split(data[med:])
+
+#     return merge(left,right)
+
+# def merge(left,right):
+#     merged = list()
+
+#     lp,rp = 0,0
+#     while len(left) > lp and len(right) > rp:
+#         if left[lp] > right[rp]:
+#             merged.append(right[rp])
+#             rp += 1
+#         else:
+#             merged.append(left[lp])
+#             lp += 1 
+
+#     while len(left) > lp:
+#         merged.append(left[lp])
+#         lp += 1
+
+#     while len(right) > rp:
+#         merged.append(right[rp])
+#         rp += 1 
+
+#     return merged
+
+# test_case = int(input())
+# num = list()
+
+# for _ in range(test_case):
+#     n = int(input())
+#     num.append(n)
+
+# sorted_num = split(num)
+# # sorted_num = qsort(num)
+
+# for i in sorted_num:
+#     print(i)

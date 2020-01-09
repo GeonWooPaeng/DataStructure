@@ -70,16 +70,28 @@ def split(data):
 
 def merge(left,right):
     merged = list()
-    lp,rp = 0,0 
+    left_point,right_point = 0,0 
 
-    if left[lp] < right[rp]:
-        merged.append(left[lp])
-        lp += 1
-    else:
-        merged.append(right[rp])
-        rp += 1 
+    #case1 - left/right 둘다 있을때
+    while len(left) > left_point and len(right) > right_point:
+        if left[lp] > right[right_point]:
+            merged.append(right[right_point])
+            right_point += 1
+        else:
+            merged.append(left[left_point])
+            left_point += 1 
+    #case2 - left 데이터가 없을 때 
+    while len(left) > left_point:
+        merged.append(left[left_point])
+        right_point += 1
+
+    #case3 - right 데이터가 없을 때 
+    while len(right) > right_point:
+        merged.append(right[right_point])
+        right_point += 1
     
     return merged
+    
 
 def binary(data,search):
     data.sort() 
