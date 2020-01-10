@@ -428,19 +428,19 @@
 
 1939.
 
-from collections import deque 
+from collections import dequeue
 
 n,m = map(int,input().split())
-adj = [[] for _ in range(n+1)]
+adj = [[] for _ in range(n+1)] #특정 섬에 (연결되어 있는 섬, weight) 저장
 
-def bfs(c):
-    queue = deque([start_node])
-    visited = [False] * (n + 1)
-    visited[start_node] = True 
+def bfs(c): # 경로를 이동하였는지 확인하기 위한 함수
+    queue = deque([start_node]) 
+    visited = [False] * (n + 1) # 방문하는 곳 처음에 False로 해놈
+    visited[start_node] = True  # 처음 시작을 넣는다
     while queue:
-        x = queue.popleft()
-        for y, weight in adj[x]:
-            if not visited[y] and weight >= c:
+        x = queue.popleft() 
+        for y, weight in adj[x]: #y - x랑 이어진 섬, weight - 중량
+            if not visited[y] and weight >= c: # visited[y]가 있고 weight(for에서 돌아가는 x랑 y 섬의 다리 중량)가 현재 중량보다 큰 경우
                 visited[y] = True 
                 queue.append(y)
     return visited[end_node]
@@ -450,19 +450,19 @@ end = 1
 
 for _ in range(m):
     x, y, weight = map(int,input().split())
-    adj[x].append((y,weight))
-    adj[y].append((x,weight))
-    start = min(start, weight)
-    end = max(end, weight)
+    adj[x].append((y,weight)) #특정 섬에 (연결되어 있는 섬, weight) 추가
+    adj[y].append((x,weight)) #특정 섬에 (연결되어 있는 섬, weight) 추가
+    start = min(start, weight) #weight이 가장 작은 것
+    end = max(end, weight)     #weight이 가장 큰 것
 
-start_node, end_node = map(int, input().split())
+start_node, end_node = map(int, input().split()) #공장이 있는 섬들
 
 result = start 
 while(start <= end):
-    mid = (start + end)//2
-    if bfs(mid):
+    mid = (start + end)//2 #현재의 중량값
+    if bfs(mid): # 이동이 가능하므로, 중량을 증가시킨다.
         result = mid 
         start = mid + 1
-    else:
+    else: # 이동이 불가능하므로, 중량을 감소 시킨다.
         end = mid -1 
 print(result)
