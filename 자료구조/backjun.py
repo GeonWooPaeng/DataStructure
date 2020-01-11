@@ -427,42 +427,97 @@
 # print(result) 
 
 1939.
+# from collections import deque
 
-from collections import dequeue
+# n,m = map(int,input().split())
+# adj = [[] for _ in range(n+1)] #특정 섬에 (연결되어 있는 섬, weight) 저장
 
-n,m = map(int,input().split())
-adj = [[] for _ in range(n+1)] #특정 섬에 (연결되어 있는 섬, weight) 저장
+# def bfs(c): # 경로를 이동하였는지 확인하기 위한 함수
+#     queue = deque([start_node]) 
+#     visited = [False] * (n + 1) # 방문하는 곳 처음에 False로 해놈
+#     visited[start_node] = True  # 처음 시작을 넣는다
+#     while queue:
+#         x = queue.popleft() 
+#         for y, weight in adj[x]: #y - x랑 이어진 섬, weight - 중량
+#             if not visited[y] and weight >= c: # visited[y]가 있고 weight(for에서 돌아가는 x랑 y 섬의 다리 중량)가 현재 중량보다 큰 경우
+#                 visited[y] = True 
+#                 queue.append(y)
+#     return visited[end_node]
 
-def bfs(c): # 경로를 이동하였는지 확인하기 위한 함수
-    queue = deque([start_node]) 
-    visited = [False] * (n + 1) # 방문하는 곳 처음에 False로 해놈
-    visited[start_node] = True  # 처음 시작을 넣는다
-    while queue:
-        x = queue.popleft() 
-        for y, weight in adj[x]: #y - x랑 이어진 섬, weight - 중량
-            if not visited[y] and weight >= c: # visited[y]가 있고 weight(for에서 돌아가는 x랑 y 섬의 다리 중량)가 현재 중량보다 큰 경우
-                visited[y] = True 
-                queue.append(y)
-    return visited[end_node]
+# start = 1000000000
+# end = 1
 
-start = 1000000000
-end = 1
+# for _ in range(m):
+#     x, y, weight = map(int,input().split())
+#     adj[x].append((y,weight)) #특정 섬에 (연결되어 있는 섬, weight) 추가
+#     adj[y].append((x,weight)) #특정 섬에 (연결되어 있는 섬, weight) 추가
+#     start = min(start, weight) #weight이 가장 작은 것
+#     end = max(end, weight)     #weight이 가장 큰 것
 
-for _ in range(m):
-    x, y, weight = map(int,input().split())
-    adj[x].append((y,weight)) #특정 섬에 (연결되어 있는 섬, weight) 추가
-    adj[y].append((x,weight)) #특정 섬에 (연결되어 있는 섬, weight) 추가
-    start = min(start, weight) #weight이 가장 작은 것
-    end = max(end, weight)     #weight이 가장 큰 것
+# start_node, end_node = map(int, input().split()) #공장이 있는 섬들
 
-start_node, end_node = map(int, input().split()) #공장이 있는 섬들
+# result = start 
+# while(start <= end):
+#     mid = (start + end)//2 #현재의 중량값
+#     if bfs(mid): # 이동이 가능하므로, 중량을 증가시킨다.
+#         result = mid 
+#         start = mid + 1
+#     else: # 이동이 불가능하므로, 중량을 감소 시킨다.
+#         end = mid -1 
+# print(result)
 
-result = start 
-while(start <= end):
-    mid = (start + end)//2 #현재의 중량값
-    if bfs(mid): # 이동이 가능하므로, 중량을 증가시킨다.
-        result = mid 
-        start = mid + 1
-    else: # 이동이 불가능하므로, 중량을 감소 시킨다.
-        end = mid -1 
-print(result)
+# 1543.
+
+# doc = input()
+# word = input()
+
+# index = 0 
+# count = 0
+
+# while len(doc) - index >= len(word):
+#     if doc[index:index+len(word)] == word:
+#         count += 1
+#         index += len(word)
+#     else:
+#         index += 1
+# print(count)
+
+# 1568.
+# n = int(input())
+
+# flied_b = 1
+# sec = 0
+
+# while n != 0:
+#     if flied_b > n:
+#         flied_b = 1
+    
+#     n -= flied_b 
+#     flied_b += 1
+#     sec += 1
+
+# print(sec)
+
+1302.
+
+n = int(input())
+chart = dict()
+
+for _ in range(n):
+    book = input()
+    if book not in chart :
+        chart[book] = 1
+    else:
+        chart[book] += 1 
+        
+target = max(chart.values())
+array = []
+
+for book, number in chart.items():
+    if target == number:
+        array.append(book)
+
+print(sorted(array)[0])
+
+
+
