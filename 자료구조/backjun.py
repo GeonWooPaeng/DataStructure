@@ -566,34 +566,49 @@
 # array.reverse()
 # print(ascending(array))
 
-1236.
+# 1236.
 
-n,m = map(int,input().split())
-conditions = []
+# n,m = map(int,input().split())
+# conditions = []
 
-for _ in range(n):
-    condition = input()
-    conditions.append(condition)
+# for _ in range(n):
+#     condition = input()
+#     conditions.append(condition)
 
-row = [0] * n
-column = [0] * m
+# row = [0] * n
+# column = [0] * m
 
-for i in range(n):
-    for j in range(m):
-        if conditions[i][j] == 'X':
-            row[i] = 1
-            column[j] = 1
+# for i in range(n):
+#     for j in range(m):
+#         if conditions[i][j] == 'X':
+#             row[i] = 1
+#             column[j] = 1
 
-count_row = 0
-for i in range(n):
-    if row[i] == 0:
-        count_row += 1
+# count_row = 0
+# for i in range(n):
+#     if row[i] == 0:
+#         count_row += 1
 
-count_column = 0 
-for j in range(m):
-    if column[j] == 0:
-        count_column += 1
+# count_column = 0 
+# for j in range(m):
+#     if column[j] == 0:
+#         count_column += 1
 
-print(max(count_row,count_column))
+# print(max(count_row,count_column))
+
+# 10870.
+
+# def pibo(n):
+#     if n == 0:
+#         return 0 
+#     if n == 1:
+#         return 1
+#     return pibo(n-1) + pibo(n-2)
+
+# n = int(input())
+# print(pibo(n))
+
+
+
 
 
