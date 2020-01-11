@@ -498,26 +498,102 @@
 
 # print(sec)
 
-1302.
+# 1302.
 
-n = int(input())
-chart = dict()
+# n = int(input())
+# chart = dict()
+
+# for _ in range(n):
+#     book = input()
+#     if book not in chart :
+#         chart[book] = 1
+#     else:
+#         chart[book] += 1 
+        
+# target = max(chart.values())
+# array = []
+
+# for book, number in chart.items():
+#     if target == number:
+#         array.append(book)
+
+# print(sorted(array)[0])
+
+# 1668.
+
+# 1.
+# n = int(input())
+
+# lengths = []
+# leng_l = 0
+# leng_r = 0
+# count_l = 0
+# count_r = 0
+
+# for _ in range(n):
+#     length = int(input())
+#     lengths.append(length)
+
+# for i in range(n):
+#     if leng_l < lengths[i]:
+#         leng_l = lengths[i]
+#         count_l += 1
+# print(count_l)
+
+# for j in range(n-1,-1,-1):
+#     if leng_r < lengths[j]:
+#         leng_r = lengths[j]
+#         count_r += 1
+# print(count_r)
+
+# 2.
+# def ascending(array):
+#     now = array[0]
+#     result = 1
+#     for i in range(1,len(array)):
+#         if now < array[i]:
+#             result += 1
+#             now = array[i]
+#     return result 
+
+# n = int(input())
+# array = []
+
+# for _ in range(n):
+#     array.append(int(input()))
+
+# print(ascending(array))
+# array.reverse()
+# print(ascending(array))
+
+1236.
+
+n,m = map(int,input().split())
+conditions = []
 
 for _ in range(n):
-    book = input()
-    if book not in chart :
-        chart[book] = 1
-    else:
-        chart[book] += 1 
-        
-target = max(chart.values())
-array = []
+    condition = input()
+    conditions.append(condition)
 
-for book, number in chart.items():
-    if target == number:
-        array.append(book)
+row = [0] * n
+column = [0] * m
 
-print(sorted(array)[0])
+for i in range(n):
+    for j in range(m):
+        if conditions[i][j] == 'X':
+            row[i] = 1
+            column[j] = 1
 
+count_row = 0
+for i in range(n):
+    if row[i] == 0:
+        count_row += 1
+
+count_column = 0 
+for j in range(m):
+    if column[j] == 0:
+        count_column += 1
+
+print(max(count_row,count_column))
 
 
