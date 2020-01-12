@@ -143,3 +143,31 @@ def dfs(graph,start_node):
             need_visit.extend(graph[node])
     
     return visited
+
+def pre_order(tree):
+    if tree == None:
+        return 
+    
+    print(tree.data)
+
+    pre_order(tree.left_node)
+    pre_order(tree.right_node)
+
+def in_order(tree):
+    if tree == None:
+        return 
+
+    in_order(tree.left_node)
+
+    print(tree.data)
+
+    in_order(tree.right_node)
+
+def post_order(node):
+    if tree == None:
+        return 
+    
+    post_order(tree.left_node)
+    post_order(tree.right_node)
+
+    print(node.data)

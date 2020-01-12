@@ -269,3 +269,57 @@ for i in range(10001):
         for j in range(array[i]):
             print(i)
 
+
+<순회> 
+    > 트리 모든 node를 돌아야 한다 
+    > 노드가 비어 있어도 있다고 가정하고 푼 후 나중에 지우자!!!
+
+class Node:
+    def __init__(self, data, left_node, right_node):
+        self.data = data 
+        self.left_node = left_node 
+        self.right_node = right_node 
+
+- Preorder Traversal(전위 순회)
+	루트(Root부터 자식 끝까지 탐색후 시작) -> 왼쪽 자식 -> 오른쪽 자식
+     	    > Root 먼저 방문, DFS랑 좀 닮음, 
+	    > 노드와 처음 마주칠때 방문
+
+def pre_order(tree):
+    if tree == None:
+        return 
+
+    print(tree.data)
+    
+    pre_order(tree[node.left_node]) 
+    pre_order(tree[node.right_node])
+
+- Inorder Traversal(중위 순회)
+	왼쪽 자식(맨 하단부터) -> 루트 -> 오른쪽 자식
+	    > 왼쪽 하위 트리를 방문한 후 Root를 방문, 
+	    > 왼쪽으로 갔다가(왼쪽 끝까지 갔다가) 다시 올라올 때 방문
+
+def in_order(tree):
+    if tree == None:
+        return 
+    
+    in_order(tree[node.left_node])
+   
+    print(tree.data)
+ 
+    in_order(tree[node.right_node])
+
+-Postorder Traversal(후위 순회)
+	왼쪽 자식(맨 하단부터) -> 오른쪽 자식 -> 루트
+	    > 하위 트리 모두 방문 후 Root를 방문
+	    > 오른쪽으로 갔다가(오른쪽 끝까지 간 후) 다시 올라올 때 방문
+
+​def post_order(tree):
+    if tree == None:
+        return
+
+    post_order(tree[node.left_node]) 
+    post_order(tree[node.right_node])
+
+    print(tree.data)
+ 
