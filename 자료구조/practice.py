@@ -170,4 +170,4 @@ def post_order(node):
     post_order(tree.left_node)
     post_order(tree.right_node)
 
-    print(node.data)
+    print(tree.data)
