@@ -288,11 +288,11 @@ class Node:
 def pre_order(tree):
     if tree == None:
         return 
-
-    print(tree.data)
     
-    pre_order(tree[node.left_node]) 
-    pre_order(tree[node.right_node])
+    print(tree.data)
+
+    pre_order(tree.left_node)
+    pre_order(tree.right_node)
 
 - Inorder Traversal(중위 순회)
 	왼쪽 자식(맨 하단부터) -> 루트 -> 오른쪽 자식
@@ -302,24 +302,23 @@ def pre_order(tree):
 def in_order(tree):
     if tree == None:
         return 
-    
-    in_order(tree[node.left_node])
-   
+
+    in_order(tree.left_node)
+
     print(tree.data)
- 
-    in_order(tree[node.right_node])
+
+    in_order(tree.right_node)
 
 -Postorder Traversal(후위 순회)
 	왼쪽 자식(맨 하단부터) -> 오른쪽 자식 -> 루트
 	    > 하위 트리 모두 방문 후 Root를 방문
 	    > 오른쪽으로 갔다가(오른쪽 끝까지 간 후) 다시 올라올 때 방문
 
-​def post_order(tree):
+​def post_order(node):
     if tree == None:
-        return
-
-    post_order(tree[node.left_node]) 
-    post_order(tree[node.right_node])
+        return 
+    
+    post_order(tree.left_node)
+    post_order(tree.right_node)
 
     print(tree.data)
- 
