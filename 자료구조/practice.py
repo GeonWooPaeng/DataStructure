@@ -171,3 +171,32 @@ def post_order(node):
     post_order(tree.right_node)
 
     print(tree.data)
+
+adj_list = [[] for i in range(n+1)]
+indegree = [0] * (n+1)
+queue = []
+result = []
+
+def addEdge(x,y):
+    adj_list[x].append(y) # x가 y로 이어진다.
+    indegree[y] += 1
+
+def Top_Sort():
+    for i in range(1, n+1):
+        if indegree[i] == 0:
+            queue.append(i)
+    
+    for _ in range(n):
+        if not queue:
+            print("Cycle")
+            return False 
+
+        cur = queue.pop(0)
+        result.append(cur)
+
+        for adj in adj_list[cur]:
+            indegree[adj] -= 1 
+            if indegree[adj] == 0:
+                queue.append(adj)
+    
+    return True
