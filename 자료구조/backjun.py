@@ -814,3 +814,15 @@
 
 # for i in result:
 #     print(i, end=' ')
+
+# 1904.
+# n = int(input())
+
+# array = [0] * 10001
+# array[1] = 1
+# array[2] = 2
+
+# for i in range(3,n+1):
+#     array[i] = (array[i-1]+array[i-2]) % 15746
+
+# print(array[n])
