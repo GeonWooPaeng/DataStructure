@@ -827,25 +827,46 @@
 
 # print(array[n])
 
-12865.
-n, k = map(int,input().split())
-d_p = [[0] * (k+1) for _ in range(n+1)]
+# 12865.
+# n, k = map(int,input().split())
+# d_p = [[0] * (k+1) for _ in range(n+1)]
 
-print(d_p)
-for i in range(1, n+1):
-    weight, value = map(int,input().split())
-    for j in range(1,k+1):
-        if j < weight:
-            d_p[i][j] = d_p[i-1][j]
-        else:
-            d_p[i][j] = max(d_p[i-1][j], d_p[i-1][j-weight] + value)
+# print(d_p)
+# for i in range(1, n+1):
+#     weight, value = map(int,input().split())
+#     for j in range(1,k+1):
+#         if j < weight:
+#             d_p[i][j] = d_p[i-1][j]
+#         else:
+#             d_p[i][j] = max(d_p[i-1][j], d_p[i-1][j-weight] + value)
 
-print(d_p[n][k]) 
+# print(d_p[n][k]) 
 
+# 11053.
+# n = int(input())
+# num = list(map(int,input().split()))
 
+# dp = [1] * n 
 
+# for i in range(1,n):
+#     for j in range(i):
+#         if num[i] > num[j]:
+#             dp[i] = max(dp[i],dp[j]+1)
 
+# print(max(dp))
 
+# 9251.
+# A = input() 
+# B = input() 
 
+# dp = [[0]*(len(B)+1) for _ in range(len(A)+1)]
 
+# for y in range(1,len(A)+1):
+#     for x in range(1,len(B)+1):
+#         if A[y-1] == B[x-1]:
+#             dp[y][x] = dp[y-1][x-1] + 1
 
+#         else:
+#             dp[y][x] = max(dp[y-1][x],dp[y][x-1])
+
+# print(dp[len(A)][len(B)])

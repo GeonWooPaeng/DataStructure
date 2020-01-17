@@ -192,7 +192,7 @@ def Top_Sort():
             return False 
 
         cur = queue.pop(0)
-        result.append(cur)
+        result.append()
 
         for adj in adj_list[cur]:
             indegree[adj] -= 1 
