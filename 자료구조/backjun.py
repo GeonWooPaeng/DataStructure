@@ -826,3 +826,26 @@
 #     array[i] = (array[i-1]+array[i-2]) % 15746
 
 # print(array[n])
+
+12865.
+n, k = map(int,input().split())
+d_p = [[0] * (k+1) for _ in range(n+1)]
+
+print(d_p)
+for i in range(1, n+1):
+    weight, value = map(int,input().split())
+    for j in range(1,k+1):
+        if j < weight:
+            d_p[i][j] = d_p[i-1][j]
+        else:
+            d_p[i][j] = max(d_p[i-1][j], d_p[i-1][j-weight] + value)
+
+print(d_p[n][k]) 
+
+
+
+
+
+
+
+
