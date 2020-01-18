@@ -426,7 +426,7 @@
 
 # print(result) 
 
-1939.
+# 1939.
 # from collections import deque
 
 # n,m = map(int,input().split())
@@ -870,3 +870,29 @@
 #             dp[y][x] = max(dp[y-1][x],dp[y][x-1])
 
 # print(dp[len(A)][len(B)])
+
+# 1495.
+# n,s,m = map(int,input().split())
+
+# volume = list(map(int,input().split()))
+
+# data = [[0]*(m+1) for _ in range(n+1)]
+# data[0][s] = 1
+
+# for y in range(1,n+1):
+#     for x in range(m+1):
+#         if data[y-1][x] == 0:
+#             continue # 0일 시 밑의 코드 건너 뛴다.
+#         if x - volume[y-1] >= 0:
+#             data[y][x-volume[y-1]] = 1
+#         if x + volume[y-1] <= m:
+#             data[y][x+volume[y-1]] = 1 
+
+# result = -1
+
+# for x in range(m,-1,-1):
+#     if data[n][x] == 1:
+#         result = x 
+#         break
+
+# print(result)
