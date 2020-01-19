@@ -919,7 +919,6 @@
 
 # max_value = max(dp)
 
-# num = n
 # result = [] 
 
 # for i in range(n,-1,-1):
@@ -933,3 +932,89 @@
 # result.reverse() 
 # for i in result:
 #     print(i)
+
+# 1260.
+# 1.
+# def bfs(graph,start_node):
+#     visited = []
+#     need_visit = []
+#     need_visit.append(start_node)
+
+#     while need_visit:
+#         node = need_visit.pop(0)
+#         if node not in visited:
+#             visited.append(node)
+#             need_visit.extend(graph[node])
+
+
+#     return visited
+
+# def dfs(graph, start_node):
+#     visited = []
+#     need_visit = [] 
+#     need_visit.append(start_node)
+
+#     while need_visit:
+#         node = need_visit.pop() 
+#         if node not in visited: 
+#             visited.append(node)
+#             need_visit.extend(graph[node])
+
+#     return visited
+
+# n,m,start_node = map(int,input().split())
+
+# graph = [[] for _ in range(n+1)]
+
+# for _ in range(m):
+#     x,y = map(int,input().split())
+#     graph[x].append(y)
+#     graph[y].append(x)
+
+# for i in graph:
+#     i.sort() 
+# bfs_result = bfs(graph,start_node)
+
+# for i in graph:
+#     i.reverse() 
+# dfs_result = dfs(graph,start_node)
+
+# print(' '.join(map(str,dfs_result)))
+# print(' '.join(map(str,bfs_result)))
+
+# 2.
+# from collections import deque 
+
+# def dfs(v):
+#     print(v,end=' ')
+#     visited[v] = True 
+#     for e in adj[v]:
+#         if not (visited[e]):
+#             dfs(e)
+
+# def bfs(v):
+#     q = deque([v])
+#     while q:
+#         v = q.popleft()
+#         if not(visited[v]):
+#             visited[v] = True 
+#             print(v,end=' ')
+#             for e in adj[v]:
+#                 if not visited[e]:
+#                     q.append(e)
+
+# n,m,v = map(int,input().split())
+# adj = [[] for _ in range(n+1)]
+
+# for _ in range(m):
+#     x, y = map(int,input().split())
+#     adj[x].append(y)
+#     adj[y].append(x)
+
+# for e in adj:
+#     e.sort() 
+
+# visited = [False] * (n+1)
+# dfs(v)
+# visited = [False] * (n+1)
+# bfs(v)
