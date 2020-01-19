@@ -896,3 +896,40 @@
 #         break
 
 # print(result)
+
+# 2655.
+
+# n = int(input())
+
+# value = []
+# dp = [0] * (n+1)
+
+# value.append((0,0,0,0)) #(번호,밑면,높이,무게)
+
+# for i in range(1,n+1):
+#     width,height,weight = map(int,input().split())
+#     value.append((i,width,height,weight))
+
+# value.sort(key = lambda x : x[3])
+
+# for i in range(1, n+1):
+#     for j in range(0,i):
+#         if value[i][1] > value[j][1]:
+#             dp[i] = max(dp[i],dp[j]+value[i][2])
+
+# max_value = max(dp)
+
+# num = n
+# result = [] 
+
+# for i in range(n,-1,-1):
+#     if max_value == dp[i]:
+#         result.append(value[i][0])
+#         max_value -= value[i][2]
+#         if max_value == 0: 
+#             break 
+
+# print(len(result))
+# result.reverse() 
+# for i in result:
+#     print(i)
