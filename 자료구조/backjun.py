@@ -1020,12 +1020,12 @@
 # bfs(v)
 
 # 1697.
-
+# 1.
 # from collections import deque 
 
 # MAX = 100001 
 # n, k = map(int,input().split())
-# array [0] * MAX 
+# array = [0] * MAX 
 
 # def bfs():
 #     q = deque([n])
@@ -1034,8 +1034,27 @@
 #         if now_pos == k:
 #             return array[now_pos]
 #         for next_pos in (now_pos -1, now_pos +1, now_pos *2):
-#             if 0 <= nest_pos < MAX and not array[next_pos]:
+#             if 0 <= next_pos < MAX and not array[next_pos]:
 #                 array[next_pos] = array[now_pos] + 1
 #                 q.append(next_pos)
-# print(dfs())
+# print(bfs())
 
+# 2.
+# n, k = map(int,input().split())
+# array = [0] * 100001 
+
+# def bfs():
+
+#     need_visit = []
+#     need_visit.append(n)
+#     while need_visit:
+#         node = need_visit.pop(0)
+#         if node == k:
+#             return array[node]
+
+#         for next_num in (node-1, node+1, node*2):
+#             if array[next_num] == 0:
+#                 array[next_num] = array[node] + 1
+#                 need_visit.append(next_num)
+
+# print(bfs())
