@@ -1058,3 +1058,68 @@
 #                 need_visit.append(next_num)
 
 # print(bfs())
+
+# 2606.
+# 1.
+# def bfs(graph,start_node):
+#     visited = []
+#     need_visit=[]
+#     need_visit.append(start_node)
+    
+#     while need_visit:
+#         node = need_visit.pop(0)
+#         if node not in visited:
+#             visited.append(node)
+#             need_visit.extend(graph[node])
+
+#     return (len(visited)-1) 
+
+# def dfs(graph,start_node):
+#     visited = []
+#     need_visit = []
+#     need_visit.append(start_node)
+
+#     while need_visit:
+#         node = need_visit.pop(0)
+#         if node not in visited:
+#             visited.append(node)
+#             need_visit.extend(graph[node])
+    
+#     return (len(visited)-1)
+
+# com_num = int(input())
+
+# graph = [[] for _ in range(com_num+1)]
+
+# link_num = int(input())
+
+# for i in range(link_num):
+#     x,y = map(int,input().split())
+#     graph[x].append(y)
+#     graph[y].append(x)
+
+# print(bfs(graph,1))
+## print(dfs(graph,1))
+
+# 2.
+# n = int(input())
+# m = int(input())
+# adj = [[] for _ in range(n+1)]
+# visited = [False] * (n+1)
+# count = 0
+
+# for _ in range(m):
+#     x,y = map(int,input().split())
+#     adj[x].append(y)
+#     adj[y].append(x)
+
+# def dfs(now_pos):
+#     global count 
+#     count += 1
+#     visited[now_pos] = True 
+#     for next_pos in adj[now_pos]:
+#         if not visited[next_pos]:
+#             dfs(next_pos)
+
+# dfs(1)
+# print(count - 1)
