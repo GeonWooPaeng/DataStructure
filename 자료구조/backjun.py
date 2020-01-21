@@ -1166,4 +1166,41 @@
 #                 result += 1
 #     print(result)
 
-1325.
+# 2.
+# import sys
+# sys.setrecursionlimit(100000)
+
+# def dfs(x,y):
+#     field[x][y] = 0
+#     directions=[(-1,0),(1,0),(0,-1),(0,1)]
+#     for dx,dy in directions:
+#         nx,ny = x+dx, y+dy
+#         if nx < 0 or nx >= n or ny < 0 or ny >= m:
+#             continue
+#         if field[nx][ny]:
+#             dfs(nx,ny)
+
+# for _ in range(int(input())):
+#     m,n,k = map(int,input().split())
+#     field = [[0]*m for _ in range(n)]
+
+#     for _ in range(k):
+#         y,x = map(int,input().split())
+#         field[x][y] = 1
+#     result = 0
+#     for i in range(n):
+#         for j in range(m):
+#             if field[i][j]:
+#                 dfs(i,j)
+#                 result += 1
+#     print(result)
+
+# 10951.
+# import sys
+
+# while True:
+#     try:
+#         x,y = map(int,sys.stdin.readline().split()) 
+#     except:    
+#         break
+#     print(x+y)
