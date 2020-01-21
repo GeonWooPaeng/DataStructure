@@ -1123,3 +1123,14 @@
 
 # dfs(1)
 # print(count - 1)
+
+# 10872.
+
+# n = int(input())
+# def fectorial(n): 
+#     if n <= 1:
+#         return 1 
+
+#     return n*fectorial(n-1) 
+
+# print(fectorial(n))
