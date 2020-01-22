@@ -1210,3 +1210,80 @@
 # score = list(map(int,input().split()))
 
 # print(max(score)- min(score))
+
+1325.
+# 1.
+# import sys 
+
+# def bfs(graph,start_node):
+#     visited = []
+#     need_visit = []
+#     need_visit.append(start_node)
+
+#     while need_visit:
+#         node = need_visit.pop(0)
+#         if node not in visited:
+#             visited.append(node)
+#             need_visit.extend(graph[node])
+
+#     return len(visited)
+
+# n,m = map(int,sys.stdin.readline().split())
+
+# adj_link = [[] for _ in range(n+1)]  
+# num = [[] for _ in range(n+1)]
+
+# for _ in range(m):
+#     x,y = map(int,sys.stdin.readline().split())
+#     adj_link[y].append(x)
+
+# for i in range(1,m+1):
+#     num[i].append(bfs(adj_link,i))
+
+# result = []
+# for i in range(1,m+1):
+#     if num[i] == max(num):
+#         result.append(i)
+
+# result.sort()
+# print(' '.join(map(str,result)))
+
+2.
+from collections import deque 
+
+n,m = map(int,input().split())
+adj = [[] for _ in range(n+1)]
+
+for _ in range(m):
+    x,y = map(int,input().split())
+    adj[y].append(x)
+
+def bfs(v):
+    q = deque([v])
+    visited = [False] * (n+1)
+    visited[v] = True 
+    count = 1
+    
+    while q:
+        v = q.popleft()
+        for e in adj[v]:
+            if not visited[e]:
+                q.append(e)
+                visited[e] = True 
+                count += 1 
+    return count 
+
+result = []
+max_value = -1 
+
+for i in range(1,n+1):
+    c = bfs(i)
+    if c> max_value:
+        result = [i]
+        max_value = c 
+    elif c == max_value:
+        result.append(i)
+        max_value = c 
+
+for e in result:
+    print(e, end=' ')
