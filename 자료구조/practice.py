@@ -200,3 +200,20 @@ def Top_Sort():
                 queue.append(adj)
     
     return True
+
+
+import heapq 
+
+def dijkstra(start):
+    heap_data = []
+    heapq.heappush(heap_data,(0,start))
+    distance[start] = 0 #최단 거리 기록하는 배열
+    while heap_data:
+        dist,now = heapq.heappop(heap_data)
+        if distance[now] < dist:
+            continue 
+        for i in adj[now]:
+            cost = dist + i[1]
+            if distance[i[0]] > cost:
+                distance[i[0]] = cost 
+                heapq.heappush(heap_data,(cost,i[0]))
