@@ -1298,44 +1298,88 @@
 # elif A == B:
 #     print('==')
 
-1753.
-import sys
-import heapq
+# 1753.
+# import sys
+# import heapq
 
-input = sys.stdin.readline
-INF = sys.maxsize 
+# input = sys.stdin.readline
+# INF = sys.maxsize 
 
-V, E = map(int,input().split())
-start = int(input())
+# V, E = map(int,input().split())
+# start = int(input())
 
-weight = [INF]*(V+1)
-graph = [[] for _ in range(V+1)]
+# weight = [INF]*(V+1)
+# graph = [[] for _ in range(V+1)]
 
-for _ in range(E):
-    u,v,w = map(int,input().split())
-    graph[u].append((w,v))
+# for _ in range(E):
+#     u,v,w = map(int,input().split())
+#     graph[u].append((w,v))
 
-def dijkstra(start):
-    heap = []
-    heapq.heappush(heap,(0,start))
-    weight[start] = 0
+# def dijkstra(start):
+#     heap = []
+#     heapq.heappush(heap,(0,start))
+#     weight[start] = 0
 
-    while heap:
-        wei, now = heapq.heappop(heap)
+#     while heap:
+#         wei, now = heapq.heappop(heap)
 
-        if weight[now] < wei:
-            continue 
+#         if weight[now] < wei:
+#             continue 
         
-        for w, next_node in graph[now]:
-            next_wei = w + wei 
-            if next_wei < weight[next_node]:
-                weight[next_node] = next_wei 
-                heapq.heappush(heap,(next_wei,next_node))
+#         for w, next_node in graph[now]:
+#             next_wei = w + wei 
+#             if next_wei < weight[next_node]:
+#                 weight[next_node] = next_wei 
+#                 heapq.heappush(heap,(next_wei,next_node))
     
-dijkstra(start) 
+# dijkstra(start) 
 
-for i in range(1, V+1):
-    if weight[i] == INF:
-        print('INF')
-    else:
-        print(weight[i])
+# for i in range(1, V+1):
+#     if weight[i] == INF:
+#         print('INF')
+#     else:
+#         print(weight[i])
+
+# 10282.
+# import sys 
+# import heapq 
+
+# input= sys.stdin.readline 
+# INF = sys.maxsize 
+
+# def dijkstra(start):
+#     heap = []
+#     heapq.heappush(heap,(0,start))
+#     sec[start] = 0
+
+#     while heap:
+#         wei, now = heapq.heappop(heap)
+#         if sec[now] < wei:
+#             continue 
+#         for w, next_node in graph[now]:
+#             next_wei = w + wei 
+#             if sec[next_node] > next_wei:
+#                 sec[next_node] = next_wei 
+#                 heapq.heappush(heap,(next_wei,next_node)) 
+
+
+# case = int(input())
+# for _ in range(case):
+#     n,d,c = map(int,input().split()) #컴퓨터 개수, 의존성, 해킹당한 컴퓨터번호(start)
+#     graph = [[] for _ in range(n + 1)]
+#     sec = [INF] * (n + 1)
+    
+#     for _ in range(d):
+#         a,b,s = map(int,input().split()) # 컴퓨터, 컴퓨터, 초(weight)
+#         graph[b].append((s,a))
+#     dijkstra(c)
+#     count = 0
+#     max_sec = 0
+
+#     for i in sec:
+#         if i != INF:
+#             count += 1
+#             if i > max_sec:
+#                 max_sec = i
+#     print(count, max_sec)
+        
