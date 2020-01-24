@@ -241,3 +241,4 @@ for _ in range(E):
     u, v, w = map(int, input().split())
     #(가중치, 목적지 노드) 형태로 저장
     graph[u].append((w, v))
+
