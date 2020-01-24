@@ -202,19 +202,42 @@ def Top_Sort():
     return True
 
 
-import heapq 
 
+import heapq
 
-def dijkstra(start):
-    heap_data = []
-    heapq.heappush(heap_data,(0,start))
-    distance[start] = 0 #최단 거리 기록하는 배열
-    while heap_data:
-        dist,now = heapq.heappop(heap_data)
-        if distance[now] < dist:
-            continue 
-        for i in adj[now]:
-            cost = dist + i[1]
-            if distance[i[0]] > cost:
-                distance[i[0]] = cost 
-                heapq.heappush(heap_data,(cost,i[0]))
+V, E = map(int, input().split())
+K = int(input()) #시작점 K
+weight = [INF]*(V+1) #가중치 테이블 , INF = 무한
+
+graph = [[] for _ in range(V + 1)]
+
+def Dijkstra(start):
+    heap = []
+    #가중치 테이블에서 시작 정점에 해당하는 가중치는 0으로 초기화
+    weight[start] = 0
+    heapq.heappush(heap,(0, start))
+
+    #힙에 원소가 없을 때 까지 반복.
+    while heap:
+        wei, now = heapq.heappop(heap)
+
+        #현재 테이블과 비교하여 불필요한(더 가중치가 큰) 튜플이면 무시.
+        if weight[now] < wei:
+            continue
+
+        for w, next_node in graph[now]:
+            #현재 정점 까지의 가중치 wei + 현재 정점에서 다음 정점(next_node)까지의 가중치 W
+            # = 다음 노드까지의 가중치(next_wei)
+            next_wei = w + wei
+            #다음 노드까지의 가중치(next_wei)가 현재 기록된 값 보다 작으면 조건 성립.
+            if next_wei < weight[next_node]:
+                #계산했던 next_wei를 가중치 테이블에 업데이트.
+                weight[next_node] = next_wei
+                #다음 점 까지의 가증치와 다음 점에 대한 정보를 튜플로 묶어 최소 힙에 삽입.
+                heapq.heappush(heap,(next_wei,next_node))
+
+#초기화
+for _ in range(E):
+    u, v, w = map(int, input().split())
+    #(가중치, 목적지 노드) 형태로 저장
+    graph[u].append((w, v))
