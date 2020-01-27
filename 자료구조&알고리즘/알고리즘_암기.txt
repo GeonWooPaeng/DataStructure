@@ -322,3 +322,14 @@ def in_order(tree):
     post_order(tree.right_node)
 
     print(tree.data)
+
+- 다익스트라(dijkstra)
+
+import heapq
+
+def dijkstra(graph, start, end):
+    distances = {vertex: [float('inf'), start] for vertex in graph}
+    distances[start] = [0,start]
+    queue = []
+
+    heapq.heappush(queue,[distances[start][0], start])
