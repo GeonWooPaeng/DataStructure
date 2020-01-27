@@ -211,10 +211,10 @@ weight = [INF]*(V+1) #가중치 테이블 , INF = 무한
 
 graph = [[] for _ in range(V + 1)]
 
-def Dijkstra(start):
+def Dijkstra(start, end):
     heap = []
     #가중치 테이블에서 시작 정점에 해당하는 가중치는 0으로 초기화
-    weight[start] = 0
+    weight[start] = (0,start)
     heapq.heappush(heap,(0, start))
 
     #힙에 원소가 없을 때 까지 반복.
@@ -222,7 +222,7 @@ def Dijkstra(start):
         wei, now = heapq.heappop(heap)
 
         #현재 테이블과 비교하여 불필요한(더 가중치가 큰) 튜플이면 무시.
-        if weight[now] < wei:
+        if weight[now][0] < wei:
             continue
 
         for w, next_node in graph[now]:
@@ -230,11 +230,21 @@ def Dijkstra(start):
             # = 다음 노드까지의 가중치(next_wei)
             next_wei = w + wei
             #다음 노드까지의 가중치(next_wei)가 현재 기록된 값 보다 작으면 조건 성립.
-            if next_wei < weight[next_node]:
+            if next_wei < weight[next_node][0]:
                 #계산했던 next_wei를 가중치 테이블에 업데이트.
-                weight[next_node] = next_wei
+                weight[next_node] = (next_wei,now)
                 #다음 점 까지의 가증치와 다음 점에 대한 정보를 튜플로 묶어 최소 힙에 삽입.
                 heapq.heappush(heap,(next_wei,next_node))
+
+    path = end
+    path_output = [] #stack
+    while weight[path][1] != start:
+        path_output.append(weight[path][1])
+        path = weight[path][1]
+    
+    path_output.append(start)
+    print(path_output)
+    return weight
 
 #초기화
 for _ in range(E):
