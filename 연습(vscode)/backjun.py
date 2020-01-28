@@ -1362,7 +1362,6 @@
 #                 sec[next_node] = next_wei 
 #                 heapq.heappush(heap,(next_wei,next_node)) 
 
-
 # case = int(input())
 # for _ in range(case):
 #     n,d,c = map(int,input().split()) #컴퓨터 개수, 의존성, 해킹당한 컴퓨터번호(start)
