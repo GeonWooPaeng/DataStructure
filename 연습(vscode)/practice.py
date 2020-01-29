@@ -301,3 +301,40 @@ def kruskal(graph):
             mst.append(edge)
 
     return mst 
+
+
+
+from collections import defaultdict
+from heapq import*
+
+def prim(start_node,edges):
+    mst = list() #최소신장트리 간선 list
+    
+    adjacent_edges = defaultdict(list) #dictlist만들어 준다. key -> 각각node, value -> 간선 정보 list 
+    #특정 node의 정보 각각 정리
+    for weight,n1,n2 in edges:
+        adjacent_edges[n1].append((weight,n1,n2))
+        adjacent_edges[n2].append((weight,n2,n1))
+    
+    connected_nodes = set(start_node) #연결된 node 집합
+    
+    candidate_edge_list = adjacent_edges[start_node] #연결된 간선 list
+    
+    heapify(candidate_edge_list) #연결된 간선list heap구조로 바꿈 
+    
+    while candidate_edge_list: # 더이상 간선 list에 간선 없을 떄 까지 반복 
+        weight,n1,n2 = heappop(candidate_edge_list) # 간선 list에서 간선 weight가 가장 작은 값 추출
+        
+        #인접 node가 연결된 node 잡합에 있는지 확인
+        if n2 not in connected_nodes: #Cycle이 없으면
+            connected_nodes.add(n2) #연결된 node집합에 넣는다.
+            mst.append((weight,n1,n2))
+            
+            # 인접 node의 간선 정보를 간선list에 넣는곳
+            for edge in adjacent_edges[n2]: #인접 node의 정보 가져오기
+                if edge[2] not in connected_nodes: #인전 node가 연결된 node에 없을 시
+                    heappush(candidate_edge_list,edge) #연결된 간선list에 간선 정보 넣는다.
+    
+    return mst
+        
+

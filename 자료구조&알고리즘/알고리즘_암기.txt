@@ -409,3 +409,67 @@ def kruskal(graph):
             mst.append(edge)
             
     return mst 
+
+- prim 알고리즘 - 간선중심
+from collections import defaultdict
+from heapq import*
+
+def prim(start_node,edges):
+    mst = list() #최소신장트리 간선 list
+    
+    adjacent_edges = defaultdict(list) #dictlist만들어 준다. key -> 각각node, value -> 간선 정보 list 
+    #특정 node의 정보 각각 정리
+    for weight,n1,n2 in edges:
+        adjacent_edges[n1].append((weight,n1,n2))
+        adjacent_edges[n2].append((weight,n2,n1))
+
+    connected_nodes = set(start_node) #연결된 node 집합
+    
+    candidate_edge_list = adjacent_edges[start_node] #연결된 간선 list
+    
+    heapify(candidate_edge_list) #연결된 간선list heap구조로 바꿈 
+    
+    while candidate_edge_list: # 더이상 간선 list에 간선 없을 떄 까지 반복 
+        weight,n1,n2 = heappop(candidate_edge_list) # 간선 list에서 간선 weight가 가장 작은 값 추출
+        
+        #인접 node가 연결된 node 잡합에 있는지 확인
+        if n2 not in connected_nodes: #Cycle이 없으면
+            connected_nodes.add(n2) #연결된 node집합에 넣는다.
+            mst.append((weight,n1,n2))
+            
+            # 인접 node의 간선 정보를 간선list에 넣는곳
+            for edge in adjacent_edges[n2]: #인접 node의 정보 가져오기
+                if edge[2] not in connected_nodes: #인전 node가 연결된 node에 없을 시
+                    heappush(candidate_edge_list,edge) #연결된 간선list에 간선 정보 넣는다.
+    
+    return mst
+
+- prim 알고리즘 - node값 중심
+from heapdict import heapdict #안에 있는 최소 데이터가 root가 되게 한다.
+
+def prim(graph,start):
+    mst = list()  #최소 간선 list 저장하는 곳
+    keys = heapdict() # node별 key값을 가진 (heap 구조)
+    pi = dict() # node가 변했을 때 영향을 받은 간선을 저장하는 곳
+    total_weigth = 0  # 전체 간선의 total을 저장하는 곳
+    
+    for node in graph.keys():
+        keys[node] = float('inf') # 무한대로 만듬 
+        pi[node] = None  
+    
+    # 현재 선택한 node
+    keys[start] = 0  
+    pi[start] = start 
+    
+    
+    while keys:
+        current_node, current_key = keys.popitem()
+        mst.append([pi[current_node], current_node,current_key]) # 선택된 최소 간선 mst에 넣기
+        total_weight += current_key
+        
+        for adjacent, weight in mygraph[current_node].items():
+            if adjacent in keys and weight < keys[adjacent]: #인접된 node가 선택되었는지 확인, 값 비교하기 
+                keys[adjacent] = weight 
+                pi[adjacent] = current_node
+    
+    return mst, total_weight
