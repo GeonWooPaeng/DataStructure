@@ -338,3 +338,32 @@ def prim(start_node,edges):
     return mst
         
 
+from heapdict import heapdict #안에 있는 최소 데이터가 root가 되게 한다.
+
+def prim(graph,start):
+    mst = list()  #최소 간선 list 저장하는 곳
+    keys = heapdict() # node별 key값을 가진 (heap 구조)
+    pi = dict() # node가 변했을 때 영향을 받은 간선을 저장하는 곳
+    total_weigth = 0  # 전체 간선의 total을 저장하는 곳
+    
+    for node in graph.keys():
+        keys[node] = float('inf') # 무한대로 만듬 
+        pi[node] = None  
+    
+    # 현재 선택한 node
+    keys[start] = 0  
+    pi[start] = start 
+    
+    
+    while keys:
+        current_node, current_key = keys.popitem()
+        mst.append([pi[current_node], current_node,current_key]) # 선택된 최소 간선 mst에 넣기
+        total_weight += current_key
+        
+        for adjacent, weight in mygraph[current_node].items():
+            if adjacent in keys and weight < keys[adjacent]: #인접된 node가 선택되었는지 확인, 값 비교하기 
+                keys[adjacent] = weight 
+                pi[adjacent] = current_node
+    
+    return mst, total_weight
+
