@@ -252,3 +252,52 @@ for _ in range(E):
     #(가중치, 목적지 노드) 형태로 저장
     graph[u].append((w, v))
 
+
+parent = dict() # 각각 node의 부모 node 저장
+rank = dict() # 각각 node의 rank 값
+
+def make_set(node):  #각각 원소 node의 초기화
+    parent[node] = node #node가 1개(root가 자기자신)
+    rank[node] = 0
+
+def find(node):  #각 node의 root노드 찾기
+    if parent[node] != node:
+        parent[node] = find(parent[node])
+    return parent[node]
+
+def union(node_v,node_u): #노드 연결
+    #union by rank
+    #각각 root node 알기
+    root1 = find(node_v)
+    root2 = find(node_u)
+
+    #rank 알아내기
+    if rank[root1] > rank[root2]:
+        parent[root2] = root1 
+    else:
+        parent[root1] = root2 
+
+        if rank[root1] == rank[root2]:
+            rank[root2] += 1  #rank 올려주기(아무거나 올려도 상관 없다.)
+
+def kruskal(graph):
+    mst = list() #cycle이 없으면 간선을 넣어 주는 곳, 이곳에 들어온 합은 신장트리 
+
+    # 1. 초기화
+    for node in graph['vertices']:
+        make_set(node)
+
+    # 2. 간선 weight 기반 sorting
+    edges = graph['edges']
+    edges.sort()
+
+    # 3. 간선 연결(사이클 없는)
+    for edge in edges: #간선 꺼내기
+        wei, node_v , node_u = edge 
+
+        #cycle 파악 후 합치기
+        if parent[node_v] != parent[node_u]:  #같지 않으면 cycle 없다는 것
+            union(node_v,node_u) #node 합치기
+            mst.append(edge)
+
+    return mst 
