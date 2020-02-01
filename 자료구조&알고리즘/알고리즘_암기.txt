@@ -473,3 +473,31 @@ def prim(graph,start):
                 pi[adjacent] = current_node
     
     return mst, total_weight
+
+- 백트래킹(N queen 문제)
+def is_available(candidate, current_col):# 조건 만족하는 지 확인하는 함수(수직,대각선 check)
+    current_row = len(candidate) #행 찾기
+    for queen_row in range(current_row):
+        if candidate[queen_row] == current_col or abs(candidate[queen_row]- current_col) == current_row - queen_row: 
+            return False 
+    return True
+
+    
+def DFS(N, current_row, current_candidate, final_result): # current_row - 다음행을 기억하기 위함, current_candidate - 지금 까지 배치된 queen의 위치 정보, final_result - 지금까지 배치 인자
+    if current_row == N: #배치가 다 끝난 상태
+        final_result.append(current_candidate[:])
+        return 
+    
+    for candidate_col in range(N): #N개 열이 있고 앞에서 부터 인자를 check하겠다.
+        if is_available(current_candidate, candidate_col): 
+            current_candidate.append(candidate_col)
+            DFS(N, current_row +1, current_candidate,final_result)
+            
+            #backtracking
+            current_candidate.pop()
+
+            
+def solve_n_queens(N): # NxN은 체스판
+    final_result = [] #배치도 저장
+    DFS(N,0,[],final_result)
+    return final_result
