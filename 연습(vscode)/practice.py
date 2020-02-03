@@ -303,7 +303,6 @@ def kruskal(graph):
     return mst 
 
 
-
 from collections import defaultdict
 from heapq import*
 
