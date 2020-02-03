@@ -1382,3 +1382,67 @@
 #                 max_sec = i
 #     print(count, max_sec)
         
+# 5719.
+
+# from collections import deque
+# import sys 
+# import heapq 
+# input = sys.stdin.readline
+
+
+# def Djikstra():
+#     heap = []
+#     heapq.heappush(heap, (0,S))
+#     length[S] = 0
+#     while heap:
+#         l, now = heapq.heappop(heap)
+        
+#         if length[now] < l:
+#             continue 
+
+#         for i in graph[now]:
+#             total_leng = l + i[1] 
+            
+#             if length[i[0]] > total_leng and not drop[now][i[0]]:
+#                 length[i[0]] = total_leng
+#                 heapq.heappush(heap,(total_leng,i[0]))
+
+# def bfs_back():
+#     need_visit = deque()
+#     need_visit.append(D)
+    
+#     while need_visit:
+#         now = need_visit.popleft()
+#         if now == S:
+#             continue 
+#         for prev, cost in rev_graph[now]:
+#             if length[now] == length[prev] + cost:
+#                 drop[prev][now] = True 
+#                 need_visit.append(prev)
+
+
+# while True:
+#     N,M = map(int,input().split()) 
+#     if N == 0:
+#         break 
+#     S,D = map(int,input().split()) #시작점, 도착점
+#     graph = [[] for _ in range(N+1)]
+#     rev_graph = [[] for _ in range(N+1)]
+
+#     for _ in range(M):
+#         u,v,p = map(int,input().split()) 
+#         graph[u].append((v,p))
+#         rev_graph[v].append((u,p))
+
+#     drop = [[False]* (N+1) for _ in range(N+1)]
+#     length = [1e9] * (N+1)
+#     Djikstra()
+#     bfs_back()
+#     length = [1e9] * (N+1)
+#     Djikstra()
+
+#     if length[D] != 1e9:
+#         print(length[D])
+#     else:
+#         print(-1)
+
