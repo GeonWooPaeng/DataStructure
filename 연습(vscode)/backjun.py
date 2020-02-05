@@ -1447,53 +1447,135 @@
 #         print(-1)
 
 1774.
-parent = dict()
-rank = dict() 
+# import math 
+# import sys
+# input = sys.stdin.readline
 
-def make_set(node): # 초기화
-    parent[node] = node 
-    rank[node] = 0
+# parent = dict()
+# rank = dict() 
 
-def find(node): #부모 노드 찾기 
-    if parent[node] != node:
-        parent[node] = find(parent[node])
+# def make_set(node): # 초기화
+#     parent[node] = node 
+#     rank[node] = 0
+
+# def find(node): #부모 노드 찾기 
+#     if parent[node] != node:
+#         parent[node] = find(parent[node])
     
-    return parent[node]
+#     return parent[node]
 
-def union(node_u,node_v): #노드 연결하기 
-    root1 = find(node_u)
-    root2 = find(node_v)
+# def union(node_u,node_v): #노드 연결하기 
+#     root1 = find(node_u)
+#     root2 = find(node_v)
 
-    if rank[root1] > rank[roo2]:
-        parent[root2].append(root1)
+#     if rank[root1] > rank[roo2]:
+#         parent[root2].append(root1)
+#     else:
+#         parent[root1].append(root2)
+#         if rank[root1] == rank[root1]:
+#             rank[root2] += 1 
+
+# def distance_cal(node1,node2): # 거리 계산하기
+#     a = node2[0] - node1[0]
+#     b = node2[1] - node1[1]
+    
+#     return math.sqrt((a*a)+(b*b))
+
+# def kruskal(): #최소 신장 트리 
+#     for i in range(N):
+#         make_set(i)
+    
+#     graph.sort() 
+
+#     for node_u, weight in graph:
+
+
+
+
+# N,M = map(int,input().split()) # 우주선 개수, 연결된 통로 개수
+
+# distance_xy = []
+# graph = [[]for _ in range(N+1)]
+
+# for i in range(N):
+#     x,y = map(int,input().split())
+#     distance_xy.append((x,y))
+
+# for _ in range(M):
+#     link1,link2 = map(int,input().split())
+
+#     graph[link1].append((link2, distance_cal(distance_xy[link1],distance_xy[link2])))
+#     graph[link2].append((link1, distance_cal(distance_xy[link1],distance_xy[link2])))
+    
+#     for i in range(N+1):
+#         if i == link1 or i == link2:
+#             continue 
+        
+#         graph[i].append((link1,distance_cal(distance_xy[i],distance_xy[link1])))
+#         graph[i].append((link2,distance_cal(distance_xy[i],distance_xy[link2])))
+
+# print(graph)
+
+2.
+import math 
+import sys
+input = sys.stdin.readline 
+
+def get_distance(p1,p2):
+    a = p1[0] - p2[0]
+    b = p1[1] - p2[1] 
+    return math.sqrt((a * a) + (b * b))
+
+def get_parent(parent, n):
+    if parent[n] != n:
+        return n 
+    return get_parent(parent, parent[n])
+
+def union_parent(parent, a, b):
+    a = get_parent(parent, a)
+    b = get_parent(parent, b) 
+    if a < b:
+        parent[b] = a 
     else:
-        parent[root1].append(root2)
-        if rank[root1] == rank[root1]:
-            rank[root2] += 1 
+        parent[a] = b 
 
-def distance_cal(node_u,node_v): # 거리 계산하기
-    dist =  ((distance_xy[code_v][0] - distance_xy[code_u][0])**2 + (distance_xy[code_v][1]-distance_xy[code_v][1])**2)**0.5
-    return dist
+def find_parent(parent, a, b):
+    a = get_parent(parent, a)
+    b = get_parent(parent, b)
+    if a == b:
+        return True 
+    else:
+        return False
 
-def kruskal(): #최소 신장 트리 
-    pass
+edges = []
+parent = {}
+locations = []
 
+n,m = map(int,input().split())
 
-N,M = map(int,input().split()) # 우주선 개수, 연결된 통로 개수
+for _ in range(n):
+    x, y = map(int,input().split())
+    locations.append((x,y))
 
-distance_xy = [[] for _ in range(N+1)]
+length = len(locations)
 
-for i in range(1,N+1):
-    x,y = map(int,input().split())
-    distance_xy[i].append((x,y))
+for i in range(length-1):
+    for j in range(i+1,length):
+        edges.append((i + 1, j + 1, get_distance(locations[i],locations[j])))
 
-for _ in range(M):
-    link1,link2 = map(int,input().split())
-    graph[link1].append((link2, distance_cal(link1,link2)))
-    graph[link2].append((link1,distance_cal(link1,link2)))
-    
-    for i in range(N+1):
-        if i == link1 or i == link2:
-            continue 
-        graph[i].append((link1,distance_cal(i,link1)))
-        graph[i].append((link2,distance_cal(i,link2)))
+for i in range(1, n+1):
+    parent[i] = i 
+
+for i in range(m):
+    a, b = map(int,input().split())
+    union_parent(parent, a, b)
+
+edges.sort(key=lambda data: data[2])
+
+result = 0 
+for a, b, cost in edges:
+    if not find_parent(parent, a, b):
+        union_parent(parent, a, b)
+        result += cost 
+
+print("%0.2f" %result)
