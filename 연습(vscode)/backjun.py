@@ -1447,76 +1447,6 @@
 #         print(-1)
 
 1774.
-# import math 
-# import sys
-# input = sys.stdin.readline
-
-# parent = dict()
-# rank = dict() 
-
-# def make_set(node): # 초기화
-#     parent[node] = node 
-#     rank[node] = 0
-
-# def find(node): #부모 노드 찾기 
-#     if parent[node] != node:
-#         parent[node] = find(parent[node])
-    
-#     return parent[node]
-
-# def union(node_u,node_v): #노드 연결하기 
-#     root1 = find(node_u)
-#     root2 = find(node_v)
-
-#     if rank[root1] > rank[roo2]:
-#         parent[root2].append(root1)
-#     else:
-#         parent[root1].append(root2)
-#         if rank[root1] == rank[root1]:
-#             rank[root2] += 1 
-
-# def distance_cal(node1,node2): # 거리 계산하기
-#     a = node2[0] - node1[0]
-#     b = node2[1] - node1[1]
-    
-#     return math.sqrt((a*a)+(b*b))
-
-# def kruskal(): #최소 신장 트리 
-#     for i in range(N):
-#         make_set(i)
-    
-#     graph.sort() 
-
-#     for node_u, weight in graph:
-
-
-
-
-# N,M = map(int,input().split()) # 우주선 개수, 연결된 통로 개수
-
-# distance_xy = []
-# graph = [[]for _ in range(N+1)]
-
-# for i in range(N):
-#     x,y = map(int,input().split())
-#     distance_xy.append((x,y))
-
-# for _ in range(M):
-#     link1,link2 = map(int,input().split())
-
-#     graph[link1].append((link2, distance_cal(distance_xy[link1],distance_xy[link2])))
-#     graph[link2].append((link1, distance_cal(distance_xy[link1],distance_xy[link2])))
-    
-#     for i in range(N+1):
-#         if i == link1 or i == link2:
-#             continue 
-        
-#         graph[i].append((link1,distance_cal(distance_xy[i],distance_xy[link1])))
-#         graph[i].append((link2,distance_cal(distance_xy[i],distance_xy[link2])))
-
-# print(graph)
-
-2.
 import math 
 import sys
 input = sys.stdin.readline 
@@ -1527,7 +1457,7 @@ def get_distance(p1,p2):
     return math.sqrt((a * a) + (b * b))
 
 def get_parent(parent, n):
-    if parent[n] != n:
+    if parent[n] == n:
         return n 
     return get_parent(parent, parent[n])
 
