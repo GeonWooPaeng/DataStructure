@@ -1584,49 +1584,47 @@
 # for i in range(1,len(array)+1):
 #     result += abs(i-array[i-1])
 # print(result)
-ㄴ
-1092. 배
-import sys 
 
-n = int(input())
-cranes = list(map(int,input().split()))
+# 1092.
+# import sys 
 
-m = int(input())
-boxes = list(map(int,input().split()))
+# n = int(input())  #크레인 개수입력
+# cranes = list(map(int,input().split())) #크레인 무게제한입력  
 
-#모든 박스를 옮길 수 없는 경우
-if max(cranes) < max(boxes):
-    print(-1)
-    sys.exit()
+# m = int(input()) #박스입력
+# boxes = list(map(int,input().split())) #박스 무게입력
 
-#각 크레인이 현재 옮겨야 하는 박스의 번호(0부터 시작)
-positions = [0] * n 
+# #모든 박스를 옮길 수 없는 경우
+# if max(cranes) < max(boxes):
+#     print(-1)
+#     sys.exit()
 
-#각 박스를 옮겼는지의 여부
-checked = [False] * m 
+# #각 크레인이 현재 옮겨야 하는 박스의 번호(0부터 시작)
+# # 현재 크레인이 몇번째 박스를 움직이고 있다. 
+# positions = [0] * n 
 
-#최적의 해를 구해야 하므로 , 내림차순 정렬 
-cranes.sort(reverse=True)
-boxes.sort(reverse=True)
+# #각 박스를 옮겼는지의 여부
+# checked = [False] * m 
 
-result = 0
-count = 0
+# #최적의 해를 구해야 하므로 , 내림차순 정렬 
+# cranes.sort(reverse=True)
+# boxes.sort(reverse=True)
 
-while True:
-    if count == len(boxes): #다 옮겼으면 종료
-        break 
-    for i in range(n): #모든 크레인에 대하여 각각 처리
-        while positions[i] < len(boxes):
-            #아직 안 옮긴 박스 중에서, 옮길 수 있는 박스를 만날때 까지 반복
-            if not checked[positions[i]] and cranes[i] >= boxes[positions[i]]:
-                checked[positions[i]] = True 
-                positions[i] += 1
-                count += 1 
-                break 
-            positions[i] += 1 
-    result += 1 
+# result = 0
+# count = 0
 
-print(result)
+# while True:
+#     if count == len(boxes): #다 옮겼으면 종료
+#         break 
+#     for i in range(n): #모든 크레인에 대하여 각각 처리
+#         while positions[i] < len(boxes): #해당 크레인에서 옮긴 박스 수가 전체 박스 수보다 작을 때까지만 실행
+#             #아직 안 옮긴 박스 중에서, 옮길 수 있는 박스를 만날때 까지 반복
+#             if not checked[positions[i]] and cranes[i] >= boxes[positions[i]]: #박스가 안옮겨지고 무게조건이 성립할 때
+#                 checked[positions[i]] = True #박스가 옮겨졌다고 만들어 준다.
+#                 positions[i] += 1 
+#                 count += 1 
+#                 break 
+#             positions[i] += 1 
+#     result += 1 
 
-
-
+# print(result)
