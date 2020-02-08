@@ -1628,3 +1628,29 @@
 #     result += 1 
 
 # print(result)
+
+# 2212.
+# import sys
+
+# n = int(input())
+# k = int(input())
+
+# sensor = list(map(int,input().split()))
+
+# dist_dif = []
+# if k >= n:
+#     print(0)
+#     sys.exit()
+
+# sensor.sort()
+
+# for i in range(n-1):
+#     dist_dif.append(sensor[i+1]-sensor[i])
+
+# dist_dif.sort()
+
+# for i in range(k-1):
+#     dist_dif.pop()
+
+# print(sum(dist_dif))
+
