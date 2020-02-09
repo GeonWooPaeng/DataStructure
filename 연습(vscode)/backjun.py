@@ -1687,3 +1687,22 @@
 
 # print(-result*2 - largest)
 
+1781. 컵라면
+import heapq
+n = int(input())
+
+array = []
+for i in range(n):
+    d, c = map(int,input().split())
+    array.append((d,c))
+
+array.sort()
+q = []
+for dead,cup in array:
+    heapq.heappush(q,cup)
+    # 데드라인을 초과하는 경우에는 최소 원소 제거하기
+    if dead < len(q):
+        heapq.heappop(q)
+
+print(sum(q))
+    
