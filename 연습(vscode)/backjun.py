@@ -1687,22 +1687,125 @@
 
 # print(-result*2 - largest)
 
-1781. 컵라면
-import heapq
-n = int(input())
+# 11047.
 
-array = []
-for i in range(n):
-    d, c = map(int,input().split())
-    array.append((d,c))
+# n,k = map(int,input().split())
 
-array.sort()
-q = []
-for dead,cup in array:
-    heapq.heappush(q,cup)
-    # 데드라인을 초과하는 경우에는 최소 원소 제거하기
-    if dead < len(q):
-        heapq.heappop(q)
+# coins = []
+# for _ in range(n):
+#     coin = int(input())
+#     coins.append(coin)
 
-print(sum(q))
+# coins.sort(reverse = True)
+# count = 0
+
+# for i in coins:
+#     c_num = k // i 
+#     k -= c_num * i 
+#     count += c_num 
+
+# print(count)
+
+# 1781. 
+# import heapq
+# n = int(input())
+
+# array = []
+# for i in range(n):
+#     d, c = map(int,input().split())
+#     array.append((d,c))
+
+# array.sort()
+# q = []
+# for dead,cup in array:
+#     heapq.heappush(q,cup)
+#     # 데드라인을 초과하는 경우에는 최소 원소 제거하기
+#     if dead < len(q):
+#         heapq.heappop(q)
+
+# print(sum(q))
+
+# 9663.
+# 1. 
+# N = int(input())
+
+# def available(column,board_now):
+#     current_row = len(board_now)
+
+#     for r in range(current_row):
+#         if board_now[r] == column and abs(board_now[r]-column) == current_row - r:
+#             return False 
+#     return True
+
+# def DFS(N,row,board_now,result):
+#     if row == N:
+#         result.append(board_now[:])
+#         return 
     
+#     for column in range(N):
+#         if available(column,board_now):
+#             board_now.append(column)
+#             DFS(N,row+1,board_now,result)
+            
+#             board_now.pop()
+
+# def N_Queen(N):
+#     result = []
+#     DFS(N,0,[],result)
+    
+#     return result
+
+# 2.
+# def check(x):
+#     for i in range(x): #현재 queen이 있는 행만 확인 
+#         if board[x] == board[i]: #같은 열 확인
+#             return False 
+#         if abs(board[x]-board[i]) == abs(x-i): #대각선 확인
+#             return False 
+    
+#     return True 
+
+# def dfs(x): # x - row
+#     global result 
+#     if x == n: #최종 결과 나오는 것
+#         result += 1
+    
+#     else: 
+#         for col in range(n): # 열 확인
+#             board[x] = col #board 에다가 일일이 넣어 준다.
+#             if check(x): # 해당 상황 check하기 
+#                 dfs(x+1) #다음 단계 실행
+
+
+# n = int(input())
+# result = 0
+# board = [0] * n
+# dfs(0)
+# print(result)
+
+# 3.
+# def check(x):
+#     for i in range(x):
+#         if board[x] == board[i]:
+#             return False 
+#         if abs(board[x]-board[i]) == abs(x-i):
+#             return False 
+#     return True 
+
+# def dfs(x,result):
+#     if x == n:
+#         result.append(board[:])
+#         return 
+
+#     else:
+#         for col in range(n):
+#             board[x] = col 
+#             if check(x):
+#                 dfs(x+1,result)
+
+
+# n = int(input())
+# board = [0] *n
+# result = []
+# dfs(0,result)
+# print(result)
