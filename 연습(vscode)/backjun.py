@@ -1809,3 +1809,173 @@
 # result = []
 # dfs(0,result)
 # print(result)
+
+# 10539.
+# 1.
+# n = int(input())
+# B = list(map(int,input().split()))
+
+# A_sum = 0
+# result = []
+
+# for i in range(n):
+#     A = B[i] * (i+1) - A_sum 
+#     result.append(A)
+#     A_sum += A 
+
+# # for i in result:
+# #     print(i,end=' ')
+
+# print(' '.join(map(str,result)))
+
+# 2. 
+# n, b= int(input()), list(map(int,input().split()))
+# a = [b[0]]
+
+# for i in range(1,n):
+#     a.append((b[i]*(i+1)-sum(a)))
+
+# for i in a:
+#     print(i, end=' ')
+
+# 1987.
+# 1.
+# def dfs(board):
+#     global result
+
+#     visit = []
+#     need_visit = []
+#     need_visit.append((0,0))
+#     direction = [(-1,0),(0,-1),(0,1),(1,0)]
+
+#     while need_visit:
+#         print(visit)
+#         print(need_visit)
+#         c_row, c_col = need_visit.pop(0)
+    
+#         alpha = board[c_row][c_col] 
+#         if alpha not in visit:
+#             visit.append(alpha)
+#             result += 1
+                
+#             for n_row,n_col in direction:
+#                 if (0 <= c_row+n_row and c_row+n_row < r and 0 <= c_col+n_col and c_col+n_col < c):
+#                     need_visit.append((c_row+n_row,c_col+n_col))
+
+# r,c = map(int,input().split())
+
+# board=[]
+# result = 0
+
+# for i in range(r):
+#     word = list(input()) 
+#     board.append(word)
+# dfs(board)
+# print(result)
+
+# 2.
+# #이동좌표(상,하,좌,우)
+# dx = [-1,1,0,0]
+# dy = [0,0,-1,1]
+
+# def bfs(x,y):
+#     global result 
+#     #동일한 경우는 한번만 계산하기 위해서 집합(set)사용
+#     q = set()
+#     q.add((x,y,array[x][y]))
+
+#     while q:
+#         x,y,step = q.pop() 
+#         result = max(result,len(step))
+
+#         #네 방향으로 이동하는 경우를 각각 확인
+#         for i in range(4):
+#             nx = x + dx[i]
+#             ny = y + dy[i]
+
+#             #이동할 수 있는 위치이면서, 새로운 알파벳인 경우
+#             if (0 <= nx and nx < r and 0 <= ny and ny < c and array[nx][ny] not in step):
+#                 q.add((nx,ny,step+array[nx][ny]))
+
+# # 전체 보드 데이터를 입력 받습니다.
+# r,c = map(int,input().split())
+# array = []
+# for _ in range(r):
+#     array.append(input())
+
+# #백 트래킹 수행 결과를 출력합니다.
+# result = 0
+# bfs(0,0)
+# print(result)
+
+# 1759.
+# 1.
+# from itertools import combinations 
+
+# vowels = ('a','e','i','o','u')
+# l, c = map(int,input().split())
+
+# #가능한 암호를 사전식으로 출력해야 하므로 정렬 수행 
+# array = input().split() 
+# array.sort() 
+
+# #길이가 l인 모든 암호 조합을 확인 
+# for password in combinations(array,l):
+#     #모음의 개수를 세기
+#     count = 0
+#     for i in password:
+#         if i in vowels:
+#             count += 1 
+    
+#     # 최소 한 개의 모음과 최소 두개의 자음이 있는 경우 출력
+#     if count >= 1 and count <= l-2:
+#         print(''.join(password))
+
+
+# 2.
+# import copy
+
+# result = []
+# string = []
+# visited = [] 
+
+# #조함(combination) 함수 구현 
+# def combination(array, length, index):
+#     #길이가 length인 모든 조합 찾기 
+#     if len(string) == length:
+#         result.append(copy.deepcopy(string))
+#         return 
+#     #각 원소를 한번씩만 뽑도록 구성
+#     for i in range(index,len(array)):
+#         if i in visited:
+#             continue 
+#         string.append(array[i])
+#         visited.append(i)
+#         combination(array,length,i+1)
+#         string.pop() 
+#         visited.pop() 
+
+# vowels = ('a','e','i','o','u')
+# l,c = map(int,input().split())
+
+# #가능한 암호를 사전식으로 출력해야 하므로 정렬 수행
+# array = input().split()
+# array.sort()
+
+# combination(array,1,0)
+
+# #길이가 1인 모든 암호 조합을 확인 
+# for password in result:
+#     #모음의 개수를 세기
+#     count = 0
+#     for i in password:
+#         if i in vowels:
+#             count += 1
+
+#     # 최소 한개의 모음과 최소 두개의 자음이 있는 경우
+#     if count >= 1 and count <= l-2:
+#         print('',join(password))
+
+
+
+
