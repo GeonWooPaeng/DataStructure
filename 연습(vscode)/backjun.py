@@ -1984,7 +1984,6 @@
 # name1, name2 = list(input().split())
 
 # min_num = min(n,m)
-
 # string = ''
 
 # for i in range(min_num):
@@ -1999,4 +1998,4 @@
 #     for j in range(n+m-1-i):
 #         num[j] += num[j+1]
 
-# print('{}%'.format((num[0]%10)*10 + num[1]%10))
+# print('{}%'.format((num[0] % 10)*10 + num[1]%10))
