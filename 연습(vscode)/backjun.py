@@ -1999,3 +1999,69 @@
 #         num[j] += num[j+1]
 
 # print('{}%'.format((num[0] % 10)*10 + num[1]%10))
+
+# 17389.
+# 1.
+# n = int(input())
+
+# s = input() #정답확인
+
+# score = [0] * (n)
+# bonus = 0
+
+# for i in range(n):
+#     if s[i] == 'O':
+#         score[i] = (i+1) + bonus
+#         bonus += 1
+#     else:
+#         bonus = 0
+
+# print(sum(score))
+
+# 2.
+# n,s = input(),input() 
+
+# score,bonus = 0,0 
+
+# for idx,ox in enumerate(s):
+#     if ox == 'O':
+#         score,bonus = score + idx +1 + bonus , bonus + 1
+#     else:
+#         bonus = 0
+# print(score)
+
+# n = int(input())
+# a = {i : 1 for i in map(int,input().split())}
+# m = input() 
+# for i in list(map(int,input().split())):
+#     print(a.get(i,0)) #i(key)가 dict함수 a에 있으면 해당 value출력하고 없으면 0 출력한다.
+
+# 16165.
+# n, m = map(int,input().split()) # 걸그룹수, 문제수
+
+# team = dict() 
+
+# for _ in range(n):
+#     team_name = input() 
+#     team_num = int(input())
+
+#     for _ in range(team_num):
+#         member = input() 
+#         team[member] = team_name #멤버이름 : 걸그룹이름 으로 dict에 저장
+
+# #퀴즈 질문
+# for _ in range(m):
+#     quiz = input() 
+#     number = int(input()) #1 - team이름 찾기 2 - 멤버찾기
+
+#     if number == 1:                
+#         print(team[quiz])
+    
+#     elif number == 0:
+#         result = []
+#         for m_name, t_name in team.items():
+#             if t_name == quiz:
+#                 result.append(m_name)
+#         result.sort()
+#         for i in result:
+#             print(i)
