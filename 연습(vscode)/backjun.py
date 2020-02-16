@@ -2037,6 +2037,7 @@
 #     print(a.get(i,0)) #i(key)가 dict함수 a에 있으면 해당 value출력하고 없으면 0 출력한다.
 
 # 16165.
+# 1.
 # n, m = map(int,input().split()) # 걸그룹수, 문제수
 
 # team = dict() 
@@ -2065,3 +2066,72 @@
 #         result.sort()
 #         for i in result:
 #             print(i)
+
+# 2.
+# n, m = map(int,input().split())
+# team_mem, mem_team = {}, {} 
+
+# for i in range(n):
+#     team_name, mem_num = input(), int(input())
+#     team_mem[team_name] = []
+#     for j in range(mem_num):
+#         name = input() 
+#         team_mem[team_name].append(name)
+#         mem_team[name] = team_name 
+
+# for i in range(m):
+#     name, q = input(), int(input())
+#     if q:
+#         print(mem_team[name])
+#     else:
+#         for mem in sorted(team_mem[name]):
+#             print(mem)
+
+# 17224.
+# 1.
+# n,l,k = map(int,input().split()) #문제수,역량,풀 수 있는 문제 개수
+
+# problem = []
+# for _ in range(n):
+#     easy,hard = map(int,input().split())
+#     problem.append((easy,hard))
+
+# problem.sort() 
+
+# score = 0
+
+# for easy_p, hard_p in problem:
+#     if k != 0:
+#         if easy_p <= l:
+#             score += 100 
+#             k -= 1
+#             if hard_p <= l:
+#                 score += 40 
+#     else:
+#         break
+
+# print(score)
+
+# 2.
+
+# n,l,k = map(int,input().split())
+
+# easy, hard = 0, 0 
+
+# for i in range(n):
+#     sub1, sub2 = map(int,input().split())
+#     if sub2 <= l:
+#         hard += 1
+#     elif sub1 <= l:
+#         easy += 1 
+
+# #hard 
+# result = min(hard,k) * 140 
+
+# #easy 
+# if hard < k:
+#     result += min(k-hard, easy) * 100
+
+# print(result)
+
+
