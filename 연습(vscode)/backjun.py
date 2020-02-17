@@ -2166,3 +2166,46 @@
 #         share_candy(n,candy)
 #     print(count)
 
+# 16769.
+# 1.
+# size = []
+# milk = []
+
+# for _ in range(3):
+#     c,m = map(int,input().split()) #size와 우유양 
+#     size.append(c)
+#     milk.append(m)
+
+# cnt = 0
+# while cnt < 100:
+#     for i in range(3):
+#         if milk[(i+1)%3] + milk[i] > size[(i+1)%3]:
+#             milk[i] = milk[(i+1)%3] + milk[i] - size[(i+1)%3]
+#             milk[(i+1)%3] = size[(i+1)%3]
+#             cnt += 1
+#             if cnt == 100:
+#                 break
+#         else:
+#             milk[(i+1)%3] += milk[i] 
+#             milk[i] = 0
+#             cnt += 1
+#             if cnt == 100:
+#                 break
+
+# for i in milk:
+#     print(i)
+
+# 2.
+# c,m = list(),list() 
+
+# for i in range(3):
+#     a,b = map(int,input().split())
+#     c.append(a)
+#     m.append(b)
+
+# for i in range(100):
+#     idx = i % 3
+#     nxt = (i+1) % 3
+#     m[idx], m[nxt] = max((m[idx]+m[nxt])-c[nxt],0), min(c[nxt], m[idx]+m[nxt])
+# for i in m:
+#     print(i)
