@@ -2134,4 +2134,35 @@
 
 # print(result)
 
+# 9037.
+# def candy_check(n,candy):
+#     for i in range(n):
+#         if candy[i] % 2 == 1:
+#             candy[i] += 1 
+    
+#     return len(set(candy)) == 1 
+
+# def share_candy(n,candy):
+#     tmp = [0 for _ in range(n)]
+    
+#     for i in range(n):
+#         candy[i] //= 2 
+#         tmp[(i+1)%n] = candy[i]
+    
+#     for j in range(n):
+#         candy[j] += tmp[j]
+
+#     return candy
+
+# t = int(input())
+# for _ in range(t):
+#     n = int(input())
+#     candy = list(map(int,input().split()))
+
+#     count = 0 
+
+#     while not candy_check(n,candy):
+#         count += 1 
+#         share_candy(n,candy)
+#     print(count)
 
