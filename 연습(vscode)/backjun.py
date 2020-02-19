@@ -2209,3 +2209,121 @@
 #     m[idx], m[nxt] = max((m[idx]+m[nxt])-c[nxt],0), min(c[nxt], m[idx]+m[nxt])
 # for i in m:
 #     print(i)
+
+# 1074.
+# n,r,c = map(int,input().split())
+
+# #z: 0,0을 기준으로 x,y의 숫자
+# def z(sz,x,y):
+#     if sz == 1:
+#         return 0 
+
+#     sz //= 2
+#     #sz가 2일때 z움직이는 for 구문
+#     for i in range(2):
+#         for j in range(2):
+#             #z끝까지 다움직였는지 확인하는 if 구문(0부터 시작)
+#             #i = 1, j = 1이면 해당 4분야에 값없는것
+#             if x < sz * (i+1) and y < sz * (j+1):
+#                 # 다음 작은 정사각형으로 이동 
+#                 # return 일때는 큰 정사각형 원하는 값 유무 파악하여 3->15->... 더해준다.
+#                 return (i*2+j) * sz * sz + z(sz, x-sz*i, y-sz*j)
+
+# print(z(2**n,r ,c ))
+
+# 2480.
+# 1.
+# dice = list(map(int,input().split()))
+
+# dice.sort() 
+
+# if len(set(dice)) == 1:
+#     print(10000+dice[-1]*1000)
+# if len(set(dice)) == 2:
+#     num = dict() 
+#     for i in dice:
+#         num[i] = 0
+#     for i in dice:
+#         num[i] += 1
+    
+#     for i in dice:
+#         if num[i] == 2:
+#             print(1000+i*100)
+#             break
+
+# if len(set(dice)) == 3:
+#     print(dice[-1]*100)
+
+# 2.
+# lst = sorted(list(map(int,input().split())))
+
+# if len(set(lst)) == 1:
+#     print(10000+lst[0]*1000)
+
+# elif len(set(lst)) == 2: #3개중에서 2개가 같은 값이기 때문에 항상 lst[1]의 값은 중복된 값이다.
+#     print(1000 + lst[1]*100)
+
+# else:
+#     print(lst[2]*100)
+
+# 2484.
+# 1.
+# def count_dice_num(dice):
+#     num = dict() 
+#     for i in dice:
+#         num[i] = 0
+#     for j in dice:
+#         num[j]+= 1
+#     return num 
+
+# money = []
+
+# for _ in range(int(input())):
+#     dice = sorted(list(map(int,input().split())))
+
+#     if len(set(dice)) == 1:
+#         money.append(50000+dice[0]*5000)
+
+        
+#     elif len(set(dice)) == 2:
+#         num = count_dice_num(dice)
+#         for k in dice:
+#             if num[k] == 3:
+#                 money.append(10000+k*1000)
+#                 break 
+#             elif num[k] == 2:
+#                 money.append(2000+dice[0]*500+dice[-1]*500)
+#                 break
+                
+#     elif len(set(dice)) == 3:
+#         num = count_dice_num(dice)
+#         for i in dice:
+#             if num[i] == 2:
+#                 money.append(1000+i*100)
+#                 break
+
+#     elif len(set(dice)) == 4:
+#         money.append(dice[-1]*100)
+
+# print(max(money))
+
+# 2.
+# def money():
+#     lst = sorted(list(map(int,input().split())))
+#     if len(set(lst)) == 1:
+#         return lst[0] * 5000 + 50000
+
+#     if len(set(lst)) == 2:
+#         if lst[1] == lst[2]:
+#             return 10000 + lst[1] * 1000 
+#         else:
+#             return 2000 + (lst[1]+lst[2])*500 
+
+#     for i in range(3):
+#         if lst[i] == lst[i+1]:
+#             return 1000 + lst[i] * 100
+#     return lst[-1] * 100
+
+# n = int(input())
+
+# print(max(money() for i in range(n)))
