@@ -2327,3 +2327,123 @@
 # n = int(input())
 
 # print(max(money() for i in range(n)))
+
+# 16675.
+# 1.
+# ms = []
+# tk = []
+# r_p_s = input().split() 
+
+# ms.extend(r_p_s[:2])
+# tk.extend(r_p_s[2:])
+
+# if len(set(ms)) == 2 and len(set(tk)) == 2:
+#     print('?')
+
+# elif len(set(ms)) == 1 and len(set(tk)) == 1:
+#     if ms[0] == 'R':
+#         if tk[0] == 'S':
+#             print('MS')
+#         elif tk[0] == 'P':
+#             print('TK')
+#         else:
+#             print('?')
+    
+#     if ms[0] == 'P':
+#         if tk[0] == 'R':
+#             print('MS')
+#         elif tk[0] == 'S':
+#             print('TK')
+#         else:
+#             print('?')
+    
+#     if ms[0] == 'S':
+#         if tk[0] == 'P':
+#             print('MS')
+#         elif tk[0] == 'R':
+#             print('TK')
+#         else:
+#             print('?')
+
+        
+# else:
+#     if len(set(ms)) == 1:
+#         if ms[0] == 'P':
+#             if 'S' in tk:
+#                 print('TK')
+#             else:
+#                 print('?')
+#         elif ms[0] == 'R':
+#             if 'P' in tk:
+#                 print('TK')
+#             else:
+#                 print('?')
+#         elif ms[0] == 'S':
+#             if 'R' in tk:
+#                 print('TK')
+#             else:
+#                 print('?')
+    
+#     else: 
+#         if tk[0] == 'P':
+#             if 'S' in ms:
+#                 print('MS')
+#             else:
+#                 print('?')
+
+#         elif tk[0] == 'R':
+#             if 'P' in ms:
+#                 print('MS')
+#             else:
+#                 print('?')
+
+#         elif tk[0] == 'S':
+#             if 'R' in ms:
+#                 print('MS')
+#             else:
+#                 print('?')
+
+# 2.
+# ML, MR, TL, TR = ('RSP'.index(i) for i in input().split())
+
+# if ML == MR and (ML+2) % 3 in [TL, TR]:
+#     print('TK') 
+
+# elif TL == TR and (TL+2) % 3 in [ML,MR]:
+#     print('MS')
+
+# else:
+#     print('?')
+
+
+17413.
+s,tmp = input(), "" 
+
+ck = False
+result = ""
+
+for text in s:
+    if text == ' ':
+        if ck: 
+            result += " "
+        else:
+            result += tmp[::-1] + " "
+            tmp = ""
+    
+    elif text == '<':
+        ck = True 
+        result += tmp[::-1] + '<'
+        tmp = ""
+    
+    elif text == '>':
+        ck = False
+        result += '>'
+    
+    else:
+        if ck:
+            result += text
+        else:
+            tmp += text
+    
+result += tmp[::-1]
+print(result)
