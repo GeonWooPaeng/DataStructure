@@ -2416,34 +2416,34 @@
 #     print('?')
 
 
-17413.
-s,tmp = input(), "" 
+# 17413.
+# s,tmp = input(), "" 
 
-ck = False
-result = ""
+# ck = False
+# result = ""
 
-for text in s:
-    if text == ' ':
-        if ck: 
-            result += " "
-        else:
-            result += tmp[::-1] + " "
-            tmp = ""
+# for text in s:
+#     if text == ' ':
+#         if ck: 
+#             result += " "
+#         else:
+#             result += tmp[::-1] + " "
+#             tmp = ""
     
-    elif text == '<':
-        ck = True 
-        result += tmp[::-1] + '<'
-        tmp = ""
+#     elif text == '<':
+#         ck = True 
+#         result += tmp[::-1] + '<'
+#         tmp = ""
     
-    elif text == '>':
-        ck = False
-        result += '>'
+#     elif text == '>':
+#         ck = False
+#         result += '>'
     
-    else:
-        if ck:
-            result += text
-        else:
-            tmp += text
+#     else:
+#         if ck:
+#             result += text
+#         else:
+#             tmp += text
     
-result += tmp[::-1]
-print(result)
+# result += tmp[::-1]
+# print(result)
