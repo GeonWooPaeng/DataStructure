@@ -2449,19 +2449,49 @@
 # print(result)
 
 # 2293. 동전1
-n,k = map(int,input().split())
+# n,k = map(int,input().split())
 
-coin = []
+# coin = []
 
-for _ in range(n):
-    coin.append(int(input()))
+# for _ in range(n):
+#     coin.append(int(input()))
 
-dp = [0 for i in range(10001)]
-dp[0] = 1
-for c in coin:
-    for i in range(c,k+1):
-        dp[i] += dp[i-c]
+# dp = [0 for i in range(10001)]
+# dp[0] = 1
+# for c in coin:
+#     for i in range(c,k+1):
+#         dp[i] += dp[i-c]
 
-print(dp[k])
+# print(dp[k])
 
+# 16956.
 
+# r,c = map(int,input().split())
+
+# board = [list(input()) for _ in range(r)]
+
+# dx,dy = [0,-1,0,1],[1,0,-1,0]
+# ck = False 
+
+# for x in range(r):
+#     for y in range(c):
+#         if board[x][y] == 'W':
+#             for i in range(4):
+#                 xx,yy = x + dx[i], y + dy[i] 
+#                 if xx == r or xx < 0 or yy == c or yy < 0:
+#                     continue
+#                 if board[xx][yy] == 'S':
+#                     ck = True
+# if ck:
+#     print(0)
+# else:
+#     print(1)
+#     for x in range(r):
+#         for y in range(c):
+#             if board[x][y] not in 'SW':
+#                 board[x][y] = 'D'
+            
+#     for x in board:
+#         print(''.join(x))
+                    
+14620. 
