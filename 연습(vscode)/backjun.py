@@ -2498,6 +2498,83 @@
                     
 
 
+# 14620.
+# 1.
+# def check(x,y):
+    
+#     count = 0
+#     for i in range(4):
+#         xx,yy = x+dx[i],y+dy[i]
+#         if condition[xx][yy] == False:
+#             count+= 1
+#             continue
+    
+#     if count == 4:
+#         return True 
+#     else:
+#         return False
 
 
+# n = int(input()) #화단의 한변의 길이
+
+# m = [list(map(int,input().split())) for _ in range(n)]
+# condition = [[False]*n for _ in range(n)]
+
+# board = []
+
+# dx, dy = [0,-1,0,1], [1,0,-1,0] #반시계방향
+
+# for x in range(1,n-1):
+#     for y in range(1,n-1):
+#         cost = m[x][y]
+#         for i in range(4):
+#             cost += m[x+dx[i]][y+dy[i]]
+        
+#         board.append((cost,x,y))
+         
+# board= sorted(board, key = lambda x: x[0])
+
+# result = 0 
+# flow_num = 0
+# for co,x,y in board:
+
+#     if flow_num < 3:
+#         if condition[x][y] == False and check(x,y):
+#             result += co
+#             flow_num +=1
+#             condition[x][y] = True
+#             for i in range(4):
+#                 condition[x+dx[i]][y+dy[i]] = True
+#     else:
+#         break
+# print(result)
                     
+2.
+n = int(input())
+g = [list(map(int,input().split()))for _ in range(n)]
+ans = 10000
+
+dx,dy = [0,0,0,1,-1],[0,1,-1,0,0]
+
+def ck(lst): #a, b, c 
+    ret = 0
+    flow = []
+    for flower in lst:
+        x = flower // n 
+        y = flower % n 
+        if x == 0 or x == n-1 or y == 0 or y == n-1:
+            return 10000 
+        
+        for w in range(5):
+            flow.append((x+dx[w],y+dy[w]))
+            ret += g[x+dx[w]][y+dy[w]]
+
+    if len(set(flow)) != 15:
+        return 10000
+    return ret 
+
+for i in range(n*n):
+    for j in range(i+1,n*n):
+        for k in range(j+1,n*n):
+            ans = min(ans,ck([i,j,k]))
+print(ans)
