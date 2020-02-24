@@ -2560,21 +2560,32 @@ def ck(lst): #a, b, c
     ret = 0
     flow = []
     for flower in lst:
-        x = flower // n 
-        y = flower % n 
+        # for 문 2개를 써야할 2차 배열을 1나로 표현한 것
+        x = flower // n # 행 나타내는 것  
+        y = flower % n # 열 나타내는 것
+        
+        # 표를 넘어가는 곳 없애기
         if x == 0 or x == n-1 or y == 0 or y == n-1:
             return 10000 
         
         for w in range(5):
             flow.append((x+dx[w],y+dy[w]))
             ret += g[x+dx[w]][y+dy[w]]
-
+    #겹치는 것이 있는 지 파악하기 위한 것
     if len(set(flow)) != 15:
         return 10000
     return ret 
 
+#변수 조사 
+# 0,0 은 0 * n + 0 으로 표현할 수 있다.
+#위에서 넘버링을 하여 0~n*n-1로 표현시키는 것
+#꽃이 3개이기 때문에 for 3개(모든 상황파악)
 for i in range(n*n):
     for j in range(i+1,n*n):
         for k in range(j+1,n*n):
             ans = min(ans,ck([i,j,k]))
 print(ans)
+
+
+
+
