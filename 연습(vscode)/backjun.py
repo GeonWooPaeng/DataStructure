@@ -2586,3 +2586,36 @@
 #             ans = min(ans,ck([i,j,k]))
 # print(ans)
 
+# 1012.
+# 1.
+# def ck(x,y):
+#     check[x][y] = True
+    
+#     dx,dy = [0,-1,0,1],[1,0,-1,0]
+#     for i in range(4):
+#         xx,yy = x+dx[i],y+dy[i]
+
+#         if xx < 0 or xx == n or yy <0 or yy == m:
+#             continue 
+
+#         if board[xx][yy] and not check[xx][yy]:   
+#             ck(xx,yy)
+
+# for _ in range(int(input())):
+#     m,n,k = map(int,input().split()) #가로길이 , 세로길이
+
+#     board = [[0]*m for _ in range(n)]
+#     check = [[False]*m for _ in range(n)]
+
+#     for _ in range(k):
+#         y,x = map(int,input().split()) 
+#         board[x][y] = 1 
+    
+#     ans = 0
+#     for x_b in range(n):
+#         for y_b in range(m):
+#             if board[x_b][y_b] and not check[x_b][y_b]:
+#                 ck(x_b,y_b)
+#                 ans += 1
+
+#     print(ans)
