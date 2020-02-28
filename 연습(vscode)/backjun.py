@@ -2712,8 +2712,89 @@
 #     print(''.join(i))
 
 
+11559.
 
 
+m = [list(input()) for _ in range(12)]
+ck = [[False]*6 for _ in range(12)]
+ck2 = [[False]*6 for _ in range(12)]
+dx,dy = [0,-1,0,1],[1,0,-1,0]
+result = 0
+
+
+def dfs(x,y):
+    ck[x][y] = True 
+    ret = 1 
+
+    for i in range(4):
+        xx,yy = x+dx[i],y+dy[i]
+
+        if xx < 0 or xx >= 12 or yy < 0 or yy >= 6:
+            continue 
+
+        if m[x][y] != m[xx][yy] and ck[xx][yy]:
+            continue 
+        
+        ret += dfs(xx,yy)  
+    return ret
+
+def dfs2(x,y,val):
+    ck2[x][y] = True 
+    m[x][y] = '.'
+
+    for i in range(4):
+        xx,yy = x+dx[i], y+dy[i]
+
+        if xx < 0 or xx >= 12 or yy < 0 or yy >= 6:
+            continue 
+
+        if m[xx][yy] != val and ck2[xx][yy]:
+            continue 
+
+        dfs2(xx,yy,val)
+     
+
+def down():
+    for i in range(6):
+        tmp = []
+        for j in range(12):
+            if m[j][i] != '.':
+                tmp.append(m[j][i])
+
+            for j in range(12-len(tmp)):
+                m[j][i] = '.'
+
+            for j in range(12-len(tmp),12):
+                m[j][i] = tmp[j-(12-len(tmp))]
+
+
+
+while True:
+    exist = False
+    ck = [[False]*6 for _ in range(12)]
+    ck2 = [[False]*6 for _ in range(12)]
+
+    for i in range(12):
+        for j in range(6):
+            if m[i][j] == '.' or ck[i][j]:
+                continue 
+
+            count = dfs(i,j)
+
+            if count >= 4:
+                dfs2(i,j,m[i][j])
+                exist = True 
+                result += 1
+    
+    if not exist:
+        break 
+    down() 
+
+
+for i in m:
+    print(''.join(i))
+    
+print(result)
 
 
 
