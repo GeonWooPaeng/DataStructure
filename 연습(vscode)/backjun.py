@@ -2650,6 +2650,7 @@
 
 # dx,dy = [0,1,0,-1],[1,0,-1,0]
 
+
 # def dfs(x,y):
 #     ck[x][y] = True 
 #     ret = 1 
@@ -2702,6 +2703,7 @@
 #             res = dfs(i, j)
 
 #             if res >= k:
+#                 result += 1
 #                 dfs2(i,j,m[i][j])
 #                 exist = True 
 #     if not exist:
@@ -2711,91 +2713,124 @@
 # for i in m:
 #     print(''.join(i))
 
+# 11559. pass문제
 
-11559.
+# m = [list(input()) for _ in range(12)]
+# ck = [[False]*6 for _ in range(12)]
+# ck2 = [[False]*6 for _ in range(12)]
+
+# dx,dy = [0,-1,0,1],[1,0,-1,0]
+# result = 0
 
 
-m = [list(input()) for _ in range(12)]
-ck = [[False]*6 for _ in range(12)]
-ck2 = [[False]*6 for _ in range(12)]
-dx,dy = [0,-1,0,1],[1,0,-1,0]
-result = 0
+# def dfs(x,y): #개수 찾기
+#     ck[x][y] = True 
+#     ret = 1 
 
+#     for i in range(4):
+#         xx,yy = x+dx[i],y+dy[i]
 
-def dfs(x,y):
-    ck[x][y] = True 
-    ret = 1 
+#         if xx < 0 or xx >= 12 or yy < 0 or yy >= 6:
+#             continue 
 
-    for i in range(4):
-        xx,yy = x+dx[i],y+dy[i]
-
-        if xx < 0 or xx >= 12 or yy < 0 or yy >= 6:
-            continue 
-
-        if m[x][y] != m[xx][yy] and ck[xx][yy]:
-            continue 
+#         if ck[xx][yy] or m[x][y] != m[xx][yy]:
+#             continue 
         
-        ret += dfs(xx,yy)  
-    return ret
+#         ret += dfs(xx,yy)  
 
-def dfs2(x,y,val):
-    ck2[x][y] = True 
-    m[x][y] = '.'
+#     return ret
 
-    for i in range(4):
-        xx,yy = x+dx[i], y+dy[i]
+# def dfs2(x,y,val): # 터트리는 곳
 
-        if xx < 0 or xx >= 12 or yy < 0 or yy >= 6:
-            continue 
+#     ck2[x][y] = True 
+#     m[x][y] = '.'
 
-        if m[xx][yy] != val and ck2[xx][yy]:
-            continue 
+#     for i in range(4):
+#         xx,yy = x+dx[i], y+dy[i]
 
-        dfs2(xx,yy,val)
+#         if xx < 0 or xx >= 12 or yy < 0 or yy >= 6:
+#             continue 
+
+#         if ck2[xx][yy] or m[xx][yy] != val:
+#             continue
+#         dfs2(xx,yy,val)
+
      
+# def down(): # 밑으로 다 보내버리기
 
-def down():
-    for i in range(6):
-        tmp = []
-        for j in range(12):
-            if m[j][i] != '.':
-                tmp.append(m[j][i])
+#     for i in range(6):
+#         tmp = []
+#         for j in range(12):
+#             if m[j][i] != '.':
+#                 tmp.append(m[j][i])
 
-            for j in range(12-len(tmp)):
-                m[j][i] = '.'
+#         for j in range(12-len(tmp)):
+#             m[j][i] = '.'
 
-            for j in range(12-len(tmp),12):
-                m[j][i] = tmp[j-(12-len(tmp))]
-
-
-
-while True:
-    exist = False
-    ck = [[False]*6 for _ in range(12)]
-    ck2 = [[False]*6 for _ in range(12)]
-
-    for i in range(12):
-        for j in range(6):
-            if m[i][j] == '.' or ck[i][j]:
-                continue 
-
-            count = dfs(i,j)
-
-            if count >= 4:
-                dfs2(i,j,m[i][j])
-                exist = True 
-                result += 1
+#         for j in range(12-len(tmp),12):
+#             m[j][i] = tmp[j-(12-len(tmp))]
     
-    if not exist:
-        break 
-    down() 
+
+# while True: #실행부분
+#     exist = False
+#     ck = [[False]*6 for _ in range(12)]
+#     ck2 = [[False]*6 for _ in range(12)]
+
+#     for i in range(12):
+#         for j in range(6):
+#             if m[i][j] == '.' or ck[i][j]:
+#                 continue 
+
+#             count = dfs(i,j)
+
+#             if count >= 4:
+#                 result += 1
+#                 dfs2(i,j,m[i][j])
+#                 exist = True 
+#     if not exist:
+#         break 
+#     down()
+
+# print(result)
+
+17406.
+n,m,k = map(int,input().split()) #행 열 회전연산 개수
+a = [list(map(int,input().split())) for _ in range(n)]
+ck = [[False]*m for _ in range(n)]
+
+dx,dy = [-1,0,1,0],[0,1,0,-1] #시계방향(위부터 시작하는)
+
+def change(r,c,s):
+    for x in range(r-s,r+s+1):
+        for y in range(c-s,c+s+1):
+            for i in range(4):
+                xx,yy = x+dx[i], y+dy[i]
+
+                if xx < r-s or xx > r+s or yy < c-s or yy > c+s:
+                    continue 
+
+                if ck[xx][yy]:
+                    continue
+
+                a[x][y], a[xx][yy] = a[xx][yy], a[x][y] 
+                a[xx][yy] = True 
+                break 
+            break 
+    return a 
 
 
-for i in m:
-    print(''.join(i))
+
+for _ in range(k):
+    r,c,s = map(int,input().split())
+    ck = [[False]*m for _ in range(n)]
+    change(r,c,s)
+
+result = []
+for i in a:
+    result.append(sum(i))
+
+print(min(result))
     
-print(result)
-
 
 
 
