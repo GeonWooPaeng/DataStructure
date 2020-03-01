@@ -2793,57 +2793,49 @@
 
 # print(result)
 
-17406.
-n,m,k = map(int,input().split()) #행 열 회전연산 개수
-a = [list(map(int,input().split())) for _ in range(n)]
-ck = [[False]*m for _ in range(n)]
+# 17406.
+# from copy import deepcopy 
 
-dx,dy = [-1,0,1,0],[0,1,0,-1] #시계방향(위부터 시작하는)
+# n,m,k = map(int,input().split())
+# a = [list(map(int,input().split())) for _ in range(n)]
+# q = [tuple(map(int,input().split())) for _ in range(k)]
+# dx,dy = [1,0,-1,0],[0,-1,0,1]  #남서북동 순서
 
-def change(r,c,s):
-    for x in range(r-s,r+s+1):
-        for y in range(c-s,c+s+1):
-            for i in range(4):
-                xx,yy = x+dx[i], y+dy[i]
+# ans = 10000
 
-                if xx < r-s or xx > r+s or yy < c-s or yy > c+s:
-                    continue 
+# def value(arr):
+#     return min(sum(i) for i in arr)
 
-                if ck[xx][yy]:
-                    continue
+# def convert(arr,qry):
+#     (r,c,s) = qry 
+#     r,c = r-1,c-1 
+#     new_arr = deepcopy(arr)
+#     for i in range(1,s+1):
+#         rr,cc = r-i,c+i 
+#         for w in range(4):
+#             for d in range(i*2):
+#                 rrr,ccc = rr+dx[w], cc+dy[w]
+#                 new_arr[rrr][ccc] = arr[rr][cc]
+#                 rr,cc = rrr,ccc 
+#     return new_arr 
 
-                a[x][y], a[xx][yy] = a[xx][yy], a[x][y] 
-                a[xx][yy] = True 
-                break 
-            break 
-    return a 
-
-
-
-for _ in range(k):
-    r,c,s = map(int,input().split())
-    ck = [[False]*m for _ in range(n)]
-    change(r,c,s)
-
-result = []
-for i in a:
-    result.append(sum(i))
-
-print(min(result))
+# def dfs(arr,qry):
+#     global ans 
+#     if sum(qry) == k:
+#         ans = min(ans, value(arr))
+#         return 
     
+#     for i in range(k):
+#         if qry[i]: #qry를 처리했다면 continue
+#             continue 
+#         new_arr = convert(arr,q[i])
+#         qry[i] = 1
+#         dfs(new_arr,qry)
+#         qry[i] = 0 #처리를 안했다고 한다 (백트랙킹 기법)
 
 
-
-
-
-
-
-
-
-
-
-
-
+# dfs(a,[0 for i in range(k)])
+# print(ans)
 
 
 
