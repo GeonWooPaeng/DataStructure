@@ -2837,8 +2837,34 @@
 # dfs(a,[0 for i in range(k)])
 # print(ans)
 
+# 1919.
+
+# a = list(input())
+# b = list(input())
+# ck_a = [False for _ in range(len(a))]
+# ck_b = [False for _ in range(len(b))]
 
 
+
+# for i in range(len(a)):
+#     for j in range(len(b)):
+#         if ck_b[j] == True or ck_a[i] == True:
+#             continue 
+#         if a[i] == b[j]:
+#             ck_a[i] = True 
+#             ck_b[j] = True
+
+# result = 0
+
+# for i in range(len(a)):
+#     if ck_a[i] == False:
+#         result += 1
+
+# for j in range(len(b)):
+#     if ck_b[j] == False:
+#         result += 1
+
+# print(result)
 
 
 
