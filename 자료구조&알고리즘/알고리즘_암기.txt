@@ -501,3 +501,21 @@ def solve_n_queens(N): # NxN은 체스판
     final_result = [] #배치도 저장
     DFS(N,0,[],final_result)
     return final_result
+
+
+
+#90도 회전하기
+def rotate90(b,n):
+    #nb = [0 for i in range(n)]
+    nb = deepcopy(b)
+    for i in range(n):
+        for j in range(n):
+            nb[j][n-i-1] = b[i][j] 
+    return nb
+
+
+
+
+
+
+

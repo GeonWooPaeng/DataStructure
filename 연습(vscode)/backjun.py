@@ -2909,58 +2909,51 @@
 # 12100.
 # from copy import deepcopy 
 
-# # 표를 움직이고 변화시키는 곳
-# def move(board,row,col): #판, 움직여야할방향(행, 열)
-#     print(board)
-#     new_board = deepcopy(board)
-#     for x in range(n):
-#         for y in range(n):
-#             xx,yy = x+row,y+row
-#             if xx < 0 or xx > n-1 or yy < 0 or yy > n-1:
-#                 continue 
+# n = int(input()) 
+# board = [list(map(int,input().split())) for i in range(n)]
 
-#             if board[x][y] == board[xx][yy]:
-#                 new_board[xx][yy] += board[x][y]
-#                 new_board[x][y] = 0
-            
-#     return new_board
+# #90도 회전하기 (암기하기)
+# def rotate90(b,n):
+#     # nb = [0 for i in range(n)]
+#     nb = deepcopy(b)
+#     for i in range(n):
+#         for j in range(n):
+#             nb[j][n-i-1] = b[i][j]
+
+#     return nb
+
+# #한줄로 다음 배열을 만드는 것
+# #좌측으로 옮기기 
+# def convert(lst,n):
+#     new_list = [i for i in lst if i] #0이 아닌수만 남긴다.
+#     for i in range(1,len(new_list)):
+#         if new_list[i-1] == new_list[i]:
+#             new_list[i-1] *= 2
+#             new_list[i] = 0
+#     new_list = [i for i in new_list if i]
+#     return new_list + [0] * (n-len(new_list))
 
 
-# #큰 값을 먼저 꺼내서 4방향중 같은 값 있는지 확인 하는 곳
-# def solve(board):
-#     global count 
-#     if count == 5:
-#         return 
-#     #값 저장 
-#     for i in range(n): #행
-#         for j in range(n): #열
-#             graph.append((board[i][j],i,j))
 
-#     graph.sort(key=lambda x: x[0]) #정렬후 graph의 index 0번이 가장 작다 
-#     graph.reverse() 
+# def dfs(n,b, count):
+#     ret = max([max(i) for i in b]) #board의 최대값
+#     if count == 0:
+#         return ret 
+    
+#     for _ in range(4): #동서남북 4방향이므로 4
+#         x = [convert(i,n) for i in board] # 행 마다 convert실행 해서 새로운 행을 만들어 주는 것
+#         if x!= b: #변화가 있는지 없는지 파악(변화가 있는 경우)
+#             ret = max(ret, dfs(n, x, count-1)) 
+#         b = rotate90(b) #board 90도 돌려주기(변화가 없는경우)
 
-#     for val,x,y in graph:
-#         print(val)
-#         for i in range(4):
-#             xx,yy = x+dx[i],y+dy[i]
-#             if xx < 0 or xx > n-1 or yy < 0 or yy > n-1:
-#                 continue 
-#             if board[x][y] == board[xx][yy]:
-#                 new_board = move(board,dx[i],dy[i])
-#                 # print(new_board)
-#                 count += 1
-#                 solve(new_board)
-#                 count -= 1
-#     return 
+#     return ret
 
-# n = int(input()) #보드의 크기 
+# print(dfs(n, board, 5))
 
-# board = [list(map(int,input().split())) for _ in range(n)]
-# dx,dy = [0,-1,0,1],[1,0,-1,0] #동북서남 (반시계방향)
-# graph = []
-# count = 0
 
-# solve(board)
+
+
+
 
 
 
