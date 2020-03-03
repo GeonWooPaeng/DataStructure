@@ -2941,10 +2941,10 @@
 #         return ret 
     
 #     for _ in range(4): #동서남북 4방향이므로 4
-#         x = [convert(i,n) for i in board] # 행 마다 convert실행 해서 새로운 행을 만들어 주는 것
+        # x = [convert(i,n) for i in board] # 행 마다 convert실행 해서 새로운 행을 만들어 주는 것
 #         if x!= b: #변화가 있는지 없는지 파악(변화가 있는 경우)
 #             ret = max(ret, dfs(n, x, count-1)) 
-#         b = rotate90(b) #board 90도 돌려주기(변화가 없는경우)
+#         b = rotate90(b,n) #board 90도 돌려주기(변화가 없는경우)
 
 #     return ret
 
@@ -2956,6 +2956,19 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+        
 
 
 
