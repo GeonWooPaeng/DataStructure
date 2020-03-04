@@ -2934,7 +2934,6 @@
 #     return new_list + [0] * (n-len(new_list))
 
 
-
 # def dfs(n,b, count):
 #     ret = max([max(i) for i in b]) #board의 최대값
 #     if count == 0:
@@ -2951,12 +2950,50 @@
 # print(dfs(n, board, 5))
 
 
+# 11055.
 
+# 1.
+# import copy 
 
+# n = int(input()) #수열의 크기 
+# a = list(map(int,input().split())) #수열을 이루고 있는 값
 
+# #dp[i] : i 까지 왔을 때, 합의 최대 
+# dp = copy.deepcopy(a)
 
+# for i in range(1,n):
+#     for j in range(i):
+#         if a[i] > a[j]:
+#             dp[i] = max(dp[i], a[i]+dp[j])
 
+# print(max(dp))
 
+# 2.
+# import copy 
+
+# n = int(input()) #수열의 크기 
+# a = list(map(int,input().split())) #수열을 이루고 있는 값
+
+# #dp[i] : i 까지 왔을 때, 합의 최대 
+# dp = copy.deepcopy(a)
+# rev = [i for i in range(n)]
+# idx = 0
+
+# for i in range(1,n):
+#     for j in range(i):
+#         if a[i] > a[j] and dp[i] < dp[j] + a[i]:
+#             dp[i] = a[i] + dp[j]
+#             rev[i] = j 
+
+#     if dp[idx] < dp[i]:
+#         idx = i 
+
+# print(dp[idx])
+# while rev[idx] != idx:
+#     print(a[idx],sep = " ")
+#     idx = rev[idx]
+
+# print(a[idx])
 
 
 
