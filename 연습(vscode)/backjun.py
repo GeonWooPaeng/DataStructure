@@ -3014,7 +3014,7 @@
 #     i,j,x,y = map(int,input().split())
 #     print(dp[x][y] -dp[i-1][y]-dp[x][j-1]+dp[i-1][j-1])
 
-1915.
+# 1915.
 # n,m = map(int,input().split())
 # a = [[0 for _ in range(m+1)] for i in range(n+1)]
 
@@ -3038,6 +3038,35 @@
 # # print(max([max(i) for i in dp]) ** 2)
 
 
+# 1439.
+# 1.
+# s = input() 
+
+# num_0 = 0
+# num_1 = 0
+
+# if s[0] == '0':
+#     num_0 += 1 
+# else:
+#     num_1 += 1
+
+# for i in range(len(s)-1):
+#     if s[i] != s[i+1]:
+#         if s[i+1] == '0':
+#             num_0 += 1 
+#         else:
+#             num_1 += 1 
+
+# print(min(num_0,num_1))
+
+# 2.
+# s = input() 
+# tot = 0
+# for i in range(1,len(s)):
+#     if s[i] != s[i+1]:
+#         tot += 1 
+
+# print((tot+1)//2)
 
 
 
