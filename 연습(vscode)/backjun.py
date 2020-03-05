@@ -3015,21 +3015,27 @@
 #     print(dp[x][y] -dp[i-1][y]-dp[x][j-1]+dp[i-1][j-1])
 
 1915.
+# n,m = map(int,input().split())
+# a = [[0 for _ in range(m+1)] for i in range(n+1)]
 
-n,m = map(int,input().split()) #행,열 
+# #dp[i][j] = i,j 까지 있을 때, 가장 큰 정사각형의 한 변의 길이
+# #dp[i][j] = min(dp[i-1][j],dp[i-1][j-1],dp[i][j-1]) + 1
+# dp = [[0 for _ in range(m+1)] for i in range(n+1)]
 
-a = [list(map(int,input().split())) for _ in range(n)]
+# for i in range(n):
+#     for idx, j in enumerate(list(map(int,list(input())))):
+#         a[i+1][idx+1] = j 
 
+# mx = 0
 
+# for i in range(1,n+1):
+#     for j in range(1,m+1):
+#         if a[i][j]:
+#             dp[i][j] = min(dp[i-1][j], dp[i-1][j-1], dp[i][j-1]) + 1
+#             mx = max(dp[i][j],mx)
 
-
-
-
-        
-
-
-
-
+# print(mx**2)
+# # print(max([max(i) for i in dp]) ** 2)
 
 
 
