@@ -3068,6 +3068,30 @@
 
 # print((tot+1)//2)
 
+# 16676.
+
+# n = input() #최대값 
+
+# if int(n) == 0:
+# 	print(1)
+
+# else:
+# 	standard = '1' * len(n) 
+# 	if int(n) < int(standard):
+# 		print(len(standard)-1)
+# 	else:
+# 		print(len(standard))
+# 2.
+# n = input()
+# s= '1'*len(n)
+
+# if len(n) == 1:
+# 	print(1)
+# elif int(n) >= int(s):
+# 	print(len(n))
+# else:
+# 	print(len(n)-1)
+
 # 12849.
 # # 0: 정보과학관 
 # # 1: 전산관
@@ -3105,3 +3129,25 @@
 # 	dp = nxt(dp)
 
 # print(dp[0])
+
+
+# 1080.
+n,m = map(int,input().split()) #행,열 
+
+a = [list(map(int,input())) for _ in range(n)]
+b = [list(map(int,input())) for _ in range(n)]
+
+def change(x,y,a):
+	for i in range(x,x+3):
+		for j in range(y,y+3):
+			a[i][j] = 1-a[i][j]
+			
+count = 0
+for i in range(n-2):
+	for j in range(m-2):
+		if a[i][j] != b[i][j]:
+			change(i,j,a)
+			count += 1 
+
+print(count if a == b else -1)
+
