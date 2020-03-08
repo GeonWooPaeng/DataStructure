@@ -3151,30 +3151,36 @@
 
 # print(count if a == b else -1)
 
-2437.
+# 2437.
 
-n = int(input()) #추의 개수
-wei = list(map(int,input().split()))
-wei.sort() 
+# n = int(input()) #추의 개수
+# wei = list(map(int,input().split()))
+# wei.sort() 
 
-ans = 0
+# ans = 0
 
-for i in wei:
-	if i <= ans + 1:
-		ans += 1 
+# for i in wei:
+# 	if i <= ans + 1:
+# 		ans += 1 
 	
-	else:
-		break 
-print(ans + 1)
+# 	else:
+# 		break 
+# print(ans + 1)
 
+1181.
+# 1.
+# n = int(input())
 
+# words = []
+# for _ in range(n):
+# 	word = input()
+# 	words.append((word,len(word)))
 
+# words = list(set(words))
+# words.sort(key=lambda x: (x[1], x[0]))
 
-
-
-
-
-
+# for w,n in words:
+# 	print(w)
 
 
 
