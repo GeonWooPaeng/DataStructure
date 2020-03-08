@@ -3132,22 +3132,52 @@
 
 
 # 1080.
-n,m = map(int,input().split()) #행,열 
+# n,m = map(int,input().split()) #행,열 
 
-a = [list(map(int,input())) for _ in range(n)]
-b = [list(map(int,input())) for _ in range(n)]
+# a = [list(map(int,input())) for _ in range(n)]
+# b = [list(map(int,input())) for _ in range(n)]
 
-def change(x,y,a):
-	for i in range(x,x+3):
-		for j in range(y,y+3):
-			a[i][j] = 1-a[i][j]
+# def change(x,y,a):
+# 	for i in range(x,x+3):
+# 		for j in range(y,y+3):
+# 			a[i][j] = 1-a[i][j]
 			
-count = 0
-for i in range(n-2):
-	for j in range(m-2):
-		if a[i][j] != b[i][j]:
-			change(i,j,a)
-			count += 1 
+# count = 0
+# for i in range(n-2):
+# 	for j in range(m-2):
+# 		if a[i][j] != b[i][j]:
+# 			change(i,j,a)
+# 			count += 1 
 
-print(count if a == b else -1)
+# print(count if a == b else -1)
+
+2437.
+
+n = int(input()) #추의 개수
+wei = list(map(int,input().split()))
+wei.sort() 
+
+ans = 0
+
+for i in wei:
+	if i <= ans + 1:
+		ans += 1 
+	
+	else:
+		break 
+print(ans + 1)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
