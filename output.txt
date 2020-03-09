@@ -1,12 +1,1 @@
-{'yours', 'hesitate', 'im', 'no', 'wait', 'more', 'i', 'wont', 'it', 'cannot', 'but'}
-i
-im
-it
-no
-but
-more
-wait
-wont
-yours
-cannot
-hesitate
+3

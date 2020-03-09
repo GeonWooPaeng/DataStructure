@@ -3182,8 +3182,41 @@
 # for w,n in words:
 # 	print(w)
 
+# 4153.
 
+# import math 
 
+# while True:
+# 	a = list(map(int,input().split()))
+# 	a.sort()
+# 	if a[0] == 0:
+# 		break 
 
+# 	elif (a[0]**2 + a[1]**2) != a[2]**2:
+# 		print('wrong')
+	
+# 	else:
+# 		print('right')
+
+# 1978.
+# n = int(input()) #수의 개수
+
+# a = list(map(int,input().split())) 
+
+# def check(x):
+# 	if x == 1:
+# 		return False 
+# 	for i in range(2,x):
+# 		if x % i == 0:
+# 			return False 
+	
+# 	return True 
+
+# count = 0
+# for i in a:
+# 	if check(i):
+# 		count += 1
+
+# print(count)
 
 
