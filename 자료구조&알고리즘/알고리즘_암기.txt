@@ -513,6 +513,40 @@ def rotate90(b,n):
             nb[j][n-i-1] = b[i][j] 
     return nb
 
+#1. 소인수의 개수 
+def era_count_count(x):
+	a = [0 for _ in range(x+1)]
+	for i in range(1, x):
+		for j in range(i, x, i):
+			a[j] += 1 
+	return a 
+
+#2. 소인수의 합 
+def era_factor_sum(x):
+	a = [0 for _ in range(x+1)]
+	for i in range(2, x):
+		for j in range(i, x, i):
+			a[j] += i 
+	return a
+
+#3. 소인수분해 하기 
+def era_factorization(x):
+	a = [0 for _ in range(x+1)]
+	for i in range(2, x):
+		if a[i] == 1:
+			continue 
+
+		for j in range(i, x, i):
+			a[j] = i
+	return a 
+
+#소인수 분해하는 방법
+a = era_factorization(100)
+n = 84 
+while a[n] != 0:
+	print(a[n])
+	n //= a[n]
+
 
 
 
