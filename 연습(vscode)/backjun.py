@@ -3256,3 +3256,41 @@
 
 # print(gcd(a,b))
 # print(lcm(a,b))
+
+# 1929.
+
+# m,n = map(int,input().split())
+
+# def prime(x):
+#     if x <= 1:
+#         return False 
+    
+#     for i in range(2,x):
+#         if x % i == 0:
+#             return False 
+        
+#         if i*i > x:
+#             break 
+#     return True 
+
+# for i in range(m,n+1):
+#     if prime(i):== 
+#         print(i)
+
+# 11050.
+# n,k = map(int,input().split())
+
+# def fac(y):
+#     if y == 0:
+#         return 1
+#     for i in range(1,y):
+#         y *= i 
+#     return y 
+
+# def bi(x,r):
+#     n_fac = fac(x)
+#     r_fac = fac(r)
+#     n_r_fac = fac((x-r))
+#     return n_fac // (r_fac * n_r_fac)
+    
+# print(bi(n,k))
