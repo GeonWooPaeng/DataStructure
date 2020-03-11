@@ -3243,6 +3243,16 @@
 
 # print(mn)
 
+# 2609.
+# a,b = map(int,input().split())
 
+# def gcd(x,y):
+#     for i in range(min(x,y),0,-1):
+#         if x % i == 0 and y % i == 0:
+#             return i 
 
+# def lcm(x,y):
+#     return a//gcd(x,y)*b
 
+# print(gcd(a,b))
+# print(lcm(a,b))
