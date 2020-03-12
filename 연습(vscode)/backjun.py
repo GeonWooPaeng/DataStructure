@@ -3294,3 +3294,106 @@
 #     return n_fac // (r_fac * n_r_fac)
     
 # print(bi(n,k))
+
+# 11066.
+# 1.
+# def process():
+#     n,a = int(input()), [0] + list(map(int,input().split()))
+#     #s[i]는 1번부터 i번까지의 누적합
+#     s = [0 for _ in range(n+1)] 
+#     for i in range(1,n+1):
+#         s[i] = s[i-1] + a[i]
+#     print(s)
+#     #dp[i][j]: i에서 j까지 합하는데 필요한 최소 비용
+#     #dp[i][k] + dp[k+1][j] + sum(a[i]~a[j])
+#     dp = [[0 for i in range(n+1)] for _ in range(n+1)]
+#     for i in range(2,n+1): #부분파일의 길이
+#         for j in range(1,n+2-i): #시작점 
+#             dp[j][j+i-1] = min([dp[j][j+k] + dp[j+k+1][j+i-1] for k in range(i-1)]) + (s[j+i-1] - s[j-1])
+    
+#     for i in dp:
+#         print(i)
+
+#     print(dp[1][n])
+
+# for _ in range(int(input())):
+#     process()
+
+
+# 2.
+# tc = int(input())
+# s,dp = 0,0 
+
+# def f(i,j):
+#     global s, dp 
+#     if i == j:
+#         return 0 
+    
+#     if dp[i][j] != -1:
+#         return dp[i][j]
+
+#     for k in range(i,j):
+#         tmp = f(i,k) + f(k+1,j) + s[j] - s[i-1]
+#         if dp[i][j] == -1 or dp[i][j] > tmp:
+#             dp[i][j] = tmp 
+#     return dp[i][j] 
+
+# def process():
+#     global s, dp
+#     n, a = int(input()), list(map(int,input().split()))
+#     s, dp = [0 for _ in range(n+1)], [[-1 for _ in range(n+1)] for i in range(n+1)]
+#     for i in range(1, n+1):
+#         s[i] = s[i-1] + a[i-1] 
+#         print(f(1,n))
+
+# for _ in range(tc):
+#     process() 
+
+# 10250.
+
+# def check(hei,wei,num):
+#     count = 0 
+#     for i in range(1,wei+1):
+#         for j in range(1,hei+1):
+#             count+= 1
+
+#             if count >= num:
+#                 if len(str(i)) < 2:
+#                     return str(j) + '0'+ str(i)
+                
+#                 return str(j)+str(i)
+
+# for _ in range(int(input())):
+#     h,w,n = map(int,input().split())
+    
+#     print(check(h,w,n))
+
+
+# 1085.
+# x,y,w,h = map(int,input().split())
+
+# print(min(x,y,(w-x),(h-y)))
+
+# 2164.
+# from collections import deque 
+
+# n = int(input())
+# card = deque() 
+
+# for i in range(1,n+1):
+#     card.append(i)
+
+# for i in range(n-1):
+#     card.popleft()
+#     card.append(card.popleft())
+
+# print(card[0])
+
+10816.
+
+n = int(input()) #숫자 카드 수 
+card = list(map(int,input().split())) #숫자 카드의 숫자
+
+m = int(input()) # 찾아야할 수 개수 
+num = list(map(int,input().split())) #찾아야할 수 
+
