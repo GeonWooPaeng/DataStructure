@@ -3389,11 +3389,38 @@
 
 # print(card[0])
 
-10816.
+# 10816.
+# import sys
+# input = sys.stdin.readline
 
-n = int(input()) #숫자 카드 수 
-card = list(map(int,input().split())) #숫자 카드의 숫자
+# n = int(input()) #숫자 카드 수 
+# card = list(map(int,input().split())) #숫자 카드의 숫자
 
-m = int(input()) # 찾아야할 수 개수 
-num = list(map(int,input().split())) #찾아야할 수 
+# m = int(input()) # 찾아야할 수 개수 
+# num = list(map(int,input().split())) #찾아야할 수 
+
+# num_d = {}
+
+# for i in card:
+#     if i not in num_d:
+#         num_d[i] = 1 
+#     else:
+#         num_d[i] += 1 
+# result = []
+# for j in num:
+#     if j in num_d:
+#         result.append(str(num_d[j])+" ")
+#     else:
+#         result.append('0 ')
+
+# for k in result:
+#     print(k, end = "")
+
+10828.
+
+
+
+
+
+
 
