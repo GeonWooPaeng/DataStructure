@@ -3416,11 +3416,128 @@
 # for k in result:
 #     print(k, end = "")
 
-10828.
+# 10828.
+# import sys
+# from collections import deque
+# input = sys.stdin.readline
+# stack = deque()
+
+# for _ in range(int(input())):
+#     a = list(input().split())
+#     if len(a) == 2:
+#         if a[0] == 'push':
+#             stack.append(a[-1])
+#     else:
+#         if a[0] == 'pop':
+#             if len(stack) == 0:
+#                 print(-1)
+            
+#             else:
+#                 stack.pop() 
+
+#         elif a[0] == 'size':
+#             print(len(stack))
+
+#         elif a[0] == 'empty':
+#             if len(stack) == 0:
+#                 print(1)
+#             else:
+#                 print(0)
+
+#         elif a[0] == 'top':
+#             if len(stack) == 0:
+#                 print(-1)
+#             else:
+#                 print(stack[-1])
 
 
+# 10845.
+# import sys
+# from collections import deque
 
+# input = sys.stdin.readline 
+# queue = deque() 
 
+# for _ in range(int(input())):
+#     a = list(input().split())
+#     if len(a) == 2:
+#         if a[0] == 'push':
+#             queue.append(a[-1])
+    
+#     else:
+#         if a[0] == 'pop':
+#             if len(queue) == 0:
+#                 print(-1)
+#             else:
+#                 print(queue.popleft())
 
+#         elif a[0] == 'size':
+#             print(len(queue))
 
+#         elif a[0] == 'empty':
+#             if len(queue) == 0:
+#                 print(1)
+#             else:
+#                 print(0)
 
+#         elif a[0] == 'front':
+#             if len(queue) == 0:
+#                 print(-1)
+#             else:
+#                 print(queue[0]) 
+
+#         elif a[0] == 'back':
+#             if len(queue) == 0:
+#                 print(-1)
+#             else:
+#                 print(queue[-1])
+
+# 10866.
+# import sys
+# from collections import deque 
+
+# input = sys.stdin.readline
+# de = deque() 
+
+# for _ in range(int(input())):
+#     a = list(input().split())
+#     if len(a) == 2:
+#         if a[0] == 'push_front':
+#             de.appendleft(a[-1])
+        
+#         elif a[0] == 'push_back':
+#             de.append(a[-1])
+    
+#     else:
+#         if a[0] == 'pop_front':
+#             if len(de) == 0:
+#                 print(-1)
+#             else:
+#                 print(de.popleft())
+        
+#         elif a[0] == 'pop_back':
+#             if len(de) == 0:
+#                 print(-1)
+#             else:
+#                 print(de.pop())
+
+#         elif a[0] == 'size':
+#             print(len(de))
+
+#         elif a[0] == 'empty':
+#             if len(de) == 0:
+#                 print(1)
+#             else:
+#                 print(0)
+
+#         elif a[0] == 'front':
+#             if len(de) == 0:
+#                 print(-1)
+#             else:
+#                 print(de[0])
+
+#         elif a[0] == 'back':
+#             if len(de) == 0:
+#                 print(-1) 
+#             else:
+#                 print(de[-1])
