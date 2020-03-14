@@ -3541,3 +3541,72 @@
 #                 print(-1) 
 #             else:
 #                 print(de[-1])
+
+# 9012.
+
+# for _ in range(int(input())):
+#     a = list(input())
+
+#     for i in range(len(a)-1):
+#         if a[i] == '(':
+#             for j in range(i+1,len(a)):
+#                 if a[j] == ')':
+#                     a[i] = 0
+#                     a[j] = 0
+#                     break 
+#     a = set(a)
+    
+#     if len(a) == 1 and list(a)[0] == 0:
+#         print('YES')
+    
+#     else:
+#         print('NO')
+
+# 1018.
+# #첫 글자를 정해주지 말고 w,b일때 모두 계산해서 최소 값을 구해야 한다.
+# n,m = map(int,input().split()) #행, 열
+# board = [list(input()) for _ in range(n)]
+# min_num = 64
+
+# def change(x,y):
+#     count_b = 0
+#     count_w = 0
+#     for i in range(x,x+8):
+#         for j in range(y,y+8):
+#             if i % 2 == 1 and j % 2 == 1:
+#                 if board[i][j] == 'W':
+#                     count_b+= 1
+                
+#             elif i % 2 == 1 and j % 2 == 0:
+#                 if board[i][j] == 'B':
+#                     count_b += 1 
+#             elif i % 2 == 0 and j % 2 == 1:
+#                 if board[i][j] == 'B':
+#                     count_b += 1 
+#             elif i % 2 == 0 and j % 2 == 0:
+#                 if board[i][j] == 'W':
+#                     count_b += 1              
+
+#     for i in range(x,x+8):
+#         for j in range(y,y+8):
+#             if i % 2 == 1 and j % 2 == 1:
+#                 if board[i][j] == 'B':
+#                     count_w+= 1
+            
+#             elif i % 2 == 1 and j % 2 == 0:
+#                 if board[i][j] == 'W':
+#                     count_w += 1 
+#             elif i % 2 == 0 and j % 2 == 1:
+#                 if board[i][j] == 'W':
+#                     count_w += 1 
+            
+#             elif i % 2 == 0 and j % 2 == 0:
+#                 if board[i][j] == 'B':
+#                     count_w += 1              
+#     return min(count_b,count_w)
+
+# for x in range(n-7):
+#     for y in range(m-7):
+#         count = change(x,y)
+#         min_num = min(count, min_num)
+# print(min_num)
