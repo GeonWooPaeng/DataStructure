@@ -3610,3 +3610,81 @@
 #         count = change(x,y)
 #         min_num = min(count, min_num)
 # print(min_num)
+
+# 11866.
+
+# n,k = map(int,input().split())
+
+# board = [i for i in range(1,n+1)]
+
+# idx = 0 #현재 index
+# result = []
+
+# while board:
+#     idx = (idx+k-1) % len(board)
+
+#     result.append(board[idx])
+#     board.remove(board[idx])
+
+# spring = '<'
+# for i in range(len(result)):
+#     if i == len(result)-1:
+#         spring += str(result[i]) + '>'
+#     else:
+#         spring += str(result[i])+', '
+
+# print(spring)
+
+# 9095.
+# import sys
+# sys.setrecursionlimit(100000)
+
+# def cal(x):
+#     if x == 0:
+#         return 0 
+#     elif x == 1:
+#         return 1
+#     elif x == 2:
+#         return 2 
+#     elif x == 3:
+#         return 4
+    
+#     return cal(x-3) + cal(x-2) + cal(x-1)
+
+# for _ in range(int(input())):
+#     n = int(input())
+#     print(cal(n))    
+    
+# 1259.
+
+# while True:
+#     n = input() 
+#     if n == '0':
+#         break 
+#     if n == n[::-1]:
+#         print('yes')
+#     else:
+#         print('no')
+
+
+# 1764.
+# n,m = map(int,input().split()) #듣못사람, 보못사람 
+
+# ear = set() 
+# eye = set() 
+# result = []
+# for _ in range(n):
+#     a = input() 
+#     ear.add(a)
+
+# for _ in range(m):
+#     b = input() 
+#     eye.add(b)
+
+# for i in ear:
+#     if i in eye:
+#         result.append(i)
+# result.sort()
+# print(len(result))
+# for i in result:
+#     print(i)
