@@ -3704,3 +3704,55 @@
 #     fi(int(input()))
 
     
+# 1260.
+# from collections import defaultdict
+
+# def dfs(x):
+#     result = []
+#     visit = []
+#     visit.append(x)
+
+#     while visit:
+#         num = visit.pop()
+#         if num not in result:
+#             result.append(num)
+#             visit.extend(graph[num])
+    
+#     return result
+
+# def bfs(x):
+#     result = []
+#     visit = []
+#     visit.append(x)
+
+#     while visit:
+#         num = visit.pop(0)
+#         if num not in result:
+#             result.append(num)
+#             visit.extend(graph[num])
+#     return result
+
+
+# n,m,v = map(int,input().split()) #정점의 개수, 간선의 개수, 탐색 시작하는 정점번호
+
+# graph = defaultdict(list)
+
+# for _ in range(m):
+#     no1,no2 = map(int,input().split()) 
+#     graph[no1].append(no2) 
+#     graph[no2].append(no1) 
+
+# #bfs
+# for i in graph:
+#     graph[i].sort()
+# bfs_result = bfs(v)
+
+# #dfs
+# for j in graph:
+#     graph[j].reverse()
+# dfs_result = dfs(v)
+
+
+# print(' '.join(map(str,dfs_result)))
+# print(' '.join(map(str,bfs_result)))
+
