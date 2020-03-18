@@ -3756,3 +3756,32 @@
 # print(' '.join(map(str,dfs_result)))
 # print(' '.join(map(str,bfs_result)))
 
+# 2606.
+# from collections import defaultdict 
+
+# computer = defaultdict(list)
+
+# def dfs(x):
+#     result = []
+#     visit = []
+#     visit.append(x)
+#     while visit:
+#         num = visit.pop()
+#         if num not in result:
+#             result.append(num)
+#             visit.extend(computer[num])
+#     return len(result)-1
+
+# c_num = int(input()) # 컴퓨터 수 
+# for _ in range(int(input())):
+#     co1,co2 = map(int,input().split())
+#     computer[co1].append(co2)
+#     computer[co2].append(co1)
+
+# for i in computer:
+#     computer[i].sort(reverse= True)
+
+
+# print(dfs(1))
+
+1436.
