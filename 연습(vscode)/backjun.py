@@ -3802,3 +3802,19 @@
 # n = int(input())
 # dp = [0 for _ in range(n+1)]
 # print(cal(n))
+
+
+# 17219.
+# from collections import defaultdict 
+
+# n,m = map(int,input().split()) # 사이트 주소 수, 찾으려는 사이트주소의 수
+# memo = defaultdict(str)
+
+# for _ in range(n):
+#     site, password = map(str,input().split())
+#     memo[site] = password 
+
+# for _ in range(m):
+#     f_site = input() 
+#     if f_site in memo:
+#         print(memo[f_site])
