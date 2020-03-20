@@ -3819,3 +3819,15 @@
 #     if f_site in memo:
 #         print(memo[f_site])
 
+
+1436.
+
+n = int(input())
+init = 666
+
+while n:
+    if '666' in str(init):
+        n -= 1
+    init += 1 
+
+print(init -1)
