@@ -3820,14 +3820,50 @@
 #         print(memo[f_site])
 
 
-1436.
+# 1436.
 
-n = int(input())
-init = 666
+# n = int(input())
+# init = 666
 
-while n:
-    if '666' in str(init):
-        n -= 1
-    init += 1 
+# while n:
+#     if '666' in str(init):
+#         n -= 1
+#     init += 1 
 
-print(init -1)
+# print(init -1)
+
+
+# 1074.
+# import sys
+# sys.setrecursionlimit(100000)
+
+# n,r,c = map(int,input().split())
+# count = 0
+
+# def z(m,a,b):
+#     global count
+#     if m < 3:
+#         if r == a and c == b:
+#             print(count)
+#         count += 1
+
+#         if r == a and c == b+1:
+#             print(count)
+#         count += 1 
+
+#         if r == a+1 and c == b:
+#             print(count)
+#         count += 1
+
+#         if r == a+1 and c == b+1:
+#             print(count)
+#         count += 1 
+#         return 
+
+#     z(m/2, a, b)
+#     z(m/2, a, b+m/2)
+#     z(m/2, a+m/2, b)
+#     z(m/2, a+m/2, b+m/2)
+
+
+# z(2**n,0,0)
