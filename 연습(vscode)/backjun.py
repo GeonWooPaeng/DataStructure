@@ -3867,3 +3867,34 @@
 
 
 # z(2**n,0,0)
+
+# 1012.
+
+# dx, dy = [0,1,0,-1],[1,0,-1,0]
+
+# def dfs(x,y,board):
+#     for i in range(4):
+#         xx,yy = x+dx[i], y+dy[i]
+#         if xx < 0 or xx > n-1 or yy < 0 or yy > m-1:
+#             continue 
+        
+#         if board[xx][yy] == 1:
+#             board[xx][yy] = 0
+#             dfs(xx,yy,board)
+#     return board
+
+
+# for _ in range(int(input())):
+#     m,n,k = map(int,input().split()) #가로, 세로, 위치개수 
+#     board = [[0 for _ in range(m)] for _ in range(n)]    
+#     count = 0
+#     for _ in range(k):
+#         b,a = map(int,input().split())
+#         board[a][b] = 1 
+
+#     for i in range(n):
+#         for j in range(m):
+#             if board[i][j] == 1:
+#                 dfs(i,j,board)
+#                 count += 1
+#     print(count)
