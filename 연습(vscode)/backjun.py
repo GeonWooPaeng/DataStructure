@@ -3917,4 +3917,61 @@
 # print(sum(dp))
 
 
-11724.
+# 11724.
+# 1.
+# from collections import defaultdict 
+
+# def dfs(x):
+#     result = []
+#     visit = []
+#     visit.append(x)
+    
+#     while visit:
+#         num = visit.pop() 
+#         if num not in result and not ck[num]:
+#             result.append(num)
+#             ck[num] = True
+#             visit.extend(board[num])  
+#     return 
+
+# n,m = map(int,input().split()) #정점개수, 간선의 개수
+# board = defaultdict(list)
+# ck = [False for _ in range(n+1)]
+# count = 0
+
+# for _ in range(m):
+#     u, v = map(int,input().split())
+#     board[u].append(v)
+#     board[v].append(u)
+
+# count = 0
+# for i in range(1,n+1):
+#     if ck[i] == False:
+#         dfs(i)
+#         count += 1 
+# print(count)
+
+# 2.
+# def dfs(x):
+#     ck[x] = True 
+
+#     for i in board[x]:
+#         if not ck[i]:
+#             dfs(i)
+    
+        
+# n,m = map(int,input().split()) 
+# board = [[] for i in range(n+1)]
+# ck = [False] * (n+1)
+# count = 0 
+
+# for i in range(m):
+#     a,b = map(int,input().split())
+#     board[a].append(b)
+#     board[b].append(a)
+
+# for j in range(1,n+1):
+#     if not ck[j]:
+#         count += 1 
+#         dfs(j)
+# print(count)
