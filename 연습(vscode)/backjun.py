@@ -3898,3 +3898,23 @@
 #                 dfs(i,j,board)
 #                 count += 1
 #     print(count)
+
+# 1676.
+# n = int(input())
+
+# print(n//5 + n//25 + n//125)
+
+# 11399.
+# n = int(input()) #사람의 수
+
+# time = list(map(int,input().split())) # 각 번호에서의 수
+# dp = [0 for _ in range(n)]
+
+# time.sort()
+
+# for i in range(n):
+#     dp[i] = dp[i-1] + time[i]
+# print(sum(dp))
+
+
+11724.
