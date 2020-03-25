@@ -3975,3 +3975,19 @@
 #         count += 1 
 #         dfs(j)
 # print(count)
+
+11279.
+import sys
+import heapq 
+input = sys.stdin.readline
+n = int(input()) #연산의 개수
+heap = []
+
+for _ in range(n):
+    num = int(input())
+    heapq.heappush(heap,-num)
+    
+    if num == 0:
+        print(-1*heapq.heappop(heap))
+
+    
