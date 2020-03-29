@@ -4029,3 +4029,24 @@
 # cal(n,0,0)
 # print(w_cnt)
 # print(b_cnt)
+
+# 1620.
+import sys
+input = sys.stdin.readline
+
+n,m = map(int,input().split()) # 포켓몬 수 , 문제 수
+po_num = []
+board = dict()
+for i in range(n):
+    name = input().strip()
+    po_num.append(name)
+    board[name] = i+1 
+
+for j in range(m):
+    quiz = input().strip() 
+    if quiz.isdigit():
+        print(po_num[int(quiz)-1])
+    else:
+        print(board[quiz])
+
+
