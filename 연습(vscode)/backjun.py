@@ -3990,3 +3990,42 @@
 #     if num == 0:
 #         print(-1*heapq.heappop(heap))
 
+
+# 2630.
+
+# import sys
+# sys.setrecursionlimit(10000)
+# input = sys.stdin.readline
+
+# def cal(x,a,b):
+#     global b_cnt, w_cnt 
+
+#     cnt = 0 
+
+#     for i in range(a,a+x):
+#         for j in range(b,b+x):
+#             if board[i][j]:
+#                 cnt += 1
+
+#     if cnt == x**2:
+#         b_cnt += 1
+
+#     elif not cnt:
+#         w_cnt += 1 
+    
+#     else:
+#         cal(x//2, a,b)
+#         cal(x//2, a+x//2,b)
+#         cal(x//2, a,b+x//2)
+#         cal(x//2, a+x//2, b+x//2)
+
+#     return 
+
+# n = int(input()) # 전체 종이의 한변의 길이 
+
+# board = [list(map(int,input().split())) for _ in range(n)]
+# b_cnt, w_cnt = 0, 0
+
+# cal(n,0,0)
+# print(w_cnt)
+# print(b_cnt)
