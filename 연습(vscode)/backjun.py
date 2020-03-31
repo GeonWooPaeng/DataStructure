@@ -4031,23 +4031,47 @@
 # print(b_cnt)
 
 # 1620.
-import sys
-input = sys.stdin.readline
+# import sys
+# input = sys.stdin.readline
 
-n,m = map(int,input().split()) # 포켓몬 수 , 문제 수
-po_num = []
-board = dict()
-for i in range(n):
-    name = input().strip()
-    po_num.append(name)
-    board[name] = i+1 
+# n,m = map(int,input().split()) # 포켓몬 수 , 문제 수
+# po_num = []
+# board = dict()
+# for i in range(n):
+#     name = input().strip()
+#     po_num.append(name)
+#     board[name] = i+1 
 
-for j in range(m):
-    quiz = input().strip() 
-    if quiz.isdigit():
-        print(po_num[int(quiz)-1])
-    else:
-        print(board[quiz])
+# for j in range(m):
+#     quiz = input().strip() 
+#     if quiz.isdigit():
+#         print(po_num[int(quiz)-1])
+#     else:
+#         print(board[quiz])
+
+# 9375.
+# #각 옷+1 을 모두 곱해준 다음 -1 하면 전체 수가 나온다.
+# from collections import defaultdict
+
+# def cal(x):
+#     result = 1
+#     for i in c:
+#         result *= (len(c[i])+1)
+#     return result - 1
+
+# c = defaultdict(list) 
+
+# for _ in range(int(input())):
+#     c = defaultdict(list) 
+#     n = int(input())
+#     for _ in range(n):
+#         dress, body = input().split()
+#         c[body].append(dress)
+#     print(cal(c))
+
+
+
+
 
 
 

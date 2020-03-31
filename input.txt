@@ -1,32 +1,9 @@
-26 5
-Bulbasaur
-Ivysaur
-Venusaur
-Charmander
-Charmeleon
-Charizard
-Squirtle
-Wartortle
-Blastoise
-Caterpie
-Metapod
-Butterfree
-Weedle
-Kakuna
-Beedrill
-Pidgey
-Pidgeotto
-Pidgeot
-Rattata
-Raticate
-Spearow
-Fearow
-Ekans
-Arbok
-Pikachu
-Raichu
-25
-Raichu
+2
 3
-Pidgey
-Kakuna
+hat headgear
+sunglasses eyewear
+turban headgear
+3
+mask face
+sunglasses face
+makeup face
