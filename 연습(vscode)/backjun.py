@@ -4074,18 +4074,40 @@
 # input = sys.stdin.readline
 
 # n = int(input()) 
-# dp = [0 for _ in range(n)]
-# dp[0] = 1
-# dp[1] = 2
+# dp = [0] * (n+1)
 
-# for i in range(2,n):
+# for i in range(1,n+1):
+#     if i == 1:
+#         dp[i] = 1
+#         continue 
+#     elif i == 2:
+#         dp[i] = 2
+#         continue 
 #     dp[i] = dp[i-1] + dp[i-2]
 
-# print(dp[n-1]%10007)
+# ans = dp[n] % 10007
+# print(ans)
+
+1931.
 
 
+n = int(input()) #회의 개수
+meet = []
+cnt = 0
+en = 0
 
+for _ in range(n):
+    start, end = map(int,input().split())
+    meet.append((start,end))
 
+meet.sort(key=lambda x: (x[1], x[0]))
 
+for s,e in meet:
+    if en <= s:
+        en = e 
+        cnt += 1
 
+print(cnt)
+
+    
 
