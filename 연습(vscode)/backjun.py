@@ -4088,26 +4088,40 @@
 # ans = dp[n] % 10007
 # print(ans)
 
-1931.
+# 1931.
+# n = int(input()) #회의 개수
+# meet = []
+# cnt = 0
+# en = 0
 
+# for _ in range(n):
+#     start, end = map(int,input().split())
+#     meet.append((start,end))
 
-n = int(input()) #회의 개수
-meet = []
-cnt = 0
-en = 0
+# meet.sort(key=lambda x: (x[1], x[0]))
 
-for _ in range(n):
-    start, end = map(int,input().split())
-    meet.append((start,end))
+# for s,e in meet:
+#     if en <= s:
+#         en = e 
+#         cnt += 1
 
-meet.sort(key=lambda x: (x[1], x[0]))
-
-for s,e in meet:
-    if en <= s:
-        en = e 
-        cnt += 1
-
-print(cnt)
+# print(cnt)
 
     
+15829.
+# print(ord('a'))# 문자 -> 숫자(a -> 97)
+# print(chr(97)) # 숫자 -> 문자 
+# print(pow(2,n))# 2의 n제곱승
 
+# 1.
+# l = int(input()) #문자열의 길이
+# word = list(input())
+
+# result = 0
+# for i in range(l):
+#     result += ((ord(word[i])-96) * (31**i))
+
+# result %= 1234567891 
+# print(result)
+
+2579.
