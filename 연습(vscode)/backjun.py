@@ -4108,7 +4108,7 @@
 # print(cnt)
 
     
-15829.
+# 15829.
 # print(ord('a'))# 문자 -> 숫자(a -> 97)
 # print(chr(97)) # 숫자 -> 문자 
 # print(pow(2,n))# 2의 n제곱승
@@ -4124,4 +4124,19 @@
 # result %= 1234567891 
 # print(result)
 
-2579.
+# 2579.
+n = int(input())
+dp = list()
+value = list()
+
+for _ in range(n):
+    value.append(int(input()))
+
+dp.append(value[0])
+dp.append(value[0] + value[1])
+dp.append(max(value[0]+value[2], value[1]+value[2]))
+
+for i in range(3,n):
+    dp.append(max(value[i]+value[i-1]+dp[i-3],value[i]+dp[i-2]))
+
+print(dp[1])
