@@ -4125,18 +4125,37 @@
 # print(result)
 
 # 2579.
-n = int(input())
-dp = list()
-value = list()
+# n = int(input())
+# dp = list()
+# value = list()
 
-for _ in range(n):
-    value.append(int(input()))
+# for _ in range(n):
+#     value.append(int(input()))
 
-dp.append(value[0])
-dp.append(value[0] + value[1])
-dp.append(max(value[0]+value[2], value[1]+value[2]))
+# dp.append(value[0])
+# dp.append(value[0] + value[1])
+# dp.append(max(value[0]+value[2], value[1]+value[2]))
 
-for i in range(3,n):
-    dp.append(max(value[i]+value[i-1]+dp[i-3],value[i]+dp[i-2]))
+# for i in range(3,n):
+#     dp.append(max(value[i]+value[i-1]+dp[i-3],value[i]+dp[i-2]))
 
-print(dp[1])
+# print(dp[1])
+
+# 2292.
+
+# def cal(x):
+#     start = 2 
+#     n = 6
+#     j = 2
+#     if x == 1:
+#         return 1 
+#     while True:
+#         if x in range(start,start+n):
+#             return j
+#         start = (start+n) 
+#         j += 1 
+#         n += 6
+# n = int(input())
+# print(cal(n))
+
+
