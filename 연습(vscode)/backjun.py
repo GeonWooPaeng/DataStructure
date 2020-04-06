@@ -4158,4 +4158,22 @@
 # n = int(input())
 # print(cal(n))
 
+# 11727.
 
+# def cal(x):
+#     for i in range(x+1):
+#         if i == 1:
+#             dp[i] = 1
+#             continue
+#         elif i == 2:
+#             dp[i] = 3
+#             continue 
+    
+#         dp[i] = dp[i-1] + dp[i-2]*2
+#     return dp[x]
+
+# n = int(input())
+# dp = [0]*(n+1)
+
+# result = cal(n) % 10007
+# print(result)
