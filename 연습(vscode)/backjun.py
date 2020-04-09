@@ -4177,3 +4177,19 @@
 
 # result = cal(n) % 10007
 # print(result)
+
+# 9465.
+
+# for _ in range(int(input())):
+#     n = int(input())
+#     sticker = [list(map(int,input().split())) for _ in range(2)]
+#     sticker[0][1] += sticker[1][0]
+#     sticker[1][1] += sticker[0][0]
+
+#     for y in range(2,n):
+#         for x in range(2):
+#             if x == 0:
+#                 sticker[x][y] = max(sticker[x+1][y-1],sticker[x+1][y-2]) + sticker[x][y]
+#             elif x == 1:
+#                 sticker[x][y] = max(sticker[x-1][y-1],sticker[x-1][y-2]) + sticker[x][y]
+#     print(max(sticker[0][n-1],sticker[1][n-1]))
