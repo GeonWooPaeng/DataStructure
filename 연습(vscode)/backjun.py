@@ -4193,3 +4193,20 @@
 #             elif x == 1:
 #                 sticker[x][y] = max(sticker[x-1][y-1],sticker[x-1][y-2]) + sticker[x][y]
 #     print(max(sticker[0][n-1],sticker[1][n-1]))
+
+1699. 
+import sys 
+input = sys.stdin.readline
+def cal(x):
+    for i in range(1,x+1):
+        dp[i] = i 
+        for j in range(1,i):
+            if i < (j*j):
+                break 
+            dp[i] = min(dp[i],dp[i-j*j]+1)
+    return dp[x]
+
+        
+n = int(input())
+dp = [0 for _ in range(n+1)]
+print(cal(n))
