@@ -4209,3 +4209,8 @@
 # n = int(input())
 # dp = [0 for _ in range(n+1)]
 # print(cal(n))
+
+7576.
+m,n = map(int,input().split()) #가로, 세로
+
+board = [list(map(int,input().split())) for _ in range(n)]
