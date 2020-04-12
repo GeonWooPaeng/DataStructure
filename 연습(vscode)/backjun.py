@@ -4214,3 +4214,6 @@
 m,n = map(int,input().split()) #가로, 세로
 
 board = [list(map(int,input().split())) for _ in range(n)]
+
+
+
