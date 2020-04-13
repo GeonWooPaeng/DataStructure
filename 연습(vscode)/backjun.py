@@ -4210,10 +4210,49 @@
 # dp = [0 for _ in range(n+1)]
 # print(cal(n))
 
-7576.
-m,n = map(int,input().split()) #가로, 세로
+# 11723.
+# from collections import deque
+# import sys 
+# input = sys.stdin.readline 
 
-board = [list(map(int,input().split())) for _ in range(n)]
+# def cal(x,y):
+#     global s
+#     if x == 'empty':
+#         s.clear()
+#     elif x == 'all':
+#         s = deque(str(i) for i in range(1,21))
+#     elif x == 'add':
+#         if y not in s:
+#             s.append(y)
+#     elif x == 'remove':
+#         if y in s:
+#             s.remove(y)
+#     elif x == 'check':
+#         if y in s:
+#             print(1)
+#         else:
+#             print(0)
+#     elif x == 'toggle':
+#         if y in s:
+#             s.remove(y)
+#         else:
+#             s.append(y)
+
+# m = int(input()) #연산의 수 
+# s = deque()
+
+# for _ in range(m):
+#     w = input().split()
+#     if w[0] == 'all' or w[0] == 'empty':
+#         cal(w[0],0)
+#     else:
+#         cal(w[0],w[1])
+
+
+# 7576.
+# m,n = map(int,input().split()) #가로, 세로
+
+# board = [list(map(int,input().split())) for _ in range(n)]
 
 
 
