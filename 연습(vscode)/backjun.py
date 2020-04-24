@@ -4288,40 +4288,30 @@
 
 # print(bfs(M, N, box))
 
+# 10953.
+# t = int(input())
+# for _ in range(t):
+#     a,b = map(int,input().split(','))
+#     print(a+b)
 
 
-1389. #플로이드-워셜 알고리즘 공부하기
-from collections import defaultdict
-from collections import deque 
+# 11021.
+# t = int(input())
+
+# for i in range(t):
+#     a,b = map(int,input().split())
+#     print("Case #%d:"%(i+1),a+b)
+
+# 11022.
+# for i in range(int(input())):
+#     a,b = map(int,input().split())
+#     print("Case #%d: %d + %d = %d" %((i+1),a,b,(a+b)))
+
+# 2442.
+# n = int(input()) 
+
+# for i in range(1,n+1):
+#     print(' '*(n-i)+ '*'*(2*i-1))
 
 
-def dfs(x,y):
-    cnt = 0
-    f = deque()
-    f.append(friend[x])
-    while f:
-        cnt += 1
-        for _ in range(len(f)):
-            fri = f.popleft()
-            if y in fri:
-                return (cnt, y) 
-            for i in fri:
-                f.append(friend[i])
-        
-
-n,m = map(int,input().split()) #유저수, 친구관계수 
-friend = defaultdict(list)
-value = []
-
-for _ in range(m):
-    a,b = map(int,input().split())
-    friend[a].append(b)
-    friend[b].append(a)
-
-for i in range(1, n):
-    for j in range(i+1,n+1):
-        value.append(dfs(i,j)) 
-
-value.sort(key=lambda x: (x[0],x[1]))
-
-print(value[0][1])
+    
