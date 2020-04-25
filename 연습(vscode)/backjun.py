@@ -4338,3 +4338,23 @@
 # for j in range(n-1,0,-1):
 #     print(' '*(j-1)+'*'*(2*(n-j)+1))
 
+# 10992.
+# n = int(input())
+
+# for i in range(1,n):
+#     if i == 1:
+#         print(' '*(n-1)+'*')
+#     else:
+#         print(' '*(n-i),'*',' '*(2*i-3),'*',sep='')
+# print('*'*(2*n-1))
+
+
+# 10991. 
+n = int(input())
+
+for i in range(1,n+1):
+    print(' '*(n-i),end='')
+    for j in range(1,i+1):
+        print('*'*(1),end=' ')
+    print()
+
