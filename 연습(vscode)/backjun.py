@@ -4322,6 +4322,7 @@
 # for j in range(n-1,0,-1):
 #     print('*'*j+' '*(2*(n-j))+'*'*j)
 
+
 # 2522.
 # n = int(input())
 
@@ -4331,12 +4332,14 @@
 # for j in range(n-1,0,-1):
 #     print(' '*(n-j)+'*'*j)
 
+
 # 2446.
 # n = int(input())
 # for i in range(1,n+1):
 #     print(' '*(i-1)+'*'*(2*(n-i)+1))
 # for j in range(n-1,0,-1):
 #     print(' '*(j-1)+'*'*(2*(n-j)+1))
+
 
 # 10992.
 # n = int(input())
@@ -4357,9 +4360,6 @@
 #     for j in range(1,i+1):
 #         print('*'*(1),end=' ')
 #     print()
-
-
-
 
 
 
