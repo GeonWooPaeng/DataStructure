@@ -4363,8 +4363,29 @@
 
 
 
+10844.
+#해당 자리수는 전 자리수에서 (+,-)1한 값이기 때문입니다.
+#dp[n(자리수)][m(값)] = dp[n-1][m+1] - 0인경우
+#dp[n(자리수)][m(값)] = dp[n-1][m-1] + dp[n-1][m+1] - 1~8인경우
+#dp[n(자리수)][m(값)] = dp[n-1][m-1] - 9인경우
 
 
+n = int(input())
+dp = [[0 for _ in range(10)]for _ in range(101)]
+
+for 
+def cal(x):
+    for i in range(1,x+1):
+        for j in range(10):
+            if (j == 0):
+                dp[i][j] = dp[i-1][j+1]
+            elif (j == 9):
+                dp[i][j] = dp[i-1][j-1]
+            else:
+                dp[i][j] = dp[i-1][j-1] + dp[i-1][j+1]
+    return dp[x]
+
+print(cal(n))
 
 
 
