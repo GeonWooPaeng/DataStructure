@@ -4361,6 +4361,11 @@
 #         print('*'*(1),end=' ')
 #     print()
 
+# 11004.
+# a,k = map(int,input().split())
+# num = list(map(int,input().split()))
+# num.sort()
+# print(num[k-1])
 
 
 10844.
@@ -4368,7 +4373,6 @@
 #dp[n(자리수)][m(값)] = dp[n-1][m+1] - 0인경우
 #dp[n(자리수)][m(값)] = dp[n-1][m-1] + dp[n-1][m+1] - 1~8인경우
 #dp[n(자리수)][m(값)] = dp[n-1][m-1] - 9인경우
-
 
 n = int(input())
 dp = [[0 for _ in range(10)]for _ in range(101)]
