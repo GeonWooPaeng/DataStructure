@@ -4368,41 +4368,70 @@
 # print(num[k-1])
 
 
-10844.
+# 10844.
 #해당 자리수는 전 자리수에서 (+,-)1한 값이기 때문입니다.
 #dp[n(자리수)][m(값)] = dp[n-1][m+1] - 0인경우
 #dp[n(자리수)][m(값)] = dp[n-1][m-1] + dp[n-1][m+1] - 1~8인경우
 #dp[n(자리수)][m(값)] = dp[n-1][m-1] - 9인경우
 
-n = int(input())
-dp = [[0 for _ in range(10)]for _ in range(101)]
-dp[1][0] = 0
-for i in range(1,10):
-    dp[1][i] = 1
-def cal(x):
-    for i in range(2,x+1):
-        for j in range(10):
-            if (j == 0):
-                dp[i][j] = dp[i-1][j+1]
-            elif (j == 9):
-                dp[i][j] = dp[i-1][j-1]
-            else:
-                dp[i][j] = dp[i-1][j-1] + dp[i-1][j+1]
-    return sum(dp[x])
+# n = int(input())
+# dp = [[0 for _ in range(10)]for _ in range(101)]
+# dp[1][0] = 0
+# for i in range(1,10):
+#     dp[1][i] = 1
+# def cal(x):
+#     for i in range(2,x+1):
+#         for j in range(10):
+#             if (j == 0):
+#                 dp[i][j] = dp[i-1][j+1]
+#             elif (j == 9):
+#                 dp[i][j] = dp[i-1][j-1]
+#             else:
+#                 dp[i][j] = dp[i-1][j-1] + dp[i-1][j+1]
+#     return sum(dp[x])
 
-print(cal(n)%1000000000)
-
-
+# print(cal(n)%1000000000)
 
 
+# 11057.
+#해당 자리수는 전 자리수보다 같거나 크면 됩니다.
+#dp[n(자리수)][m(값)] = sum(dp[n-1]) - 0인경우
+#dp[n(자리수)][m(값)] = dp[n][m-1] - dp[n-1][m-1] - 1~9인경우
+#출력은 dp[n][0] 입니다.
+
+# 1.
+# n = int(input())
+# dp = [[0 for _ in range(10)] for _ in range(n+1)]
+# for i in range(10):
+#     dp[1][i] = (10-i)
+
+# def cal(x):
+#     for i in range(2,x+1):
+#         for j in range(10):
+#             if (j == 0):
+#                 dp[i][j] = sum(dp[i-1])
+#             else:
+#                 dp[i][j] = dp[i][j-1] - dp[i-1][j-1]
+#     return dp[x][0]
+
+# print(cal(n) % 10007)
+# 2.
+# n = int(input())
+# dp = [[0]*10 for _ in range(1001)]
+# for i in range(10):
+#     dp[1][i] = 1 
+# for i in range(2,1001):
+#     for j in range(10):
+#         for k in range(j+1):
+#             dp[i][j] += dp[i-1][k]
+# print(sum(dp[n])%10007)
 
 
 
 
 
 
-
-
+  
 
 
 
