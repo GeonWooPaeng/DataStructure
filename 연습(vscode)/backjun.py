@@ -4427,7 +4427,46 @@
 # print(sum(dp[n])%10007)
 
 
+# Program 에서 page를 만들어서 Copy_control_program로 page를 보내서 검사하여 Printer에서 복사하는 과정입니다.
 
+class Printer(object):
+    def __init__(self,check_page):
+        self.check_page = check_page
+    #Receiver
+    def print_copy(self):
+        print("{} 프린터 하였습니다.".format(self.check_page))
+
+
+class Copy_control_program(Printer): 
+    # Invoker 
+    def __init__(self, p_page): #page: 프린터 할 page
+        self._p_page = p_page
+
+    def Select_printer(self): #여러 프린터중 1개를 선택하는 과정
+        print("프린터를 선택했습니다.")
+
+    def Execute(self): #page가 1개인지 check하는 과정
+        if (self._p_page == 1):
+            self.Select_printer()
+            Printer(self._p_page).print_copy()
+        else:
+            print("여러 page가 들어갔습니다.")
+    
+
+class Program(object):
+    #Client 
+    def __init__(self,page_cmd):
+        self.page_cmd = page_cmd
+        program = Copy_control_program(self.page_cmd)
+        program.Execute()
+        
+
+if __name__ == "__main__":
+    print("<여러개 들어갔을 때>")
+    program_page = Program(2)
+    print("<1개 들어갔을 때>")
+    program_page2 = Program(1)
+    
 
 
 
