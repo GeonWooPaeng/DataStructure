@@ -4490,3 +4490,16 @@
 #         dp[i] = max(dp[i-1], dp[i-2]+w[i], dp[i-3]+w[i-1]+w[i])
 # print(dp[n])
 
+
+# 11722
+# n = int(input())
+# arr = list(map(int,input().split()))
+# dp=[1]*n
+
+# for i in range(1,n):
+#     for j in range(i):
+#         if arr[i] < arr[j]:
+#             dp[i] = max(dp[i],dp[j]+1)
+
+# print(max(dp))
+    
