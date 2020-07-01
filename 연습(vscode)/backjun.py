@@ -4474,6 +4474,19 @@
 # print(dp[n])
 
 
+# 2156.
+# n = int(input())
+# w = [0]
+# for i in range(n):
+#     w.append(int(input()))
 
+# dp = list(0 for i in range(n+1))
+# dp[1] = w[1]
 
+# for i in range(2,n+1):
+#     if i == 2:
+#         dp[i] = w[1] + w[2]
+#     else:
+#         dp[i] = max(dp[i-1], dp[i-2]+w[i], dp[i-3]+w[i-1]+w[i])
+# print(dp[n])
 
