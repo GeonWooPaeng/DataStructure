@@ -4503,3 +4503,63 @@
 
 # print(max(dp))
     
+
+# 1912
+# import copy 
+# n = int(input())
+# arr = list(map(int,input().split()))
+
+# dp = copy.deepcopy(arr) 
+
+# for i in range(1, n):
+#     dp[i] = max(arr[i-1]+arr[i], dp[i-1]+arr[i], arr[i])
+
+# print(max(dp))
+
+# 2133
+# n = int(input())
+# dp = [0] * (31)
+# dp[2] = 3 
+
+# for i in range(4, 31, 2):
+#     dp[i] = 3*dp[i-2]
+#     for j in range(4,i,2):
+#         dp[i] += dp[i-j]*2
+#     dp[i]+=2 
+# print(dp[n])
+
+# 11651
+# n = int(input())
+# location = list()
+
+# for i in range(n):
+#     x,y = map(int,input().split())
+#     location.append((x,y))
+
+# s_location = sorted(location , key= lambda x: (x[1],x[0]))
+
+# for i in s_location:
+#     print(i[0], i[1])
+
+# 9461
+# dp = list(0 for i in range(1000001))
+# dp[1] = 1
+# dp[2] = 1
+
+# for i in range(int(input())):
+#     n = int(input())
+#     for j in range(3, n+1):
+#         dp[j] = dp[j-2] + dp[j-3]
+
+#     print(dp[n])
+
+# 10825
+# dp = list()
+# for i in range(int(input())):
+#     name, korea, english, math = list(input().split())
+#     dp.append((name,int(korea),int(english),int(math)))
+
+# s_dp = sorted(dp, key = lambda x: (-x[1], x[2], -x[3], x[0]))
+
+# for i in s_dp:
+#     print(i[0])
