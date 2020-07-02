@@ -4563,17 +4563,65 @@
 # for i in s_dp:
 #     print(i[0])
 
-1158
-n , k = map(int,input().split())
-arr = list(i for i in range(1,n+1))
-result = []
+# 1158
+# n , k = map(int,input().split())
+# arr = list(i for i in range(1,n+1))
+# result = []
 
-i = k-1
-while True:
-    result.append(arr.pop(i))
-    if not arr:
-        break
-    i = (i+k-1) % len(arr)
+# i = k-1
+# while True:
+#     result.append(arr.pop(i))
+#     if not arr:
+#         break
+#     i = (i+k-1) % len(arr)
 
-print('<'+', '.join(map(str,result))+'>')
+# print('<'+', '.join(map(str,result))+'>')
     
+
+# 1168
+# n,k = map(int,input().split())
+# arr = list(i for i in range(1, n+1))
+# result = []
+# i = k-1
+
+# while True:
+#     result.append(arr.pop(i))
+#     if not arr:
+#         break 
+#     i = (i+k-1)%len(arr)
+
+# print('<' + ', '.join(map(str, result))+ '>')
+
+
+# 1934
+# def gcd(x,y):
+#     for i in range(min(x,y),0,-1):
+#         if x % i == 0 and y % i == 0:
+#             return i
+
+# def lcm(x,y):
+#     return x//gcd(x,y)*y
+
+# for i in range(int(input())):
+#     a,b = map(int,input().split())
+#     print(lcm(a,b))
+    
+# 1373
+# b = int(input(),2)
+# print(oct(b)[2:])
+
+
+# 2745
+# a = int(input(),8)
+# print(bin(a)[2:])
+
+11653
+n = int(input())
+i = 2 
+while n!= 1:
+    if n % i == 0:
+        n/=i 
+        print(i)
+    else:
+        i+=1
+
