@@ -4550,7 +4550,6 @@
 #     n = int(input())
 #     for j in range(3, n+1):
 #         dp[j] = dp[j-2] + dp[j-3]
-
 #     print(dp[n])
 
 # 10825
@@ -4563,3 +4562,18 @@
 
 # for i in s_dp:
 #     print(i[0])
+
+1158
+n , k = map(int,input().split())
+arr = list(i for i in range(1,n+1))
+result = []
+
+i = k-1
+while True:
+    result.append(arr.pop(i))
+    if not arr:
+        break
+    i = (i+k-1) % len(arr)
+
+print('<'+', '.join(map(str,result))+'>')
+    
