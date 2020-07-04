@@ -4654,3 +4654,34 @@
 # 			count+=1 
 # 	print(count)
 
+
+# 2331
+# A, p = map(int,input().split())
+# idx = 0
+# array = []
+# array.append(A)
+# num = A
+
+# while True:
+# 	next_num = 0
+
+# 	for i in list(str(num)):
+# 		next_num += int(i)**p
+
+# 	if next_num not in array:
+# 		array.append(next_num) 
+# 		num = next_num 
+# 	else:
+# 		idx = array.index(next_num)
+# 		print(idx)
+# 		break
+
+# 10808
+# alpha_array = [0 for i in range(26)]
+# alpha = list(input())
+
+# for i in alpha:
+# 	alpha_idx = ord(i)-97 
+# 	alpha_array[alpha_idx]+=1
+
+# print(' '.join(map(str,alpha_array)))
