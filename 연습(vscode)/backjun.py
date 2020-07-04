@@ -4631,4 +4631,26 @@
 # print(len(n))
 
 
-11655
+# 10451
+# import sys 
+# sys.setrecursionlimit(10000)
+
+# def dfs(x):
+# 	visit_bool[x] = True 
+# 	next_visit = cycle_array[x]
+# 	if visit_bool[next_visit] == False:
+# 		dfs(next_visit)
+
+
+# for i in range(int(input())):
+# 	count = 0
+# 	cycle_num = int(input())
+# 	cycle_array = [0] + list(map(int,input().split()))
+# 	visit_bool = [True]+ [False]*cycle_num
+	
+# 	for i in range(1, cycle_num+1):
+# 		if visit_bool[i] == False:
+# 			dfs(i)
+# 			count+=1 
+# 	print(count)
+
