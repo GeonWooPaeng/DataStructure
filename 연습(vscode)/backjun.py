@@ -4702,17 +4702,50 @@
 # 		break
 # print(team_num)	
 
-11052
+# 11052
+# n = int(input())
+# price = [0]+ list(map(int,input().split()))
+# dp = [0] *(n+1)
+# dp[1] = price[1]
+# for i in range(2,n+1):
+#     for j in range(1,i+1):
+#         dp[i] = max(dp[i], dp[i-j]+price[j])
 
-n = int(input())
-price = [0]+ list(map(int,input().split()))
-dp = [0] *(n+1)
-dp[1] = price[1]
-for i in range(2,n+1):
-    for j in range(1,i+1):
-        dp[i] = max(dp[i], dp[i-j]+price[j])
-
-print(dp[n])
+# print(dp[n])
 
 
-			
+# 2667
+
+# n = int(input())
+# house_map = [list(map(int,input())) for _ in range(n)]
+# check_visit = [[False]*n for _ in range(n)]
+# dx,dy = [-1,0,1,0], [0,-1,0,1] 
+# nums = []
+# num = 0
+# count = 0
+
+# def dfs(a,b):
+#     global num 
+#     check_visit[a][b] = True 
+#     num+=1
+#     for i in range(4):
+#         aa, bb = a+dx[i], b+dy[i]
+        
+#         if aa > n-1 or aa < 0 or bb < 0 or bb > n-1:
+#             continue 
+            
+#         if house_map[a][b] == house_map[aa][bb] and check_visit[aa][bb] == False:
+#             dfs(aa,bb)
+#     return num 
+
+# for y in range(n):
+#     for x in range(n):
+#         if house_map[x][y] != 0 and check_visit[x][y] == False:
+#             nums.append(dfs(x,y))
+#             num = 0
+#             count+= 1
+
+# nums.sort()
+# print(count)
+# for i in nums:
+#     print(i)
