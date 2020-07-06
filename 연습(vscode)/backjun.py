@@ -4749,3 +4749,105 @@
 # print(count)
 # for i in nums:
 #     print(i)
+
+# 10820
+
+# import sys 
+# input = sys.stdin.readline
+# while True:
+#     line = input().strip('\n')
+#     lo, up, di, sp = 0,0,0,0 
+
+#     if not line:
+#         break 
+    
+#     for i in line:
+#         if i.islower():
+#             lo+=1
+#         elif i.isupper():
+#             up+=1
+#         elif i.isdigit():
+#             di+=1
+#         elif i.isspace():
+#             sp+=1
+    
+#     print("{} {} {} {}".format(lo,up,di,sp))
+
+
+# 10824
+# a,b,c,d = input().split()
+# ab = a+b 
+# cd = c+d 
+# print(int(ab)+int(cd))
+
+
+# 2004
+# n, m = map(int,input().split())
+
+# def cal(x, k):
+#     count = 0
+#     while x!=0:
+#         x=x//k
+#         count+=x 
+#     return count 
+
+# two_cal = cal(n,2) - cal(n-m,2) - cal(m,2)
+# five_cal = cal(n,5) - cal(n-m,5) - cal(m,5)
+# print(min(two_cal,five_cal))
+
+# 2225
+# n, k = map(int,input().split())
+
+# dp = [[1]*201 for _ in range(201)]
+
+# for n_x in range(1,201):
+#     for k_y in range(2,201):
+#         dp[n_x][k_y] = dp[n_x-1][k_y] + dp[n_x][k_y-1]
+# print(dp[n][k]%1000000000)
+
+# 4963
+# dx,dy = [1,-1,0,0,1,-1,1,-1], [0,0,-1,1,-1,-1,1,1]
+
+# def bfs(a,b):
+#     island[a][b] = 0
+#     queue = [[a,b]]
+#     while queue:
+#         x,y = queue.pop(0)
+        
+#         for i in range(8):
+#             xx,yy = x+dx[i], y+dy[i]
+
+#             if xx < 0 or xx > h-1 or yy < 0 or yy > w-1:
+#                 continue 
+
+#             if island[xx][yy] == 1:
+#                 island[xx][yy] = 0
+#                 queue.append([xx,yy])
+
+# while True:
+#     w, h = map(int,input().split())
+#     island = [list(map(int,input().split())) for _ in range(h)]
+#     count = 0
+
+#     if w == 0 and h == 0:
+#         break 
+
+#     for i in range(h):
+#         for j in range(w):
+#             if island[i][j] == 1:
+#                 bfs(i,j)
+#                 count+=1
+#     print(count)
+
+
+# 11652
+# card_num = {}
+# for _ in range(int(input())):
+#     card = int(input())
+#     if card not in card_num:
+#         card_num[card] = 0
+#     else:
+#         card_num[card]+=1
+
+# card_num = sorted(card_num.items(), key= lambda x:(-x[1],x[0]))
+# print(card_num[0][0])
