@@ -4851,3 +4851,45 @@
 
 # card_num = sorted(card_num.items(), key= lambda x:(-x[1],x[0]))
 # print(card_num[0][0])
+
+
+# 9613
+# def gcd(x,y):
+#     for i in range(min(x,y),0,-1):
+#         if x % i == 0 and y % i == 0:
+#             return i
+
+# for _ in range(int(input())):
+#     nums = list(map(int,input().split()))
+#     gcd_sum = 0
+
+#     for i in range(1,len(nums)-1):
+#         for j in range(i+1,len(nums)):
+#             gcd_sum+=gcd(nums[i], nums[j])
+#     print(gcd_sum)
+
+
+2011
+#첫자리 dp[i]+= dp[i-1] 1 ~ 9
+#두자리 dp[i]+= dp[i-2] 10 ~ 26
+
+num = input()
+nums =[int(i) for i in list(num)]
+dp = [0]*(len(nums)+1)
+
+dp[0] = 1
+
+for i in range(1, len(nums)+1):  
+    if 0 < nums[i-1] < 10:
+        dp[i]+= dp[i-1]
+    
+    if i == 1:
+        continue 
+
+    tmp = (nums[i-2]*10 + nums[i-1])
+
+    if 9 < tmp < 27 :
+        dp[i]+= dp[i-2]
+
+print(dp[-1]%1000000)
+
