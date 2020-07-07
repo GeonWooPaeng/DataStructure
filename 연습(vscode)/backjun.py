@@ -4869,27 +4869,107 @@
 #     print(gcd_sum)
 
 
-2011
-#첫자리 dp[i]+= dp[i-1] 1 ~ 9
-#두자리 dp[i]+= dp[i-2] 10 ~ 26
+# 2011
+# #첫자리 dp[i]+= dp[i-1] 1 ~ 9
+# #두자리 dp[i]+= dp[i-2] 10 ~ 26
 
-num = input()
-nums =[int(i) for i in list(num)]
-dp = [0]*(len(nums)+1)
+# num = input()
+# nums =[int(i) for i in list(num)]
+# dp = [0]*(len(nums)+1)
 
-dp[0] = 1
+# dp[0] = 1
 
-for i in range(1, len(nums)+1):  
-    if 0 < nums[i-1] < 10:
-        dp[i]+= dp[i-1]
+# for i in range(1, len(nums)+1):  
+#     if 0 < nums[i-1] < 10:
+#         dp[i]+= dp[i-1]
     
-    if i == 1:
-        continue 
+#     if i == 1:
+#         continue 
 
-    tmp = (nums[i-2]*10 + nums[i-1])
+#     tmp = (nums[i-2]*10 + nums[i-1])
 
-    if 9 < tmp < 27 :
-        dp[i]+= dp[i-2]
+#     if 9 < tmp < 27 :
+#         dp[i]+= dp[i-2]
 
-print(dp[-1]%1000000)
+# print(dp[-1]%1000000)
 
+# 2178
+# #bfs 사용 
+# dx,dy = [-1,0,1,0], [0,1,0,-1]
+
+# def bfs(x,y):
+#     arr[0][0] = 0
+#     queue = [(0,0)]
+#     dist[0][0] = 1
+
+#     while queue:
+#         px, py = queue.pop(0)
+        
+#         if px == (x-1) and py == (y-1):
+#             break 
+
+#         for i in range(4):
+#             xx,yy = px+dx[i], py+dy[i]
+            
+#             if xx < 0 or xx > x-1 or yy < 0 or yy > y-1:
+#                 continue 
+            
+#             if arr[xx][yy] == 1:
+#                 arr[xx][yy] = 0
+#                 dist[xx][yy] = dist[px][py] + 1
+#                 queue.append((xx,yy))
+
+# n, m = map(int,input().split()) 
+# arr = [list(map(int,input())) for _ in range(n)]
+# dist = [[0]*m for _ in range(n)]
+# bfs(n,m)
+# print(dist[n-1][m-1])
+
+
+# 1406
+# import sys 
+# input = sys.stdin.readline
+
+# left_string = list(input()[:-1])
+# right_string = []
+
+# for _ in range(int(input())):
+#     command = input().split()
+#     if command[0] == 'L':
+#         if left_string:
+#             right_string.append(left_string.pop())
+#         else:
+#             continue 
+#     elif command[0] == 'D':
+#         if right_string:
+#             left_string.append(right_string.pop())
+#         else:
+#             continue
+
+#     elif command[0] == 'B':
+#         if left_string:
+#             left_string.pop()
+#         else:
+#             continue 
+
+#     elif command[0] == 'P':
+#         left_string.append(command[1])
+
+# print(''.join(left_string + right_string[::-1]))
+
+# 1541
+# expression = input().split('-')
+# nums = []
+
+# for i in expression:
+#     plus_num = 0
+#     plus_split_num = i.split('+')
+#     for num in plus_split_num:
+#         plus_num += int(num) 
+
+#     nums.append(plus_num)
+
+# result = nums[0]
+# for k in range(1,len(nums)):
+#     result-=nums[k]
+# print(result)
