@@ -4973,3 +4973,70 @@
 # for k in range(1,len(nums)):
 #     result-=nums[k]
 # print(result)
+
+
+11725
+#dfs, bfs 둘다 사용가능
+# 1.
+# import sys 
+# sys.setrecursionlimit(100000)
+# input = sys.stdin.readline 
+
+# def dfs(x):
+#     for i in graph[x]:
+#         if parent[i] == 0:
+#             parent[i] = x
+#             dfs(i)
+
+# node = int(input())
+# graph = [[] for _ in range(node+1)]
+# parent = [0 for _ in range(node+1)]
+
+# for _ in range(node-1):
+#     node1, node2 = map(int,input().split())
+#     graph[node1].append(node2)
+#     graph[node2].append(node1)
+
+# dfs(1)
+
+# for i in range(2,node+1):
+#     print(parent[i])
+
+
+# 10610
+#30으로 나눠줘야 하는 것이므로 
+#맨 뒤의 숫자가 0이여야 하며 총 수의 합이 3으로 나눠져야 한다.
+
+# n = list(input())
+
+# n.sort(reverse = True)
+# sum_num = 0
+# for i in n:
+#     sum_num+= int(i) 
+# if sum_num % 3 != 0 or '0' not in n:
+#     print(-1)
+# else:
+#     print(''.join(n))
+
+
+# 2089
+# 값을 -2로 나누었을 때 나머지가 1이면 이진수에 1
+# 값을 -2로 나누었을 때 나머지가 0이면 이진수에 0
+# n = // (-2) + 1 인 이유는 소수가 나오는 것을 방지 하기 위해서 입니다.
+
+# n = int(input())
+# binary = []
+
+# if n == 0:
+#     print(0)
+# else:
+#     while n:
+#         if n % (-2):
+#             binary = [1] + binary 
+#             n = n//(-2) + 1
+#         else:
+#             binary = [0] + binary 
+#             n = n//(-2)
+
+# for i in binary:
+#     print(i, end='')
