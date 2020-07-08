@@ -5040,3 +5040,66 @@
 
 # for i in binary:
 #     print(i, end='')
+
+# 11656
+# word = input() 
+# array = []
+# for i in range(len(word)):
+#     array.append(word[i:])
+# array.sort() 
+
+# for i in array:
+#     print(i)
+
+# 11655.
+# sentence = input()
+
+# rot13 = {'a':'n', 'b':'o', 'c':'p', 'd':'q', 'e':'r', 'f':'s', 
+# 'g':'t', 'h':'u', 'i':'v', 'j':'w', 'k':'x', 'l':'y', 'm':'z', 
+# 'n':'a', 'o':'b', 'p':'c', 'q':'d', 'r':'e', 's':'f', 't':'g', 
+# 'u':'h', 'v':'i', 'w':'j', 'x':'k', 'y':'l', 'z':'m', 'A':'N', 
+# 'B':'O', 'C':'P', 'D':'Q', 'E':'R', 'F':'S', 'G':'T', 'H':'U', 
+# 'I':'V', 'J':'W', 'K':'X', 'L':'Y', 'M':'Z', 'N':'A', 'O':'B', 
+# 'P':'C', 'Q':'D', 'R':'E', 'S':'F', 'T':'G', 'U':'H', 'V':'I', 
+# 'W':'J', 'X':'K', 'Y':'L', 'Z':'M', ' ':' ', '0':'0', '1':'1', 
+# '2':'2', '3':'3', '4':'4', '5':'5', '6':'6', '7':'7', '8':'8', 
+# '9':'9'}
+
+# for word in sentence:
+#     print(rot13[word], end='')
+
+
+
+1992
+n = int(input())
+tree = [list(map(int,input())) for _ in range(n)]
+array = []
+
+def quad_tree(x,a,b):
+    check = set()
+
+    if x < 1:
+        return 
+
+    for i in range(a,x+a):
+        for j in range(b,x+b):
+            check.add(tree[i][j])
+    
+    if len(check) != 1: 
+        #여기부분 헷갈림
+        array.append('(')
+        quad_tree(x//2,a,b)
+        quad_tree(x//2,a,b+x//2)
+        quad_tree(x//2,a+x//2,b)
+        quad_tree(x//2,a+x//2,b+x//2)
+        array.append(')')
+
+    else:
+        array.append(tree[a][b])
+
+
+quad_tree(n,0,0)
+for i in array:
+    print(i, end= '')
+
+
