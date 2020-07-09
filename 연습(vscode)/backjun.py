@@ -5070,36 +5070,116 @@
 
 
 
-1992
-n = int(input())
-tree = [list(map(int,input())) for _ in range(n)]
-array = []
+# 1992
+# n = int(input())
+# tree = [list(map(int,input())) for _ in range(n)]
+# array = []
 
-def quad_tree(x,a,b):
-    check = set()
+# def quad_tree(x,a,b):
+#     check = set()
 
-    if x < 1:
-        return 
+#     if x < 1:
+#         return 
 
-    for i in range(a,x+a):
-        for j in range(b,x+b):
-            check.add(tree[i][j])
+#     for i in range(a,x+a):
+#         for j in range(b,x+b):
+#             check.add(tree[i][j])
     
-    if len(check) != 1: 
-        #여기부분 헷갈림
-        array.append('(')
-        quad_tree(x//2,a,b)
-        quad_tree(x//2,a,b+x//2)
-        quad_tree(x//2,a+x//2,b)
-        quad_tree(x//2,a+x//2,b+x//2)
-        array.append(')')
+#     if len(check) != 1: 
+#         array.append('(')
+#         quad_tree(x//2,a,b)
+#         quad_tree(x//2,a,b+x//2)
+#         quad_tree(x//2,a+x//2,b)
+#         quad_tree(x//2,a+x//2,b+x//2)
+#         array.append(')')
 
-    else:
-        array.append(tree[a][b])
+#     else:
+#         array.append(tree[a][b])
+
+# quad_tree(n,0,0)
+# for i in array:
+#     print(i, end= '')
 
 
-quad_tree(n,0,0)
-for i in array:
-    print(i, end= '')
+# 1850
+# import sys 
+# input = sys.stdin.readline 
 
+# def gcd(x,y):
+#     while True:
+#         if x % y:
+#             temp = y 
+#             y = x % y
+#             x = temp 
+#         else:
+#             return y
+
+
+# a, b = map(int,input().split())
+
+# num = gcd(max(a,b),min(a,b))%10000000
+
+# for i in range(num):
+#     print(1,end='')
+
+
+# 11005
+# def convert(n,b):
+#     T = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+#     quotient = n // b  #몫
+#     remainder = n % b  #나머지
+#     if quotient == 0:
+#         return T[remainder]
+#     else:
+#         return convert(quotient, b) + T[remainder]
+
+
+# n, b = map(int,input().split())
+# print(convert(n,b))
+
+
+# 11576
+# def convert(n,b):
+#     T = []
+#     for i in range(b):
+#        T.append(i)
+#     T = list(map(str,T))
+#     q = n // b 
+#     r = n % b 
+
+#     if q == 0:
+#         return T[r] 
+#     else:
+#         return convert(q,b) + ' ' +  T[r]
+
+# a_base, b_base = map(int,input().split())
+# digits = int(input())
+# each_digits_num = list(map(int,input().split()))
+# each_digits_num.reverse()
+
+# base_10 = 0
+# for i in range(len(each_digits_num)):
+#     base_10 += ((a_base**i)*each_digits_num[i]) 
+
+# print(convert(base_10,b_base))
+
+
+# 10799
+# bracket = list(input())
+# iron_bar = 0
+# stack = []
+# length_bracket = len(bracket)
+
+# for i in range(length_bracket):
+#     if bracket[i] == '(':
+#         stack.append('(')
+    
+#     else:
+#         if bracket[i-1] == '(':
+#             stack.pop() 
+#             iron_bar += len(stack)
+#         else:
+#             stack.pop()
+#             iron_bar+=1 
+# print(iron_bar)
 
