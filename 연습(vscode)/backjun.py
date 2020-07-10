@@ -5183,3 +5183,110 @@
 #             iron_bar+=1 
 # print(iron_bar)
 
+# 6588
+# def primary_check(n):
+#     num = [True]*(n+1)
+
+#     for i in range(2,len(num)//2+1):
+#         if num[i] == True:
+#             for j in range(i+i, n, i):
+#                 num[j] = False
+#     return [[i for i in range(2,n) if num[i] == True], num]
+
+# num_primary = primary_check(1000000)[0]
+# bool_primary = primary_check(1000000)[1]
+
+# while True:
+#     n = int(input())
+
+#     if n == 0:
+#         break 
+
+#     for i in range(n//2):
+#         if bool_primary[n-num_primary[i]] == True:
+#             print("{} = {} + {}".format(n,num_primary[i],n-num_primary[i]))
+#             break
+
+
+# 11054
+# 홀수 짝수 이렇게 생각을 안해도 된다. 
+# 증가 부분이랑 감소부분을 따로 계산해서 더해준다.
+# 증가 부분: 각 자리 숫자 와 현재 자리 전 까지 값을 비교하여 증가하면 +1해준다(max값 선택)
+# 감소 부분: arr를 거꾸로 하여 각 증가 부분과 같게 해야 된다.
+# => 자신의 값을 과거의 값들을 돌아봐서 그 중 최대의 값으로 자신의 최대 길이를 정하는 문제 
+
+# n = int(input())
+# arr = list(map(int,input().split()))
+
+# increase = [1]*n
+# decrease = [1]*n 
+# plus_increase_decrease = [0]*n 
+
+# for i in range(n):
+#     for j in range(i):
+#         if arr[i] > arr[j]:
+#             increase[i] = max(increase[i], increase[j]+1)
+
+# arr.reverse() 
+
+# for i in range(n):
+#     for j in range(i):
+#         if arr[i] > arr[j]:
+#             decrease[i] = max(decrease[i],decrease[j]+1)
+
+# decrease.reverse()
+
+# for i in range(n):
+#     plus_increase_decrease[i] = increase[i] + decrease[i]
+
+# print(max(plus_increase_decrease)-1)
+
+
+# 11728
+# a_size, b_size = map(int,input().split())
+# a_arr = list(map(int,input().split()))
+# b_arr = list(map(int,input().split()))
+# total_arr = a_arr + b_arr
+# total_arr.sort() 
+# for i in total_arr:
+#     print(i, end=' ')
+
+
+# 10773
+# account_book = []
+# total = 0
+
+# for i in range(int(input())):
+#     num = int(input())
+#     if num != 0:
+#         account_book.append(num)
+#     else:
+#         account_book.pop(-1)
+
+# for i in account_book:
+#     total+=i
+# print(total)
+
+
+11729
+# 다시 보기
+# 첫 번째 규칙 1->2, 1->3, 2->3을 잘 생각해서 재귀 하면 된다.
+# 재귀할 때 해당 code 다 끝나면 돌아온다.
+def hanoi(n, from_, to_, by_):
+    if n == 1:
+        print(from_, by_)
+    else:
+        hanoi(n-1, from_, by_, to_)
+        print(from_, by_)
+        hanoi(n-1, to_, from_, by_)
+
+n = int(input())
+
+total = 2**n - 1 
+print(total)
+hanoi(n,1,2,3)
+
+
+
+
+
