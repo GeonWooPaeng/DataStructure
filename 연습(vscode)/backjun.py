@@ -5268,23 +5268,105 @@
 # print(total)
 
 
-11729
-# 다시 보기
-# 첫 번째 규칙 1->2, 1->3, 2->3을 잘 생각해서 재귀 하면 된다.
-# 재귀할 때 해당 code 다 끝나면 돌아온다.
-def hanoi(n, from_, to_, by_):
-    if n == 1:
-        print(from_, by_)
-    else:
-        hanoi(n-1, from_, by_, to_)
-        print(from_, by_)
-        hanoi(n-1, to_, from_, by_)
+# 11729
+# # 다시 보기
+# # 첫 번째 규칙 1->2, 1->3, 2->3을 잘 생각해서 재귀 하면 된다.
+# # 재귀할 때 해당 code 다 끝나면 돌아온다.
+# def hanoi(n, from_, to_, by_):
+#     if n == 1:
+#         print(from_, by_)
+#     else:
+#         hanoi(n-1, from_, by_, to_)
+#         print(from_, by_)
+#         hanoi(n-1, to_, from_, by_)
 
-n = int(input())
+# n = int(input())
 
-total = 2**n - 1 
-print(total)
-hanoi(n,1,2,3)
+# total = 2**n - 1 
+# print(total)
+# hanoi(n,1,2,3)
+
+# 1783
+# # 위의 4 조건 모두 만족하지 않으면 이동이 불가능
+# # 그러나 이동횟수가 4번보다 적은 경우에는 이동방법에 제약이 없다(4가 최대)
+# n, m = map(int,input().split())
+
+# if n == 1 or m == 1:
+#     print(1)
+# elif n == 2:
+#     print(min(4, (m+1)//2)) 
+#     #(m-1) 2,3 방법만 사용가능
+# else:
+#     if m < 7: 
+#         print(min(4,m))
+#         # 1,4만 사용가능
+#     else:
+#         print(m-2)
+
+
+# 10815
+# sang_n = int(input())
+# sang_card = list(map(int,input().split()))
+# check_n = int(input())
+# check_card = list(map(int,input().split()))
+
+# sang_cards = dict() 
+
+# for i in sang_card:
+#     sang_cards[i] = 1
+
+# for i in check_card:
+#     if i not in sang_cards:
+#         print(0, end= ' ')
+#     else:
+#         print(1, end = ' ')
+
+
+# 2805
+# # 높이의 최대값 구하기 
+# tree_num, need_tree_length = map(int,input().split())
+# tree = list(map(int,input().split()))
+# start, end = 0, max(tree)
+
+# while start <= end:
+#     mid = (start+end) // 2 
+#     length = 0
+
+#     for i in tree:
+#         if i > mid:
+#             length += (i-mid)
+    
+#     if length >= need_tree_length:
+#         start = mid + 1
+#     else:
+#         end = mid - 1
+# print(end)
+
+
+# 1654
+# import sys 
+# input = sys.stdin.readline
+# k, n = map(int,input().split())
+# line = [int(input()) for _ in range(k)]
+# start, end = 1, max(line)
+
+# while start <= end:
+#     mid = (start+end) // 2 
+#     num = 0 
+
+#     for i in line:
+#         num += (i // mid)
+
+#     if num >= n:
+#         start = mid + 1
+#     else:
+#         end = mid - 1 
+
+# print(end)
+
+11662
+
+
 
 
 
