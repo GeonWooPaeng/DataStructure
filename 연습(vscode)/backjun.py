@@ -5382,31 +5382,75 @@
 # print(n_fac//(m_fac*minus_fac))
 
 
-15649
-# backtracking
+# 15649
+# backtracking(전체 다 검사하는데 조건 안맞으면 가지친다)
 # 트리 구조 기반으로 DFS탐색을 진행하며 각 루트가 조건에 
 # 맞는지 check -> 조건에 맞지 않으면 DFS탐색 안하고 가지친다(pruning)
-n,m = map(int,input().split())
-check = [0 for _ in range(n+1)]
-result = [0 for _ in range(m)]
 
-def dfs(index, n ,m):
-    if index == m:
-    # 배치가 된 상태
-        for i in range(m):
-            print(result[i], end=' ')
-        print() 
-        return 
+# n,m = map(int,input().split())
+# check = [0 for _ in range(n+1)]
+# result = [0 for _ in range(m)]
+
+# def dfs(index, n ,m):
+#     if index == m:
+#     # 배치가 된 상태
+#         for i in range(m):
+#             print(result[i], end=' ')
+#         print() 
+#         return 
     
+#     for i in range(1,n+1):
+#     # n개 값을 앞에서 부터 인자를 check한다
+#         if check[i] == 1:
+#             continue 
+#         result[index] = i 
+#         check[i] = 1 
+#         dfs(index+1,n,m)
+#         check[i] = 0 
+
+# dfs(0,n,m)
+
+
+
+# 15650
+
+# n,m = map(int,input().split())
+
+# check = [0 for _ in range(n+1)]
+# num = [0 for _ in range(m)]
+
+# def dfs(index, n, m):
+#     if index == m:
+#         for i in range(m):
+#             print(num[i], end=' ')
+#         print()
+#         return 
+
+#     for i in range(1,n+1):
+#         if check[i] == 0:
+#             check[i] = 1 
+#             num[index] = i
+#             dfs(index+1,n,m)
+#             for j in range(i+1,n+1):
+#                 check[j] = 0
+
+# dfs(0,n,m)
+
+
+15651
+
+n,m = map(int,input().split())
+num = [0 for _ in range(m)]
+
+def dfs(index, n, m):
+    if index == m:
+        for i in range(m):
+            print(num[i], end = ' ')
+        print()
+        return 
+
     for i in range(1,n+1):
-    # n개 값을 앞에서 부터 인자를 check한다
-        if check[i] == 1:
-            continue 
-        result[index] = i 
-        check[i] = 1 
+        num[index] = i 
         dfs(index+1,n,m)
-        check[i] = 0 
 
 dfs(0,n,m)
-
-n, m = map(int,input().split()) 
