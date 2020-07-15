@@ -5437,20 +5437,197 @@
 # dfs(0,n,m)
 
 
-15651
+# 15651
 
-n,m = map(int,input().split())
+# n,m = map(int,input().split())
+# num = [0 for _ in range(m)]
+
+# def dfs(index, n, m):
+#     if index == m:
+#         for i in range(m):
+#             print(num[i], end = ' ')
+#         print()
+#         return 
+
+#     for i in range(1,n+1):
+#         num[index] = i 
+#         dfs(index+1,n,m)
+
+# dfs(0,n,m)
+
+
+# 15652
+# import sys 
+# sys.setrecursionlimit(10000)
+# n,m = map(int,input().split())
+
+# num = [0 for _ in range(m)]
+
+
+# def dfs(index,n,m,idx):
+#     if index == m:
+#         for i in range(m):
+#             print(num[i],end = ' ')
+#         print() 
+#         return 
+
+#     for j in range(idx,n+1):
+#         num[index] = j
+#         dfs(index+1,n,m,j)
+        
+# dfs(0,n,m,1)
+
+
+# 15654
+# n, m = map(int,input().split())
+# use_nums = list(map(int,input().split()))
+# check = [0 for _ in range(n)]
+# num = [0 for _ in range(m)]
+
+# use_nums.sort() 
+
+# def dfs(index,n,m):
+#     if index == m:
+#         for i in range(m):
+#             print(num[i], end=' ')
+#         print() 
+#         return 
+
+#     for j in range(n):
+#         if check[j] == 0:
+#             check[j] = 1 
+#             num[index] = use_nums[j]
+#             dfs(index+1,n,m)
+#             check[j] = 0
+
+# dfs(0,n,m)
+
+
+# 15655
+# n, m = map(int,input().split())
+# use_nums = list(map(int,input().split()))
+# check = [0 for _ in range(n+1)]
+# num = [0 for _ in range(m)]
+
+# use_nums.sort() 
+
+# def dfs(index,n,m):
+#     if index == m:
+#         for i in range(m):
+#             print(num[i],end=' ')
+#         print()
+#         return 
+
+#     for j in range(n):
+#         if check[j] == 0:
+#             check[j] = 1
+#             num[index] = use_nums[j]
+#             dfs(index+1,n,m)
+#             for k in range(j+1,n):
+#                 check[k] = 0
+
+# dfs(0,n,m)
+
+
+
+# 15656
+# n, m = map(int,input().split())
+# use_nums = list(map(int,input().split()))
+# num = [0 for _ in range(m)]
+
+# use_nums.sort()
+
+# def dfs(index,n,m):
+#     if index == m:
+#         for i in range(m):
+#             print(num[i], end = ' ')
+#         print() 
+#         return 
+
+#     for j in range(n):
+#         num[index] = use_nums[j]
+#         dfs(index+1,n,m)
+
+# dfs(0,n,m)
+
+
+# 15657
+# n, m = map(int,input().split())
+# use_nums = list(map(int,input().split()))
+# num = [0 for _ in range(m)]
+
+# use_nums.sort() 
+
+# def dfs(index,n,m,idx):
+#     if index == m:
+#         for i in range(m):
+#             print(num[i], end = ' ')
+#         print() 
+#         return 
+
+#     for j in range(idx,n):
+#         num[index] = use_nums[j]
+#         dfs(index+1,n,m,j)
+
+# dfs(0,n,m,0)
+
+# 15663
+# n, m = map(int,input().split())
+# use_nums = list(map(int,input().split()))
+# check = [0 for _ in range(len(use_nums))]
+# num = [0 for _ in range(m)]
+# result = []
+
+# use_nums.sort()
+
+
+# def dfs(index,n,m):
+#     nums = []
+#     if index == m:
+#         for i in range(m):
+#             nums.append(num[i])
+#             tmp = ' '.join(map(str,nums))
+#         if tmp not in result:
+#             result.append(tmp)
+#         return 
+    
+#     for j in range(len(use_nums)):
+#         if check[j] == 0:
+#             check[j] = 1 
+#             num[index] = use_nums[j]
+#             dfs(index+1,n,m)
+#             check[j] = 0 
+
+# dfs(0,n,m)
+# for i in result:
+#     print(i)
+
+
+15664 
+n, m = map(int,input().split())
+use_nums = list(map(int,input().split())) +[0]
+check = [0 for _ in range(n)]
 num = [0 for _ in range(m)]
+result = [] 
 
-def dfs(index, n, m):
+use_nums.sort()
+
+def dfs(index,idx,n,m):
+    nums = []
     if index == m:
         for i in range(m):
-            print(num[i], end = ' ')
-        print()
-        return 
+            nums.append(num[i])
+        tmp = ' '.join(map(str,nums))
+        if tmp not in result:
+            result.append(tmp)
 
-    for i in range(1,n+1):
-        num[index] = i 
-        dfs(index+1,n,m)
 
-dfs(0,n,m)
+    for j in range(idx, n):
+        if check[j] == 0:
+            check[j] = 1
+            num[index] = use_nums[j]
+            dfs(index+1,j+1,n,m)
+            check[j] = 0
+
+dfs(0,0,n,m)
+print(result)
