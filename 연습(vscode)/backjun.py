@@ -5603,31 +5603,97 @@
 #     print(i)
 
 
-15664 
-n, m = map(int,input().split())
-use_nums = list(map(int,input().split())) +[0]
-check = [0 for _ in range(n)]
+# 15664 
+# n, m = map(int,input().split())
+# use_nums = list(map(int,input().split()))
+# check = [0 for _ in range(n)]
+# num = [0 for _ in range(m)]
+# result = [] 
+
+# use_nums.sort()
+
+# def dfs(index,idx,n,m):
+#     nums = []
+#     if index == m:
+#         for i in range(m):
+#             nums.append(num[i])
+#         tmp = ' '.join(map(str,nums))
+#         if tmp not in result:
+#             result.append(tmp)
+#         return
+
+
+#     for j in range(idx, n):
+#         if check[j] == 0:
+#             check[j] = 1
+#             num[index] = use_nums[j]
+#             dfs(index+1,j+1,n,m)
+#             check[j] = 0
+
+# dfs(0,0,n,m)
+# for i in result:
+#     print(i)
+
+# 15665
+
+# n, m = map(int,input().split())
+# use_nums = list(map(int,input().split()))
+# nums = [0 for _ in range(m)]
+# result = []
+
+# use_nums.sort()
+
+# def dfs(index,n,m):
+#     if index == m:
+#         for i in range(m):
+#             print(nums[i], end = ' ')
+#         print()
+#         return 
+
+#     same_num = 0
+#     for j in range(len(use_nums)):
+#         if same_num != use_nums[j]:
+#             nums[index] = use_nums[j]
+#             same_num = use_nums[j]
+#             dfs(index+1,n,m)
+
+# dfs(0,n,m)
+# for i in result:
+#     print(i)
+
+
+# 1149
+# n = int(input())
+
+# dp = []
+
+# for i in range(n):
+#     dp.append(list(map(int,input().split())))
+
+# for i in range(1, n):
+#     dp[i][0] = min(dp[i-1][1]+ dp[i][0], dp[i-1][2]+ dp[i][0]) 
+#     dp[i][1] = min(dp[i-1][0]+ dp[i][1], dp[i-1][2]+ dp[i][1]) 
+#     dp[i][2] = min(dp[i-1][0]+ dp[i][2], dp[i-1][1]+ dp[i][2]) 
+
+# print(min(dp[n-1][0],dp[n-1][1],dp[n-1][2]))
+
+
+15666
+n,m = map(int,input().split())
+use_nums = list(set(map(int,input().split())))
 num = [0 for _ in range(m)]
-result = [] 
 
 use_nums.sort()
 
 def dfs(index,idx,n,m):
-    nums = []
     if index == m:
         for i in range(m):
-            nums.append(num[i])
-        tmp = ' '.join(map(str,nums))
-        if tmp not in result:
-            result.append(tmp)
+            print(num[i], end=' ')
+        print()
+        return 
 
-
-    for j in range(idx, n):
-        if check[j] == 0:
-            check[j] = 1
-            num[index] = use_nums[j]
-            dfs(index+1,j+1,n,m)
-            check[j] = 0
+    for j in range(idx,len(use_nums)):
+        num[index] = use_nums[j]
+        dfs(index+1,j,n,m)
 
 dfs(0,0,n,m)
-print(result)
