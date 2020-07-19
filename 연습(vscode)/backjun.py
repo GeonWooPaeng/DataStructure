@@ -5678,22 +5678,24 @@
 # print(min(dp[n-1][0],dp[n-1][1],dp[n-1][2]))
 
 
-15666
-n,m = map(int,input().split())
-use_nums = list(set(map(int,input().split())))
-num = [0 for _ in range(m)]
+# 15666
+# n,m = map(int,input().split())
+# use_nums = list(set(map(int,input().split())))
+# num = [0 for _ in range(m)]
 
-use_nums.sort()
+# use_nums.sort()
 
-def dfs(index,idx,n,m):
-    if index == m:
-        for i in range(m):
-            print(num[i], end=' ')
-        print()
-        return 
+# def dfs(index,idx,n,m):
+#     if index == m:
+#         for i in range(m):
+#             print(num[i], end=' ')
+#         print()
+#         return 
 
-    for j in range(idx,len(use_nums)):
-        num[index] = use_nums[j]
-        dfs(index+1,j,n,m)
+#     for j in range(idx,len(use_nums)):
+#         num[index] = use_nums[j]
+#         dfs(index+1,j,n,m)
 
-dfs(0,0,n,m)
+# dfs(0,0,n,m)
+
+
