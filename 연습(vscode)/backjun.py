@@ -5699,3 +5699,109 @@
 # dfs(0,0,n,m)
 
 
+# 1629
+# # 나머지를 구할 때 %를 계속 사용하면 속도를 줄일 수 있다. 
+# # 각 %를 해준 뒤 마지막에 %를 해줘야 원하는 결과를 얻을 수 있다.
+# # => 각 값의 나머지를 곱한 수 %한 값 이랑 원래 수 %한 값이랑 같다
+# a,b,c = map(int,input().split()) 
+
+# def sol(a,b,c):
+#     if b == 1:
+#         return a % c  
+#     else:
+#         tmp = sol(a,b//2,c)
+#         if b % 2 == 1:
+#             return tmp * tmp * a % c 
+#         else:
+#             return tmp * tmp % c 
+
+# print(sol(a,b,c))
+
+
+5639
+# node - x , left_child - 2x, right_child - 2x+1 
+# 같은 class 내에서 활동하는 것에는 self. 해줘야 한다.
+# 1.
+# import sys 
+# sys.setrecursionlimit(10**8)
+
+# class Node(object):
+#     def __init__(self,val):
+#         self.val = val 
+#         self.left = None
+#         self.right = None 
+
+# class binaryTree:
+#     def __init__(self):
+#         self.head = Node(None)
+
+#     def insert(self,val):
+#         if self.head == None:
+#             self.head = Node(val)
+#         else:
+#             cur = self.head 
+#             while True:
+#                 if cur.val > val:
+#                     if cur.left == None:
+#                         cur.left = Node(val)
+#                         break 
+#                     cur = cur.left 
+#                 if cur.val < val:
+#                     if cur.right == None:
+#                         cur.right = Node(val)
+#                         break 
+#                     cur = cur.right 
+
+#     def post_order(self,cur_node):
+#         if cur_node.left != None:
+#             self.post_order(cur_node.left)
+#         if cur_node.right != None:
+#             self.post_order(cur_node.right)
+#         print(cur_node.val)
+
+
+# if __name__=="__main__":
+
+#     b_tree = binaryTree() 
+#     while True:
+#         try:
+#             num = int(input())
+#             b_tree.insert(num)
+#         except: 
+#             break  
+#     b_tree.post_order(b_tree.head)
+
+
+# 2.
+# 전위 순회에서 맨 처음 값이 root이며 이를 기준으로 해당
+# 값보다 크면 right_child 이고 작으면 left_child이다
+def post_order(start,end):
+    if start > end:
+        return
+
+    div = end+1
+    #오른쪽 구분되는 부분을 찾아주는 곳
+    for i in range(start+1, end+1):
+        if nums[start] < nums[i]:
+            div = i 
+            break
+
+    post_order(start+1,div-1) #왼쪽
+    post_order(div,end) #오른쪽
+    print(nums[start])
+    
+
+
+import sys
+sys.setrecursionlimit(10**9)
+
+if __name__=="__main__":
+    nums=[]
+    while True:
+        try:
+            num = int(input())
+            nums.append(num)
+        except:
+            break
+
+    post_order(0,len(nums)-1)
