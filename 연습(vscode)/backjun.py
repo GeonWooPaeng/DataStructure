@@ -5804,3 +5804,55 @@
 #         break
 
 # post_order(0,len(nums)-1)
+
+# 1789
+# 1.
+# import sys 
+# sys.setrecursionlimit(100000)
+
+# n = int(input())
+# board = [list(map(int,input().split())) for _ in range(n)]
+# minus_count = 0
+# zero_count = 0
+# plus_count = 0
+
+
+# def cal(n,a,b):
+#     global minus_count, zero_count, plus_count
+    
+#     num = set()
+
+#     for x in range(a,n+a):
+#         for y in range(b,n+b):
+#             num.add(board[x][y])
+
+#     if len(num) != 1:
+#         cal(n//3,a,b)
+#         cal(n//3,a,b+(n//3))
+#         cal(n//3,a,b+2*(n//3))
+#         cal(n//3,a+(n//3),b)
+#         cal(n//3,a+(n//3),b+(n//3))
+#         cal(n//3,a+(n//3),b+2*(n//3))
+#         cal(n//3,a+2*(n//3),b)
+#         cal(n//3,a+2*(n//3),b+(n//3))
+#         cal(n//3,a+2*(n//3),b+2*(n//3))
+    
+#     else:
+#         if list(num)[0] == -1:
+#             minus_count+= 1
+#             return
+
+#         if list(num)[0] == 0:
+#             zero_count+= 1
+#             return
+        
+#         if list(num)[0] == 1:
+#             plus_count+= 1
+#             return
+            
+# cal(n,0,0)
+
+# print(minus_count)
+# print(zero_count)
+# print(plus_count)
+
