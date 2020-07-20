@@ -5775,33 +5775,32 @@
 # 2.
 # 전위 순회에서 맨 처음 값이 root이며 이를 기준으로 해당
 # 값보다 크면 right_child 이고 작으면 left_child이다
-def post_order(start,end):
-    if start > end:
-        return
+# import sys
+# sys.setrecursionlimit(10000)
+# input = sys.stdin.readline
 
-    div = end+1
-    #오른쪽 구분되는 부분을 찾아주는 곳
-    for i in range(start+1, end+1):
-        if nums[start] < nums[i]:
-            div = i 
-            break
+# def post_order(start,end):
+#     if start > end:
+#         return
 
-    post_order(start+1,div-1) #왼쪽
-    post_order(div,end) #오른쪽
-    print(nums[start])
+#     div = end+1
+#     #오른쪽 구분되는 부분을 찾아주는 곳
+#     for i in range(start+1, end+1):
+#         if nums[start] < nums[i]:
+#             div = i 
+#             break
+
+#     post_order(start+1,div-1) #왼쪽
+#     post_order(div,end) #오른쪽
+#     print(nums[start])
     
 
+# nums=[]
+# while True:
+#     try:
+#         num = int(input())
+#         nums.append(num)
+#     except:
+#         break
 
-import sys
-sys.setrecursionlimit(10**9)
-
-if __name__=="__main__":
-    nums=[]
-    while True:
-        try:
-            num = int(input())
-            nums.append(num)
-        except:
-            break
-
-    post_order(0,len(nums)-1)
+# post_order(0,len(nums)-1)
