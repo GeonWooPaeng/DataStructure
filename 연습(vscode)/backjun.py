@@ -5909,5 +5909,52 @@
 #     return a+b+a 
 # print('\n'.join(star10(int(input()))))
 
-16953
+
+# 16953
+# a, b = map(int,input().split())
+# result = []
+# cnt = 1
+
+# def cal(a,b,cnt):
+#     if a == b:
+#         result.append(cnt)
+#         return 
+
+#     if a > b:
+#         return 
+
+#     else:  
+#         a*=2
+#         cnt+=1 
+#         cal(a,b,cnt)
+        
+#         a//=2 
+#         a = (a*10+1)
+#         cal(a, b, cnt)
+
+# cal(a,b,cnt)
+
+# if len(result) == 0:
+#     print(-1)
+# else:
+#     print(min(result))
+
+
+# 11286
+# import sys 
+# import heapq
+
+# input = sys.stdin.readline
+# heap = []
+# for _ in range(int(input())):
+#     num = int(input())
+
+#     if num != 0:
+#         heapq.heappush(heap,(abs(num),num))
+#         print(heap)
+#     else:
+#         if len(heap) == 0:
+#             print(0)
+#         else:
+#             print(heapq.heappop(heap)[1])
 
