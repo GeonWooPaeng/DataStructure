@@ -5856,3 +5856,58 @@
 # print(zero_count)
 # print(plus_count)
 
+
+# 11660
+# import sys 
+# input = sys.stdin.readline
+# n, cnt = map(int,input().split())
+# board = [list(map(int,input().split())) for _ in range(n)]
+# dp = [[0]*(n+1) for _ in range(n+1)]
+
+# for x in range(1,n+1):
+#     for y in range(1,n+1):
+#         dp[x][y] = dp[x-1][y] + dp[x][y-1] + board[x-1][y-1] - dp[x-1][y-1]
+
+# for _ in range(cnt):
+#     x1,y1,x2,y2 = map(int,input().split())
+#     print(dp[x2][y2] - dp[x1-1][y2] - dp[x2][y1-1] + dp[x1-1][y1-1])
+
+# 2447
+# 1.
+# n = int(input())
+# star = [['*']*n for _ in range(n)]
+
+# div = n 
+# count = 0
+# while div != 0:
+#     div //= 3 
+#     count += 1
+
+# for cnt in range(count):
+#     empty_idx = [i for i in range(n) if (i // (3 ** cnt)) % 3 == 1]
+#     for x in empty_idx:
+#         for y in empty_idx:
+#             star[x][y] = ' '
+
+# for i in range(n):
+#     for j in range(n):
+#         print(star[i][j], end='')
+#     print()
+
+# 2.
+# def con(r1,r2):
+#     return[''.join(x) for x in zip(r1,r2,r1)]
+
+# def star10(n):
+#     if n == 1:
+#         return['*']
+#     n//=3 
+#     x = star10(n)
+#     a = con(x,x)
+#     b = con(x,[' '*n]*n)
+
+#     return a+b+a 
+# print('\n'.join(star10(int(input()))))
+
+16953
+
