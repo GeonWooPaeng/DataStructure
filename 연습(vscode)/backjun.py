@@ -5958,3 +5958,109 @@
 #         else:
 #             print(heapq.heappop(heap)[1])
 
+# 11403
+# import sys 
+# sys.setrecursionlimit(1000)
+
+# n = int(input())
+# board = [list(map(int,input().split())) for _ in range(n)]
+
+# def dfs(x):
+#     for y in range(n):
+#         if board[x][y] == 1 and y not in visit:
+#             visit.append(y)
+#             dfs(y)
+
+# for i in range(n):
+#     visit = []
+#     dfs(i)
+#     for j in visit:
+#         board[i][j] = 1 
+
+# for i in board:
+#     print(' '.join(map(str,i)))
+
+
+# 10026
+# import copy
+# import sys 
+# sys.setrecursionlimit(10000)
+# input = sys.stdin.readline 
+
+# dx,dy = [1,0,-1,0], [0,1,0,-1]
+
+# n = int(input())
+# color = [list(input()) for _ in range(n)]
+# check = [[0]*n for _ in range(n)]
+
+# gr_color = copy.deepcopy(color)
+# gr_check = copy.deepcopy(check)
+
+# person = 0
+# gr_person = 0
+
+# def dfs(x,y,arr,ch):
+#     ch[x][y] = 1
+
+#     for i in range(4):
+#         xx,yy = x+dx[i], y+dy[i]
+#         if xx < 0 or xx > n-1 or yy < 0 or yy > n-1:
+#             continue 
+
+#         if ch[xx][yy] == 0 and arr[xx][yy] == arr[x][y]:
+#             dfs(xx,yy, arr,ch)
+
+
+# for i in range(n):
+#     for j in range(n):
+#         if gr_color[i][j] == 'R':
+#             gr_color[i][j] = 'G'
+
+# for i in range(n):
+#     for j in range(n):
+#         if check[i][j] == 0:
+#             dfs(i,j,color,check)
+#             person += 1
+
+
+# for i in range(n):
+#     for j in range(n):
+#         if gr_check[i][j] == 0:
+#             dfs(i,j,gr_color,gr_check)
+#             gr_person += 1
+
+# print(person)
+# print(gr_person)
+
+
+# 1107
+# brButNum이 0이면 brButton은 존재하지 않는다.
+# 그러면 밑의 code가 돌아가지 않는다. 그래서 항상 있는 enButton으로 실행을 해야한다.
+import sys 
+input = sys.stdin.readline 
+
+wish_num = int(input())
+brButNum = int(input())
+enButton = set(str(i) for i in range(10))
+if brButNum == 0:
+    pass
+else:
+    brButton = set(input().split())
+    enButton -= brButton
+
+cnt = abs(wish_num-100) # 100에서 시작 
+
+for ch in range(1000000):
+    check = True
+    for num in str(ch):
+        if num not in enButton:
+            check = False
+            break
+
+    if check:
+        cnt = min(cnt, abs(wish_num - ch)+len(str(ch)))
+
+print(cnt)
+
+ 
+
