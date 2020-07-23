@@ -6036,31 +6036,31 @@
 # 1107
 # brButNum이 0이면 brButton은 존재하지 않는다.
 # 그러면 밑의 code가 돌아가지 않는다. 그래서 항상 있는 enButton으로 실행을 해야한다.
-import sys 
-input = sys.stdin.readline 
+# import sys 
+# input = sys.stdin.readline 
 
-wish_num = int(input())
-brButNum = int(input())
-enButton = set(str(i) for i in range(10))
-if brButNum == 0:
-    pass
-else:
-    brButton = set(input().split())
-    enButton -= brButton
+# wish_num = int(input())
+# brButNum = int(input())
+# enButton = set(str(i) for i in range(10))
+# if brButNum == 0:
+#     pass
+# else:
+#     brButton = set(input().split())
+#     enButton -= brButton
 
-cnt = abs(wish_num-100) # 100에서 시작 
+# cnt = abs(wish_num-100) # 100에서 시작 
 
-for ch in range(1000000):
-    check = True
-    for num in str(ch):
-        if num not in enButton:
-            check = False
-            break
+# for ch in range(1000000):
+#     check = True
+#     for num in str(ch):
+#         if num not in enButton:
+#             check = False
+#             break
 
-    if check:
-        cnt = min(cnt, abs(wish_num - ch)+len(str(ch)))
+#     if check:
+#         cnt = min(cnt, abs(wish_num - ch)+len(str(ch)))
 
-print(cnt)
+# print(cnt)
 
  
 
