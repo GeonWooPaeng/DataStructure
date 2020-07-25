@@ -6063,12 +6063,67 @@
 # print(cnt)
 
 
+# # 1043
+# # 과장된 이야기를 할수 있는 파티공간
+# # 모든 파티가 동시에 열리고 있는 상황으로 먼저 진실된 사람과 같이 있는 사람들을
+# # 모두 진실된 사람으로 만들어야 한다.
+# import sys
+# import copy 
+
+# people, party = map(int,input().split())
+# true_person = list(map(int,input().split())) 
+# total_party = [] 
+# p_party = 0
+
+# if true_person[0] == 0:
+#     print(party)
+#     sys.exit()
+    
+# true_person = set(true_person[1:])
+
+# for _ in range(party):
+#     join_party = list(map(int,input().split()))
+#     total_party.append(join_party[1:])
+    
+# while True:
+#     true_persons = copy.deepcopy(true_person)
+#     for j in total_party:
+#         for k in j:
+#             if k in true_person:
+#                 true_person.update(j)
+#                 break
+#     if true_person == true_persons: #while문을 끝내주기 위해 변화가 없으면 break
+#         break
+          
+# for j in total_party:
+#     check = True 
+#     for k in j:
+#         if k in true_person:
+#             check = False 
+#             break 
+#     if check:
+#         p_party+= 1
+
+# print(p_party)
 
 
+# 7568
+# n = int(input())
+# pe = []
+# seq = []
 
+# for _ in range(n):
+#     wei, hei = map(int, input().split())
+#     pe.append((wei,hei))
 
+# for a in range(len(pe)):
+#     cnt = 1
+#     for b in range(len(pe)):
+#         if pe[a][0] < pe[b][0] and pe[a][1] < pe[b][1]:
+#             cnt += 1 
+    
+#     seq.append(cnt)
 
-
-
- 
+# for i in seq:
+#     print(i, end = ' ')
 
