@@ -6127,3 +6127,39 @@
 # for i in seq:
 #     print(i, end = ' ')
 
+1916
+import heapq 
+import sys 
+
+city = int(input())
+bus = int(input())
+
+wei = [sys.maxsize] * (city+1)
+graph = [[] for _ in range(city+1)]
+
+for _ in range(bus):
+    st, en, we = map(int,input().split())
+    graph[st].append((we, en))
+
+start, end = map(int,input().split())
+
+
+def djikstra(s, e):
+    heap = []
+    heapq.heappush(heap,(0,s))
+    wei[s] = 0 
+
+    while heap:
+        w, n = heapq.heappop(heap)
+
+        for next_w, next_n in graph[n]: 
+            if next_w + w< wei[next_n]:
+                wei[next_n] = next_w + w
+                heapq.heappush(heap,(next_w + w, next_n)) 
+
+    return wei[end]
+
+print(djikstra(start, end))
+
+
+
