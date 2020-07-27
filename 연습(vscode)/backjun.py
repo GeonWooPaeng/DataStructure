@@ -6223,4 +6223,98 @@
 # wall(0)
 # print(result)
 
-12851
+# 12851
+# # 이미 방문했더라도 이동거리 같으면 time[move] == time[loc]+1 
+# from collections import deque 
+# a,b = map(int,input().split())
+# time = [0] * 100001  #방법의 수를 나타내는 곳 
+
+# def bfs(x,y):
+#     q = deque() 
+#     q.append(x)
+#     cnt = 0 
+
+#     while not cnt:
+#         size = len(q)  
+
+#         while size: #같은 level의 node를 한번에 다 파악하기 위함(빠른 속도파악)
+#             size -= 1 
+#             loc = q.popleft() 
+#             if loc == b:
+#                 #여러번 돌아가면서 속도가 같으면서 해당 방법에 도착하면 +1
+#                 cnt+=1 
+            
+#             for move in (loc-1, loc+1, 2*loc):
+#                 if move < 0 or move > 100000:
+#                     continue 
+
+#                 if time[move] == 0 or time[move] == time[loc]+1: 
+#                     # time[move]가 0 이고 들어오면 1번 가는 것이다.
+#                     # time[move] == time[loc] + 1은 if loc==b:를 위한 조건입니다.
+#                     # 해당 조건이 없으면 cnt+=1 도착 속도가 다른 것도 포함됩니다.
+#                     time[move] = time[loc]+1  #해당 값은 2번째 조건에 상관이 크게 없습니다.(주로 time[move] == 0)
+#                     q.append(move)
+    
+#     print(time[b])
+#     print(cnt)
+
+# bfs(a,b)
+
+
+# 13549
+# 2*x의 위치고 이동할 때 0초 x-1, x+1은 1초이므로
+# q에 넣을 때 2*x를 먼저 pop할 수 있게 계산 해야합니다.
+# 0초 일때가 존재하기 때문에 -1로 해서 값을 짜야합니다. 
+
+# from collections import deque
+# import sys 
+
+# input = sys.stdin.readline
+
+# x,y = map(int,input().split())
+# time = [-1] * 100001 
+
+# def bfs(a,b):
+#     q = deque() 
+#     q.append(a)
+#     time[a] = 0
+
+#     while q:
+#         loc = q.popleft() 
+
+#         for move in (2*loc, loc-1, loc+1):
+#             if 0 <= move < 100001 and time[move] == -1:
+#                 if move == 2*loc:
+#                     time[move] = time[loc] 
+#                     q.appendleft(move)
+#                 else:   
+#                     time[move] = time[loc] + 1
+#                     q.append(move)
+
+#     return time[b]
+# print(bfs(x,y))
+
+
+# 5525
+# n = int(input())
+# m = int(input()) 
+# s = input() 
+
+# count = 0
+# ioi = 0
+# a = 1
+
+# for i in range(0,len(s)-2,a):
+#     if 'I' == s[i]:
+#         if 'O' == s[i+1] and 'I' == s[i+2]:
+#             ioi += 1
+#             a = 2
+            
+#             if ioi == n:
+#                 count+=1 
+#                 ioi-= 1 
+#         else:
+#             ioi = 0
+#             a=1
+
+# print(count)
