@@ -6161,5 +6161,66 @@
 
 # print(djikstra(start, end))
 
-12851
+# 14502 
+# import sys 
+# import copy
+# from collections import deque
 
+# sys.setrecursionlimit(1000)
+# input = sys.stdin.readline 
+
+# dx, dy = [0,1,0,-1], [1,0,-1,0]
+
+# n,m = map(int,input().split())
+# board = [list(map(int,input().split())) for _ in range(n)]
+
+# result = 0
+
+# def wall(cnt):
+#     if cnt == 3:
+#         bfs()
+#         return 
+    
+#     for i in range(n):
+#         for j in range(m):
+#             if board[i][j] == 0:
+#                 board[i][j] = 1 
+#                 wall(cnt+1)
+#                 board[i][j] = 0 
+
+# def bfs():
+#     global result
+
+#     boards = copy.deepcopy(board)
+#     visit = deque() 
+#     count = 0
+    
+#     for i in range(n):
+#         for j in range(m):
+#             if boards[i][j] == 2:
+#                 visit.append((i,j))
+
+#     while visit:
+#         x,y = visit.popleft()
+        
+#         for i in range(4):
+#             xx,yy = x+dx[i], y+dy[i]
+
+#             if xx < 0 or xx > n-1 or yy < 0 or yy > m-1:
+#                 continue 
+            
+#             if boards[xx][yy] == 0:
+#                 boards[xx][yy] = 2
+#                 visit.append((xx,yy))
+
+#     for i in boards:
+#         for j in i:
+#             if j == 0:
+#                 count+=1 
+
+#     result = max(result, count)
+
+# wall(0)
+# print(result)
+
+12851
