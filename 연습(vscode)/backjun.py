@@ -6371,5 +6371,59 @@
 # sol(0, 0)
 # print(result_v)
 
+# 14500
+import sys 
+input = sys.stdin.readline 
 
-17144
+tech = [[(0,0),(0,1),(0,2),(0,3)], [(0,0),(0,1),(1,0),(1,1)],[(0,0),(-1,0),(-2,0),(-2,1)],[(0,0),(-1,0),(-1,1),(-2,1)],[(0,0),(0,1),(0,2),(-1,1)]]
+
+n, m = map(int,input().split())
+board = [list(map(int,input().split())) for _ in range(n)]
+result = 0
+big = 0
+
+if n > m:
+    big = n
+else:
+    big = m
+
+boards = [[0] * big for _ in range(big)]
+
+for i in range(n):
+    for j in range(m):
+        boards[i][j] = board[i][j]
+
+
+def rotation90(b):
+    global big
+    nb = [[0]*big for _ in range(big)]
+
+    for i in range(big):
+        for j in range(big):
+            nb[j][big-i-1] = b[i][j]
+
+    return nb
+
+def sol(x,y):
+    global result, big
+
+    for t in tech:
+        total = 0
+        for tx, ty in t:
+            xx, yy = x+tx, y+ty
+
+            if xx < 0 or xx > big-1 or yy < 0 or yy > big-1:
+                break
+                
+            total += boards[xx][yy]
+ 
+        result = max(result, total)
+                
+#board 4회전하기
+for i in range(4):
+    boards = rotation90(boards)
+    for j in range(big):
+        for k in range(big):
+            sol(j,k)
+
+print(result)
