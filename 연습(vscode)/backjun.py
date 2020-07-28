@@ -6318,3 +6318,58 @@
 #             a=1
 
 # print(count)
+
+# 15686
+# from collections import deque
+
+# n, m = map(int,input().split())
+# board = [list(map(int,input().split())) for _ in range(n)]
+# result_v = 100000
+# home, chicken = deque(), deque()
+# chi_combination = deque()
+
+# def sol(idx, cnt):
+#     # idx는 chicken에 있는 변수를 조합하기 위해 사용하는 수
+#     # cnt는 chicken집 수 파악
+#     global result_v 
+
+#     if idx > len(chicken):
+#         # idx는 chicken의 변수를 조합하기 위한 변수로 
+#         # chicken의 개수를 넘어가면 안된다.
+#         return 
+
+#     if cnt == m:
+#         short_l = 0
+#         for hx,hy in home:
+#             result = 1000000
+
+#             for i in chi_combination:
+#                 cx, cy = chicken[i]
+#                 result = min(result, (abs(hx-cx) + abs(hy - cy)))
+
+#             short_l += result
+
+#         result_v = min(result_v, short_l)
+#         return 
+
+#     #cnt수가 원하는 수에 맞게 조합하는 재귀 
+#     # 01 -> 02 -> 03 ...
+#     chi_combination.append(idx)
+#     sol(idx+1, cnt+1)
+#     chi_combination.pop()
+#     # pop해주지 않으면 계속 쌓여간다.
+#     sol(idx+1, cnt)
+
+# for i in range(n):
+#     for j in range(n):
+#         if board[i][j] == 1:
+#             home.append((i+1,j+1))
+
+#         elif board[i][j] == 2:
+#             chicken.append((i+1,j+1))
+
+# sol(0, 0)
+# print(result_v)
+
+
+17144
