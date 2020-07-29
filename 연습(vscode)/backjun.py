@@ -6372,10 +6372,11 @@
 # print(result_v)
 
 # 14500
+# 전체를 회전하면 -로 인해 이상한 도형이 발생할 수 있습니다.
 # import sys 
 # input = sys.stdin.readline 
 
-# tech = [[(0,0),(0,1),(0,2),(0,3)], [(0,0),(0,1),(-1,0),(-1,-1)],[(0,0),(-1,0),(-2,0),(-2,1)],[(0,0),(-1,0),(-1,1),(-2,1)],[(0,0),(0,1),(0,2),(-1,-1)]]
+# tech = [[(0,0),(0,1),(0,2),(0,3)], [(0,0),(0,1),(1,0),(1,1)],[(0,0),(1,0),(2,0),(0,1)],[(0,0),(1,0),(0,1),(-1,1)],[(0,0),(0,1),(0,2),(-1,1)]]
 
 # n, m = map(int,input().split())
 # board = [list(map(int,input().split())) for _ in range(n)]
@@ -6413,17 +6414,127 @@
 #             xx, yy = x+tx, y+ty
 
 #             if xx < 0 or xx > big-1 or yy < 0 or yy > big-1:
-#                 continue
-                
+#                 break
 #             total += boards[xx][yy]
- 
 #         result = max(result, total)
                 
 # #board 4회전하기
-# for i in range(4):
+# for _ in range(5):
 #     boards = rotation90(boards)
-#     for j in range(big):
-#         for k in range(big):
-#             sol(j,k)
+#     for l in range(big):
+#         for m in range(big):
+#             sol(l,m)
 
+# print(result)
+
+# 2.
+# import sys 
+# input = sys.stdin.readline 
+
+# n, m = map(int,input().split())
+# board = [list(map(int,input().split())) for _ in range(n)]
+# result = 0
+
+# tech = [
+#     [(0,1), (1,0), (1,1)], # ㅁ
+#     [(0,1), (0,2), (0,3)], # ㅡ
+#     [(1,0), (2,0), (3,0)], # ㅣ
+#     [(0,1), (0,2), (1,0)], # ㄴ
+#     [(0,1), (0,2), (-1,2)], # z
+#     [(1,0), (1,1), (1,2)], # ㄱ
+#     [(0,1), (0,2), (1,2)], #...
+#     [(1,0), (2,0), (2,1)],
+#     [(0,1), (1,1), (2,1)],
+#     [(0,1), (1,0), (2,0)],
+#     [(1,0), (2,0), (2,-1)],
+#     [(1,0), (1,1), (2,1)],
+#     [(0,1), (1,0), (-1,1)],
+#     [(0,1), (1,0), (1,-1)],
+#     [(0,1), (1,1), (1,2)],
+#     [(0,1), (0,2), (1,1)],
+#     [(1,0), (1,1), (1,-1)],
+#     [(1,0), (2,0), (1,-1)],
+#     [(1,0), (1,1), (2,0)]
+# ]
+
+# def sol(x, y):
+#     global result
+
+#     for i in range(19): #전체 모양
+#         total = board[x][y]
+#         for j in range(3):
+#             xx = x+tech[i][j][0]
+#             yy = y+tech[i][j][1]
+            
+#             if xx < 0 or xx > n-1 or yy < 0 or yy > m-1:
+#                 break
+
+#             total +=board[xx][yy]
+
+#         result = max(result, total)
+
+# for i in range(n):
+#     for j in range(m):
+#         sol(i, j)
+
+# print(result)
+
+
+# 16236
+# # 최소 거리를 minheap을 이용하여 해결하였습니다.(djikstra 같이)
+# import heapq
+# dx,dy = [1, -1, 0, 0], [0, 0, -1, 1] #상하좌우 
+
+# n = int(input())
+
+# board = [list(map(int,input().split())) for _ in range(n)]
+# size, eat, result = 2, 0, 0
+
+# def bfs(a, b):
+#     global size, eat, result
+#     heap = []
+#     heapq.heappush(heap,(0,a,b))
+#     board[a][b] = 0 #0으로 두어 다음 먹이로 갈때 지나 갈수 있게 해준다.
+#     check= [[False]*n for _ in range(n)]
+#     while heap:
+#         dist, x, y = heapq.heappop(heap)
+#         if 0 < board[x][y] < size:
+#             eat+=1 
+#             #0으로 두어 다음 먹이로 갈때 지나 갈수 있게 해준다.
+#             board[x][y] = 0 
+            
+#             if size == eat:
+#                 size+= 1 
+#                 eat = 0 
+
+#             # 이동한 곳에서 부터 거리를 측정
+#             check= [[False]*n for _ in range(n)]
+#             result+= dist
+#             dist = 0 
+
+#             while heap:
+#                 heap.pop() 
+            
+
+#         for i in range(4):
+#             ndist, xx, yy = dist+1, x+dx[i], y+dy[i]
+        
+#             if xx < 0 or xx > n-1 or yy < 0 or yy > n-1:
+#                 continue 
+
+#             if board[xx][yy] > size or check[xx][yy] == True:
+#                 # check가 없으면 갔던 곳을 간다.
+#                 continue 
+
+#             check[xx][yy] = True
+#             heapq.heappush(heap,(ndist,xx,yy))
+
+
+# # 상어 위치 파악
+# for i in range(n):
+#     for j in range(n):
+#         if board[i][j] == 9:
+#             sx, sy = i,j 
+
+# bfs(sx, sy)
 # print(result)
