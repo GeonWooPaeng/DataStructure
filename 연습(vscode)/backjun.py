@@ -6538,3 +6538,43 @@
 
 # bfs(sx, sy)
 # print(result)
+
+1504
+# 1->x->y->arrive이면 
+# 1->x + x->y + y->arrive의 값
+# 1->y + y->x + x->arrive의 값 을 비교하여 최소값을 구하면 된다.
+import heapq
+
+n, e = map(int,input().split())
+graph = [[] for _ in range(n+1)]
+
+for _ in range(e):
+    a, b, c = map(int,input().split()) #a에서 b까지 양방향, c: 거리
+    graph[a].append((c, b))
+    graph[b].append((c, a))
+
+no1, no2 = map(int,input().split())
+
+def djikstra(s, e):
+    wei = [100000]*(n+1)
+    heap = []
+    heapq.heappush(heap,(0,s))
+    wei[s] = 0
+
+    while heap:
+        length, node = heapq.heappop(heap)
+
+        for leng, no in graph[node]:
+            if wei[no] > wei[node] + leng:
+                wei[no] = wei[node] + leng 
+                heapq.heappush(heap,(wei[no], no))
+    return wei[e]
+
+path1 = djikstra(1, no1) + djikstra(no1, no2) +djikstra(no2, n)
+path2 = djikstra(1, no2) + djikstra(no2, no1) +djikstra(no1, n)
+                    
+result = min(path1,path2)
+if result < 100000:
+    print(result)
+else:
+    print(-1)
