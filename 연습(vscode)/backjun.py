@@ -5718,7 +5718,7 @@
 # print(sol(a,b,c))
 
 
-5639
+# 5639
 # node - x , left_child - 2x, right_child - 2x+1 
 # 같은 class 내에서 활동하는 것에는 self. 해줘야 한다.
 # 1.
@@ -5766,6 +5766,7 @@
 #     while True:
 #         try:
 #             num = int(input())
+#             print(num)
 #             b_tree.insert(num)
 #         except: 
 #             break  
@@ -6578,3 +6579,46 @@
 #     print(result)
 # else:
 #     print(-1)
+
+# 1967.
+# 끝들로 부터 최대 값을 구하면 된다.
+# 1로 시작해서 끝부분을 찾고 가장 긴 곳을 찾는다 그리고 그 가장 긴 끝에서 
+# djikstra로 가장 긴 쪽을 찾는다 .
+# djikstar가 짧은 것을 계산하지만 모두 한 방향밖에 없으므로 그냥 하면 된다.
+import heapq 
+import sys 
+input = sys.stdin.readline 
+sys.setrecursionlimit(10000)
+
+n = int(input())
+graph = [[] for _ in range(n+1)]
+
+def djikstra(start):
+    global n
+    wei = [1000000] * (n+1) 
+    heap = [] 
+    heapq.heappush(heap,(0, start))
+    while heap:
+        weight, node = heapq.heappop(heap)
+        for we, no in graph[node]:
+            if wei[no] > weight + we:
+                wei[no] = weight + we
+                heapq.heappush(heap,(weight+we,no))
+    return wei
+
+for _ in range(n-1):
+    pa, ch, we = map(int,input().split()) 
+    graph[pa].append((we,ch))
+    graph[ch].append((we,pa))
+
+
+w1 = djikstra(1)
+
+end_value = 0
+end_idx = 0
+for i in range(1, n+1):
+    if end_value < w1[i]:
+        end_value = w1[i]
+        end_idx = i 
+
+print(max(djikstra(end_idx)[1:]))
