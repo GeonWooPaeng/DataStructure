@@ -6624,7 +6624,56 @@
 
 # print(max(djikstra(end_idx)[1:]))
 
-
-#10451 
-
 # 9466
+# import sys 
+# input = sys.stdin.readline 
+
+# sys.setrecursionlimit(10000)
+
+# def dfs(x):
+#     global n_solo
+#     check[x] = True
+#     visit.append(x)
+#     next_n = link[x]
+    
+#     if check[next_n] == True:
+#         if next_n in visit: #cycle
+#             n_solo.extend(visit[visit.index(next_n):]) 
+#         return
+#     else:
+#         dfs(next_n)
+     
+# for _ in range(int(input())):
+#     n = int(input())
+#     link = [0] + list(map(int,input().split()))
+#     check = [True] + [False]*n 
+#     n_solo = []
+
+#     for i in range(1,n+1):
+#         if check[i] == False:
+#             visit = []
+#             dfs(i)
+           
+#     print(n-len(n_solo))
+
+# 2096
+# import sys
+# input = sys.stdin.readline 
+
+# n = int(input()) #줄 
+# board = []
+
+# for _ in range(n):
+#     board.append(list(map(int,input().split())))
+
+# Max = board[0]
+# Min = board[0]
+
+# for i in range(1,n): 
+#     Max = [max(Max[0],Max[1])+board[i][0], max(Max[0],Max[1],Max[2])+board[i][1], max(Max[1],Max[2])+board[i][2]]
+#     Min = [min(Min[0],Min[1])+board[i][0], min(Min[0],Min[1],Min[2])+board[i][1], min(Min[1],Min[2])+board[i][2]] 
+
+# print(max(Max))
+# print(min(Min))
+
+#2206
