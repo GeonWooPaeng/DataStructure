@@ -6677,3 +6677,44 @@
 # print(min(Min))
 
 #2206
+#벽을 1번 부실수 있는데 모든 경우를 파악하기 위해 3차원 배열을 사용합니다. 
+#bfs를 하는 이유는 먼저 오는 것이 가장 짧다는 가정하에 하는 것이다.
+
+# import sys 
+# from collections import deque 
+
+# input = sys.stdin.readline 
+
+# dx,dy = [0,-1,0,1],[1,0,-1,0]
+# n,m = map(int,input().split())
+# board = [list(input()) for _ in range(n)]
+# dist = [[[0,0] for _ in range(m)] for _ in range(n)] #앞 0,0은 0일때 or 1일때 / [x좌표][y좌표][벽 부순 여부]
+
+# def bfs():
+#     q = deque()
+#     q.append((0,0,0))
+#     dist[0][0][0] = 1 
+
+#     while q:
+#         d,x,y = q.popleft()
+#         if x == n-1 and y == m-1:
+#             return dist[x][y][d]
+
+#         for i in range(4):
+#             xx,yy = x+dx[i], y+dy[i]
+            
+#             if xx < 0 or xx > n-1 or yy < 0 or yy > m-1:
+#                 continue 
+            
+#             if board[xx][yy] == '0' and dist[xx][yy][d] == 0:
+#                 dist[xx][yy][d] = dist[x][y][d] + 1 
+#                 q.append((d,xx,yy))
+            
+#             if board[xx][yy] == '1' and d == 0:
+#                 dist[xx][yy][1] = dist[x][y][d] + 1
+#                 q.append((1,xx,yy))
+#     return -1 
+
+# print(bfs())
+
+
