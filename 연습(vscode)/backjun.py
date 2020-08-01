@@ -6718,3 +6718,78 @@
 # print(bfs())
 
 
+# 1389 
+# from collections import deque 
+# import sys 
+
+# input = sys.stdin.readline 
+
+# n, m = map(int,input().split())
+# link = [[] for _ in range(n+1)]
+# result = []
+
+# for _ in range(m):
+#     a,b = map(int,input().split())
+    
+#     link[a].append(b)
+#     link[b].append(a)
+
+# def bfs(start, end):
+#     q = deque()
+#     q.append((0,start))
+
+#     while q:
+
+#         dist, num = q.popleft() 
+#         if num == end:
+#             return dist  
+
+#         for i in link[num]:
+#             q.append((dist+1,i))
+    
+
+# for i in range(1,n+1):
+#     total = 0
+#     for j in range(1,n+1):
+#         if i != j:
+#             total += bfs(i,j)
+#     result.append(total)
+
+
+# for i in range(n):
+#     if result[i] == min(result):
+#         print(i+1)
+#         break 
+
+
+# 11404
+# import sys 
+
+# input = sys.stdin.readline 
+
+# n = int(input()) #도시의 개수
+# m = int(input()) #버스의 개수
+# dist = [[10000001]*n for _ in range(n)]
+
+# for _ in range(m):
+#     a,b,c = map(int,input().split()) #시작도시, 도착도시, 비용 
+#     if dist[a-1][b-1] > c:
+#         dist[a-1][b-1] = c 
+
+# def floid():
+#     for i in range(n):
+#         for j in range(n):
+#             for k in range(n):
+#                 if j!=k and dist[j][k] > dist[j][i]+dist[i][k]:
+#                     dist[j][k] = dist[j][i] + dist[i][k]
+
+# floid()
+
+# for i in range(n):
+#     for j in range(n):
+#         if dist[i][j] == 10000001:
+#             print(0, end = ' ')
+#         else:
+#             print(dist[i][j], end= ' ')
+#     print()
+
