@@ -6795,51 +6795,124 @@
 
 
 
-1918
-from collections import deque 
+# 1918
+# from collections import deque 
 
-notation = list(input())
-sign = {'+':1, '-':1, '*':2, '/':2, '(':0, ')':0}
+# notation = list(input())
+# sign = {'+':1, '-':1, '*':2, '/':2, '(':0}
 
-def postfix():
-    result = deque()
-    si = deque() 
-    rear = 0
+# def postfix():
+#     result = deque()
+#     si = deque() 
     
-    for i in range(len(notation)):
-        if notation[i] not in sign:
-            result.append(notation[i])
-        
-        else:
-            if len(si) == 0:
-                si.append(notation[i])
-            
-            else:
-                if sign[si[-1]] > sign[notation[i]]:    
-                    if notation[i] == '(':
-                        si.append(notation[i])
-                        continue
+#     for ch in notation:
+#         if 'A' <= ch <= 'Z':
+#             result.append(ch)
 
-                    if notation[i] == ')':
-                        for j in range(len(si)):
-                            n = si.pop()
+#         elif ch == '(':
+#             si.append(ch)
 
-                            if n == '(':
-                                break
+#         elif ch == ')':
+#             while si and si[-1] != '(':
+#                 result.append(si.pop())
+#             si.pop()
 
-                            result.append(n)
-                    
-                    else:
-                        result.append(notation[i])
-                
-                else:
-                    si.append(notation[i])
+#         else:
+#             while si and sign[ch] <= sign[si[-1]]:
+#                 result.append(si.pop())
+#             si.append(ch)
+
+#     while si:
+#         result.append(si.pop())
+
+#     return result
+
+# print(''.join(postfix()))
+
+
+# 1238
+# import heapq
+
+# num, bridge_num, x = map(int,input().split())
+# bridge = [[] for _ in range(num+1)]
+# result = []
+
+# for _ in range(bridge_num):
+#     start, end, time = map(int,input().split())
+#     bridge[start].append((time, end))
+
+
+# def djikstra(s, e):
+#     heap = []
+#     heapq.heappush(heap,(0,s))
+#     wei = [100001] * (num+1)
+#     wei[s] = 0
     
+#     while heap:
+#         t, n = heapq.heappop(heap)
 
-    for j in range(len(si)):
-        s = si.pop()
-        result.append(s)
-    
-    return result
+#         for ti, no in bridge[n]:
+#             if wei[no] > ti + t:
+#                 wei[no] = ti+t 
+#                 heapq.heappush(heap,(ti+t,no))
+#     return wei[e] 
 
-print(''.join(postfix()))
+
+# for i in range(1,num+1):
+#     # 숫자 -> x
+#     result.append(djikstra(i,x))
+#     # x-> 숫자
+#     result[i-1] += djikstra(x,i)
+
+# print(max(result))
+
+
+# 1167
+# #트리로 djikstra로 끝들을 찾은 후 그중 가장긴 node를 선택한다.
+# #이 node를 가지고 가장 긴 점을 찾는다 그것이 지름이다.
+
+# import heapq 
+# import sys 
+
+# v = int(input())
+# graph = [[] for _ in range(v)]
+
+# for i in range(v):
+#     tree = list(map(int,input().split()))
+#     node = tree.pop(0)
+#     while tree[0] != -1:
+#         node2 = tree.pop(0)
+#         weight = tree.pop(0)
+#         graph[node-1].append((weight, node2-1))
+
+# def djikstra(s):
+#     heap = []
+#     heapq.heappush(heap, (0,s))
+#     wei = [sys.maxsize] * v 
+#     wei[s] = 0 
+
+#     while heap:
+#         we, no = heapq.heappop(heap)
+#         for w, n in graph[no]:
+#             if wei[n] > we + w:
+#                 wei[n] = we + w 
+#                 heapq.heappush(heap,(we+w, n))
+
+#     return wei 
+
+# dist = djikstra(0)
+
+# end_idx = 0
+# end_value = 0
+# for j in range(v): #맨 끝 자식들 찾기(가장 긴 자식이 시작점이다.)
+#     if end_value < dist[j]:
+#         end_value = dist[j]
+#         end_idx = j 
+
+# print(max(djikstra(end_idx)))
+
+
+
+
+
+
