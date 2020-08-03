@@ -6795,3 +6795,51 @@
 
 
 
+1918
+from collections import deque 
+
+notation = list(input())
+sign = {'+':1, '-':1, '*':2, '/':2, '(':0, ')':0}
+
+def postfix():
+    result = deque()
+    si = deque() 
+    rear = 0
+    
+    for i in range(len(notation)):
+        if notation[i] not in sign:
+            result.append(notation[i])
+        
+        else:
+            if len(si) == 0:
+                si.append(notation[i])
+            
+            else:
+                if sign[si[-1]] > sign[notation[i]]:    
+                    if notation[i] == '(':
+                        si.append(notation[i])
+                        continue
+
+                    if notation[i] == ')':
+                        for j in range(len(si)):
+                            n = si.pop()
+
+                            if n == '(':
+                                break
+
+                            result.append(n)
+                    
+                    else:
+                        result.append(notation[i])
+                
+                else:
+                    si.append(notation[i])
+    
+
+    for j in range(len(si)):
+        s = si.pop()
+        result.append(s)
+    
+    return result
+
+print(''.join(postfix()))
