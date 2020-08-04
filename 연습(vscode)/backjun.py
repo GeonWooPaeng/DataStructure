@@ -6912,7 +6912,85 @@
 # print(max(djikstra(end_idx)))
 
 
+# 11779
+# 1. 역 추적
+# import sys
+# import heapq
+
+# n = int(input())
+# m = int(input())
+# graph = [[] for _ in range(n+1)]
+# ex_visit = [0 for _ in range(n+1)] #전의 값을 저장하는 곳
+
+# for _ in range(m):
+#     start_c, end_c, cost = map(int,input().split())
+#     graph[start_c].append((cost,end_c))
+
+# start, end = map(int,input().split())
+
+# def djikstra(s, e):
+#     global ex_visit
+#     heap = [] 
+#     wei = [sys.maxsize]*(n+1)
+#     heapq.heappush(heap,(0,s))
+#     wei[s] = 0 
+
+#     while heap:
+#         cos, nod = heapq.heappop(heap)
+
+#         for co, no in graph[nod]:
+#             if wei[no] > cos + co:
+#                 wei[no] = cos + co 
+#                 ex_visit[no] = nod 
+#                 #가장 최소의 값을 저장한다. 
+#                 #이러면 전과 최소로 연결되어 있어 최소값을 가지는 최소경로를 알 수 있다.
+#                 heapq.heappush(heap,(co+cos, no))
+    
+#     return wei[e]
+
+# print(djikstra(start,end))
+
+## 역 추적 하는 방법
+# path = [end]
+# tmp = ex_visit[end]
+# while tmp != 0:
+#     path.append(tmp)
+#     tmp = ex_visit[tmp]
+
+# print(len(path))
+# print(' '.join(map(str,path[::-1]))) #print(*path[::-1])
+
+# 2.경로까지 모두 저장하는 방법 
+import sys 
+import heapq 
+
+n = int(input())
+m = int(input())
+graph = [[] for _ in range(n+1)]
 
 
+for _ in range(m):
+    start_c, end_c, cost = map(int,input().split())
+    graph[start_c].append((cost, end_c))
 
+start, end = map(int,input().split())
+visit = [[' '] for _ in range(n+1)]
+visit[start] = str(start)
 
+def djikstra(s,e):
+    heap = [] 
+    wei = [sys.maxsize] * (n+1)
+    heapq.heappush(heap,(0,s))
+    wei[s] = 0  
+
+    while heap:
+        cos, nod = heapq.heappop(heap)
+
+        for co, no in graph[nod]:
+            if wei[no] > cos+co:
+                wei[no] = cos+co  
+                visit[no] = visit[nod] +','+ str(no)
+                heapq.heappush(heap,(cos+co,no))
+
+djikstra(start, end)
+print(visit)
