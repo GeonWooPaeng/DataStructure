@@ -7046,34 +7046,50 @@
 # print(sum(pipe[-1][-1]))
 
 
-7662
-from collections import deque
-import sys 
-input = sys.stdin.readline 
+# 7662
+# import sys 
+# import bisect
+# from collections import deque 
 
-T = int(input()) #입력데이터의 수 
-for _ in range(T):
-    q = deque()
-    d = dict()
-    Q = int(input())
-    for i in range(Q):
-        word = input().split()
-        
-        if word[0] == 'I':
+# input = sys.stdin.readline 
 
-            q.append(int(num))
-            d[]
+# T = int(input())
+
+# for _ in range(T):
+#     q = deque()
+#     d = dict()
+#     Q = int(input())
+
+#     for i in range(Q):
+#         word = input().split()
+#         value = int(word[1])
+
+#         if word[0] == 'I':
+#             try:
+#                 d[value] += 1 
+#             except:
+#                 d[value] = 1
+#                 bisect.insort_left(q, value)
+#         else:
+#             if not q:
+#                 continue 
             
+#             if value == 1:
+#                 if d[q[-1]] == 1:
+#                     d.pop(q[-1])
+#                     q.pop()
+#                 else:
+#                     d[q[-1]]-=1
+            
+#             else:
+#                 if d[q[0]] == 1:
+#                     d.pop(q[0])
+#                     q.popleft()
+#                 else:
+#                     d[q[0]]-=1
+#     if not q:
+#         print('EMPTY')
+#     else:
+#         print(q[-1], q[0])
 
-        else:
-            if len(q) != 0:
-                if num == '1':
-                    
 
-                else:
-                    
-
-        if len(q) == 0:
-            print('EMPTY')
-        else:
-            print(max(q), min(q))
