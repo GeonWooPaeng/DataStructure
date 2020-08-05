@@ -6961,36 +6961,119 @@
 # print(' '.join(map(str,path[::-1]))) #print(*path[::-1])
 
 # 2.경로까지 모두 저장하는 방법 
+# import sys 
+# import heapq 
+
+# n = int(input())
+# m = int(input())
+# graph = [[] for _ in range(n+1)]
+
+
+# for _ in range(m):
+#     start_c, end_c, cost = map(int,input().split())
+#     graph[start_c].append((cost, end_c))
+
+# start, end = map(int,input().split())
+# visit = [[''] for _ in range(n+1)]
+# visit[start] = str(start)
+
+# def djikstra(s,e):
+#     heap = []
+#     wei = [sys.maxsize] * (n+1)
+#     wei[s] = 0
+#     heapq.heappush(heap,(0,s))
+
+#     while heap:
+#         cos,nod = heapq.heappop(heap)
+
+#         for co,no in graph[nod]:
+#             if wei[no] > co + cos:
+#                 wei[no] = co + cos 
+#                 visit[no] = visit[nod] + ',' + str(no) 
+#                 heapq.heappush(heap,(cos+co, no))
+
+# djikstra(start, end)
+# print(visit)
+
+# 14681 
+# x = int(input())
+# y = int(input())
+
+# def sol(a,b):
+#     if x > 0 and y > 0:
+#         print(1)
+#         return
+#     elif x < 0 and y > 0:
+#         print(2)
+#         return 
+#     elif x < 0 and y < 0:
+#         print(3)
+#         return 
+#     else:
+#         print(4)
+#         return 
+
+# sol(x,y)
+
+# 17070
+# from collections import deque 
+# import sys 
+# input = sys.stdin.readline 
+
+# n = int(input())
+# board = [list(map(int,input().split())) for _ in range(n)]
+# #가로, 세로, 대각선(0,1,2) idx를 3차부분에 넣어준다
+# pipe = [[[0,0,0] for _ in range(n)] for _ in range(n)]
+# pipe[0][1][0] = 1
+
+# for y in range(1,n):
+#     if board[0][y] == 0:
+#         pipe[0][y][0] = pipe[0][y-1][0]
+
+
+# for px in range(n):
+#     for py in range(1,n):
+#         #대각선 
+#         if board[px][py] == board[px-1][py] == board[px][py-1] == 0:
+#             pipe[px][py][2] = pipe[px-1][py-1][0] + pipe[px-1][py-1][1] + pipe[px-1][py-1][2]
+        
+#         if board[px][py] == 0:
+#             #가로
+#             pipe[px][py][0] = pipe[px][py-1][0] + pipe[px][py-1][2]
+#             #세로
+#             pipe[px][py][1] = pipe[px-1][py][1] + pipe[px-1][py][2]
+
+# print(sum(pipe[-1][-1]))
+
+
+7662
+from collections import deque
 import sys 
-import heapq 
+input = sys.stdin.readline 
 
-n = int(input())
-m = int(input())
-graph = [[] for _ in range(n+1)]
+T = int(input()) #입력데이터의 수 
+for _ in range(T):
+    q = deque()
+    d = dict()
+    Q = int(input())
+    for i in range(Q):
+        word = input().split()
+        
+        if word[0] == 'I':
 
+            q.append(int(num))
+            d[]
+            
 
-for _ in range(m):
-    start_c, end_c, cost = map(int,input().split())
-    graph[start_c].append((cost, end_c))
+        else:
+            if len(q) != 0:
+                if num == '1':
+                    
 
-start, end = map(int,input().split())
-visit = [[' '] for _ in range(n+1)]
-visit[start] = str(start)
+                else:
+                    
 
-def djikstra(s,e):
-    heap = [] 
-    wei = [sys.maxsize] * (n+1)
-    heapq.heappush(heap,(0,s))
-    wei[s] = 0  
-
-    while heap:
-        cos, nod = heapq.heappop(heap)
-
-        for co, no in graph[nod]:
-            if wei[no] > cos+co:
-                wei[no] = cos+co  
-                visit[no] = visit[nod] +','+ str(no)
-                heapq.heappush(heap,(cos+co,no))
-
-djikstra(start, end)
-print(visit)
+        if len(q) == 0:
+            print('EMPTY')
+        else:
+            print(max(q), min(q))
