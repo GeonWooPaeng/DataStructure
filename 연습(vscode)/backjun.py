@@ -7092,4 +7092,72 @@
 #     else:
 #         print(q[-1], q[0])
 
+#1157
+# word = input() 
+# words = dict()
 
+# for w in word:
+#     w = w.upper()
+#     if w in words:
+#         words[w] += 1
+#     else:
+#         words[w] = 1
+
+# max_num = 0
+# max_word = '' 
+# for n in words:
+#     if words[n] > max_num:
+#         max_num = words[n]
+#         max_word = n 
+
+# check = False
+# for k in words:
+#     if max_word != k:
+#         if max_num == words[k]:
+#             check = True
+#             break
+
+# if check:
+#     print('?')
+# else:
+#     print(max_word)
+
+# 2108 
+# from collections import Counter 
+
+# nums = [] 
+# cnt = int(input())
+
+# for _ in range(cnt):
+#     n = int(input())
+#     nums.append(n)
+
+
+# def Ari(num): #산술평균
+#     n = round(sum(num)/len(num))
+#     return n  
+
+# def med(num): #중앙값
+#     num.sort()
+#     mid = num[len(num)//2]
+#     return mid
+
+# def mode(num): #최빈값
+#     nums_dict = Counter(num)
+
+#     if cnt == 1:
+#         return num[0]
+
+#     numss = nums_dict.most_common() 
+    
+#     return (numss[1][0] if numss[0][1] == numss[1][1] else numss[0][0]) 
+
+
+# def ran(num): #범위
+#     return max(num) - min(num)
+
+
+# print(Ari(nums))
+# print(med(nums))
+# print(mode(nums))
+# print(ran(nums))
