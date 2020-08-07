@@ -7161,3 +7161,152 @@
 # print(med(nums))
 # print(mode(nums))
 # print(ran(nums))
+
+# 9935
+
+# word = input() 
+# bomb = input() 
+# result = []
+
+# for ch in word:
+#     result.append(ch)
+
+#     if len(result) >= len(bomb):
+#         check = True
+
+#         for i in range(1,len(bomb)+1):
+#             if result[-i] != bomb[-i]:
+#                 check = False 
+#                 break 
+
+#         if check:
+#             for j in range(len(bomb)):
+#                 result.pop() 
+
+# if result:
+#     print(''.join(result))
+# else:
+#     print("FRULA")
+
+
+# 17144
+from collections import deque 
+import copy 
+
+dx, dy = [0,-1,0,1], [1,0,-1,0] #시계방향
+
+r,c,t = map(int,input().split()) #행, 열, 초 
+home = [list(map(int,input().split())) for _ in range(r)]
+
+def dust():
+    h = [[0]*c for _ in range(r)]
+    q = deque()
+
+    for x in range(r):
+        for y in range(c):
+            if home[x][y] != -1 and home[x][y] >= 5:
+                q.append((x,y))
+            if home[x][y] == -1:
+                h[x][y] = -1
+    while q:
+        a,b = q.pop() 
+        cnt = 0
+
+        for i in range(4):
+            aa,bb = a+dx[i], b+dy[i]
+
+            if aa < 0 or aa > r-1 or bb < 0 or bb > c-1:
+                continue 
+
+            if home[aa][bb] != -1:
+                h[aa][bb] += home[a][b]//5
+                cnt+=1
+            
+        h[a][b] += (home[a][b] - (home[a][b]//5)*cnt)
+
+    return h
+
+def air():
+    #공기 청정기 위치
+    for i in range(r):
+        if home[i][0] == -1:
+            upx = i 
+            downx = i+1 
+            break 
+    
+    #위쪽 반시계방향 
+    # 우측으로 이동
+    tmp_r = home[upx][c-1]
+    for i in range(c-1,1,-1):
+        home[upx][i] = home[upx][i-1] 
+    home[upx][1] = 0 #공기청정기 바로 앞이기 때문
+
+    #위로 이동 
+    tmp_u = home[0][c-1]
+    for i in range(upx-1):
+        home[i][c-1] = home[i+1][c-1]
+    home[upx][c-1] = tmp_r 
+
+    #왼쪽으로 이동 
+    tmp_l = home[0][0]
+    for i in range(c-1):
+        home[0][i] = home[0][i+1]
+    home[0][c-1] = tmp_u 
+
+    #밑으로 이동 
+    for i in range(upx-1,-1,-1):
+        home[i][0] = home[i-1][0]
+
+for _ in range(t):
+    dust()
+    air() 
+
+
+def air_move():
+    # up
+    # 1 - 아래
+    temp = arr[up[0]][C - 1]
+    for i in range(C - 1, 1, - 1):
+        arr[up[0]][i] = arr[up[0]][i - 1]
+    arr[up[0]][1] = 0
+
+    # 2 - 오른쪽
+    temp_1 = arr[0][C - 1]
+    for i in range(up[0] - 1):
+        arr[i][C - 1] = arr[i + 1][C - 1]
+    arr[up[0] - 1][C - 1] = temp
+
+    # 3 - 위쪽
+    temp_2 = arr[0][0]
+    for i in range(C - 2):
+        arr[0][i] = arr[0][i + 1]
+    arr[0][C - 2] = temp_1
+
+    # 4 - 왼쪽
+    for i in range(up[0] - 1, 1, -1):
+        arr[i][0] = arr[i - 1][0]
+    arr[1][0] = temp_2
+
+    # down
+    # 1- 위쪽
+    temp = arr[down[0]][C - 1]
+    for i in range(C - 1, 1, -1):
+        arr[down[0]][i] = arr[down[0]][i - 1]
+    arr[down[0]][1] = 0
+
+    # 2 오른쪽
+    temp_1 = arr[R - 1][C - 1]
+    for i in range(R - 1, down[0] + 1, -1):
+        arr[i][C - 1] = arr[i - 1][C - 1]
+    arr[down[0] + 1][C - 1] = temp
+
+    # 3 - 아래쪽
+    temp_2 = arr[R - 1][0]
+    for i in range(C - 2):
+        arr[R - 1][i] = arr[R - 1][i + 1]
+    arr[R - 1][C - 2] = temp_1
+
+    # 4 - 왼쪽
+    for i in range(down[0] + 1, R - 1):
+        arr[i][0] = arr[i + 1][0]
+    arr[R - 2][0] = temp_2
