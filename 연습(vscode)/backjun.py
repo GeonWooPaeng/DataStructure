@@ -7292,3 +7292,92 @@
 #         if home[i][j] > 0:
 #             result+= home[i][j]
 # print(result)
+
+
+# # 2638
+# # 바깥 공기 부분을 검사합니다.(0,0) 부터 bfs() 
+# # 그래서 cheese가 있는 부분이 있으면 cheese에 +1을 해주고 
+# # cheese가 3이상이면 둘러 쌓여져 있지 않은 공기를 2번 이상 닿기 때문에 사라지게 됩니다.
+# from collections import deque 
+
+# dx,dy = [0,1,0,-1],[1,0,-1,0] #동,북,서,남
+
+# n,m = map(int,input().split()) #행, 열 
+# cheese = [list(map(int,input().split())) for _ in range(n)]
+# time = 0
+
+# def bfs():
+#     q = deque() 
+#     q.append((0,0))
+#     check = [[0]*m for _ in range(n)]
+#     check[0][0] = 1 
+
+#     while q:
+#         x, y = q.popleft() 
+
+#         for i in range(4):
+#             xx,yy = x+dx[i], y+dy[i]
+
+#             if xx < 0 or xx > n-1 or yy < 0 or yy > m-1:
+#                 continue 
+            
+#             if check[xx][yy] == 0:
+#                 if cheese[xx][yy] >= 1:
+#                     cheese[xx][yy] += 1 
+
+#                 else:
+#                     q.append((xx,yy))
+#                     check[xx][yy] = 1 
+
+
+# def melt():
+#     #치즈를 녹이는 곳이다, 치즈가 있는지 파악도 해야 된다. 
+#     check_melt = False
+#     for x in range(n):
+#         for y in range(m):
+#             if cheese[x][y] >=3:
+#                 cheese[x][y] = 0 
+#                 check_melt = True
+
+#             elif cheese[x][y] == 2:
+#                 cheese[x][y] = 1 
+    
+#     return check_melt
+
+
+# while True:
+    
+#     bfs() 
+
+#     if melt():
+#         time += 1
+#     else:
+#         break  
+
+# print(time)
+
+
+# 12852
+n = int(input())
+dp = [[0,[]] for _ in range(n+1)]
+
+dp[1][0] = 0
+dp[1][1] = [1]
+
+for i in range(2,n+1):
+    if i % 3 == 0 and dp[i][0] > dp[i//3][0] + 1:
+        dp[i][0] = dp[i//3][0] + 1
+        dp[i][1] = dp[i//3][0] + [i]
+
+    if i % 2 == 0 and dp[i][0] > dp[i//2][0] + 1:
+        dp[i][0] = dp[i//2][0] + 1 
+        dp[i][1] = dp[i//2][1] + [i]
+    
+    else:
+        dp[i][0] = dp[i-1][0] + 1 
+        dp[i][1] = dp[i-1][1] + [i]
+
+print(dp[n][0])
+for j in dp[n][1][::-1]:
+    print(j, end = ' ')
+
