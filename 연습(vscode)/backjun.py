@@ -7381,3 +7381,77 @@
 # print(dp[n][0])
 # for j in dp[n][1][::-1]:
 #     print(j, end=' ')
+
+# 2263.
+# import sys 
+# sys.setrecursionlimit(1000000)
+
+# n = int(input())
+# in_order = list(map(int,input().split())) #in_order로 left, right를 나눠야 한다.
+# post_order = list(map(int,input().split()))
+# in_location = [0 for _ in range(n+1)] # in_order에서 node의 idx를 알려주는 곳 
+# tree = [[0,0] for _ in range(n+1)] #[left, right]
+
+# for i in range(n):
+#     in_location[in_order[i]] = i
+
+# def find(i_l, i_r, p_l, p_r):
+#     if p_l <= p_r: #post_order 에서는 맨 끝이 root이다 .
+#         parent = post_order[p_r] 
+        
+#         #in_order 에서 left, right를 나눠야 한다.
+#         parent_idx = in_location[parent] #in_order에서의 parent_idx를 찾는다.
+
+#        #tree를 넣어 줄때는 post_order로 해줘야 한다.
+#         l_cnt = parent_idx - i_l #왼쪽 node 개수, in_order을 기준으로 계산
+#         if l_cnt > 0: #트리에 왼쪽 node 추가 
+#             tree[parent][0] = post_order[p_l+l_cnt-1]
+        
+#         r_cnt = i_r - parent_idx #오른쪽 node 개수, in_order을 기준으로 계산 
+#         if r_cnt > 0:# 트리에 오른쪽 node 추가 
+#             tree[parent][1] = post_order[p_r - 1]
+
+#         find(i_l, parent_idx -1, p_l, p_l+l_cnt-1) #왼쪽 
+#         find(parent_idx+1, i_r, p_r-r_cnt, p_r-1) #오른쪽 
+
+# find(0,n-1,0,n-1)
+
+# def pre_order(root):
+#     print(root, end=' ')
+#     if tree[root][0] != 0:
+#         pre_order(tree[root][0])
+#     if tree[root][1] != 0:
+#         pre_order(tree[root][1])
+
+# pre_order(post_order[-1])
+
+# 2.
+# import sys 
+# sys.setrecursionlimit(1000000)
+
+# n = int(input())
+# in_order = list(map(int,input().split()))
+# post_order = list(map(int,input().split()))
+# in_location = [0 for _ in range(n+1)]
+
+# for i in range(n):
+#     in_location[in_order[i]] = i 
+
+# def find(i_l,i_r,p_l,p_r):
+#     if p_l <= p_r:
+#         parent = post_order[p_r]
+#         parent_idx = in_location[parent]
+
+#         print(parent, end=' ')
+
+#         l_cnt = parent_idx - i_l
+#         r_cnt = i_r - parent_idx
+
+#         find(i_l, parent_idx-1, p_l, p_l+l_cnt-1) #왼쪽 
+#         find(parent_idx+1, i_r, p_r-r_cnt ,p_r-1) #오른쪽 
+
+# find(0,n-1,0,n-1) 
+
+2448
+star = ['  *   ',' * *  ','***** ']
+
