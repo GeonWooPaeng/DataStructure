@@ -7452,6 +7452,24 @@
 
 # find(0,n-1,0,n-1) 
 
-2448
-star = ['  *   ',' * *  ','***** ']
+# 2448
+# # 3-> 6 -> 12 -> 24 옆으로 이동
+# import math 
 
+# star =  ['  *   ', ' * *  ', '***** ']#이거를 3개 합친걸 생각해서 해야한다.
+
+
+# def make(s):
+#     for i in range(len(star)):
+#         star.append(star[i]+star[i])
+#         star[i] = (' '*s + star[i] + ' '*s)
+
+
+# n = int(input())
+# k = int(math.log(n//3,2))
+
+# for move in range(k):
+#     make(int(pow(2,move))*3)
+
+# for s in range(n):
+#     print(star[s])
