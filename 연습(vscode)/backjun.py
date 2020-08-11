@@ -7473,3 +7473,30 @@
 
 # for s in range(n):
 #     print(star[s])
+
+#모험가 길드
+# n = int(input())
+# scary = list(map(int,input().split())) #공포도
+# team = 0
+# count = 0
+# scary.sort() 
+
+# for i in scary:
+#     count += 1 
+#     if count >= i:
+#         team+=1 
+#         count = 0 
+
+# print(team)
+
+#곱하기 혹은 더하기 
+# nums = input() 
+# result = int(nums[0])
+
+# for i in range(1, len(nums)): 
+#     num = int(nums[i])
+#     if num <= 1 or result <= 1:
+#         result+= num
+#     else:
+#         result*= num
+# print(result)
