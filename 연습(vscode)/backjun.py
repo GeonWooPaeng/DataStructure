@@ -7500,3 +7500,53 @@
 #     else:
 #         result*= num
 # print(result)
+
+#문자열 뒤집기 
+# n = input() 
+# cnt_one = 0
+# cnt_zero = 0 
+
+# if n[0] == '0':
+#     cnt_zero += 1 
+# else:
+#     cnt_one += 1
+
+
+# for i in range(len(n)-1):
+#     if n[i] == '0' and n[i+1] == '1':
+#         cnt_one += 1 
+
+#     elif n[i] == '1' and n[i+1] == '0':
+#         cnt_zero+=1 
+
+# print(min(cnt_zero, cnt_one))  
+
+#만들 수 없는 금액 
+# n = int(input())
+# coin = list(map(int,input().split()))
+# coin.sort() 
+
+# target = 1
+# for i in coin:
+#     if target < i:
+#         break 
+#     target += i
+
+# print(target)
+
+#볼링공 고르기 
+
+# n, m = map(int,input().split())
+# weight = list(map(int,input().split()))
+# arr = [0 for _ in range(n+1)]
+# result = 0
+
+# for i in weight:
+#     arr[i] += 1 
+
+# for j in range(1,m+1):
+#     n -= arr[j]
+#     result += arr[j] * n
+
+
+#무지의 먹방 라이브 
