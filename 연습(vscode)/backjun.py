@@ -7548,5 +7548,44 @@
 #     n -= arr[j]
 #     result += arr[j] * n
 
+#럭키 스트레이트 
+# n = list(map(int,input()))
 
-#무지의 먹방 라이브 
+# def sol():
+#     left = 0 
+#     right = 0 
+
+#     for i in range(len(n)):
+#         if i < (len(n)//2):
+#             left+=n[i]
+#         else:
+#             right+=n[i]
+    
+#     if left != right:
+#         print('READY')
+#         return 
+#     else:
+#         print('LUCKY')
+#         return 
+
+# sol()
+
+#문자열 재정렬 
+# s = input() 
+
+# def sol():
+#     num = 0
+#     alpha = []
+#     for i in range(len(s)):
+#         if s[i].isdigit(): #숫자
+#             num+=int(s[i])
+#         else:
+#             alpha.append(s[i])
+    
+#     alpha.sort() 
+#     alpha.append(num)
+    
+#     print(''.join(alpha))
+#     return 
+
+# sol()
