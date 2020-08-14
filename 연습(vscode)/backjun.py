@@ -7589,3 +7589,79 @@
 #     return 
 
 # sol()
+
+# #무지의 먹방 라이브 
+# # 시간 초과가 나오기 때문에 heapq에 넣고 숫자가 적은 것부터 계산하는 방식을 사용해야 합니다.
+# # 적은 숫자 * 해당 번호 값이 적은 수를 없애는데 걸린 총 시간입니다.  
+# #(now - past_time)엥서 이전 초에서 현재초를 빼는 이유는 순서가 1부터 끝까지 가서 되돌아 오기 때문에 
+# # 가장 적은 초가 있는 번호를 가기 위해서는 현재 초를 들러야 하기 때문입니다. 
+
+# food = list(map(int,input().split()))
+# time = int(input())
+
+# import heapq 
+
+# def solution(food_times, k):
+#     if sum(food_times) <= k:
+#         return -1 
+
+#     q = [] 
+
+#     # 해당 숫자를 넣기 
+#     for i in range(len(food_times)):
+#         heapq.heappop(q,(food_times[i],i+1))
+
+
+#     sum_time = 0 # 총 걸린 시간 
+#     past_time = 0 #이전의 시간 => 순서대로 돌아가면서 초가 돌기 때문에 현재초에서 이전초를 빼줘야 합니다.
+#     leng = len(food_times) #남아 있는 음식의 개수 
+
+#     while sum_time + (q[0][0]-past_time)*leng <= k:
+#         now = heapq.heappop(q)
+#         sum_time += (now[0]-past_time) * leng 
+#         leng-= 1 
+#         past_time = now[0]
+
+#     result = sorted(q, key=lambda x: x[1]) #번호에 맞게 정렬 
+
+#     return result[(k-sum_time)%leng][1]
+
+
+# 2437
+# n = int(input())
+# wei = list(map(int,input().split()))
+# wei.sort() 
+
+# def sol():
+#     value = 1
+#     for i in wei:
+#         if value < i:
+#             break
+#         value += i 
+
+#     return value
+
+# print(sol())
+
+#1946 다시보기
+# 서류, 면접점수가 모두 다른 지원자 보다 작으면 선발X
+# 서류 or 면접 점수가 다른 지원자 보다 크면 선발O
+
+for _ in range(int(input())):
+    n = int(input())
+    q = []
+    cnt = 0
+    for _ in range(n):
+        paper, meet = map(int,input().split())
+        q.append((paper,meet)) 
+
+    q = sorted(q, key = lambda x: x[0])
+    print(q)
+    min_value = q[0][1]
+    for i in range(n):
+        if q[i][1] > min_value:
+            cnt += 1
+        else:
+            min_value = q[i][1] 
+
+    print(n-cnt)
