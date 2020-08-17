@@ -7643,25 +7643,281 @@
 
 # print(sol())
 
-#1946 다시보기
-# 서류, 면접점수가 모두 다른 지원자 보다 작으면 선발X
-# 서류 or 면접 점수가 다른 지원자 보다 크면 선발O
 
-for _ in range(int(input())):
-    n = int(input())
-    q = []
-    cnt = 0
-    for _ in range(n):
-        paper, meet = map(int,input().split())
-        q.append((paper,meet)) 
+# #1946 
+# # 서류, 면접점수가 모두 다른 지원자 보다 작으면 선발X
+# # 서류 or 면접 점수가 다른 지원자 보다 크면 선발O
 
-    q = sorted(q, key = lambda x: x[0])
-    print(q)
-    min_value = q[0][1]
-    for i in range(n):
-        if q[i][1] > min_value:
-            cnt += 1
-        else:
-            min_value = q[i][1] 
+# for _ in range(int(input())):
+#     n = int(input())
+#     q = []
+#     cnt = 0
+#     for _ in range(n):
+#         paper, meet = map(int,input().split())
+#         q.append((paper,meet)) 
 
-    print(n-cnt)
+#     q = sorted(q, key = lambda x: x[0])
+#     print(q)
+#     min_value = q[0][1]
+#     for i in range(n):
+#         if q[i][1] > min_value:
+#             cnt += 1
+#         else:
+#             min_value = q[i][1] 
+
+#     print(n-cnt)
+
+# 문자열 압축 
+# s = input() 
+
+# def solution(a):
+#     result = len(a)
+#     for jump in range(1,len(a)//2+1):
+#         #몇 자리를 계산 할 것인지 알아보는 곳
+#         combine_w = '' # 합쳐진 문자
+#         w = a[:jump]  # 비교하는 문자 
+#         w_cnt = 1 # 같은 word가 몇번 나왔는지 알려주는 변수 
+
+#         # 겹치는 것이 없다(jump만큼 띈다.)
+#         for i in range(jump,len(a)+1,jump):
+#             # 다음 w랑 a[i:i+jump]까지 같은 경우 수 += 1 
+#             if w == a[i:i+jump]:
+#                 w_cnt+=1 
+            
+#             else:
+#                 if w_cnt == 1:
+#                     combine_w += w 
+#                 else:
+#                     combine_w += (str(w_cnt) + w)
+                
+#                 w = a[i:i+jump]
+#                 w_cnt = 1 
+        
+#         combine_w += w #꼬다리 더해주기
+
+#         result = min(result, len(combine_w))
+        
+#     return result
+
+# solution(s)
+
+# 5567
+# from collections import deque 
+
+# n = int(input())
+# m = int(input())
+# graph = [[] for _ in range(n+1)]
+# check = [False]*(n+1)
+
+# for _ in range(m):
+#     a,b = map(int,input().split())
+#     graph[a].append(b)
+#     graph[b].append(a)
+
+# def bfs(s):
+#     q = deque() 
+#     q.append(s)
+#     check[s] = True 
+#     link = 0
+#     fri_cnt = 0
+
+#     while q:
+#         link+= 1
+#         for _ in range(len(q)):
+#             x = q.popleft()
+#             for fri in graph[x]:
+#                 if check[fri] == False:
+#                     check[fri] = True 
+#                     q.append(fri)
+#                     fri_cnt += 1
+
+#         if link == 2:
+#             break 
+
+#     return fri_cnt 
+
+# 자물쇠와 열쇠 
+# 1.
+# import copy 
+
+# n, m = map(int,input().split())
+
+# key = [list(map(int,input().split())) for _ in range(n)]
+# lock = [list(map(int,input().split())) for _ in range(m)]
+
+# def rotate(key1):
+#     dp = [[0]* n for _ in range(n)]
+
+#     for i in range(n):
+#         for j in range(n):
+#             dp[j][n-i-1] = key1[i][j]
+#     return dp
+
+# def sol(key2):
+#     k = []
+#     l = [] 
+#     lock_c = copy.deepcopy(lock)
+
+#     for i in range(n):
+#         for j in range(n):
+#             if key2[i][j] == 1:
+#                 k.append((i,j))
+
+    
+#     for ii in range(m):
+#         for jj in range(m):
+#             if lock[ii][jj] == 0:
+#                 l.append((ii,jj))
+
+#     check = False
+#     for x, y in k:
+#         for xx,yy in l:
+#             dx = xx - x
+#             dy = yy - y
+            
+#             for xxx, yyy in k:
+#                 if xxx+dx < 0 or yyy+dy < 0 or xxx + dx > m-1 or yyy+dy > m-1:
+#                     continue 
+#                 lock_c[xxx+dx][yyy+dy] = 1 
+
+#             for i in lock_c:
+#                 if 0 in i:
+#                     check = False 
+#                     lock_c = copy.deepcopy(lock)
+#                 else:
+#                     check = True 
+                   
+#     return check 
+
+# for _ in range(4):
+#     key = rotate(key)
+#     print(sol(key))
+#     break
+
+
+# 2.
+# 2차원 리스트 90도 회전 
+# def rotate_a_matrix_by_90_degree(a):
+#     n = len(a) #행 길이 계산
+#     m = len(a[0]) #열 길이 계산
+
+#     result = [[0]*n for _ in range(m)] #결과 리스트
+
+#     for i in range(n):
+#         for j in range(m):
+#             result[j][n-i-1] = a[i][j]
+    
+#     return result 
+
+# # 좌물쇠의 중간 부분이 모두 1인지 확인
+# def check(new_lock):
+#     length = len(new_lock) // 3 
+
+#     for i in range(length, length*2):
+#         for j in range(length, length*2):
+#             if new_lock[i][j] != 1:
+#                 return False 
+#     return True 
+
+# def solution(key, lock):
+#     n = len(lock)
+#     m = len(key)
+
+#     #좌물쇠의 크기를 기존의 3배로 변환 
+#     new_lock = [[0] * (n*3) for _ in range(n*3)]
+
+#     #새로운 자물쇠의 중앙 부분에 기존의 자물쇠 넣기
+#     for i in range(n):
+#         for j in range(n):
+#             new_lock[i+n][j+n] = lock[i][j]
+
+    
+#     # 4가지 방향에 대해서 확인
+#     for rotation in range(4):
+#         key = rotate_a_matrix_by_90_degree(key)
+#         for x in range(n*2):
+#             for y in range(n*2):
+#                 #자물쇠에 열쇠를 끼어 넣기 
+#                 for i in range(m):
+#                     for j in range(m):
+#                         new_lock[x+i][y+i] += key[i][j]
+
+#                 #새로운 자물쇠에 열쇠가 정화히 들어 맞는지 검사 
+#                 if check(new_lock) == True:
+#                     return True 
+                
+#                 #자물쇠에서 열쇠를 다시 빼기
+#                 for i in range(m):
+#                     for j in range(m):
+#                         new_lock[x+i][y+i] -= key[i][j]
+#     return False 
+
+
+#3190 
+# 뱀의 몸통이 2개 이상일 수 있습니다.
+# 그래서 뱀이 있는 부분을 모두 저장해 놓고 
+# 사과를 못 먹으면 맨 꼬리부분을 없애 줘야 한다. 
+# 새로운 worm을 만들어주면 시간이 오래걸려 
+
+# from collections import deque 
+
+# n = int(input())
+# k = int(input())
+# board = [[0]*(n+1) for _ in range(n+1)]
+# change = [] #회전 정보
+
+# for _ in range(k):
+#     a,b = map(int,input().split())
+#     board[a][b] = 1  #사과 넣어주기 
+
+# l = int(input())
+# for _ in range(l):
+#     x, c = input().split() # 문자 L - 왼쪽, D - 오른쪽
+#     change.append((int(x), c))
+
+# dx,dy = [0, 1, 0, -1], [1, 0, -1, 0]
+
+# def change_d(direct, word):
+#     if word == "L":
+#         direct = (direct-1) % 4
+#     else:
+#         direct = (direct+1) % 4
+#     return direct
+
+# def move_worm():
+#     x, y = 1, 1
+#     q = deque()
+#     q.append((x,y))
+#     time = 0
+#     direction = 0
+#     idx = 0
+#     board[x][y] = 2
+    
+#     while True:
+#         nx, ny = x+dx[direction], y+dy[direction]
+
+#         # 맵안에 있고 뱀의 몸통 부딪치지 않을 때
+#         if 0 < nx and nx < n+1 and 0 < ny and ny < n+1 and board[nx][ny] != 2:
+#             #사과 없을 때 
+#             if board[nx][ny] == 0:
+#                 board[nx][ny] = 2
+#                 q.append((nx,ny))
+#                 px, py = q.popleft()
+#                 board[px][py] = 0
+
+#             if board[nx][ny] == 1:
+#                 board[nx][ny] = 2
+#                 q.append((nx,ny))
+
+#         else:
+#             time+=1 
+#             break 
+#         x, y = nx, ny 
+#         time+= 1
+#         if idx < l and time == change[idx][0]:
+#             direction = change_d(direction, change[idx][1])
+#             idx += 1
+#     return time 
+# print(move_worm())
+
+ 
