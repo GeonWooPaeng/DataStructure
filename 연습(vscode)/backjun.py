@@ -7920,4 +7920,45 @@
 #     return time 
 # print(move_worm())
 
- 
+#기둥과 보 설치
+# n = int(input()) #정사각 격자
+# build_frame = []
+# while True:
+#     try:
+#         build_frame.append(list(map(int,input().split())))
+#     except:
+#         break 
+    
+# def check(result):
+#     for x,y,a in result:
+#         #기둥
+#         if a == 0:
+#             if y == 0 or ([x-1,y,1] in result) or ([x,y,1] in result) or ([x,y-1,0] in result):
+#                 return True 
+#         #보
+#         else:
+#             if ([x,y-1, 0] in result) or ([x+1, y-1, 0] in result) or (([x-1, y, 1] in result) and ([x+1, y, 1] in result)):
+#                 return True
+    
+#     return False
+
+# def solution(build_frame, n):
+#     result = [] 
+
+#     for x,y,a,b in build_frame:
+#         #설치 
+#         if b == 1:
+#             result.append([x,y,a])
+#             if not check(result):
+#                 result.remove([x,y,a])
+#         #삭제
+#         if b == 0:
+#             result.remove([x,y,a])
+#             if not check(result):
+#                 result.append([x,y,a])
+
+        
+#     return sorted(result)
+# print(solution(build_frame, n))
+
+#15686
