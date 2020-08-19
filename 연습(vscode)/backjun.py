@@ -6333,6 +6333,7 @@
 #     # idx는 chicken에 있는 변수를 조합하기 위해 사용하는 수
 #     # cnt는 chicken집 수 파악
 #     global result_v 
+#     print(chi_combination, 'idx')
 
 #     if idx > len(chicken):
 #         # idx는 chicken의 변수를 조합하기 위한 변수로 
@@ -7961,4 +7962,58 @@
 #     return sorted(result)
 # print(solution(build_frame, n))
 
+#2812
+
+# import sys 
+# input = sys.stdin.readline
+
+# n,k = map(int,input().split()) 
+# num = list(input()) 
+# cnt = k
+# result = []
+
+# for i in range(n):
+#     while cnt > 0 and result and result[-1] < num[i]:
+#         del result[-1]
+#         cnt -= 1
+#     result.append(num[i])
+
+# print(''.join(result[:n-k]))
+
 #15686
+# from collections import deque 
+
+# n, m = map(int,input().split())
+# city = [list(map(int,input().split())) for _ in range(n)]
+# home, chicken = deque(), deque() 
+# chi_combination = deque() 
+# answer = []
+
+# def solution(idx, cnt):
+#     if idx > len(chicken):
+#         return 
+
+#     if cnt == m:
+#         result = 0
+#         for x,y in home:
+#             min_chi = 100000
+#             for i in chi_combination:
+#                 min_chi = min(min_chi, (abs(x-chicken[i][0]) + abs(y-chicken[i][1])))
+#             result += min_chi 
+#         answer.append(result)
+          
+#     chi_combination.append(idx)
+#     solution(idx+1, cnt+1)
+#     chi_combination.pop()
+#     solution(idx+1, cnt)
+
+# for i in range(n):
+#     for j in range(n):
+#         if city[i][j] == 1:
+#             home.append((i,j))
+#         elif city[i][j] == 2:
+#             chicken.append((i,j))
+
+    
+# solution(0,0)
+# print(min(answer))
