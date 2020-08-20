@@ -8063,3 +8063,85 @@
 # else:
 #     gcd = GCD(n,m)
 #     print(m-gcd)
+
+#외벽 점검 
+# 1.
+# from collections import deque 
+# from itertools import permutations 
+
+# #친구를 투입하고 나서, 다음 친구를 투입할 때 
+# def next_idx(queue, d, start_index=0):
+#     start_num = queue[start_index]
+#     for i in range(1, d+1):
+#         try:
+#             if queue[start_index + 1] == start_num + i:
+#                 start_index = start_index + 1 
+#         except:
+#             break 
+#     return (start_index + 1)
+
+
+# def solution(n, weak, dist):
+#     dist.sort(reverse=True)
+#     weak = deque(weak)
+
+#     for i in range(1,len(dist)+1):
+#         if i == 1:
+#             for _ in range(len(weak)):
+#                 d = dist[0]
+#                 if weak[-1] <= weak[0] + d:
+#                     return 1 
+#                 else:
+#                     weak.rotate(-1) #우측으로 1칸 회전시킨다.
+#                     weak[-1] = weak[-1] + n 
+#             # weak 원상 복구 
+#             weak = deque(map(lambda x:x%n, weak))
+#         else:
+#             dist_2 = list(itertools.permutations(dist[:i]))
+#             for select_set in dist_2:
+#                 for _ in range(len(weak)):
+#                     start_idx = 0 
+#                     for d in select_set:
+#                         #다음번 친구가 투입될 위치: start_idx 
+#                         start_idx = next_idx(weak, d, start_idx)
+#                         if start_idx == len(weak):
+#                             return i 
+#                     weak.rotate(-1)
+#                     weak[-1] = weak[-1] + n 
+#                     #weak 원상복구
+#                 weak = deque(map(lambda x: x%n, weak))
+#         return -1
+
+
+# # 2.
+# from itertools import permutations 
+
+# def solution(n,weak, dist):
+#     dist.sort(reverse = True)
+#     #길이를 2배로 놀려서 원형을 일자 형태로 변형 
+#     length = len(weak)
+#     for i in range(length):
+#         weak.append(weak[i]+n)
+
+#     answer = len(dist) + 1 #투입할 친구 수의 최솟값을 찾아야 하므로 len(dist) + 1로 초기화 
+
+#     #0 부터 length-1까지의 위치를 각각 시작점으로 설정 
+#     for start in range(length):
+#         #친구를 나열하는 모든 경우의 수 각각에 대하여 확인
+#         for friends in list(permutations(dist, len(dist))):
+#             count = 1 #투입할 친구의 수 
+#             #해당 친구가 점검할 수 있는 마지막 위치 
+#             position = weak[start] + friends[count-1]
+#             #시작점부터 모든 취약 지점을 확인 
+#             for index in range(start, start+length):
+#                 #점검할 수 있는 위치를 벗어나는 경우
+#                 if position < weak[index]:
+#                     count += 1  #새로운 친구를 투입
+#                     if count > len(dist): # 더 투입이 불가능하다면 종료 
+#                         break 
+
+#                     position = weak[index] + friends[count - 1]
+#             answer = min(answer, count) #최솟값 계산 
+#     if answer > len(dist):
+#         return -1 
+#     return answer 
