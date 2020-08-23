@@ -8145,3 +8145,71 @@
 #     if answer > len(dist):
 #         return -1 
 #     return answer 
+
+
+# 2636
+
+# from collections import deque 
+
+# dx,dy = [1,0,-1,0], [0,1,0,-1]
+
+# a,b = map(int,input().split()) #세로, 가로
+# board = [list(map(int,input().split())) for _ in range(a)]
+# time = 0 
+# result = []
+
+
+# def bfs(sx,sy):
+#     q = deque()
+#     check = [[False]*b for _ in range(a)]
+    
+#     q.append((sx,sy))
+#     check[sx][sy] = True
+
+#     cnt = 0
+
+#     while q:
+#         x,y = q.popleft()
+
+#         for i in range(4):
+#             xx,yy = x+dx[i], y+dy[i]
+            
+#             if xx < 0 or yy < 0 or xx > a-1 or yy > b-1:
+#                 continue 
+            
+#             if check[xx][yy] == False and board[xx][yy] == 0:
+#                 check[xx][yy] = True 
+#                 q.append((xx,yy))
+            
+#             elif check[xx][yy] == False and board[xx][yy] == 1:
+#                 cnt+= 1
+#                 board[xx][yy] = 2
+#                 check[xx][yy] = True
+
+#     return cnt
+
+
+
+# while True:
+
+#     check_b = True
+
+#     for cheese in board:
+#         if 1 in cheese:
+#             check_b = False
+
+#     result.append(bfs(0,0))
+    
+#     for i in range(a):
+#         for j in range(b):
+#             if board[i][j] == 2:
+#                 board[i][j] = 0
+    
+#     if check_b:
+#         print(time)
+#         print(result[-2])
+#         break 
+#     else:
+#         time += 1
+
+
