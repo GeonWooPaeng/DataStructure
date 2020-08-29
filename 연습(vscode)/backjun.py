@@ -8158,7 +8158,6 @@
 # time = 0 
 # result = []
 
-
 # def bfs(sx,sy):
 #     q = deque()
 #     check = [[False]*b for _ in range(a)]
@@ -8211,5 +8210,221 @@
 #         break 
 #     else:
 #         time += 1
+
+
+#18352
+# from collections import deque 
+
+# n,m,k,x = map(int,input().split()) 
+
+# city = [[] for _ in range(n+1)]  
+# distance = [-1] * (n+1)
+
+# for _ in range(m):
+#     a,b = map(int,input().split())
+#     city[a].append(b)
+
+# def bfs(start):
+#     q = deque()
+#     q.append(start)
+#     distance[start] = 0
+
+#     while q:
+#         num = q.popleft() 
+
+#         for node in city[num]:
+#             if distance[node] == -1:
+#                 distance[node] = distance[num] + 1
+#                 q.append(node)
+
+# bfs(x)
+
+# check = False 
+# for c in range(1,n+1):
+#     if distance[c] == k:
+#         print(c)
+#         check = True 
+
+# if check == False:
+#     print(-1)
+
+
+#14502
+# 1.
+# from itertools import combinations 
+# from copy import deepcopy 
+
+# dx,dy = [1,0,-1,0], [0,1,0,-1]
+
+# n,m = map(int,input().split())
+# board = [list(map(int,input().split())) for _ in range(n)]
+# wall,virus = [],[] 
+# result = 0
+
+
+# def bfs(w1,w2,w3):
+#     b = deepcopy(board)
+
+#     b[w1[0]][w1[1]] = 1
+#     b[w2[0]][w2[1]] = 1
+#     b[w3[0]][w3[1]] = 1
+    
+#     for sx,sy in virus:
+#         q = [] 
+#         q.append((sx,sy))
+
+#         while q:
+#             x,y = q.pop(0)
+
+#             for i in range(4):
+#                 xx,yy = x+dx[i], y+dy[i]
+
+#                 if xx < 0 or xx > n-1 or yy < 0 or yy > m-1:
+#                     continue 
+
+#                 if b[xx][yy] == 0:
+#                     b[xx][yy] = 2 
+#                     q.append((xx,yy)) 
+
+#     return b
+
+# for i in range(n):
+#     for j in range(m):
+#         if board[i][j] == 0:
+#             wall.append((i,j))
+#         elif board[i][j] == 2:
+#             virus.append((i,j))
+
+# for k in list(combinations(wall, 3)):
+#     virus_board = bfs(k[0],k[1],k[2])
+
+#     safe = 0
+#     for i in range(n):
+#         for j in range(m):
+#             if virus_board[i][j] == 0:
+#                 safe+=1 
+    
+#     result = max(safe, result)
+
+# print(result)
+
+# 2.
+# n,m = map(int,input().split())
+# data = [] #초기 맵 리스트 
+# temp = [[0]*m for _ in range(n)] #벽을 설치한 뒤의 맵 리스트 
+
+# for _ in range(n):
+#     data.append(list(map(int,input().split())))
+
+
+# #4가지 이동 방향에 대한 리스트
+# dx = [-1,0,1,0]
+# dy = [0,1,0,-1]
+
+# result = 0
+
+# #깊이 우선 탐색(dfs)을 이용해 각 바이러스가 사방으로 퍼지도록 하기
+# def virus(x,y):
+#     for i in range(4):
+#         nx = x+dx[i]
+#         ny = y+dy[i]
+        
+#         #상, 하, 좌, 우 중에서 바이러스가 퍼질 수 있는 경우
+#         if nx >= 0 and nx < n and ny >= 0 and ny < m:
+#             if temp[nx][ny] == 0:
+#                 #해당 위치에 바이러스 배치하고, 다시 재귀적으로 수행 
+#                 temp[nx][ny] = 2 
+#                 virus(nx,ny)
+
+# #현재 맵에서 안전 영역의 크기 계산하는 매서드
+# def get_score():
+#     score = 0 
+#     for i in range(n):
+#         for j in range(m):
+#             if temp[i][j] == 0:
+#                 score += 1 
+#     return score
+
+# #깊이 우선 탐색(DFS)을 이용해 울타리를 설치하면서, 매번 안전 영역의 크기 계산 
+# def dfs(count):
+#     global result 
+#     #울타리가 3개 설치된 경우 
+#     if count == 3:
+#         for i in range(n):
+#             for j in range(m):
+#                 temp[i][j] = data[i][j]
+
+#         # 각 바이러스의 위치에서 전파 진행 
+#         for i in range(n):
+#             for j in range(m):
+#                 if temp[i][j] == 2:
+#                     virus(i,j)
+
+#         #안전 영역의 최댓값 계산 
+#         result = max(result, get_score())
+#         return 
+    
+#     #빈 공간에 울타리 설치 
+#     for i in range(n):
+#         for j in range(m):
+#             if data[i][j] == 0:
+#                 data[i][j] = 1 
+#                 count += 1 
+#                 dfs(count)
+#                 data[i][j] = 0 
+#                 count -= 1 
+
+# dfs(0)
+# print(result)
+
+
+
+# #18405
+# #tip: for 개수가 최소가 되도록 하자 
+# from collections import deque 
+# import sys 
+
+# input = sys.stdin.readline 
+
+# dx,dy = [1,-1,0,0], [0,0,-1,1]
+
+# n,k = map(int,input().split())
+# board = [list(map(int,input().split())) for _ in range(n)]
+# s,x,y = map(int,input().split())
+# virus = []
+
+# for i in range(n):
+#     for j in range(n):
+#         if board[i][j] != 0:
+#             virus.append((board[i][j],0,i,j))
+
+# virus.sort() 
+
+# def bfs():
+#     q = deque(virus) 
+
+#     while q:
+#         vi, ti, xx, yy = q.popleft() 
+
+#         if ti == s:
+#             return 
+
+#         for i in range(4):
+#             xxx, yyy = xx+dx[i], yy+dy[i]
+
+#             if xxx < 0 or yyy < 0 or xxx > n-1 or yyy > n-1:
+#                 continue 
+
+#             if board[xxx][yyy] == 0:
+#                 board[xxx][yyy] = vi 
+#                 q.append((vi,ti+1,xxx,yyy))   
+
+# bfs() 
+# print(board[x-1][y-1])
+
+
+
+
+
 
 
