@@ -8425,3 +8425,61 @@
 
 
 #괄호 변환
+n = input()
+
+def balance(a):
+    left = 0 
+
+    for i in range(len(a)):
+        if a[i] == '(':
+            left+=1 
+        else:
+            left-=1 
+        
+        if left == 0:
+            return i 
+
+def right(a):
+    left = 0 
+    for i in a:
+        if i == '(':
+            left+= 1
+        
+        else:
+            if left == 0:
+                return False
+            left -= 1
+
+    return True
+
+
+def sol(w):
+    result = ''
+
+    if w == '':
+        return result 
+
+    idx = balance(w)
+    u = w[:idx+1]
+    v = w[idx+1:]
+
+    if right(u):
+        result = u + sol(v)
+
+    else:
+        result = '('
+        result += sol(v)
+        result += ')'
+        u = list(u[1:-1])
+
+        for i in range(len(u)):
+            if u[i] == '(':
+                u[i] = ')'
+            else:
+                u[i] = '('
+
+        result += ''.join(u)
+
+    return result 
+
+print(sol(n))
