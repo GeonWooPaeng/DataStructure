@@ -8425,61 +8425,174 @@
 
 
 #괄호 변환
-n = input()
+# n = input()
 
-def balance(a):
-    left = 0 
+# def balance(a):
+#     left = 0 
 
-    for i in range(len(a)):
-        if a[i] == '(':
-            left+=1 
-        else:
-            left-=1 
+#     for i in range(len(a)):
+#         if a[i] == '(':
+#             left+=1 
+#         else:
+#             left-=1 
         
-        if left == 0:
-            return i 
+#         if left == 0:
+#             return i 
 
-def right(a):
-    left = 0 
-    for i in a:
-        if i == '(':
-            left+= 1
+# def right(a):
+#     left = 0 
+#     for i in a:
+#         if i == '(':
+#             left+= 1
         
-        else:
-            if left == 0:
-                return False
-            left -= 1
+#         else:
+#             if left == 0:
+#                 return False
+#             left -= 1
 
-    return True
+#     return True
 
 
-def sol(w):
-    result = ''
+# def sol(w):
+#     result = ''
 
-    if w == '':
-        return result 
+#     if w == '':
+#         return result 
 
-    idx = balance(w)
-    u = w[:idx+1]
-    v = w[idx+1:]
+#     idx = balance(w)
+#     u = w[:idx+1]
+#     v = w[idx+1:]
 
-    if right(u):
-        result = u + sol(v)
+#     if right(u):
+#         result = u + sol(v)
 
-    else:
-        result = '('
-        result += sol(v)
-        result += ')'
-        u = list(u[1:-1])
+#     else:
+#         result = '('
+#         result += sol(v)
+#         result += ')'
+#         u = list(u[1:-1])
 
-        for i in range(len(u)):
-            if u[i] == '(':
-                u[i] = ')'
-            else:
-                u[i] = '('
+#         for i in range(len(u)):
+#             if u[i] == '(':
+#                 u[i] = ')'
+#             else:
+#                 u[i] = '('
 
-        result += ''.join(u)
+#         result += ''.join(u)
 
-    return result 
+#     return result 
 
-print(sol(n))
+# print(sol(n))
+
+#14888
+# from itertools import permutations 
+# import sys 
+# input = sys.stdin.readline 
+
+# operation = ['+','-','*','/']
+# num = int(input()) #수의 개수 
+# nums = input().split()
+# op_cnt = list(map(int,input().split())) #덧셈, 뺄셈, 곱셈, 나눗셈 
+# op = []
+
+
+# # 연산자 구하기
+# for o in range(4):
+#     if op_cnt[o] != 0:
+#         for _ in range(op_cnt[o]):
+#             op.append(operation[o])
+# op_set = set(permutations(op, num-1))
+
+# 1.
+# max_result = -sys.maxsize
+# min_result = sys.maxsize
+
+# for i in op_set:
+#     i = list(i)
+#     stack = [] 
+
+#     for j in range(num):
+#         stack.append(nums[j])
+
+#         if len(stack) == 3:
+#             cal_result = int(eval(''.join(stack)))
+#             stack = [str(cal_result)]
+
+#         if j == num-1:
+#             break 
+#         else:
+#             stack.append(i[j])
+
+#     result = eval(''.join(stack))
+
+#     if result > max_result:
+#         max_result = result
+
+#     if result < min_result:
+#         min_result = result 
+
+# print(max_result)
+# print(min_result)
+
+# 2.
+# result = [] 
+# for i in op_set:
+#     i = list(i)
+#     cal = int(nums[0])
+    
+#     for j in range(len(i)):
+#         if i[j] == '+':
+#             cal += int(nums[j+1])
+#         elif i[j] == '-':
+#             cal -= int(nums[j+1])
+#         elif i[j] == '*':
+#             cal *= int(nums[j+1])
+#         else:
+#             cal = cal//int(nums[j+1]) if cal > 0 else ((-cal)//int(nums[j+1]))*(-1)
+    
+#     result.append(cal)
+
+# print(max(result))
+# print(min(result))
+
+# 3. 재귀
+
+# num = int(input()) #수의 개수 
+# nums = list(map(int,input().split()))
+# op_cnt = list(map(int,input().split())) #덧셈, 뺄셈, 곱셈, 나눗셈 
+
+# max_result = -1e9 
+# min_result = 1e9
+
+# def cal(idx, result):
+
+#     if idx == num:
+#         max_result = max(max_result, result)
+#         min_result = min(min_result, result)
+
+
+#     else:
+#         if op_cnt[0] > 0:
+#             op_cnt[0] -= 1
+#             cal(idx+1, result+nums[idx])
+#             op_cnt[0] += 1 
+        
+#         if op_cnt[1] > 0:
+#             op_cnt[1] -= 1
+#             cal(idx+1, result-nums[idx])
+#             op_cnt[1] += 1
+
+#         if op_cnt[2] > 0:
+#             op_cnt[2] -= 1 
+#             cal(idx+1, result*nums[idx])
+#             op_cnt[2] += 1 
+
+#         if op_cnt[3] > 0:
+#             op_cnt[3] -= 1
+#             cal(idx+1, int(result/nums[idx]))
+#             op_cnt[3] += 1 
+
+# cal(1, nums[0])
+
+# print(max_result)
+# print(min_result)
