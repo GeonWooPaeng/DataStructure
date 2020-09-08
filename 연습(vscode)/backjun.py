@@ -8596,3 +8596,87 @@
 
 # print(max_result)
 # print(min_result)
+
+
+#18428
+# 1.
+# import copy 
+# import sys 
+# sys.setrecursionlimit(10000)
+
+# n = int(input())
+# board = [list(input().split()) for _ in range(n)]
+# answer = False
+# teacher = []
+
+# def bfs():
+#     global teacher
+#     boards = copy.deepcopy(board)
+#     teachers = copy.deepcopy(teacher)
+
+#     while teachers:
+#         x, y = teachers.pop()
+
+#         for i in range(4):
+#             if i == 0: #동 
+#                 for j in range(y,n):
+#                     if boards[x][j] == 'S':
+#                         return False
+
+#                     if boards[x][j] == 'O':
+#                         break
+                    
+#             if i == 1: #북
+#                 for j in range(x,-1,-1):
+#                     if boards[j][y] == 'S':
+#                         return False
+
+#                     if boards[j][y] == 'O':
+#                         break
+
+#             if i == 2: #서
+#                 for j in range(y,-1,-1):
+#                     if boards[x][j] == 'S':
+#                         return False
+
+#                     if boards[x][j] == 'O':
+#                         break
+
+#             if i == 3: #남
+#                 for j in range(x,n):
+#                     if boards[j][y] == 'S':
+#                         return False
+
+#                     if boards[j][y] == 'O':
+#                         break
+#     return True                    
+
+
+# def wall(cnt):
+#     global answer
+#     if cnt == 3: 
+#         if bfs():
+#             answer = True
+#         return 
+    
+#     for i in range(n):
+#         for j in range(n):
+#             if board[i][j] == 'X':
+#                 board[i][j] = 'O'
+#                 wall(cnt+1)
+#                 board[i][j] = 'X'
+
+
+# for i in range(n):
+#     for j in range(n):
+#         if board[i][j] == 'T':
+#             teacher.append((i,j))
+
+# wall(0)
+
+# if answer:
+#     print('YES')
+# else:
+#     print('NO')
+
+# 2.

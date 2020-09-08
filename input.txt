@@ -1,3 +1,5 @@
-6
-1 2 3 4 5 6
-2 1 1 1
+4
+X X T T
+S X T T
+S X T T
+X X X S
