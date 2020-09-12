@@ -1,5 +1,1 @@
-4
-X X T T
-S X T T
-S X T T
-X X X S
+6 4 6 2

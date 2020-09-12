@@ -8756,3 +8756,245 @@
 #     print('YES')
 # else:
 #     print('NO')
+
+
+#16234
+
+# dx,dy = [1,0,-1,0], [0,1,0,-1]
+# n,l,r = map(int,input().split())
+# country_n = [list(map(int,input().split())) for _ in range(n)]
+
+# def bfs(sx, sy):
+#     visit = []
+#     visit.append((sx,sy))
+
+#     while visit:
+#         x,y = visit.pop()
+
+#         for i in range(4):
+#             xx,yy = x+dx[i], y+dy[i]
+
+#             if xx < 0 or xx > n-1 or yy < 0 or yy > n-1:
+#                 continue 
+            
+
+# bfs(0,0)
+
+#카카오1
+# new_id = input()
+# def solution(new_id):
+    
+#     # 1단계
+#     new_id = new_id.lower() 
+    
+#     # 2,3단계 
+#     new_id = list(new_id)
+
+#     point = 0
+#     for i in range(len(new_id)):
+#         if not new_id[i].isalnum():
+#             if new_id[i] == '-' or new_id[i] == '_' or new_id[i] == '.':            
+#                 if new_id[i] == '.':
+#                     point += 1
+#                     if point > 1:
+#                         new_id[i] = ''
+#                 else:
+#                     point = 0
+            
+#             else:
+#                 new_id[i] = ''
+#         else:
+#             point = 0
+            
+#     new_id = ''.join(new_id)
+#     new_id = list(new_id)
+
+#     #4단계
+#     if new_id[0] == '.':
+#         new_id[0] = ''
+#     if new_id[-1] == '.':
+#         new_id[-1] = ''
+
+#     new_id = ''.join(new_id)
+#     new_id = list(new_id)
+
+#     #5단계
+#     if new_id == []:
+#         new_id.append('a')
+        
+#     #6단계
+#     if len(new_id) > 15:
+#         new_id = new_id[:15]
+#         if new_id[-1] == '.':
+#             new_id[-1] = ''
+
+#     new_id = ''.join(new_id)
+#     new_id = list(new_id)
+
+#     # 7단계
+#     if len(new_id) < 3:
+#         while True:
+#             if len(new_id) == 3:
+#                 break
+
+#             new_id.append(new_id[-1])
+        
+#     new_id = ''.join(new_id)
+    
+#     return new_id
+
+# print(solution(new_id))
+
+#카카오2 
+import sys 
+
+
+n,s,a,b = map(int,input().split())
+fares = [[4, 1, 10], [3, 5, 24], [5, 6, 2], [3, 1, 41], [5, 1, 24], [4, 6, 50], [2, 4, 66], [2, 3, 22], [1, 6, 25]]
+# graph = [[] for _ in range(n+1)]
+
+# for aa,bb,ff in fares:
+#     graph[aa].append((bb,ff))
+#     graph[bb].append((aa,ff))
+
+
+# def djikstra(s,e):
+#     wei = [1e9] * (n+1)
+#     wei[s] = 0 
+#     heap = []
+#     heapq.heappush(heap,(s,0))
+
+#     while heap:
+#         node, fare = heapq.heappop(heap)
+
+#         for next_node, fa in graph[node]:
+#             if wei[next_node] > wei[node] + fa:
+#                 wei[next_node] = wei[node] + fa
+#                 heapq.heappush(heap,(next_node, wei[node]+fa))
+
+#     return wei[e]
+
+# case_one = djikstra(s,a) + djikstra(a,b)
+# case_two = djikstra(s,b) + djikstra(b,a)
+# case_three = djikstra(s,a) + djikstra(s,b)
+
+# print(min(case_one, case_two, case_three))
+
+
+#프로그래머스 풀이
+# import sys 
+# import heapq 
+# input = sys.stdin.readline 
+
+# def djikstra(gr, num, st ,e):
+#     wei = [1e9]*(num+1)
+#     wei[st] = 0
+#     heap = [] 
+#     heapq.heappush(heap,(st,0))
+    
+#     while heap:
+#         node, fare = heapq.heappop(heap)
+        
+#         for next_n, fa in gr[node]:
+#             if wei[next_n] > wei[node] + fa:
+#                 wei[next_n] = wei[node] + fa
+#                 heapq.heappush(heap,(next_n, wei[node]+fa))
+                
+#     return wei[e]
+
+
+# def solution(n, s, a, b, fares):
+#     graph = [[] for _ in range(n+1)]
+    
+#     for aa,bb,ff in fares:
+#         graph[aa].append((bb,ff))
+#         graph[bb].append((aa,ff))
+        
+#     case_one = djikstra(graph,n,s,a) + djikstra(graph,n,a,b)
+#     case_two = djikstra(graph,n,s,b) + djikstra(graph,n,b,a)
+    
+#     case_three = 1e9 
+#     for i in range(1,n+1):
+#         if not graph[i]:
+#             continue 
+#         case_three = min((djikstra(graph,n,s,i) +djikstra(graph,n,i,a) + djikstra(graph,n,i,b)), case_three)
+
+#     answer = min(case_one, case_two, case_three)
+    
+#     return answer
+
+# 카카오 3
+# from itertools import permutations 
+# orders = ["ABCFG", "AC", "CDE", "ACDE", "BCFG", "ACDEH"]
+# data = {'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'}
+
+# def check_in(order_menu, set_m):
+#     for menu in set_m:
+#         if not menu in order_menu:
+#             return False
+#     return True
+
+# def check_order(set_m):
+#     for i in range(len(set_m)-1):
+#         if ord(set_m[i]) > ord(set_m[i+1]):
+#             return False 
+#     return True
+
+# def solution():
+#     answer = []
+#     for order in orders:
+#         for i in range(2,len(order)+1):
+#             set_menus = list(permutations(list(order),i))
+#             for set_menu in set_menus:
+#                 set_menu = ''.join(set_menu)
+                    
+#                 if check_order(set_menu):
+#                     count = 0
+#                     for order2 in orders:
+#                          if check_in(order2, set_menu):
+#                              count += 1
+                    
+#                     if count > 2:
+#                         answer.append(set_menu)
+
+#     return set(answer) 
+
+# print(solution())
+
+#카카오4
+infos = ["java backend junior pizza 150","python frontend senior chicken 210","python frontend senior chicken 150","cpp backend senior pizza 260","java backend junior chicken 80","python backend senior chicken 50"]
+querys = ["java and backend and junior and pizza 100","python and frontend and senior and chicken 200","cpp and - and senior and pizza 250","- and backend and senior and - 150","- and - and - and chicken 100","- and - and - and - 150"]
+
+# def check(info, q):
+#     for i in range(5):
+#         if i != 4:
+#             if q[i] != '-' and q[i] != info[i]:
+#                 return False
+#         else:
+#             if int(q[i]) > int(info[i]):
+#                 return False
+#     return True
+
+# def sol(query, infos):
+#     count = 0
+#     for info in infos:
+#         info = info.split(' ')
+
+#         if check(info, query):
+#             count += 1
+        
+#     return count
+
+
+# def solution(infos, querys):
+#     result = []
+#     for query in querys:
+#         query = query.split('and ')
+#         query = ''.join(query)
+#         query = query.split(' ')
+#         result.append(sol(query,infos))
+
+#     return result
+
+# print(solution(infos, querys))
+
