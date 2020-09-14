@@ -8758,28 +8758,6 @@
 #     print('NO')
 
 
-#16234
-
-# dx,dy = [1,0,-1,0], [0,1,0,-1]
-# n,l,r = map(int,input().split())
-# country_n = [list(map(int,input().split())) for _ in range(n)]
-
-# def bfs(sx, sy):
-#     visit = []
-#     visit.append((sx,sy))
-
-#     while visit:
-#         x,y = visit.pop()
-
-#         for i in range(4):
-#             xx,yy = x+dx[i], y+dy[i]
-
-#             if xx < 0 or xx > n-1 or yy < 0 or yy > n-1:
-#                 continue 
-            
-
-# bfs(0,0)
-
 #카카오1
 # new_id = input()
 # def solution(new_id):
@@ -8846,11 +8824,10 @@
 # print(solution(new_id))
 
 #카카오2 
-import sys 
+# import sys 
 
-
-n,s,a,b = map(int,input().split())
-fares = [[4, 1, 10], [3, 5, 24], [5, 6, 2], [3, 1, 41], [5, 1, 24], [4, 6, 50], [2, 4, 66], [2, 3, 22], [1, 6, 25]]
+# n,s,a,b = map(int,input().split())
+# fares = [[4, 1, 10], [3, 5, 24], [5, 6, 2], [3, 1, 41], [5, 1, 24], [4, 6, 50], [2, 4, 66], [2, 3, 22], [1, 6, 25]]
 # graph = [[] for _ in range(n+1)]
 
 # for aa,bb,ff in fares:
@@ -8962,8 +8939,8 @@ fares = [[4, 1, 10], [3, 5, 24], [5, 6, 2], [3, 1, 41], [5, 1, 24], [4, 6, 50], 
 # print(solution())
 
 #카카오4
-infos = ["java backend junior pizza 150","python frontend senior chicken 210","python frontend senior chicken 150","cpp backend senior pizza 260","java backend junior chicken 80","python backend senior chicken 50"]
-querys = ["java and backend and junior and pizza 100","python and frontend and senior and chicken 200","cpp and - and senior and pizza 250","- and backend and senior and - 150","- and - and - and chicken 100","- and - and - and - 150"]
+# infos = ["java backend junior pizza 150","python frontend senior chicken 210","python frontend senior chicken 150","cpp backend senior pizza 260","java backend junior chicken 80","python backend senior chicken 50"]
+# querys = ["java and backend and junior and pizza 100","python and frontend and senior and chicken 200","cpp and - and senior and pizza 250","- and backend and senior and - 150","- and - and - and chicken 100","- and - and - and - 150"]
 
 # def check(info, q):
 #     for i in range(5):
@@ -8998,3 +8975,121 @@ querys = ["java and backend and junior and pizza 100","python and frontend and s
 
 # print(solution(infos, querys))
 
+
+#16234
+# 1.
+# from collections import deque 
+
+# dx,dy = [1,0,-1,0],[0,1,0,-1]
+# n,l,r = map(int,input().split())
+# a = [list(map(int,input().split())) for _ in range(n)]
+
+# def bfs(sx,sy):
+#     q = deque() 
+#     move = deque() 
+#     q.append((sx,sy))
+#     move.append((sx,sy))
+#     move_cnt = a[sx][sy]
+#     check[sx][sy] = True
+
+#     while q:
+#         x,y = q.popleft() 
+
+#         for i in range(4):
+#             xx,yy = x+dx[i], y+dy[i]
+
+#             if xx < 0 or xx > n-1 or yy < 0 or yy > n-1:
+#                 continue 
+
+#             if check[xx][yy] == False:
+#                 if l <= abs(a[x][y] - a[xx][yy]) <= r:
+#                     q.append((xx,yy))
+#                     check[xx][yy] = True
+#                     move.append((xx,yy))
+#                     move_cnt += a[xx][yy]
+
+#     change_cnt = (move_cnt // len(move))
+
+#     for mx,my in move:
+#         a[mx][my] = change_cnt
+
+#     return               
+    
+
+# result = 0
+# while True:
+#     check = [[False]*n for _ in range(n)]
+#     end_cnt = 0
+
+#     for i in range(n):
+#         for j in range(n):
+#             if check[i][j] == False:
+#                 bfs(i,j)
+#                 end_cnt += 1
+    
+#     if end_cnt == (n*n):
+#         break
+#     result += 1
+
+# print(result)
+
+# 2.
+# from collections import deque 
+
+# n,l,r = map(int,input().split()) 
+
+# graph = [] 
+# for _ in range(n):
+#     graph.append(list(map(int,input().split())))
+
+# dx = [-1,0,1,0]
+# dy = [0,-1,0,1]
+
+# result = 0
+
+# # 특정 위치에서 출발하여 모든 연합을 체크한 뒤에 데이터 갱신
+# def process(x, y, index): 
+#     #(x,y)의 위치와 연결된 나라(연합) 정보를 담는 리스트 
+#     united = []
+#     united.append((x,y))
+#     q = deque() 
+#     q.append((x,y))
+#     union[x][y] = index 
+#     summary = graph[x][y]
+#     count = 1 
+
+#     while q:
+#         x,y = q.popleft()
+#         for i in range(4):
+#             nx = x+dx[i]
+#             ny = y+dy[i]
+#             if 0 <= nx < n and 0 <= ny < n and union[nx][ny] == -1:
+#                 if l <= abs(graph[nx][ny] - graph[x][y]) <= r:
+#                     q.append((nx,ny))
+#                     union[nx][ny] = index 
+#                     summary += graph[nx][ny]
+#                     count += 1 
+#                     united.append((nx,ny))
+    
+#     for i, j in united:
+#         graph[i][j] = summary // count 
+    
+#     return count 
+
+# total_count = 0
+
+# while True:
+#     union = [[-1]*n for _ in range(n)]
+#     index = 0 
+#     for i in range(n):
+#         for j in range(n):
+#             if union[i][j] == -1:
+#                 process(i,j,index)
+#                 index+=1 
+    
+#     if index == n*n:
+#         break 
+
+#     total_count += 1
+
+# print(total_count)
