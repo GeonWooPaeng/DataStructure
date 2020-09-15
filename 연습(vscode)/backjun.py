@@ -9093,3 +9093,72 @@
 #     total_count += 1
 
 # print(total_count)
+
+
+#14503 
+# from collections import deque 
+
+# dx, dy = [-1,0,1,0],[0,1,0,-1]
+# n,m = map(int,input().split())
+# r,c,d = map(int,input().split()) #d - 0:북쪽, 1:동쪽, 2:남쪽, 3:서쪽 
+# board = [list(map(int,input().split())) for _ in range(n)]
+
+# def change_d(d):
+#     if d == 0:
+#         return 3
+#     elif d == 1:
+#         return 0
+#     elif d == 2:
+#         return 1
+#     elif d == 3:
+#         return 2
+
+# def back(d):
+#     if d == 0:
+#         return 2
+#     elif d == 1:
+#         return 3
+#     elif d == 2:
+#         return 0
+#     elif d == 3:
+#         return 1
+
+# def bfs(sx,sy,d):
+#     q = deque()
+#     q.append((sx,sy,d))
+#     board[sx][sy] = 2
+#     result = 1
+
+#     while q:
+#         x, y, d = q.popleft() 
+#         tmp_d = d
+
+#         for i in range(4):
+#             tmp_d = change_d(tmp_d)
+#             xx, yy = x+dx[tmp_d], y+dy[tmp_d] #b
+
+#             if xx < 0 or xx > n-1 or yy < 0 or yy > m-1:
+#                 continue 
+        
+#             #a
+#             elif board[xx][yy] == 0:
+#                 result += 1
+#                 board[xx][yy] = 2  # 1번 
+#                 q.append((xx,yy,tmp_d))
+#                 break 
+            
+#             #c
+#             elif i == 3:
+#                 back_d = back(d)
+#                 xx_d, yy_d = x+dx[back_d], y+dy[back_d]
+#                 q.append((xx_d, yy_d, d))
+
+#                 if board[xx_d][yy_d] == 1:
+#                     return result
+
+# print(bfs(r,c,d))
+
+
+
+
+
