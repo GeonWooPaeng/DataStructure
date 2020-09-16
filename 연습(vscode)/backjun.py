@@ -9158,7 +9158,32 @@
 
 # print(bfs(r,c,d))
 
+#15685
+#한 변이 10인 정사각형 일때만 가능하다.
+# board = [[0]*101 for _ in range(101)]
+
+# for _ in range(int(input())):
+#     x,y = map(int,input().split())
+    
+#     for i in range(x, x+10):
+#         for j in range(y, y+10):
+#             board[i][j] = 1 
+
+# result = 0
+# for ii in board:
+#     for jj in ii:
+#         if jj == 1:
+#             result+=1 
+
+# print(result)
 
 
+#2947
+# num = list(map(int,input().split()))
 
+# for i in range(1,len(num)):
+#     for j in range(len(num)-i):
+#         if num[j] > num[j+1]:
+#             num[j], num[j+1] = num[j+1], num[j]
+#             print(*num)
 
