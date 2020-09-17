@@ -9187,3 +9187,135 @@
 #             num[j], num[j+1] = num[j+1], num[j]
 #             print(*num)
 
+
+#1004
+# for _ in range(int(input())):
+#     sx,sy,ex,ey = map(int,input().split())
+#     planet_num = int(input())
+#     result = 0
+#     for i in range(planet_num):
+#         cx,cy,r = map(int,input().split())
+#         start_center = ((sx-cx)**2 + (sy-cy)**2)**0.5
+#         end_center = ((ex-cx)**2 + (ey-cy)**2)**0.5 
+#         if (start_center < r) and (end_center > r):
+#             result += 1
+#         elif (start_center > r) and (end_center < r):
+#             result+= 1
+
+#     print(result)
+
+# 14891
+# 1.
+# gear = [list(map(int,input())) for _ in range(4)]
+# k = int(input())
+
+# def clock(g):
+#     #시계 방향
+#     tmp = g[-1]
+#     for i in range(len(g)-1,0,-1):
+#         g[i] = g[i-1]
+#     g[0] = tmp
+
+# def anticlock(g):
+#     #반시계 방향
+#     tmp = g[0]
+#     for i in range(len(g)-1):
+#         g[i] = g[i+1]
+#     g[-1] = tmp 
+
+# def rotation_gear(rg,di):
+#     check = [0]*4 
+#     check[rg-1] = di
+#     #마주한 극 확인 
+
+#     #start
+#     if rg-1 == 0:
+#         for i in range(rg-1,3):
+#             if gear[i][2] != gear[i+1][6]:
+#                 check[i+1] = check[i]*(-1)
+#             else:
+#                 break 
+#     elif rg-1 == 1:
+#         if gear[0][2] != gear[rg-1][6]:
+#             check[0] = check[rg-1] *(-1)
+
+#         for i in range(rg-1,3):
+#             if gear[i][2] != gear[i+1][6]:
+#                 check[i+1] = check[i]*(-1)
+#             else:
+#                 break 
+
+#     elif rg-1 == 2:
+#         if gear[-1][6] != gear[rg-1][2]:
+#             check[-1] = check[rg-1] * (-1)
+        
+#         for i in range(rg-1,0,-1):
+#             if gear[i][6] != gear[i-1][2]:
+#                 check[i-1] = check[i]*(-1)
+#             else:
+#                 break
+            
+#     elif rg-1 == 3:
+#         for i in range(rg-1,0,-1):
+#             if gear[i][6] != gear[i-1][2]:
+#                 check[i-1] = check[i]*(-1)
+#             else:
+#                 break
+    
+#     for g in range(4):
+#         if check[g] == -1: #반시계
+#             anticlock(gear[g])
+#         elif check[g] == 1:
+#             clock(gear[g])
+
+
+# for _ in range(k):
+#     ro_gear, d = map(int,input().split())
+#     rotation_gear(ro_gear, d)
+
+
+# result = 0 
+# for g in range(4):
+#     result+= (2**g) * gear[g][0]
+# print(result)
+
+# 2.
+import sys 
+from collections import deque 
+
+def check_right(start, dirs):
+    if start > 4 or gears[start-1][2] == gears[start][6]:
+        return 
+
+    if gears[start-1][2] != gears[start][6]:
+        check_right(start+1, -dirs)
+        gears[start].rotate(dirs)
+
+def check_left(start, dirs):
+    if start < 1 or gears[start][2] == gears[start+1][6]:
+        return 
+
+    if gears[start+1][6] != gears[start][2]:
+        check_left(start-1, -dirs)
+        gears[start].rotate(dirs)
+
+
+gears = {} 
+
+for i in range(1,5):
+    gears[i] = deque(list(map(int,list(input()))))
+
+n = int(input())
+
+for _ in range(n):
+    num, dirs = map(int,input().split())
+
+    check_right(num+1, -dirs)
+    check_left(num-1, -dirs)
+    gears[num].rotate(dirs)
+
+result = 0 
+for i in range(4):
+    result += (2**i) * gears[i+1][0]
+
+print(result)
