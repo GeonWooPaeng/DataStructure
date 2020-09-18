@@ -9280,42 +9280,57 @@
 # print(result)
 
 # 2.
-import sys 
-from collections import deque 
+# import sys 
+# from collections import deque 
 
-def check_right(start, dirs):
-    if start > 4 or gears[start-1][2] == gears[start][6]:
-        return 
+# def check_right(start, dirs):
+#     if start > 4 or gears[start-1][2] == gears[start][6]:
+#         return 
 
-    if gears[start-1][2] != gears[start][6]:
-        check_right(start+1, -dirs)
-        gears[start].rotate(dirs)
+#     if gears[start-1][2] != gears[start][6]:
+#         check_right(start+1, -dirs)
+#         gears[start].rotate(dirs)
 
-def check_left(start, dirs):
-    if start < 1 or gears[start][2] == gears[start+1][6]:
-        return 
+# def check_left(start, dirs):
+#     if start < 1 or gears[start][2] == gears[start+1][6]:
+#         return 
 
-    if gears[start+1][6] != gears[start][2]:
-        check_left(start-1, -dirs)
-        gears[start].rotate(dirs)
+#     if gears[start+1][6] != gears[start][2]:
+#         check_left(start-1, -dirs)
+#         gears[start].rotate(dirs)
 
 
-gears = {} 
+# gears = {} 
 
-for i in range(1,5):
-    gears[i] = deque(list(map(int,list(input()))))
+# for i in range(1,5):
+#     gears[i] = deque(list(map(int,list(input()))))
 
-n = int(input())
+# n = int(input())
 
-for _ in range(n):
-    num, dirs = map(int,input().split())
+# for _ in range(n):
+#     num, dirs = map(int,input().split())
 
-    check_right(num+1, -dirs)
-    check_left(num-1, -dirs)
-    gears[num].rotate(dirs)
+#     check_right(num+1, -dirs)
+#     check_left(num-1, -dirs)
+#     gears[num].rotate(dirs)
 
-result = 0 
-for i in range(4):
-    result += (2**i) * gears[i+1][0]
+# result = 0 
+# for i in range(4):
+#     result += (2**i) * gears[i+1][0]
 
-print(result)
+# print(result)
+
+
+#1475 
+# n = input()
+# number = {'0':0, '1':0, '2':0, '3':0, '4':0, '5':0, '6':0, '7':0, '8':0}
+
+# for i in n:
+#     if i in ['6','9']:
+#         number['6']+=1
+#     else:
+#         number[i] += 1 
+
+# number['6'] = (number['6']+1)//2 
+
+# print(max(number.values()))
