@@ -9334,3 +9334,45 @@
 # number['6'] = (number['6']+1)//2 
 
 # print(max(number.values()))
+
+
+#2824 
+# import sys 
+# sys.setrecursionlimit(100000)
+
+# n = int(input())
+# nums = map(int,input().split())
+# m = int(input())
+# mums = map(int,input().split())
+
+# def multi(x):
+#     result = 1 
+
+#     for i in x:
+#         if i == 0:
+#             return 0
+#         result*=i 
+#     return result 
+
+# def gcd(x, y):
+#     if y == 0:
+#         return 0
+#     if x % y == 0:
+#         return y 
+#     return gcd(y,x%y)
+
+# num = multi(nums)
+# mum = multi(mums)
+
+# if num > mum:
+#     answer = str(gcd(num, mum))
+#     if len(answer) > 9:
+#         print(answer[len(answer)-9:])
+#     else:
+#         print(answer)
+# else:
+#     answer = str(gcd(mum, num))
+#     if len(answer) > 9:
+#         print(answer[len(answer)-9:])
+#     else:
+#         print(answer)
