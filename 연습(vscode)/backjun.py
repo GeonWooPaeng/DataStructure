@@ -9378,6 +9378,19 @@
 #         print(answer)
 
 
+# 4307 
+# for _ in range(int(input())):
+#     bar, ant_n = map(int,input().split())
+#     max_time = 0
+#     min_time = 0
 
+#     for _ in range(ant_n):
+#         ant_s = int(input())
 
+        
+#         check_min = min(bar-ant_s, ant_s)
+#         check_max = max(bar-ant_s, ant_s)
+#         max_time = max(max_time, check_max)
+#         min_time = max(min_time, check_min)
 
+#     print(min_time, max_time)
