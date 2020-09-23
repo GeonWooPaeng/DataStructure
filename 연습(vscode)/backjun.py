@@ -9396,3 +9396,42 @@
 
 
 # 15683
+from collections import deque 
+from copy import deepcopy 
+
+n, m = map(int,input().split())
+board = [list(map(int,input().split())) for _ in range(n)]
+
+dx,dy = [0,-1,0,1], [1,0,-1,0] #동, 북, 남, 서
+direction = [[], [[0],[1],[2],[3]], [[0,3],[1,2]], [[0,1],[1,3],[2,3],[1,3]], [[0,1,2],[1,2,3],[0,2,3],[0,1,3]], [0,1,2,3]]
+q = deque()
+cctv_cnt = 0
+result = 0
+
+def dfs(b, cnt):
+    global result
+    tmp_board = deepcopy(b)
+
+    if cnt == cctv_cnt:
+        zero_num = 0
+        for i in tmp_board:
+            zero_num += i.count(0)
+
+        result = min(zero_num, result)
+        return 
+
+    
+
+    
+
+
+
+
+
+# for i in range(n):
+#     for j in range(m):
+#         if board[i][j] not in [0,6]:
+#            q.append((i,j,board[i][j])) 
+#            cctv_cnt += 1
+
+# dfs(board, 0)
