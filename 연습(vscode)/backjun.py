@@ -9396,42 +9396,65 @@
 
 
 # 15683
-from collections import deque 
-from copy import deepcopy 
+# 재귀
+# from collections import deque 
+# from copy import deepcopy 
 
-n, m = map(int,input().split())
-board = [list(map(int,input().split())) for _ in range(n)]
+# n, m = map(int,input().split())
+# board = [list(map(int,input().split())) for _ in range(n)]
 
-dx,dy = [0,-1,0,1], [1,0,-1,0] #동, 북, 남, 서
-direction = [[], [[0],[1],[2],[3]], [[0,3],[1,2]], [[0,1],[1,3],[2,3],[1,3]], [[0,1,2],[1,2,3],[0,2,3],[0,1,3]], [0,1,2,3]]
-q = deque()
-cctv_cnt = 0
-result = 0
+# dx,dy = [0,-1,0,1], [1,0,-1,0] #동, 북, 남, 서
+# direction = [[], [[0],[1],[2],[3]], [[0,3],[1,2]], [[0,1],[1,3],[2,3],[1,3]], [[0,1,2],[1,2,3],[0,2,3],[0,1,3]], [0,1,2,3]]
+# q = deque() 
+# cctv_cnt = 0
+# result = 1e9
 
-def dfs(b, cnt):
-    global result
-    tmp_board = deepcopy(b)
-
-    if cnt == cctv_cnt:
-        zero_num = 0
-        for i in tmp_board:
-            zero_num += i.count(0)
-
-        result = min(zero_num, result)
-        return 
-
-    
-
-    
-
-
-
+# def cctv_check(sx,sy,b,direct):
+#     for d in direct:
+#         xx,yy = sx,sy
+#         while True:
+#             xx += dx[d]
+#             yy += dy[d]
+#             if 0 <= xx < n and 0 <= yy < m:
+#                 if b[xx][yy] == 6:
+#                     break 
+            
+#                 elif b[xx][yy] == 0:
+#                     b[xx][yy] = '#'
+#             else:
+#                 break 
+#     return 
 
 
-# for i in range(n):
-#     for j in range(m):
-#         if board[i][j] not in [0,6]:
-#            q.append((i,j,board[i][j])) 
-#            cctv_cnt += 1
+# def dfs(b, cnt):
+#     global result
+#     tmp_b = deepcopy(b)
+#     if cnt == cctv_cnt:
+#         zero_num = 0
+#         for empty in tmp_b:
+#             zero_num += empty.count(0)
+
+#         result = min(result, zero_num)
+#         return 
+
+#     x, y, cctv = q[cnt]
+#     for direct in direction[cctv]:
+#         cctv_check(x, y, tmp_b ,direct)
+#         dfs(tmp_b, cnt+1)
+#         tmp_b = deepcopy(b)
+
+#     return 
+
+
+# for col in range(n):
+#     for row in range(m):
+#         if board[col][row] not in [0,6]:
+#             q.append((col, row, board[col][row]))
+#             cctv_cnt+=1 
 
 # dfs(board, 0)
+# print(result)
+
+
+
+
