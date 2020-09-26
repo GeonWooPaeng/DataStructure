@@ -9457,6 +9457,19 @@
 # print(result)
 
 
-
 # 2960
-n, k = map(int,input().split())
+# n, k = map(int,input().split())
+
+# def sol():
+#     check = [True]*(n+1)
+#     cnt = 0
+#     for num in range(2, n+1):
+#         for i in range(num, n+1, num):
+#             if check[i] == True:
+#                 check[i] = False 
+#                 cnt += 1
+#                 if cnt == k:
+#                     print(i)
+#                     return  
+#     return 
+# sol()
