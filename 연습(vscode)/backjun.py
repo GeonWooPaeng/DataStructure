@@ -9479,72 +9479,71 @@
 # 스택에 넣는 방법 
 # 맨 가운데 것은 어째든 마주보게 되어 있다.
 
-sign = input()
+# sign = input()
 
-def check(a):
-    check_s = [] 
-    for s in a:
-        if s == '(' or s == '[':
-            check_s.append(s)
+# def check(a):
+#     check_s = [] 
+#     for s in a:
+#         if s == '(' or s == '[':
+#             check_s.append(s)
 
-        elif s == ')' and check_s:
-            if check_s[-1] == '(':
-                check_s.pop() 
-            else:
-                return False 
+#         elif s == ')' and check_s:
+#             if check_s[-1] == '(':
+#                 check_s.pop() 
+#             else:
+#                 return False 
 
-        elif s == ']' and check_s:
-            if check_s[-1] == '[':
-                check_s.pop() 
-            else:
-                return False
+#         elif s == ']' and check_s:
+#             if check_s[-1] == '[':
+#                 check_s.pop() 
+#             else:
+#                 return False
     
-    if check_s:
-        return False 
-    else:
-        return True
+#     if check_s:
+#         return False 
+#     else:
+#         return True
 
 
-def sol(a):
-    sol_s = []
+# def sol(a):
+#     sol_s = []
 
-    for s in a:
-        if s == '(' or s == '[':
-            sol_s.append(s)
+#     for s in a:
+#         if s == '(' or s == '[':
+#             sol_s.append(s)
 
-        elif s == ')':
-            if sol_s[-1] == '(':
-                sol_s.pop()
-                sol_s.append(2)
-            else:
-                num = 0
-                for j in range(len(sol_s)-1,-1,-1):
-                    if sol_s[j] == '(':
-                        sol_s[-1] = num * 2 
-                        break 
-                    else:
-                        num += sol_s[j]
-                        sol_s.pop()
+#         elif s == ')':
+#             if sol_s[-1] == '(':
+#                 sol_s.pop()
+#                 sol_s.append(2)
+#             else:
+#                 num = 0
+#                 for j in range(len(sol_s)-1,-1,-1):
+#                     if sol_s[j] == '(':
+#                         sol_s[-1] = num * 2 
+#                         break 
+#                     else:
+#                         num += sol_s[j]
+#                         sol_s.pop()
                     
-
-        elif s == ']':
-            if sol_s[-1] == '[':
-                sol_s.pop()
-                sol_s.append(3)
-            else:
-                num = 0
-                for j in range(len(sol_s)-1,-1,-1):
-                    if sol_s[j] == '[':
-                        sol_s[-1] = num * 3 
-                        break 
-                    else:
-                        num += sol_s[j]
-                        sol_s.pop() 
-    return sum(sol_s)
+#         elif s == ']':
+#             if sol_s[-1] == '[':
+#                 sol_s.pop()
+#                 sol_s.append(3)
+#             else:
+#                 num = 0
+#                 for j in range(len(sol_s)-1,-1,-1):
+#                     if sol_s[j] == '[':
+#                         sol_s[-1] = num * 3 
+#                         break 
+#                     else:
+#                         num += sol_s[j]
+#                         sol_s.pop() 
+#     return sum(sol_s)
                     
-if check(sign):
-    print(sol(sign))
-else:
-    print(0)
+# if check(sign):
+#     print(sol(sign))
+# else:
+#     print(0)
 
         
