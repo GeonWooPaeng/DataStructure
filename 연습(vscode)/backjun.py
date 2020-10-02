@@ -9547,3 +9547,35 @@
 #     print(0)
 
         
+#5430 
+from collections import deque
+import sys 
+input = sys.stdin.readline 
+
+for _ in range(int(input())):
+    ac = input()
+    p = int(input())
+    arr = input()
+    arr = deque(arr[1:-2].split(','))
+
+    if p == 0:
+        print('error')
+        continue 
+    
+    for i in ac:
+        try:
+            if i == 'R':
+                arr.reverse()
+            elif i == 'D':
+                arr.popleft() 
+        except:
+            print('error')
+            break
+
+    for j in range(len(arr)):
+        if j == 0:
+            print('[', end='')
+        if j != (len(arr)-1):
+            print(arr[j]+',',end='')
+        else:
+            print(arr[j]+']')
