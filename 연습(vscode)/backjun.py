@@ -9548,34 +9548,148 @@
 
         
 #5430 
-from collections import deque
-import sys 
-input = sys.stdin.readline 
+# def cal(ac, ar):
+#     num = len(ar)
+#     rev = 0
+#     front = 0
+#     back = 0
 
-for _ in range(int(input())):
-    ac = input()
-    p = int(input())
-    arr = input()
-    arr = deque(arr[1:-2].split(','))
+#     for a in ac:
+#         if a == 'R':
+#             rev += 1 
+#         elif a == 'D':
+#             if rev % 2 == 0:
+#                 front += 1
+#             else:
+#                 back += 1 
 
-    if p == 0:
-        print('error')
-        continue 
+
+#     if front + back > num:
+#         return 'error'
     
-    for i in ac:
-        try:
-            if i == 'R':
-                arr.reverse()
-            elif i == 'D':
-                arr.popleft() 
-        except:
-            print('error')
-            break
+#     else:
+#         ar = ar[front:num-back]
+#         if rev % 2 == 0:
+#             return ('[' + ','.join(ar) + ']')
+#         else:
+#             return ('[' + ','.join(ar[::-1]) + ']')
+    
+# for _ in range(int(input())):
+#     ac = input()
+#     p = int(input())
+#     arr = input()
+#     arr = arr[1:-1].split(',')
+#     if p == 0:
+#         arr = []
+#     print(cal(ac, arr))
 
-    for j in range(len(arr)):
-        if j == 0:
-            print('[', end='')
-        if j != (len(arr)-1):
-            print(arr[j]+',',end='')
-        else:
-            print(arr[j]+']')
+ 
+# 2020 카카오 신입 공채
+# 1. 
+# from collections import deque 
+# dx, dy = [1,0,-1,0], [0,1,0,-1] #북, 동, 남, 서
+
+# n = int(input())
+# board = [list(map(int,input().split())) for _ in range(n)]
+
+# def dfs(sx,sy,sx1,sy1,di,ti):
+#     q = deque() 
+#     q.append(((sx,sy),(sx1,sy1), di, ti))
+
+#     while q:
+#         (x,y),(x1,y1),d,t = q.popleft()
+        
+#         if (x == n-1 and y == n-1) or (x1 == n-1 and y1 == n-1):
+#             return t 
+
+#         if d == 0: # 가로
+#             for i in range(4):
+#                 xx,yy,xx1,yy1 = x+dx[i], y+dy[i], x1+dx[i], y1+dy[i]
+                
+#                 if xx < 0 or yy < 0 or xx1 < 0 or yy1 < 0 or xx > n-1 or yy > n-1 or xx1 > n-1 or yy1 > n-1:
+#                     continue 
+                
+#                 if i == 0 or i == 2: #북, 남
+#                     if board[xx][yy] == 0 and board[xx1][yy1] == 0:
+#                         q.append(((x,y),(xx,yy),1,t+1))
+#                         q.append(((x1,y1),(xx1,yy1),1,t+1))
+
+#                 if i == 1 or i == 3: #동, 서
+#                     if board[xx1][yy1] == 0 or board[xx][yy] == 0:
+#                         q.append(((xx,yy),(xx1,yy1),0,t+1))
+        
+#         else:
+#             for i in range(4):
+#                 xx,yy,xx1,yy1 = x+dx[i], y+dy[i], x1+dx[i], y1+dy[i]
+
+#                 if xx < 0 or yy < 0 or xx1 < 0 or yy1 < 0 or xx > n-1 or yy > n-1 or xx1 > n-1 or yy1 > n-1:
+#                     continue 
+
+#                 if i == 0 or i == 2: #북, 남
+#                     if board[xx][yy] == 0 or board[xx1][yy1] == 0:
+#                         q.append(((xx,yy),(xx1,yy1),1,t+1))
+
+#                 if i == 1 or i == 3: #동, 서
+#                     if board[xx][yy] == 0 and board[xx1][yy1] == 0:
+#                         q.append(((x,y),(xx,yy),0,t+1))
+#                         q.append(((x1,y1),(xx1,yy1),0,t+1))
+        
+
+# print(dfs(0, 0, 1, 1, 0, 0)) #sx,sy,sx1,sy1,direction,time -> direction가 0이면 가로 1이면 세로
+
+# 2.
+# from collections import deque 
+
+# def get_next_pos(pos, board):
+#     next_pos = [] 
+#     pos = list(pos)
+#     pos1_x, pos1_y, pos2_x, pos2_y = pos[0][0], pos[0][1], pos[1][0], pos[1][1]
+#     dx = [-1,1,0,0]
+#     dy = [0,0,-1,1]
+
+#     for i in range(4):
+#         pos1_next_x, pos1_next_y, pos2_next_x, pos2_next_y = pos1_x + dx[i], pos1_y + dy[i], pos2_x + dx[i], pos2_y + dy[i]
+
+#         if board[pos1_next_x][pos1_next_y] == 0 and board[pos2_next_x][pos2_next_y] == 0:
+#             next_pos.append({(pos1_next_x,pos1_next_y),(pos2_next_x,pos2_next_y)})
+    
+#     if pos1_x == pos2_x:
+#         for i in [-1,1]:
+#             if board[pos1_x+i][pos1_y] == 0 and board[pos2_x+i][pos2_y] == 0:
+#                 next_pos.append({(pos1_x,pos1_y),(pos1_x+i, pos1_y)})
+#                 next_pos.append({(pos2_x,pos2_y),(pos2_x+i, pos2_y)})
+    
+#     elif pos1_y == pos2_y:
+#         for i in [-1, 1]:
+#             if board[pos1_x][pos1_y+i] == 0 and board[pos2_x][pos2_y+i] == 0:
+#                 next_pos.append({(pos1_x,pos1_y),(pos1_x,pos1_y+i)})
+#                 next_pos.append({(pos2_x,pos2_y),(pos2_x,pos2_y+i)})
+
+#     return next_pos 
+
+
+# def solution(board):
+#     n = len(board)
+#     new_board = [[1]*(n+2) for _ in range(n+2)]
+#     for i in range(n):
+#         for j in range(n):
+#             new_board[i+1][j+1] = board[i][j]
+
+#     q = deque() 
+#     visited = [] 
+#     pos = {(1,1),(1,2)}
+#     q.append((pos,0))
+#     visited.append(pos)
+
+#     while q:
+#         pos, cost = q.popleft() 
+#         if (n,n) in pos:
+#             return cost 
+        
+#         for next_pos in get_next_pos(pos, new_board):
+#             if next_pos not in visited:
+#                 q.append((next_pos, cost+1))
+#                 visited.append(next_pos)
+    
+#     return 0
+
