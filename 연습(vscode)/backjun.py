@@ -9694,4 +9694,43 @@
 #     return 0
 
 
+# 10825
+
+# s = []
+# for _ in range(int(input())):
+#     name = input().split()
+#     s.append(name)
+
+# result = sorted(s, key= lambda x: (-int(x[1]), int(x[2]), -int(x[3]), x[0]))
+
+# for n in result:
+#     print(n[0])
+
+
+#18310
+# 1.
+# house = int(input())
+# loc_h = list(map(int,input().split())) 
+
+# loc_h.sort()
+# a = loc_h[(house-1)//2]
+# b = loc_h[(house+1)//2]
+
+# distance_a = 0
+# distance_b = 0
+# for d in loc_h:
+#     distance_a += abs(a-d)
+#     distance_b += abs(b-d)
+
+# if distance_a <= distance_b:
+#     print(a)
+# else:
+#     print(b)
+
+# 2.
+# house = int(input())
+# loc_h = list(map(int,input().split())) 
+# print(loc_h[(house-1)//2]) #완전한 중간값
+
+
 
