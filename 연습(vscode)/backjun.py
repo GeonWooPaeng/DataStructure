@@ -9732,5 +9732,50 @@
 # loc_h = list(map(int,input().split())) 
 # print(loc_h[(house-1)//2]) #완전한 중간값
 
+#2019 카카오 신입공채
+# 1.
+# # n = 5
+# n = 4
+# # stages = [2,1,2,6,2,4,3,3]
+# stages = [4,4,4,4]
+
+# stages.sort() 
+# result = dict()
+# total_num = len(stages)
+
+# for i in range(1,n+1):
+#     total_num -= stages.count(i-1)
+#     rate = stages.count(i) / total_num
+#     result[i] = rate
+
+# result = sorted(result.items(), key= lambda x: (-x[1],x[0]))
+# answer = []
+# for r in result:
+#     answer.append(r[0])
+# print(answer)
+
+# s2.
+# def solution(N, stages):
+#     answer = [] 
+#     length = len(stages)
+
+#     for i in range(1, N+1):
+#         count = stages.count(i)
+
+#         if length == 0:
+#             fail = 0
+#         else:
+#             fail = count / length 
+
+#         answer.append((i,fail))
+#         length -= count
+    
+#     answer = sorted(answer, key=lambda t: t[1], reverse=True)
+#     answer = [i[0] for i in answer]
+#     return answer
+
+# print(solution(5,[2,1,2,6,2,4,3,3]))
+
+#1715
 
 
