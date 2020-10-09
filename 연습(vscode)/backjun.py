@@ -9777,5 +9777,41 @@
 # print(solution(5,[2,1,2,6,2,4,3,3]))
 
 #1715
+# import heapq 
+
+# n = int(input())
+# cards = []
+# result = []
+# for _ in range(n):
+#     num = int(input())
+#     heapq.heappush(cards,num)
 
 
+# for i in range(n-1):
+#     card_sum = heapq.heappop(cards) + heapq.heappop(cards)
+#     heapq.heappush(cards,card_sum)
+#     heapq.heappush(result, card_sum)
+
+# print(sum(result))
+
+#2822
+# score = []
+# number = []
+# result = 0 
+
+# for i in range(8):
+#     num = int(input())
+#     score.append((num, i+1))
+
+# score.sort(key = lambda x: x[0])
+
+# for j in range(3,8):
+#     result+= score[j][0]
+#     number.append(score[j][1])
+
+# number.sort()
+
+# print(result)
+# print(*number)
+
+2583
