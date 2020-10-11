@@ -9814,4 +9814,43 @@
 # print(result)
 # print(*number)
 
-2583
+# 1431
+# serials = []
+
+# for _ in range(int(input())):
+#     num = 0
+#     serial = input()
+#     for s in serial:
+#         if s.isdigit():
+#             num+=int(s) 
+
+#     serials.append((serial,num))
+
+# serials.sort(key=lambda x: (len(x[0]),x[1],x[0]))
+
+# for s in serials:
+#     print(s[0])
+
+
+
+
+# 2583
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
