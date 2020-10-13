@@ -9832,22 +9832,143 @@
 #     print(s[0])
 
 
-
-
 # 2583
+# from collections import deque 
+
+# dx,dy = [-1,1,0,0], [0,0,-1,1] #북남서동
+# m,n,k = map(int,input().split())
+# board = [[0]*n for _ in range(m)]
+# area = [] 
+
+# for _ in range(k):
+#     lxd,lyd,rxu,ryu = map(int,input().split())
+
+#     for x in range(lyd,ryu):
+#         for y in range(lxd,rxu):
+#             board[x][y] = 1 
+
+
+# def sol(sx,sy):
+#     q = deque() 
+#     q.append((sx,sy))
+#     board[sx][sy] = 2
+#     square_area = 1
+
+#     while q:
+#         xx,yy = q.popleft() 
+
+#         for i in range(4):
+#             nxx,nyy = xx+dx[i], yy+dy[i]
+
+#             if nxx < 0 or nyy < 0 or nxx > m-1 or nyy > n-1:
+#                 continue
+
+#             if board[nxx][nyy] == 0:
+#                 board[nxx][nyy] = 2
+#                 square_area += 1  
+#                 q.append((nxx,nyy))
+    
+
+#     return square_area 
+
+# for x in range(m):
+#     for y in range(n):
+#         if board[x][y] == 0:
+#             area.append(sol(x,y))
+
+# area.sort() 
+# print(len(area))
+# print(*area)
+    
+
+# 정렬된 배열에서 특정 수의 개수 구하기 
+#1.
+#nlogn 이다 틀렸다 
+# n, find = map(int,input().split()) 
+# num = list(map(int,input().split()))
+
+# def sol(end, start, f):   
+#     while (start >= end):
+#         mid = (start+end) // 2 
+
+#         if num[mid] == f:
+#             start = mid + 1
+#         else:
+#             end = mid - 1
+
+#     return start
+
+# if find not in num:
+#     print(-1)
+# else:
+#     for i in range(n-1,-1,-1):
+#         if num[i] == find :
+#             end_idx = sol(n-1, i, find)
+#             break
+
+#     for j in range(n):
+#         if num[j] == find:
+#             start_idx = j
+#             break
+
+#     print(end_idx - start_idx )
+
+# 2.
+# a, find = map(int,input().split()) 
+# num = list(map(int,input().split()))
+
+
+# def first(array, f, start, end):
+#     if start > end:
+#         return None 
+
+#     mid = (start+end)//2 
+
+#     if (mid == 0 or f > array[mid-1]) and array[mid] == f:
+#         return mid 
+
+#     elif array[mid] >= f:
+#         return first(array, f, start, mid-1)
+    
+#     else:
+#         return first(array, f, mid+1, end)
 
 
 
+# def last(array, f, start, end):
+#     if start > end:
+#         return None 
+#     mid = (start+end)//2 
+
+#     if (mid == 0 or f < array[mid+1]) and array[mid] == f:
+#         return mid 
+    
+#     elif array[mid] > f:
+#         return last(array, f, start, mid-1)
+
+#     else:
+#         return last(array, f, mid+1, end )
 
 
+# def count_by_value(array,x):
+#     n = len(array)
 
+#     a = first(array,x,0,n-1)
+#     if a == None:
+#         return 0 
+    
+#     b = last(array,x,0,n-1)
+#     if b == None:
+#         return 0 
 
+#     return b-a + 1
 
+# count = count_by_value(num, find)
 
-
-
-
-
+# if count == 0:
+#     print(-1)
+# else:
+#     print(count)
 
 
 
