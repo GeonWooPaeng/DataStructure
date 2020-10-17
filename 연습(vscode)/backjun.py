@@ -10015,7 +10015,7 @@
 # result = 0
 
 # for _ in range(n):
-#     house.append(int(input())) 
+#     house.append(int(input()))
 
 # house.sort() 
 
@@ -10024,30 +10024,45 @@
 
 # while (start <= end):
 #     mid = (start+end) // 2 
-#     snode = house[0]
+#     node = house[0]
 #     cnt = 1
 
-#     for install in range(1,n):
-#         if house[install] >= snode + mid:
-#             snode = house[install]
+#     for h in range(1,n):
+#         if house[h] >= node + mid:
+#             node = house[h]
 #             cnt += 1 
 
 #     if cnt >= c:
+#         start = mid + 1 
+#         result = mid 
+#     else:
+#         end = mid - 1 
+
+# print(result)
+
+
+#2805 
+# n,m = map(int,input().split()) 
+# tree = list(map(int,input().split()))
+# result = 0
+
+# start = 0
+# end = max(tree)
+
+# while (start <= end):
+#     mid = (start+end) // 2 
+#     bring_tree = 0 
+
+#     for t in tree:
+#         if (t-mid) > 0:
+#             bring_tree += (t - mid)   
+
+#     if bring_tree >= m:
 #         start = mid + 1 
 #         result = mid 
 
 #     else:
 #         end = mid - 1 
 
-# print(result )
-
-
-
-
-
-
-
-
-
-
+# print(result)
 
