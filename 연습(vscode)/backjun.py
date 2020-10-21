@@ -10066,36 +10066,41 @@
 
 # print(result)
 
-# 2613 다시
-# 합을 start, end로 정하고 구슬의 개수를 함수로 만들어 준다.
-# => 최대값을 구하기 위해 최댓값을 mid로 두고 이보다 크면 그룹이 1개더 있다는 것을 알려준다.
+# 2613 
 
+# 기준: 구슬의 합을 가지고 이진 탐색을 진행합니다.(start,end,mid)
+# 함수: 범위는 구슬의 개수를 가지고 합니다. -> 구슬의 합이 mid 보다 크면 그 부분에서 끊어 줘 cnt += 1 을 합니다. 
+#
 
 n,m = map(int,input().split())
 bead = list(map(int,input().split()))
 
 start = 0
-end = 20
-result = end 
+end = n*100
+result = 1e9
 
 def binarySearch(start, end):
-    global result 
-
+    global result
     while (start <= end):
-        mid = (start+end) // 2 
-        print(start, end, mid)
-        
+        mid = (start+end) // 2
+
         beadSum = 0
-        cnt = 0
+        cnt = 1
+        check = 1
 
         for b in range(n):
-            beadSum += bead[b]
+            if bead[b] > mid:
+                start = mid + 1 
+                check = 0
+                break
 
+            beadSum += bead[b]
             if (beadSum > mid):
                 cnt += 1 
                 beadSum = bead[b]
+            
 
-        if cnt > m:
+        if (cnt > m) or (check == 0):
             start = mid + 1 
         else:
             end = mid - 1 
@@ -10105,15 +10110,26 @@ def binarySearch(start, end):
 binarySearch(start, end)
 print(result)
 
+
 beadSum = 0 
-cnt = 1
+cnt = 0
 for i in range(n):
     beadSum += bead[i]
     if beadSum > result:
         print(cnt, end =' ')
-        cnt = 0  
+        cnt = 0
+        m -= 1   
         beadSum = bead[i]
     cnt += 1 
+    #이쪽 부터는 적어도 1개의 구슬을 배치해야기 때문에 남겨둔 것이다.
+    if (n-i == m):
+        break 
+
+#나머지 남은 그룹에 구슬 1개씩 넣기
+while m > 0:
+    m -= 1 
+    print(cnt, end= ' ')
+    cnt = 1
 
 
 
