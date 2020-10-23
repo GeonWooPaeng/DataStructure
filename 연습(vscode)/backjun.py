@@ -10070,66 +10070,152 @@
 
 # 기준: 구슬의 합을 가지고 이진 탐색을 진행합니다.(start,end,mid)
 # 함수: 범위는 구슬의 개수를 가지고 합니다. -> 구슬의 합이 mid 보다 크면 그 부분에서 끊어 줘 cnt += 1 을 합니다. 
-#
 
-n,m = map(int,input().split())
-bead = list(map(int,input().split()))
+# n,m = map(int,input().split())
+# bead = list(map(int,input().split()))
 
-start = 0
-end = n*100
-result = 1e9
+# start = 0
+# end = n*100
+# result = 1e9
 
-def binarySearch(start, end):
-    global result
-    while (start <= end):
-        mid = (start+end) // 2
+# def binarySearch(start, end):
+#     global result
+#     while (start <= end):
+#         mid = (start+end) // 2
 
-        beadSum = 0
-        cnt = 1
-        check = 1
+#         beadSum = 0
+#         cnt = 1
+#         check = 1
 
-        for b in range(n):
-            if bead[b] > mid:
-                start = mid + 1 
-                check = 0
-                break
+#         for b in range(n):
+#             if bead[b] > mid:
+#                 start = mid + 1 
+#                 check = 0
+#                 break
 
-            beadSum += bead[b]
-            if (beadSum > mid):
-                cnt += 1 
-                beadSum = bead[b]
+#             beadSum += bead[b]
+#             if (beadSum > mid):
+#                 cnt += 1 
+#                 beadSum = bead[b]
             
 
-        if (cnt > m) or (check == 0):
-            start = mid + 1 
-        else:
-            end = mid - 1 
-            if mid < result:
-                result = mid 
+#         if (cnt > m) or (check == 0):
+#             start = mid + 1 
+#         else:
+#             end = mid - 1 
+#             if mid < result:
+#                 result = mid 
 
-binarySearch(start, end)
-print(result)
-
-
-beadSum = 0 
-cnt = 0
-for i in range(n):
-    beadSum += bead[i]
-    if beadSum > result:
-        print(cnt, end =' ')
-        cnt = 0
-        m -= 1   
-        beadSum = bead[i]
-    cnt += 1 
-    #이쪽 부터는 적어도 1개의 구슬을 배치해야기 때문에 남겨둔 것이다.
-    if (n-i == m):
-        break 
-
-#나머지 남은 그룹에 구슬 1개씩 넣기
-while m > 0:
-    m -= 1 
-    print(cnt, end= ' ')
-    cnt = 1
+# binarySearch(start, end)
+# print(result)
 
 
+# beadSum = 0 
+# cnt = 0
+# for i in range(n):
+#     beadSum += bead[i]
+#     if beadSum > result:
+#         print(cnt, end =' ')
+#         cnt = 0
+#         m -= 1   
+#         beadSum = bead[i]
+#     cnt += 1 
+#     #이쪽 부터는 적어도 1개의 구슬을 배치해야기 때문에 남겨둔 것이다.
+#     if (n-i == m):
+#         break 
 
+# #나머지 남은 그룹에 구슬 1개씩 넣기
+# while m > 0:
+#     m -= 1 
+#     print(cnt, end= ' ')
+#     cnt = 1
+
+
+# 금광 
+# 1.
+# import time
+# start = time.time()
+# from copy import deepcopy
+
+
+# def changeBoard(n,m,golds):
+#     gold_board = []
+#     col = 0
+#     gold_idx = 0
+#     while True:
+        
+#         if col == n:
+#             break
+
+#         gold_row = [] 
+
+#         for g in range(gold_idx, gold_idx + m):
+#             gold_row.append(golds[g])
+#         col += 1 
+#         gold_idx = gold_idx + m 
+#         gold_board.append(gold_row)
+
+#     return gold_board
+
+# def goldMine(n,m,board):
+#     dp = [[0]*(m+1) for _ in range(n+2)]
+#     result = 0 
+
+#     for c in range(n):
+#         dp[c+1][1] = board[c][0]
+
+#     for row in range(1,m+1):
+#         for col in range(1,n+1):
+#             dp[col][row] = max(dp[col-1][row-1] + board[col-1][row-1], dp[col][row-1] + board[col-1][row-1], dp[col+1][row-1] + board[col-1][row-1])
+
+#     for gold in dp:
+#         result = max(result, max(gold))
+
+#     return result
+
+
+# for _ in range(int(input())):
+#     n,m = map(int,input().split())
+#     golds = list(map(int,input().split()))
+    
+
+#     gold_board = changeBoard(n,m,golds)
+
+#     result = 0
+#     print(goldMine(n,m,gold_board))
+
+# end = time.time() 
+
+# print(end-start)
+
+# 2.
+# for tc in range(int(input())):
+#     n,m = map(int,input().split())
+#     array = list(map(int,input().split()))
+
+#     dp = [] 
+#     index = 0 
+#     for i in range(n):
+#         dp.append(array[index:index+m])
+#         index += m
+
+#     for row in range(1,m): 
+#         for col in range(n):
+#             if col == 0:
+#                 left_up = 0 
+#             else:
+#                 left_up = dp[col-1][row-1]
+
+#             if col == n-1:
+#                 left_down = 0
+#             else:
+#                 left_down = dp[col+1][row-1]
+            
+#             left = dp[col][row-1] 
+#             dp[col][row] = dp[col][row] + max(left_up, left_down, left)
+
+#     result = 0 
+#     for i in range(n):
+#         result = max(result, dp[i][m-1])
+    
+#     print(result)
