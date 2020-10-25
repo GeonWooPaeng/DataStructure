@@ -10219,3 +10219,53 @@
 #         result = max(result, dp[i][m-1])
     
 #     print(result)
+
+# 가사 검색
+# wordss = ["frodo", "front", "frost", "frozen", "frame", "kakao"]
+# queriess = ["fro??", "????o", "fr???", "fro???", "pro?","??oo"]
+
+# wordss = set(wordss)
+
+
+# def first(query,start,end, f):
+#     if start > end:
+#         return 0 
+    
+#     mid = (start+end) // 2 
+
+#     if (query[mid] == f or mid == 0) and query[mid-1] != f:
+#         return mid 
+    
+#     if query[mid-1] == f:
+#         return first(query, start, mid-1, f)
+
+#     else:
+#         return first(query, mid + 1, end, f)
+    
+
+# def last(query, start, end, f):
+#     if start > end:
+#         return len(query)
+    
+#     mid = (start + end) // 2 
+
+#     if mid == len(query)-1:
+#         return mid
+
+#     if (query[mid] == f or mid == 0) and query[mid+1] != f:
+#         return mid 
+
+#     if query[mid+1] == f:
+#         return last(query, mid+1, end, f)
+
+#     else:
+#         return last(query, start, mid-1, f)
+
+
+
+# def solution(words, queries):
+#     for query in queries:
+#         print(first(query,0,len(query)-1, "?"))
+#         print(last(query, 0, len(query)-1, "?"))
+
+# solution(wordss,queriess)
