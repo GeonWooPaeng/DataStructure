@@ -10269,3 +10269,100 @@
 #         print(last(query, 0, len(query)-1, "?"))
 
 # solution(wordss,queriess)
+
+# 2.
+
+# from bisect import bisect_left, bisect_right
+
+# words = ["frodo", "front", "frost", "frozen", "frame", "kakao"]
+# queries = ["fro??", "????o", "fr???", "fro???", "pro?"]
+
+# arr = [[] for _ in range(10001)]
+# reverse_arr = [[] for _ in range(10001)]
+
+# def count_by_range(array, left_value, right_value):
+#     left_idx = bisect_left(array, left_value)
+#     right_idx = bisect_left(array, right_value)
+
+#     return right_idx - left_idx 
+
+# def solution(words, queries):
+#     answer = [] 
+
+#     for word in words:
+#         arr[len(word)].append(word)
+#         reverse_arr[len(word)].append(word[::-1])
+
+    
+#     for i in range(10001):
+#         arr[i].sort() 
+#         reverse_arr[i].sort() 
+
+#     for query in queries:
+#         if query[0] != "?":
+#             num = count_by_range(arr[len(query)], query.replace("?","a"), query.replace("?","z"))
+
+#         else:
+#             num = count_by_range(reverse_arr[len(query)], query[::-1].replace("?","a"), query[::-1].replace("?","z"))
+
+#         answer.append(num)
+
+#     return answer 
+
+# print(solution(words, queries))        
+
+#1932
+# from copy import deepcopy 
+
+# triangle = []
+
+# n = int(input())
+# for _ in range(n):
+#     tri = list(map(int,input().split()))
+#     triangle.append(tri)
+
+# dp = deepcopy(triangle)
+
+# row_num = 2
+# for col in range(1,n):
+#     for row in range(row_num):
+#         if row == 0:
+#             dp[col][row] = dp[col-1][row] + triangle[col][row]
+        
+#         elif row == row_num-1:
+#             dp[col][row] = dp[col-1][row-1] + triangle[col][row]
+
+#         else:
+#             dp[col][row] = triangle[col][row] + max(dp[col-1][row], dp[col-1][row-1])
+
+#     row_num += 1 
+
+# print(max(dp[-1]))
+
+# 2.
+# import time 
+# start = time.time()
+# n = int(input())
+# dp = [] 
+
+# for _ in range(n):
+#     dp.append(list(map(int,input().split())))
+
+# for col in range(1,n):
+#     for row in range(col+1):
+#         if col == 0:
+#             up_left = 0
+#         else:
+#             up_left = dp[col-1][row-1]
+
+#         if col == row:
+#             up = 0
+
+#         else:
+#             up = dp[col-1][row]
+
+#         dp[col][row] = dp[col][row] + max(up_left, up)
+
+# print(max(dp[n-1]))
+
+# print(time.time()-start)
