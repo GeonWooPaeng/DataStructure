@@ -10368,19 +10368,19 @@
 # print(time.time()-start)
 
 #14501 
-# from copy import deepcopy 
+from copy import deepcopy 
 
-# n = int(input())
-# time = [] 
-# cost = [] 
+n = int(input())
+time = [] 
+cost = [] 
 
-# for _ in range(n):
-#     t,c = map(int,input().split())
-#     time.append(t)
-#     cost.append(c)
+for _ in range(n):
+    t,c = map(int,input().split())
+    time.append(t)
+    cost.append(c)
 
-# dp = deepcopy(cost)
-# dp.append(0)
+dp = deepcopy(cost)
+dp.append(0)
 
 # for i in range(n):
 #     if i + time[i] > n:
@@ -10392,25 +10392,28 @@
 
 # print(max(dp))
 
+
 # 2.
-n = int(input())
-t = [] 
-p = [] 
-dp = [0]*(n+1)
-max_value = 0
+# n = int(input())
+# t = [] 
+# p = [] 
+# dp = [0]*(n+1)
+# max_value = 0
 
-for _ in range(n):
-    x,y = map(int,input().split())
-    t.append(x)
-    t.append(y)
+# for _ in range(n):
+#     x,y = map(int,input().split())
+#     t.append(x)
+#     t.append(y)
 
-for i in range(n-1,-1,-1):
-    time = t[i] + i 
+# for i in range(n-1,-1,-1):
+#     time = t[i] + i 
 
-    if time <= n:
-        dp[i] = max(p[i]+dp[time], max_value)
-        max_value = dp[i]
-    else:
-        dp[i] = max_value 
+#     if time <= n:
+#         dp[i] = max(p[i]+dp[time], max_value)
+#         max_value = dp[i]
+#     else:
+#         dp[i] = max_value 
 
-print(max_value)
+# print(max_value)
+
+
