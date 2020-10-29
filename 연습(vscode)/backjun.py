@@ -10368,19 +10368,19 @@
 # print(time.time()-start)
 
 #14501 
-from copy import deepcopy 
+# from copy import deepcopy 
 
-n = int(input())
-time = [] 
-cost = [] 
+# n = int(input())
+# time = [] 
+# cost = [] 
 
-for _ in range(n):
-    t,c = map(int,input().split())
-    time.append(t)
-    cost.append(c)
+# for _ in range(n):
+#     t,c = map(int,input().split())
+#     time.append(t)
+#     cost.append(c)
 
-dp = deepcopy(cost)
-dp.append(0)
+# dp = deepcopy(cost)
+# dp.append(0)
 
 # for i in range(n):
 #     if i + time[i] > n:
@@ -10416,4 +10416,33 @@ dp.append(0)
 
 # print(max_value)
 
+#18353
+# n = int(input())
+# soldier = list(map(int,input().split())) 
+# dp = [1 for _ in range(n)]
 
+# for i in range(1,n):
+#     for j in range(i):
+#         if soldier[i] < soldier[j]:
+#             dp[i] = max(dp[i], dp[j]+1)
+
+# print(n-max(dp))
+
+# 2.
+# n = int(input())
+# array = list(map(int,input().split()))
+# array.reverse() 
+
+# dp = [1]*n 
+
+# for i in range(1,n):
+#     for j in range(0,i):
+#         if array[j] < array[i]:
+#             dp[i] = max(dp[i], dp[j]+1)
+
+# print(n - max(dp))
+
+
+# 못생긴 수 
+n = int(input())
+dp = [1]
