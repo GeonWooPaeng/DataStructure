@@ -10442,7 +10442,12 @@
 
 # print(n - max(dp))
 
-
 # 못생긴 수 
 n = int(input())
 dp = [1]
+
+
+
+
+
+
