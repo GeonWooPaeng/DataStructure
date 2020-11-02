@@ -10443,30 +10443,28 @@
 # print(n - max(dp))
 
 # 못생긴 수 
-n = int(input())
-dp = [1]
+# n = int(input())
+# dp = [1]
 
-i2 = i3 = i5 = 0 
-v2 = 2 
-v3 = 3 
-v5 = 5 
+# i2 = i3 = i5 = 1
+# v2 = 2 
+# v3 = 3 
+# v5 = 5 
 
-for i in range(n):
-    value = min(v2,v3,v5)
+# for i in range(1,n):
+#     value = min(v2,v3,v5)
+#     dp.append(value)
 
-    if value == v2:
-        dp.append(v2)
-        v2 = dp[i2]*2
-        i2 +=1 
+#     if value == v2:
+#         v2 = dp[i2]*2
+#         i2 +=1 
     
-    if value == v3:
-        dp.append(v3)
-        v3 = dp[i3]*3 
-        i3 += 1 
+#     if value == v3:
+#         v3 = dp[i3]*3 
+#         i3 += 1 
 
-    if value == v5:
-        dp.append(v5)
-        v5 = dp[i5]*5 
-        i5 += 1 
+#     if value == v5:
+#         v5 = dp[i5]*5 
+#         i5 += 1 
 
-print(dp)
+# print(dp)
