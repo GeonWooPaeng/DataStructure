@@ -10468,3 +10468,32 @@
 #         i5 += 1 
 
 # print(dp)
+
+# 2.
+# n = int(input())
+
+# dp = [0]*n
+# dp[0] = 1
+
+# v2 = 2
+# v3 = 3 
+# v5 = 5 
+
+# i2 = i3 = i5 = 1
+
+# for i in range(1,n):
+#     dp[i] = min(v2, v3, v5)
+
+#     if dp[i] == v2:
+#         v2 = dp[i2]*2 
+#         i2 += 1 
+
+#     if dp[i] == v3:
+#         v3 = dp[i3]*3
+#         i3 += 1 
+
+#     if dp[i] == v5:
+#         v5 = dp[i5]*5
+#         i5 += 1 
+
+# print(dp)
