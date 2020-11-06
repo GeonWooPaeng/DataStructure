@@ -10497,3 +10497,76 @@
 #         i5 += 1 
 
 # print(dp)
+
+
+#편집거리 
+# 1.
+# A = input() 
+# B = input() 
+# dp = [[0]*(len(B)+1) for _ in range(len(A)+1)]
+
+# for i in range(len(A)+1):
+#     dp[i][0] = i
+
+# for i in range(len(B)+1):
+#     dp[0][i] = i
+
+
+# for a in range(1,len(A)+1):
+#     for b in range(1,len(B)+1):
+#         if A[a-1] == B[b-1]:
+#             dp[a][b] = dp[a-1][b-1]
+
+#         else:
+#             dp[a][b] = 1 + min(dp[a-1][b-1], dp[a-1][b], dp[a][b-1])
+
+# print(dp[len(A)][len(B)])
+
+# 2.
+#최소 편집거리(Edit Distance) 계산을 위한 다이나믹 프로그래밍 
+
+# def edit_dist(str1, str2):
+#     n = len(str1)
+#     m = len(str2)
+
+#     dp = [[0]*(m+1) for _ in range(n+1)]
+
+#     for i in range(1, n+1):
+#         dp[i][0] = i 
+
+#     for j in range(1, m+1):
+#         dp[0][j] = j 
+
+#     for i in range(1,n+1):
+#         for j in range(1,m+1):
+#             if str1[i-1] == str2[j-1]:
+#                 dp[i][j] = dp[i-1][j-1]
+
+#             else:
+#                 dp[i][j] = 1 + min(dp[i-1][j-1], dp[i-1][j], dp[i][j-1])
+
+#     return dp[n][m]
+
+# str1 = input() 
+# str2 = input() 
+
+# print(edit_dist(str1, str2))
+
+#11048 
+
+# n,m = map(int,input().split())
+
+# candy = [list(map(int,input().split())) for _ in range(n)]
+# dp = [[0]*(m+1) for _ in range(n+1)]
+
+# for i in range(n):
+#     for j in range(m):
+#         dp[i+1][j+1] = candy[i][j]
+
+
+# for col in range(1,n+1):
+#     for row in range(1,m+1):
+#         dp[col][row] = dp[col][row] + max(dp[col-1][row-1], dp[col-1][row], dp[col][row-1])
+
+
+# print(dp[n][m])
