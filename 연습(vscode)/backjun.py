@@ -10570,3 +10570,61 @@
 
 
 # print(dp[n][m])
+
+
+#11404 
+
+# n = int(input()) 
+# m = int(input())
+
+# dist = [[1e9]*(n) for _ in range(n)]
+
+# def floid():
+#     for i in range(n):
+#         for j in range(n):
+#             for k in range(n):
+#                 dist[j][k] = min(dist[j][k], dist[j][i]+dist[i][k])
+    
+#     return dist 
+
+# for _ in range(m):
+#     a,b,c = map(int,input().split())
+#     if dist[a-1][b-1] > c:
+#         dist[a-1][b-1] = c  
+
+# floid()
+
+# for i in range(n):
+#     for j in range(n):
+#         if (i==j) or dist[i][j] == 1e9:
+#             print(0, end=' ')
+#         else:
+#             print(dist[i][j], end=' ')
+
+#     print()
+
+#정확한 순위 
+
+import heapq 
+
+n,m = map(int,input().split())
+
+score = [[] for _ in range(n)]
+
+for _ in range(m):
+    a,b = map(int,input().split())
+    score[b].append(a)
+
+
+
+def dijkstra(start, end):
+    wei = [1e9] * (n+1)
+
+    wei[start] = 0
+    heapq
+
+
+
+for i in range(n+1):
+    for j in range(n+1):
+        dijkstra(i, j)
