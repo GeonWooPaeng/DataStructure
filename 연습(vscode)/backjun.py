@@ -10606,7 +10606,6 @@
 #정확한 순위 
 
 import heapq 
-
 n,m = map(int,input().split())
 
 score = [[] for _ in range(n)]
@@ -10615,9 +10614,8 @@ for _ in range(m):
     a,b = map(int,input().split())
     score[b].append(a)
 
-
-
 def dijkstra(start, end):
+    heap = []
     wei = [1e9] * (n+1)
 
     wei[start] = 0
