@@ -10604,25 +10604,36 @@
 #     print()
 
 #정확한 순위 
+# INF = int(1e9)
 
-import heapq 
-n,m = map(int,input().split())
+# n,m = map(int,input().split())
 
-score = [[] for _ in range(n)]
+# graph = [[INF]*(n+1) for _ in range(n+1)]
 
-for _ in range(m):
-    a,b = map(int,input().split())
-    score[b].append(a)
+# for a in range(1,n+1):
+#     for b in range(1,n+1):
+#         if a == b:
+#             graph[a][b] = 0
 
-def dijkstra(start, end):
-    heap = []
-    wei = [1e9] * (n+1)
+# for _ in range(m):
+#     a,b = map(int,input().split())
+#     graph[a][b] = 1 
 
-    wei[start] = 0
-    heapq
+# for i in range(1,n+1):
+#     for j in range(1,n+1):
+#         for k in range(1,n+1):
+#             graph[j][k] = min(graph[j][k], graph[j][i]+graph[i][k])
+
+# result = 0
+# for i in range(1,n+1):
+#     count = 0
+#     for j in range(1,n+1):
+#         if graph[i][j] != INF or graph[j][i] != INF:
+#             count += 1
+
+#     if count == n:
+#         result += 1 
+
+# print(result)
 
 
-
-for i in range(n+1):
-    for j in range(n+1):
-        dijkstra(i, j)
