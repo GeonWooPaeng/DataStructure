@@ -10636,4 +10636,77 @@
 
 # print(result)
 
+# 화성 탐사
+# 1.
+# import heapq 
+# INF = int(1e9)
+# dx,dy = [1,0,-1,0], [0,1,0,-1]
 
+# def djikstra(sx,sy):
+#     wei = [[INF]*(n) for _ in range(n)]
+#     heap = [] 
+#     wei[sx][sy] = board[sx][sy]
+#     heapq.heappush(heap,(board[sx][sy],sx,sy))
+
+#     while heap:
+#         cost, x,y = heapq.heappop(heap)
+
+#         for i in range(4):
+#             xx,yy = x+dx[i], y+dy[i]
+
+#             if xx < 0 or xx > n-1 or yy < 0 or yy > n-1:
+#                 continue 
+
+#             next_cost = cost + board[xx][yy]
+#             if wei[xx][yy] > next_cost:
+#                 wei[xx][yy] = next_cost
+#                 heapq.heappush(heap,(next_cost, xx, yy))
+
+#     return wei[n-1][n-1]
+
+# for _ in range(int(input())):
+#     n = int(input())
+#     board = [list(map(int,input().split())) for _ in range(n)]
+
+#     print(djikstra(0,0))
+
+# 2.
+# import heapq 
+# import sys 
+# input = sys.stdin.readline 
+# INF = int(1e9)
+
+# dx = [-1,0,1,0]
+# dy = [0,1,0,-1]
+
+# for tc in range(int(input())):
+#     n = int(input())
+#     graph = []
+#     for i in range(n):
+#         graph.append(list(map(int,input().split())))
+
+#     distance = [[INF]*n for _ in range(n)]
+
+#     x, y = 0, 0
+#     q=[(graph[x][y],x,y)]
+#     distance[x][y] = graph[x][y]
+
+#     while q:
+#         dist,x,y = heapq.heappop(q)
+        
+#         if distance[x][y] < dist:
+#             continue
+
+#         for i in range(4):
+#             nx = x + dx[i]
+#             ny = y + dy[i]
+
+#             if nx < 0 or nx >= n or ny < 0 or ny >= n:
+#                 continue 
+
+#             cost = dist + graph[nx][ny]
+#             if distance[nx][ny] > cost:
+#                 distance[nx][ny] = cost 
+#                 heapq.heappush(q,(cost,nx,ny))
+
+#     print(distance[n-1][n-1])
