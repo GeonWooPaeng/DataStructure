@@ -10710,3 +10710,58 @@
 #                 heapq.heappush(q,(cost,nx,ny))
 
 #     print(distance[n-1][n-1])
+
+
+#숨바꼭질
+
+# import heapq 
+
+# INF = int(1e9)
+
+# n,m = map(int,input().split())
+
+# graph = [[] for _ in range(n+1)]
+
+# for _ in range(m):
+#     a,b = map(int,input().split())
+#     graph[a].append(b)
+#     graph[b].append(a)
+
+
+# def djikstra(start):
+    
+#     wei = [INF]*(n+1)
+#     wei[start] = 0
+#     heap = [(0,start)]
+
+#     while heap:
+#         cost, node = heapq.heappop(heap)
+
+#         if wei[node] < cost:
+#             continue 
+
+#         for n_node in graph[node]:
+#             n_cost = cost + 1 
+#             if wei[n_node] > n_cost:
+#                 wei[n_node] = n_cost
+#                 heapq.heappush(heap,(n_cost,n_node))
+
+#     return wei
+
+# distance = djikstra(1)
+
+# max_dist = 0 
+# max_cnt = 0
+# max_idx = 0
+# max_idxs = []
+ 
+
+# for i in range(1,n+1):
+#     if distance[i] > max_dist:
+#         max_dist = distance[i]
+#         max_idxs = [i]
+
+#     elif distance[i] == max_dist:
+#         max_idxs.append(i)
+
+# print(max_idxs[0], max_dist, len(max_idxs)) 
