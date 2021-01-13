@@ -10763,8 +10763,3 @@ for i in range(1,n+1):
         max_idxs.append(i)
 
 print(max_idxs[0], max_dist, len(max_idxs))
-
-
-
-
-
