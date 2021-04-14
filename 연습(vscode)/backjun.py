@@ -16,7 +16,7 @@
 #             stack_l.pop()
 #             if stack_r:
 #                 stack_l.append(stack_r.pop())
-        
+		
 #         elif stack_l[-1] == '-':
 #             stack_l.pop()
 #             if stack_l:
@@ -37,15 +37,15 @@
 #         if i == '-':
 #             if stack_l:
 #                 stack_l.pop()
-        
+		
 #         elif i == '<':
 #             if stack_l:
 #                 stack_r.append(stack_l.pop())
-                
+				
 #         elif i == '>':
 #             if stack_r:
 #                 stack_l.append(stack_r.pop())
-        
+		
 #         else:
 #             stack_l.append(i)
 
@@ -80,7 +80,7 @@
 # def find(x):
 #     if x == parent[x]:
 #         return x
-    
+	
 #     else:
 #         p = find(parent[x])
 #         parent[x] = p 
@@ -104,17 +104,17 @@
 
 #     for _ in range(relation):
 #         x,y = input().split(' ')
-        
+		
 #         if x not in parent:
 #             parent[x] = x
 #             number[x] = 1
 #         if y not in parent:
 #             parent[y] = y
 #             number[y] = 1 
-        
+		
 #         union(x,y)
 #         print(number[find(x)])
-    
+	
 # 2750.
 # n = int(input())
 # data = list() 
@@ -132,7 +132,7 @@
 # for i in data:
 #     print(i)
 
-      
+	  
 # 1427.
 # 1.
 # data = list()
@@ -317,20 +317,20 @@
 
 #         if eval(string.replace(" ","")) == 0:
 #             print(string)
-    
+	
 # 2751.
 
 # def qsort(data):
 #     if len(data) <= 1:
 #         return data
-    
+	
 #     pivot = data[0]
 #     left,right = list(),list()
 
 #     for index in range(1,len(data)):
 #         if data[index] < pivot:
 #             left.append(data[index])
-        
+		
 #         else:
 #             right.append(data[index])
 
@@ -417,7 +417,7 @@
 #         if array[i] >= value + mid: #공유기가 있는 곳에서 + gap 한 값에 공유기를 놓을 수 있다.
 #             value = array[i] # 다음 공유기 놓을 수 있는 곳
 #             count += 1 #공유기수 += 1
-    
+	
 #     if count >= c: #c개 이상의 공유기수 설치 
 #         start = mid + 1 #gap 간격 넓혀보기
 #         result = mid #모든 조건 다 됬으므로 저장
@@ -491,7 +491,7 @@
 # while n != 0:
 #     if flied_b > n:
 #         flied_b = 1
-    
+	
 #     n -= flied_b 
 #     flied_b += 1
 #     sec += 1
@@ -509,7 +509,7 @@
 #         chart[book] = 1
 #     else:
 #         chart[book] += 1 
-        
+		
 # target = max(chart.values())
 # array = []
 
@@ -661,11 +661,11 @@
 #     level_depth = max(level_depth, level)
 #     if node.left_node != -1:
 #         in_order(tree[node.left_node], level + 1) # 자식 node인 경우에는 level이 다르기 때문에 level + 1을 해준다
-    
+	
 #     level_min[level] = min(level_min[level], x) # 중위 순회로 해서 x+=1 해서 저장하는 이유는 비어있는 열이 없기 때문입니다.
 #     level_max[level] = max(level_max[level], x)
 #     x += 1
-    
+	
 #     if node.right_node != -1:
 #         in_order(tree[node.right_node], level + 1) # 자식 node인 경우에는 level이 다르기 때문에 level + 1을 해준다
 
@@ -1065,7 +1065,7 @@
 #     visited = []
 #     need_visit=[]
 #     need_visit.append(start_node)
-    
+	
 #     while need_visit:
 #         node = need_visit.pop(0)
 #         if node not in visited:
@@ -1084,7 +1084,7 @@
 #         if node not in visited:
 #             visited.append(node)
 #             need_visit.extend(graph[node])
-    
+	
 #     return (len(visited)-1)
 
 # com_num = int(input())
@@ -1263,7 +1263,7 @@
 #     visited = [False] * (n+1)
 #     visited[v] = True 
 #     count = 1
-    
+	
 #     while q:
 #         v = q.popleft()
 #         for e in adj[v]:
@@ -1325,13 +1325,13 @@
 
 #         if weight[now] < wei:
 #             continue 
-        
+		
 #         for w, next_node in graph[now]:
 #             next_wei = w + wei 
 #             if next_wei < weight[next_node]:
 #                 weight[next_node] = next_wei 
 #                 heapq.heappush(heap,(next_wei,next_node))
-    
+	
 # dijkstra(start) 
 
 # for i in range(1, V+1):
@@ -1367,7 +1367,7 @@
 #     n,d,c = map(int,input().split()) #컴퓨터 개수, 의존성, 해킹당한 컴퓨터번호(start)
 #     graph = [[] for _ in range(n + 1)]
 #     sec = [INF] * (n + 1)
-    
+	
 #     for _ in range(d):
 #         a,b,s = map(int,input().split()) # 컴퓨터, 컴퓨터, 초(weight)
 #         graph[b].append((s,a))
@@ -1381,7 +1381,7 @@
 #             if i > max_sec:
 #                 max_sec = i
 #     print(count, max_sec)
-        
+		
 # 5719.
 
 # from collections import deque
@@ -1396,13 +1396,13 @@
 #     length[S] = 0
 #     while heap:
 #         l, now = heapq.heappop(heap)
-        
+		
 #         if length[now] < l:
 #             continue 
 
 #         for i in graph[now]:
 #             total_leng = l + i[1] 
-            
+			
 #             if length[i[0]] > total_leng and not drop[now][i[0]]:
 #                 length[i[0]] = total_leng
 #                 heapq.heappush(heap,(total_leng,i[0]))
@@ -1410,7 +1410,7 @@
 # def bfs_back():
 #     need_visit = deque()
 #     need_visit.append(D)
-    
+	
 #     while need_visit:
 #         now = need_visit.popleft()
 #         if now == S:
@@ -1556,13 +1556,13 @@
 
 # for i in range(1,stu_num+1):
 #     pre_rank = int(input())
-    
+	
 #     if Rank[pre_rank] == False:
 #         Rank[pre_rank] = True 
 #         continue 
 
 #     over_rank.append(pre_rank)
-        
+		
 # for rank in over_rank:
 #     for j in range(1,stu_num+1):
 #         if Rank[j] == False:
@@ -1741,18 +1741,18 @@
 #     if row == N:
 #         result.append(board_now[:])
 #         return 
-    
+	
 #     for column in range(N):
 #         if available(column,board_now):
 #             board_now.append(column)
 #             DFS(N,row+1,board_now,result)
-            
+			
 #             board_now.pop()
 
 # def N_Queen(N):
 #     result = []
 #     DFS(N,0,[],result)
-    
+	
 #     return result
 
 # 2.
@@ -1762,14 +1762,14 @@
 #             return False 
 #         if abs(board[x]-board[i]) == abs(x-i): #대각선 확인
 #             return False 
-    
+	
 #     return True 
 
 # def dfs(x): # x - row
 #     global result 
 #     if x == n: #최종 결과 나오는 것
 #         result += 1
-    
+	
 #     else: 
 #         for col in range(n): # 열 확인
 #             board[x] = col #board 에다가 일일이 넣어 준다.
@@ -1852,12 +1852,12 @@
 #         print(visit)
 #         print(need_visit)
 #         c_row, c_col = need_visit.pop(0)
-    
+	
 #         alpha = board[c_row][c_col] 
 #         if alpha not in visit:
 #             visit.append(alpha)
 #             result += 1
-                
+				
 #             for n_row,n_col in direction:
 #                 if (0 <= c_row+n_row and c_row+n_row < r and 0 <= c_col+n_col and c_col+n_col < c):
 #                     need_visit.append((c_row+n_row,c_col+n_col))
@@ -1926,7 +1926,7 @@
 #     for i in password:
 #         if i in vowels:
 #             count += 1 
-    
+	
 #     # 최소 한 개의 모음과 최소 두개의 자음이 있는 경우 출력
 #     if count >= 1 and count <= l-2:
 #         print(''.join(password))
@@ -2057,7 +2057,7 @@
 
 #     if number == 1:                
 #         print(team[quiz])
-    
+	
 #     elif number == 0:
 #         result = []
 #         for m_name, t_name in team.items():
@@ -2139,16 +2139,16 @@
 #     for i in range(n):
 #         if candy[i] % 2 == 1:
 #             candy[i] += 1 
-    
+	
 #     return len(set(candy)) == 1 
 
 # def share_candy(n,candy):
 #     tmp = [0 for _ in range(n)]
-    
+	
 #     for i in range(n):
 #         candy[i] //= 2 
 #         tmp[(i+1)%n] = candy[i]
-    
+	
 #     for j in range(n):
 #         candy[j] += tmp[j]
 
@@ -2245,7 +2245,7 @@
 #         num[i] = 0
 #     for i in dice:
 #         num[i] += 1
-    
+	
 #     for i in dice:
 #         if num[i] == 2:
 #             print(1000+i*100)
@@ -2284,7 +2284,7 @@
 #     if len(set(dice)) == 1:
 #         money.append(50000+dice[0]*5000)
 
-        
+		
 #     elif len(set(dice)) == 2:
 #         num = count_dice_num(dice)
 #         for k in dice:
@@ -2294,7 +2294,7 @@
 #             elif num[k] == 2:
 #                 money.append(2000+dice[0]*500+dice[-1]*500)
 #                 break
-                
+				
 #     elif len(set(dice)) == 3:
 #         num = count_dice_num(dice)
 #         for i in dice:
@@ -2348,7 +2348,7 @@
 #             print('TK')
 #         else:
 #             print('?')
-    
+	
 #     if ms[0] == 'P':
 #         if tk[0] == 'R':
 #             print('MS')
@@ -2356,7 +2356,7 @@
 #             print('TK')
 #         else:
 #             print('?')
-    
+	
 #     if ms[0] == 'S':
 #         if tk[0] == 'P':
 #             print('MS')
@@ -2365,7 +2365,7 @@
 #         else:
 #             print('?')
 
-        
+		
 # else:
 #     if len(set(ms)) == 1:
 #         if ms[0] == 'P':
@@ -2383,7 +2383,7 @@
 #                 print('TK')
 #             else:
 #                 print('?')
-    
+	
 #     else: 
 #         if tk[0] == 'P':
 #             if 'S' in ms:
@@ -2429,22 +2429,22 @@
 #         else:
 #             result += tmp[::-1] + " "
 #             tmp = ""
-    
+	
 #     elif text == '<':
 #         ck = True 
 #         result += tmp[::-1] + '<'
 #         tmp = ""
-    
+	
 #     elif text == '>':
 #         ck = False
 #         result += '>'
-    
+	
 #     else:
 #         if ck:
 #             result += text
 #         else:
 #             tmp += text
-    
+	
 # result += tmp[::-1]
 # print(result)
 
@@ -2492,23 +2492,23 @@
 #         for y in range(c):
 #             if board[x][y] not in 'SW':
 #                 board[x][y] = 'D'
-            
+			
 #     for x in board:
 #         print(''.join(x))
-                    
+					
 
 
 # 14620.
 # 1.
 # def check(x,y):
-    
+	
 #     count = 0
 #     for i in range(4):
 #         xx,yy = x+dx[i],y+dy[i]
 #         if condition[xx][yy] == False:
 #             count+= 1
 #             continue
-    
+	
 #     if count == 4:
 #         return True 
 #     else:
@@ -2529,9 +2529,9 @@
 #         cost = m[x][y]
 #         for i in range(4):
 #             cost += m[x+dx[i]][y+dy[i]]
-        
+		
 #         board.append((cost,x,y))
-         
+		 
 # board= sorted(board, key = lambda x: x[0])
 
 # result = 0 
@@ -2548,7 +2548,7 @@
 #     else:
 #         break
 # print(result)
-                    
+					
 # 2.
 # n = int(input())
 # g = [list(map(int,input().split()))for _ in range(n)]
@@ -2563,11 +2563,11 @@
 #         # for 문 2개를 써야할 2차 배열을 1나로 표현한 것
 #         x = flower // n # 행 나타내는 것  
 #         y = flower % n # 열 나타내는 것
-        
+		
 #         # 표를 넘어가는 곳 없애기
 #         if x == 0 or x == n-1 or y == 0 or y == n-1:
 #             return 10000 
-        
+		
 #         for w in range(5):
 #             flow.append((x+dx[w],y+dy[w]))
 #             ret += g[x+dx[w]][y+dy[w]]
@@ -2589,7 +2589,7 @@
 # 1012.
 # def ck(x,y):
 #     check[x][y] = True
-    
+	
 #     dx,dy = [0,-1,0,1],[1,0,-1,0]
 #     for i in range(4):
 #         xx,yy = x+dx[i],y+dy[i]
@@ -2609,7 +2609,7 @@
 #     for _ in range(k):
 #         y,x = map(int,input().split()) 
 #         board[x][y] = 1 
-    
+	
 #     ans = 0
 #     for x_b in range(n):
 #         for y_b in range(m):
@@ -2661,7 +2661,7 @@
 #             continue 
 #         if ck[xx][yy] or m[x][y] != m[xx][yy]:
 #             continue 
-        
+		
 #         ret += dfs(xx,yy)
 
 #     return ret 
@@ -2695,7 +2695,7 @@
 #     exist = False 
 #     ck = [[False]* 10 for _ in range(n)]
 #     ck2 = [[False]* 10 for _ in range(n)] 
-    
+	
 #     for i in range(n):
 #         for j in range(10):
 #             if m[i][j] =='0' or ck[i][j]:
@@ -2735,7 +2735,7 @@
 
 #         if ck[xx][yy] or m[x][y] != m[xx][yy]:
 #             continue 
-        
+		
 #         ret += dfs(xx,yy)  
 
 #     return ret
@@ -2755,7 +2755,7 @@
 #             continue
 #         dfs2(xx,yy,val)
 
-     
+	 
 # def down(): # 밑으로 다 보내버리기
 
 #     for i in range(6):
@@ -2769,7 +2769,7 @@
 
 #         for j in range(12-len(tmp),12):
 #             m[j][i] = tmp[j-(12-len(tmp))]
-    
+	
 
 # while True: #실행부분
 #     exist = False
@@ -2824,7 +2824,7 @@
 #     if sum(qry) == k:
 #         ans = min(ans, value(arr))
 #         return 
-    
+	
 #     for i in range(k):
 #         if qry[i]: #qry를 처리했다면 continue
 #             continue 
@@ -2899,7 +2899,7 @@
 
 # while True:
 #     num1,num2 = map(int,input().split())
-    
+	
 #     if num1 == 0:
 #         break 
 
@@ -2938,9 +2938,9 @@
 #     ret = max([max(i) for i in b]) #board의 최대값
 #     if count == 0:
 #         return ret 
-    
+	
 #     for _ in range(4): #동서남북 4방향이므로 4
-        # x = [convert(i,n) for i in board] # 행 마다 convert실행 해서 새로운 행을 만들어 주는 것
+		# x = [convert(i,n) for i in board] # 행 마다 convert실행 해서 새로운 행을 만들어 주는 것
 #         if x!= b: #변화가 있는지 없는지 파악(변화가 있는 경우)
 #             ret = max(ret, dfs(n, x, count-1)) 
 #         b = rotate90(b,n) #board 90도 돌려주기(변화가 없는경우)
@@ -3264,11 +3264,11 @@
 # def prime(x):
 #     if x <= 1:
 #         return False 
-    
+	
 #     for i in range(2,x):
 #         if x % i == 0:
 #             return False 
-        
+		
 #         if i*i > x:
 #             break 
 #     return True 
@@ -3292,7 +3292,7 @@
 #     r_fac = fac(r)
 #     n_r_fac = fac((x-r))
 #     return n_fac // (r_fac * n_r_fac)
-    
+	
 # print(bi(n,k))
 
 # 11066.
@@ -3310,7 +3310,7 @@
 #     for i in range(2,n+1): #부분파일의 길이
 #         for j in range(1,n+2-i): #시작점 
 #             dp[j][j+i-1] = min([dp[j][j+k] + dp[j+k+1][j+i-1] for k in range(i-1)]) + (s[j+i-1] - s[j-1])
-    
+	
 #     for i in dp:
 #         print(i)
 
@@ -3328,7 +3328,7 @@
 #     global s, dp 
 #     if i == j:
 #         return 0 
-    
+	
 #     if dp[i][j] != -1:
 #         return dp[i][j]
 
@@ -3360,12 +3360,12 @@
 #             if count >= num:
 #                 if len(str(i)) < 2:
 #                     return str(j) + '0'+ str(i)
-                
+				
 #                 return str(j)+str(i)
 
 # for _ in range(int(input())):
 #     h,w,n = map(int,input().split())
-    
+	
 #     print(check(h,w,n))
 
 
@@ -3431,7 +3431,7 @@
 #         if a[0] == 'pop':
 #             if len(stack) == 0:
 #                 print(-1)
-            
+			
 #             else:
 #                 stack.pop() 
 
@@ -3463,7 +3463,7 @@
 #     if len(a) == 2:
 #         if a[0] == 'push':
 #             queue.append(a[-1])
-    
+	
 #     else:
 #         if a[0] == 'pop':
 #             if len(queue) == 0:
@@ -3504,17 +3504,17 @@
 #     if len(a) == 2:
 #         if a[0] == 'push_front':
 #             de.appendleft(a[-1])
-        
+		
 #         elif a[0] == 'push_back':
 #             de.append(a[-1])
-    
+	
 #     else:
 #         if a[0] == 'pop_front':
 #             if len(de) == 0:
 #                 print(-1)
 #             else:
 #                 print(de.popleft())
-        
+		
 #         elif a[0] == 'pop_back':
 #             if len(de) == 0:
 #                 print(-1)
@@ -3555,10 +3555,10 @@
 #                     a[j] = 0
 #                     break 
 #     a = set(a)
-    
+	
 #     if len(a) == 1 and list(a)[0] == 0:
 #         print('YES')
-    
+	
 #     else:
 #         print('NO')
 
@@ -3576,7 +3576,7 @@
 #             if i % 2 == 1 and j % 2 == 1:
 #                 if board[i][j] == 'W':
 #                     count_b+= 1
-                
+				
 #             elif i % 2 == 1 and j % 2 == 0:
 #                 if board[i][j] == 'B':
 #                     count_b += 1 
@@ -3592,14 +3592,14 @@
 #             if i % 2 == 1 and j % 2 == 1:
 #                 if board[i][j] == 'B':
 #                     count_w+= 1
-            
+			
 #             elif i % 2 == 1 and j % 2 == 0:
 #                 if board[i][j] == 'W':
 #                     count_w += 1 
 #             elif i % 2 == 0 and j % 2 == 1:
 #                 if board[i][j] == 'W':
 #                     count_w += 1 
-            
+			
 #             elif i % 2 == 0 and j % 2 == 0:
 #                 if board[i][j] == 'B':
 #                     count_w += 1              
@@ -3648,13 +3648,13 @@
 #         return 2 
 #     elif x == 3:
 #         return 4
-    
+	
 #     return cal(x-3) + cal(x-2) + cal(x-1)
 
 # for _ in range(int(input())):
 #     n = int(input())
 #     print(cal(n))    
-    
+	
 # 1259.
 
 # while True:
@@ -3703,7 +3703,7 @@
 # for _ in range(int(input())):
 #     fi(int(input()))
 
-    
+	
 # 1260.
 # from collections import defaultdict
 
@@ -3717,7 +3717,7 @@
 #         if num not in result:
 #             result.append(num)
 #             visit.extend(graph[num])
-    
+	
 #     return result
 
 # def bfs(x):
@@ -3790,7 +3790,7 @@
 #     for i in range(2,x+1):
 #         if i % 3 == 0:
 #             dp[i] = min(dp[i//3], dp[i-1]) +1
-        
+		
 #         elif i % 2 == 0:
 #             dp[i] = min(dp[i//2],dp[i-1])+1
 
@@ -3877,7 +3877,7 @@
 #         xx,yy = x+dx[i], y+dy[i]
 #         if xx < 0 or xx > n-1 or yy < 0 or yy > m-1:
 #             continue 
-        
+		
 #         if board[xx][yy] == 1:
 #             board[xx][yy] = 0
 #             dfs(xx,yy,board)
@@ -3925,7 +3925,7 @@
 #     result = []
 #     visit = []
 #     visit.append(x)
-    
+	
 #     while visit:
 #         num = visit.pop() 
 #         if num not in result and not ck[num]:
@@ -3958,8 +3958,8 @@
 #     for i in board[x]:
 #         if not ck[i]:
 #             dfs(i)
-    
-        
+	
+		
 # n,m = map(int,input().split()) 
 # board = [[] for i in range(n+1)]
 # ck = [False] * (n+1)
@@ -3986,7 +3986,7 @@
 # for _ in range(n):
 #     num = int(input())
 #     heapq.heappush(heap,-num)
-    
+	
 #     if num == 0:
 #         print(-1*heapq.heappop(heap))
 
@@ -4012,7 +4012,7 @@
 
 #     elif not cnt:
 #         w_cnt += 1 
-    
+	
 #     else:
 #         cal(x//2, a,b)
 #         cal(x//2, a+x//2,b)
@@ -4107,7 +4107,7 @@
 
 # print(cnt)
 
-    
+	
 # 15829.
 # print(ord('a'))# 문자 -> 숫자(a -> 97)
 # print(chr(97)) # 숫자 -> 문자 
@@ -4168,7 +4168,7 @@
 #         elif i == 2:
 #             dp[i] = 3
 #             continue 
-    
+	
 #         dp[i] = dp[i-1] + dp[i-2]*2
 #     return dp[x]
 
@@ -4449,20 +4449,20 @@
 #             Printer(self._p_page).print_copy()
 #         else:
 #             print("여러 page가 들어갔습니다.")
-    
+	
 # class Program(object):
 #     #Client 
 #     def __init__(self,page_cmd):
 #         self.page_cmd = page_cmd
 #         program = Copy_control_program(self.page_cmd)
 #         program.Execute()
-        
+		
 # if __name__ == "__main__":
 #     print("<여러개 들어갔을 때>")
 #     program_page = Program(2)
 #     print("<1개 들어갔을 때>")
 #     program_page2 = Program(1) 
-    
+	
 
 # 2193.
 # n = int(input())
@@ -4502,7 +4502,7 @@
 #             dp[i] = max(dp[i],dp[j]+1)
 
 # print(max(dp))
-    
+	
 
 # 1912
 # import copy 
@@ -4576,7 +4576,7 @@
 #     i = (i+k-1) % len(arr)
 
 # print('<'+', '.join(map(str,result))+'>')
-    
+	
 
 # 1168
 # n,k = map(int,input().split())
@@ -4605,7 +4605,7 @@
 # for i in range(int(input())):
 #     a,b = map(int,input().split())
 #     print(lcm(a,b))
-    
+	
 # 1373
 # b = int(input(),2)
 # print(oct(b)[2:])
@@ -4730,10 +4730,10 @@
 #     num+=1
 #     for i in range(4):
 #         aa, bb = a+dx[i], b+dy[i]
-        
+		
 #         if aa > n-1 or aa < 0 or bb < 0 or bb > n-1:
 #             continue 
-            
+			
 #         if house_map[a][b] == house_map[aa][bb] and check_visit[aa][bb] == False:
 #             dfs(aa,bb)
 #     return num 
@@ -4760,7 +4760,7 @@
 
 #     if not line:
 #         break 
-    
+	
 #     for i in line:
 #         if i.islower():
 #             lo+=1
@@ -4770,7 +4770,7 @@
 #             di+=1
 #         elif i.isspace():
 #             sp+=1
-    
+	
 #     print("{} {} {} {}".format(lo,up,di,sp))
 
 
@@ -4813,7 +4813,7 @@
 #     queue = [[a,b]]
 #     while queue:
 #         x,y = queue.pop(0)
-        
+		
 #         for i in range(8):
 #             xx,yy = x+dx[i], y+dy[i]
 
@@ -4882,7 +4882,7 @@
 # for i in range(1, len(nums)+1):  
 #     if 0 < nums[i-1] < 10:
 #         dp[i]+= dp[i-1]
-    
+	
 #     if i == 1:
 #         continue 
 
@@ -4904,16 +4904,16 @@
 
 #     while queue:
 #         px, py = queue.pop(0)
-        
+		
 #         if px == (x-1) and py == (y-1):
 #             break 
 
 #         for i in range(4):
 #             xx,yy = px+dx[i], py+dy[i]
-            
+			
 #             if xx < 0 or xx > x-1 or yy < 0 or yy > y-1:
 #                 continue 
-            
+			
 #             if arr[xx][yy] == 1:
 #                 arr[xx][yy] = 0
 #                 dist[xx][yy] = dist[px][py] + 1
@@ -5084,7 +5084,7 @@
 #     for i in range(a,x+a):
 #         for j in range(b,x+b):
 #             check.add(tree[i][j])
-    
+	
 #     if len(check) != 1: 
 #         array.append('(')
 #         quad_tree(x//2,a,b)
@@ -5173,7 +5173,7 @@
 # for i in range(length_bracket):
 #     if bracket[i] == '(':
 #         stack.append('(')
-    
+	
 #     else:
 #         if bracket[i-1] == '(':
 #             stack.pop() 
@@ -5335,7 +5335,7 @@
 #     for i in tree:
 #         if i > mid:
 #             length += (i-mid)
-    
+	
 #     if length >= need_tree_length:
 #         start = mid + 1
 #     else:
@@ -5398,7 +5398,7 @@
 #             print(result[i], end=' ')
 #         print() 
 #         return 
-    
+	
 #     for i in range(1,n+1):
 #     # n개 값을 앞에서 부터 인자를 check한다
 #         if check[i] == 1:
@@ -5474,7 +5474,7 @@
 #     for j in range(idx,n+1):
 #         num[index] = j
 #         dfs(index+1,n,m,j)
-        
+		
 # dfs(0,n,m,1)
 
 
@@ -5590,7 +5590,7 @@
 #         if tmp not in result:
 #             result.append(tmp)
 #         return 
-    
+	
 #     for j in range(len(use_nums)):
 #         if check[j] == 0:
 #             check[j] = 1 
@@ -5794,7 +5794,7 @@
 #     post_order(start+1,div-1) #왼쪽
 #     post_order(div,end) #오른쪽
 #     print(nums[start])
-    
+	
 
 # nums=[]
 # while True:
@@ -5820,7 +5820,7 @@
 
 # def cal(n,a,b):
 #     global minus_count, zero_count, plus_count
-    
+	
 #     num = set()
 
 #     for x in range(a,n+a):
@@ -5837,7 +5837,7 @@
 #         cal(n//3,a+2*(n//3),b)
 #         cal(n//3,a+2*(n//3),b+(n//3))
 #         cal(n//3,a+2*(n//3),b+2*(n//3))
-    
+	
 #     else:
 #         if list(num)[0] == -1:
 #             minus_count+= 1
@@ -5846,11 +5846,11 @@
 #         if list(num)[0] == 0:
 #             zero_count+= 1
 #             return
-        
+		
 #         if list(num)[0] == 1:
 #             plus_count+= 1
 #             return
-            
+			
 # cal(n,0,0)
 
 # print(minus_count)
@@ -5928,7 +5928,7 @@
 #         a*=2
 #         cnt+=1 
 #         cal(a,b,cnt)
-        
+		
 #         a//=2 
 #         a = (a*10+1)
 #         cal(a, b, cnt)
@@ -6079,13 +6079,13 @@
 # if true_person[0] == 0:
 #     print(party)
 #     sys.exit()
-    
+	
 # true_person = set(true_person[1:])
 
 # for _ in range(party):
 #     join_party = list(map(int,input().split()))
 #     total_party.append(join_party[1:])
-    
+	
 # while True:
 #     true_persons = copy.deepcopy(true_person)
 #     for j in total_party:
@@ -6095,7 +6095,7 @@
 #                 break
 #     if true_person == true_persons: #while문을 끝내주기 위해 변화가 없으면 break
 #         break
-          
+		  
 # for j in total_party:
 #     check = True 
 #     for k in j:
@@ -6122,7 +6122,7 @@
 #     for b in range(len(pe)):
 #         if pe[a][0] < pe[b][0] and pe[a][1] < pe[b][1]:
 #             cnt += 1 
-    
+	
 #     seq.append(cnt)
 
 # for i in seq:
@@ -6181,7 +6181,7 @@
 #     if cnt == 3:
 #         bfs()
 #         return 
-    
+	
 #     for i in range(n):
 #         for j in range(m):
 #             if board[i][j] == 0:
@@ -6195,7 +6195,7 @@
 #     boards = copy.deepcopy(board)
 #     visit = deque() 
 #     count = 0
-    
+	
 #     for i in range(n):
 #         for j in range(m):
 #             if boards[i][j] == 2:
@@ -6203,13 +6203,13 @@
 
 #     while visit:
 #         x,y = visit.popleft()
-        
+		
 #         for i in range(4):
 #             xx,yy = x+dx[i], y+dy[i]
 
 #             if xx < 0 or xx > n-1 or yy < 0 or yy > m-1:
 #                 continue 
-            
+			
 #             if boards[xx][yy] == 0:
 #                 boards[xx][yy] = 2
 #                 visit.append((xx,yy))
@@ -6244,7 +6244,7 @@
 #             if loc == b:
 #                 #여러번 돌아가면서 속도가 같으면서 해당 방법에 도착하면 +1
 #                 cnt+=1 
-            
+			
 #             for move in (loc-1, loc+1, 2*loc):
 #                 if move < 0 or move > 100000:
 #                     continue 
@@ -6255,7 +6255,7 @@
 #                     # 해당 조건이 없으면 cnt+=1 도착 속도가 다른 것도 포함됩니다.
 #                     time[move] = time[loc]+1  #해당 값은 2번째 조건에 상관이 크게 없습니다.(주로 time[move] == 0)
 #                     q.append(move)
-    
+	
 #     print(time[b])
 #     print(cnt)
 
@@ -6310,7 +6310,7 @@
 #         if 'O' == s[i+1] and 'I' == s[i+2]:
 #             ioi += 1
 #             a = 2
-            
+			
 #             if ioi == n:
 #                 count+=1 
 #                 ioi-= 1 
@@ -6419,7 +6419,7 @@
 #                 break
 #             total += boards[xx][yy]
 #         result = max(result, total)
-                
+				
 # #board 4회전하기
 # for _ in range(5):
 #     boards = rotation90(boards)
@@ -6467,7 +6467,7 @@
 #         for j in range(3):
 #             xx = x+tech[i][j][0]
 #             yy = y+tech[i][j][1]
-            
+			
 #             if xx < 0 or xx > n-1 or yy < 0 or yy > m-1:
 #                 break
 
@@ -6504,7 +6504,7 @@
 #             eat+=1 
 #             #0으로 두어 다음 먹이로 갈때 지나 갈수 있게 해준다.
 #             board[x][y] = 0 
-            
+			
 #             if size == eat:
 #                 size+= 1 
 #                 eat = 0 
@@ -6516,11 +6516,11 @@
 
 #             while heap:
 #                 heap.pop() 
-            
+			
 
 #         for i in range(4):
 #             ndist, xx, yy = dist+1, x+dx[i], y+dy[i]
-        
+		
 #             if xx < 0 or xx > n-1 or yy < 0 or yy > n-1:
 #                 continue 
 
@@ -6574,7 +6574,7 @@
 
 # path1 = djikstra(1, no1) + djikstra(no1, no2) +djikstra(no2, n)
 # path2 = djikstra(1, no2) + djikstra(no2, no1) +djikstra(no1, n)
-                    
+					
 # result = min(path1,path2)
 # if result < 100000:
 #     print(result)
@@ -6636,14 +6636,14 @@
 #     check[x] = True
 #     visit.append(x)
 #     next_n = link[x]
-    
+	
 #     if check[next_n] == True:
 #         if next_n in visit: #cycle
 #             n_solo.extend(visit[visit.index(next_n):]) 
 #         return
 #     else:
 #         dfs(next_n)
-     
+	 
 # for _ in range(int(input())):
 #     n = int(input())
 #     link = [0] + list(map(int,input().split()))
@@ -6654,7 +6654,7 @@
 #         if check[i] == False:
 #             visit = []
 #             dfs(i)
-           
+		   
 #     print(n-len(n_solo))
 
 # 2096
@@ -6703,14 +6703,14 @@
 
 #         for i in range(4):
 #             xx,yy = x+dx[i], y+dy[i]
-            
+			
 #             if xx < 0 or xx > n-1 or yy < 0 or yy > m-1:
 #                 continue 
-            
+			
 #             if board[xx][yy] == '0' and dist[xx][yy][d] == 0:
 #                 dist[xx][yy][d] = dist[x][y][d] + 1 
 #                 q.append((d,xx,yy))
-            
+			
 #             if board[xx][yy] == '1' and d == 0:
 #                 dist[xx][yy][1] = dist[x][y][d] + 1
 #                 q.append((1,xx,yy))
@@ -6731,7 +6731,7 @@
 
 # for _ in range(m):
 #     a,b = map(int,input().split())
-    
+	
 #     link[a].append(b)
 #     link[b].append(a)
 
@@ -6747,7 +6747,7 @@
 
 #         for i in link[num]:
 #             q.append((dist+1,i))
-    
+	
 
 # for i in range(1,n+1):
 #     total = 0
@@ -6805,7 +6805,7 @@
 # def postfix():
 #     result = deque()
 #     si = deque() 
-    
+	
 #     for ch in notation:
 #         if 'A' <= ch <= 'Z':
 #             result.append(ch)
@@ -6848,7 +6848,7 @@
 #     heapq.heappush(heap,(0,s))
 #     wei = [100001] * (num+1)
 #     wei[s] = 0
-    
+	
 #     while heap:
 #         t, n = heapq.heappop(heap)
 
@@ -6946,7 +6946,7 @@
 #                 #가장 최소의 값을 저장한다. 
 #                 #이러면 전과 최소로 연결되어 있어 최소값을 가지는 최소경로를 알 수 있다.
 #                 heapq.heappush(heap,(co+cos, no))
-    
+	
 #     return wei[e]
 
 # print(djikstra(start,end))
@@ -7037,7 +7037,7 @@
 #         #대각선 
 #         if board[px][py] == board[px-1][py] == board[px][py-1] == 0:
 #             pipe[px][py][2] = pipe[px-1][py-1][0] + pipe[px-1][py-1][1] + pipe[px-1][py-1][2]
-        
+		
 #         if board[px][py] == 0:
 #             #가로
 #             pipe[px][py][0] = pipe[px][py-1][0] + pipe[px][py-1][2]
@@ -7074,14 +7074,14 @@
 #         else:
 #             if not q:
 #                 continue 
-            
+			
 #             if value == 1:
 #                 if d[q[-1]] == 1:
 #                     d.pop(q[-1])
 #                     q.pop()
 #                 else:
 #                     d[q[-1]]-=1
-            
+			
 #             else:
 #                 if d[q[0]] == 1:
 #                     d.pop(q[0])
@@ -7150,7 +7150,7 @@
 #         return num[0]
 
 #     numss = nums_dict.most_common() 
-    
+	
 #     return (numss[1][0] if numss[0][1] == numss[1][1] else numss[0][0]) 
 
 
@@ -7222,7 +7222,7 @@
 #             if home[aa][bb] != -1:
 #                 h[aa][bb] += home[a][b]//5
 #                 cnt+=1
-            
+			
 #         h[a][b] += (home[a][b] - (home[a][b]//5)*cnt)
 
 #     return h
@@ -7234,7 +7234,7 @@
 #             upx = i 
 #             downx = i+1 
 #             break 
-    
+	
 #     #위쪽 반시계방향 
 #     # 우측으로 이동
 #     tmp_r = home[upx][c-1]
@@ -7321,7 +7321,7 @@
 
 #             if xx < 0 or xx > n-1 or yy < 0 or yy > m-1:
 #                 continue 
-            
+			
 #             if check[xx][yy] == 0:
 #                 if cheese[xx][yy] >= 1:
 #                     cheese[xx][yy] += 1 
@@ -7342,12 +7342,12 @@
 
 #             elif cheese[x][y] == 2:
 #                 cheese[x][y] = 1 
-    
+	
 #     return check_melt
 
 
 # while True:
-    
+	
 #     bfs() 
 
 #     if melt():
@@ -7399,7 +7399,7 @@
 # def find(i_l, i_r, p_l, p_r):
 #     if p_l <= p_r: #post_order 에서는 맨 끝이 root이다 .
 #         parent = post_order[p_r] 
-        
+		
 #         #in_order 에서 left, right를 나눠야 한다.
 #         parent_idx = in_location[parent] #in_order에서의 parent_idx를 찾는다.
 
@@ -7407,7 +7407,7 @@
 #         l_cnt = parent_idx - i_l #왼쪽 node 개수, in_order을 기준으로 계산
 #         if l_cnt > 0: #트리에 왼쪽 node 추가 
 #             tree[parent][0] = post_order[p_l+l_cnt-1]
-        
+		
 #         r_cnt = i_r - parent_idx #오른쪽 node 개수, in_order을 기준으로 계산 
 #         if r_cnt > 0:# 트리에 오른쪽 node 추가 
 #             tree[parent][1] = post_order[p_r - 1]
@@ -7561,7 +7561,7 @@
 #             left+=n[i]
 #         else:
 #             right+=n[i]
-    
+	
 #     if left != right:
 #         print('READY')
 #         return 
@@ -7582,10 +7582,10 @@
 #             num+=int(s[i])
 #         else:
 #             alpha.append(s[i])
-    
+	
 #     alpha.sort() 
 #     alpha.append(num)
-    
+	
 #     print(''.join(alpha))
 #     return 
 
@@ -7684,20 +7684,20 @@
 #             # 다음 w랑 a[i:i+jump]까지 같은 경우 수 += 1 
 #             if w == a[i:i+jump]:
 #                 w_cnt+=1 
-            
+			
 #             else:
 #                 if w_cnt == 1:
 #                     combine_w += w 
 #                 else:
 #                     combine_w += (str(w_cnt) + w)
-                
+				
 #                 w = a[i:i+jump]
 #                 w_cnt = 1 
-        
+		
 #         combine_w += w #꼬다리 더해주기
 
 #         result = min(result, len(combine_w))
-        
+		
 #     return result
 
 # solution(s)
@@ -7764,7 +7764,7 @@
 #             if key2[i][j] == 1:
 #                 k.append((i,j))
 
-    
+	
 #     for ii in range(m):
 #         for jj in range(m):
 #             if lock[ii][jj] == 0:
@@ -7775,7 +7775,7 @@
 #         for xx,yy in l:
 #             dx = xx - x
 #             dy = yy - y
-            
+			
 #             for xxx, yyy in k:
 #                 if xxx+dx < 0 or yyy+dy < 0 or xxx + dx > m-1 or yyy+dy > m-1:
 #                     continue 
@@ -7787,7 +7787,7 @@
 #                     lock_c = copy.deepcopy(lock)
 #                 else:
 #                     check = True 
-                   
+				   
 #     return check 
 
 # for _ in range(4):
@@ -7807,7 +7807,7 @@
 #     for i in range(n):
 #         for j in range(m):
 #             result[j][n-i-1] = a[i][j]
-    
+	
 #     return result 
 
 # # 좌물쇠의 중간 부분이 모두 1인지 확인
@@ -7832,7 +7832,7 @@
 #         for j in range(n):
 #             new_lock[i+n][j+n] = lock[i][j]
 
-    
+	
 #     # 4가지 방향에 대해서 확인
 #     for rotation in range(4):
 #         key = rotate_a_matrix_by_90_degree(key)
@@ -7846,7 +7846,7 @@
 #                 #새로운 자물쇠에 열쇠가 정화히 들어 맞는지 검사 
 #                 if check(new_lock) == True:
 #                     return True 
-                
+				
 #                 #자물쇠에서 열쇠를 다시 빼기
 #                 for i in range(m):
 #                     for j in range(m):
@@ -7893,7 +7893,7 @@
 #     direction = 0
 #     idx = 0
 #     board[x][y] = 2
-    
+	
 #     while True:
 #         nx, ny = x+dx[direction], y+dy[direction]
 
@@ -7929,7 +7929,7 @@
 #         build_frame.append(list(map(int,input().split())))
 #     except:
 #         break 
-    
+	
 # def check(result):
 #     for x,y,a in result:
 #         #기둥
@@ -7940,7 +7940,7 @@
 #         else:
 #             if ([x,y-1, 0] in result) or ([x+1, y-1, 0] in result) or (([x-1, y, 1] in result) and ([x+1, y, 1] in result)):
 #                 return True
-    
+	
 #     return False
 
 # def solution(build_frame, n):
@@ -7958,7 +7958,7 @@
 #             if not check(result):
 #                 result.append([x,y,a])
 
-        
+		
 #     return sorted(result)
 # print(solution(build_frame, n))
 
@@ -8001,7 +8001,7 @@
 #                 min_chi = min(min_chi, (abs(x-chicken[i][0]) + abs(y-chicken[i][1])))
 #             result += min_chi 
 #         answer.append(result)
-          
+		  
 #     chi_combination.append(idx)
 #     solution(idx+1, cnt+1)
 #     chi_combination.pop()
@@ -8014,7 +8014,7 @@
 #         elif city[i][j] == 2:
 #             chicken.append((i,j))
 
-    
+	
 # solution(0,0)
 # print(min(answer))
 
@@ -8161,7 +8161,7 @@
 # def bfs(sx,sy):
 #     q = deque()
 #     check = [[False]*b for _ in range(a)]
-    
+	
 #     q.append((sx,sy))
 #     check[sx][sy] = True
 
@@ -8172,14 +8172,14 @@
 
 #         for i in range(4):
 #             xx,yy = x+dx[i], y+dy[i]
-            
+			
 #             if xx < 0 or yy < 0 or xx > a-1 or yy > b-1:
 #                 continue 
-            
+			
 #             if check[xx][yy] == False and board[xx][yy] == 0:
 #                 check[xx][yy] = True 
 #                 q.append((xx,yy))
-            
+			
 #             elif check[xx][yy] == False and board[xx][yy] == 1:
 #                 cnt+= 1
 #                 board[xx][yy] = 2
@@ -8198,12 +8198,12 @@
 #             check_b = False
 
 #     result.append(bfs(0,0))
-    
+	
 #     for i in range(a):
 #         for j in range(b):
 #             if board[i][j] == 2:
 #                 board[i][j] = 0
-    
+	
 #     if check_b:
 #         print(time)
 #         print(result[-2])
@@ -8268,7 +8268,7 @@
 #     b[w1[0]][w1[1]] = 1
 #     b[w2[0]][w2[1]] = 1
 #     b[w3[0]][w3[1]] = 1
-    
+	
 #     for sx,sy in virus:
 #         q = [] 
 #         q.append((sx,sy))
@@ -8303,7 +8303,7 @@
 #         for j in range(m):
 #             if virus_board[i][j] == 0:
 #                 safe+=1 
-    
+	
 #     result = max(safe, result)
 
 # print(result)
@@ -8328,7 +8328,7 @@
 #     for i in range(4):
 #         nx = x+dx[i]
 #         ny = y+dy[i]
-        
+		
 #         #상, 하, 좌, 우 중에서 바이러스가 퍼질 수 있는 경우
 #         if nx >= 0 and nx < n and ny >= 0 and ny < m:
 #             if temp[nx][ny] == 0:
@@ -8363,7 +8363,7 @@
 #         #안전 영역의 최댓값 계산 
 #         result = max(result, get_score())
 #         return 
-    
+	
 #     #빈 공간에 울타리 설치 
 #     for i in range(n):
 #         for j in range(m):
@@ -8435,7 +8435,7 @@
 #             left+=1 
 #         else:
 #             left-=1 
-        
+		
 #         if left == 0:
 #             return i 
 
@@ -8444,7 +8444,7 @@
 #     for i in a:
 #         if i == '(':
 #             left+= 1
-        
+		
 #         else:
 #             if left == 0:
 #                 return False
@@ -8539,7 +8539,7 @@
 # for i in op_set:
 #     i = list(i)
 #     cal = int(nums[0])
-    
+	
 #     for j in range(len(i)):
 #         if i[j] == '+':
 #             cal += int(nums[j+1])
@@ -8549,7 +8549,7 @@
 #             cal *= int(nums[j+1])
 #         else:
 #             cal = cal//int(nums[j+1]) if cal > 0 else ((-cal)//int(nums[j+1]))*(-1)
-    
+	
 #     result.append(cal)
 
 # print(max(result))
@@ -8576,7 +8576,7 @@
 #             op_cnt[0] -= 1
 #             cal(idx+1, result+nums[idx])
 #             op_cnt[0] += 1 
-        
+		
 #         if op_cnt[1] > 0:
 #             op_cnt[1] -= 1
 #             cal(idx+1, result-nums[idx])
@@ -8625,7 +8625,7 @@
 
 #                     if boards[x][j] == 'O':
 #                         break
-                    
+					
 #             if i == 1: #북
 #                 for j in range(x,-1,-1):
 #                     if boards[j][y] == 'S':
@@ -8658,7 +8658,7 @@
 #         if bfs():
 #             answer = True
 #         return 
-    
+	
 #     for i in range(n):
 #         for j in range(n):
 #             if board[i][j] == 'X':
@@ -8744,7 +8744,7 @@
 # for data in combinations(spaces, 3):
 #     for x,y in data:
 #         board[x][y] == 'O'
-    
+	
 #     if not process():
 #         find = True 
 #         break 
@@ -8761,10 +8761,10 @@
 #카카오1
 # new_id = input()
 # def solution(new_id):
-    
+	
 #     # 1단계
 #     new_id = new_id.lower() 
-    
+	
 #     # 2,3단계 
 #     new_id = list(new_id)
 
@@ -8778,12 +8778,12 @@
 #                         new_id[i] = ''
 #                 else:
 #                     point = 0
-            
+			
 #             else:
 #                 new_id[i] = ''
 #         else:
 #             point = 0
-            
+			
 #     new_id = ''.join(new_id)
 #     new_id = list(new_id)
 
@@ -8799,7 +8799,7 @@
 #     #5단계
 #     if new_id == []:
 #         new_id.append('a')
-        
+		
 #     #6단계
 #     if len(new_id) > 15:
 #         new_id = new_id[:15]
@@ -8816,9 +8816,9 @@
 #                 break
 
 #             new_id.append(new_id[-1])
-        
+		
 #     new_id = ''.join(new_id)
-    
+	
 #     return new_id
 
 # print(solution(new_id))
@@ -8868,28 +8868,28 @@
 #     wei[st] = 0
 #     heap = [] 
 #     heapq.heappush(heap,(st,0))
-    
+	
 #     while heap:
 #         node, fare = heapq.heappop(heap)
-        
+		
 #         for next_n, fa in gr[node]:
 #             if wei[next_n] > wei[node] + fa:
 #                 wei[next_n] = wei[node] + fa
 #                 heapq.heappush(heap,(next_n, wei[node]+fa))
-                
+				
 #     return wei[e]
 
 
 # def solution(n, s, a, b, fares):
 #     graph = [[] for _ in range(n+1)]
-    
+	
 #     for aa,bb,ff in fares:
 #         graph[aa].append((bb,ff))
 #         graph[bb].append((aa,ff))
-        
+		
 #     case_one = djikstra(graph,n,s,a) + djikstra(graph,n,a,b)
 #     case_two = djikstra(graph,n,s,b) + djikstra(graph,n,b,a)
-    
+	
 #     case_three = 1e9 
 #     for i in range(1,n+1):
 #         if not graph[i]:
@@ -8897,7 +8897,7 @@
 #         case_three = min((djikstra(graph,n,s,i) +djikstra(graph,n,i,a) + djikstra(graph,n,i,b)), case_three)
 
 #     answer = min(case_one, case_two, case_three)
-    
+	
 #     return answer
 
 # 카카오 3
@@ -8924,13 +8924,13 @@
 #             set_menus = list(permutations(list(order),i))
 #             for set_menu in set_menus:
 #                 set_menu = ''.join(set_menu)
-                    
+					
 #                 if check_order(set_menu):
 #                     count = 0
 #                     for order2 in orders:
 #                          if check_in(order2, set_menu):
 #                              count += 1
-                    
+					
 #                     if count > 2:
 #                         answer.append(set_menu)
 
@@ -8959,7 +8959,7 @@
 
 #         if check(info, query):
 #             count += 1
-        
+		
 #     return count
 
 
@@ -9014,7 +9014,7 @@
 #         a[mx][my] = change_cnt
 
 #     return               
-    
+	
 
 # result = 0
 # while True:
@@ -9026,7 +9026,7 @@
 #             if check[i][j] == False:
 #                 bfs(i,j)
 #                 end_cnt += 1
-    
+	
 #     if end_cnt == (n*n):
 #         break
 #     result += 1
@@ -9070,10 +9070,10 @@
 #                     summary += graph[nx][ny]
 #                     count += 1 
 #                     united.append((nx,ny))
-    
+	
 #     for i, j in united:
 #         graph[i][j] = summary // count 
-    
+	
 #     return count 
 
 # total_count = 0
@@ -9086,7 +9086,7 @@
 #             if union[i][j] == -1:
 #                 process(i,j,index)
 #                 index+=1 
-    
+	
 #     if index == n*n:
 #         break 
 
@@ -9139,14 +9139,14 @@
 
 #             if xx < 0 or xx > n-1 or yy < 0 or yy > m-1:
 #                 continue 
-        
+		
 #             #a
 #             elif board[xx][yy] == 0:
 #                 result += 1
 #                 board[xx][yy] = 2  # 1번 
 #                 q.append((xx,yy,tmp_d))
 #                 break 
-            
+			
 #             #c
 #             elif i == 3:
 #                 back_d = back(d)
@@ -9164,7 +9164,7 @@
 
 # for _ in range(int(input())):
 #     x,y = map(int,input().split())
-    
+	
 #     for i in range(x, x+10):
 #         for j in range(y, y+10):
 #             board[i][j] = 1 
@@ -9248,20 +9248,20 @@
 #     elif rg-1 == 2:
 #         if gear[-1][6] != gear[rg-1][2]:
 #             check[-1] = check[rg-1] * (-1)
-        
+		
 #         for i in range(rg-1,0,-1):
 #             if gear[i][6] != gear[i-1][2]:
 #                 check[i-1] = check[i]*(-1)
 #             else:
 #                 break
-            
+			
 #     elif rg-1 == 3:
 #         for i in range(rg-1,0,-1):
 #             if gear[i][6] != gear[i-1][2]:
 #                 check[i-1] = check[i]*(-1)
 #             else:
 #                 break
-    
+	
 #     for g in range(4):
 #         if check[g] == -1: #반시계
 #             anticlock(gear[g])
@@ -9430,7 +9430,7 @@
 
 # def dfs(b, cnt):
 #     global result 
-    
+	
 #     tmp_d = copy.deepcopy(b)
 #     if cnt == cctv_cnt:
 #         zero_num = 0
@@ -9439,7 +9439,7 @@
 
 #         result = min(result, zero_num)
 #         return 
-    
+	
 #     x, y, cctv = q[cnt]
 #     for direct in direction[cctv]:
 #         check_cctv(tmp_d, x, y, direct)
@@ -9498,7 +9498,7 @@
 #                 check_s.pop() 
 #             else:
 #                 return False
-    
+	
 #     if check_s:
 #         return False 
 #     else:
@@ -9525,7 +9525,7 @@
 #                     else:
 #                         num += sol_s[j]
 #                         sol_s.pop()
-                    
+					
 #         elif s == ']':
 #             if sol_s[-1] == '[':
 #                 sol_s.pop()
@@ -9540,13 +9540,13 @@
 #                         num += sol_s[j]
 #                         sol_s.pop() 
 #     return sum(sol_s)
-                    
+					
 # if check(sign):
 #     print(sol(sign))
 # else:
 #     print(0)
 
-        
+		
 #5430 
 # def cal(ac, ar):
 #     num = len(ar)
@@ -9566,14 +9566,14 @@
 
 #     if front + back > num:
 #         return 'error'
-    
+	
 #     else:
 #         ar = ar[front:num-back]
 #         if rev % 2 == 0:
 #             return ('[' + ','.join(ar) + ']')
 #         else:
 #             return ('[' + ','.join(ar[::-1]) + ']')
-    
+	
 # for _ in range(int(input())):
 #     ac = input()
 #     p = int(input())
@@ -9598,17 +9598,17 @@
 
 #     while q:
 #         (x,y),(x1,y1),d,t = q.popleft()
-        
+		
 #         if (x == n-1 and y == n-1) or (x1 == n-1 and y1 == n-1):
 #             return t 
 
 #         if d == 0: # 가로
 #             for i in range(4):
 #                 xx,yy,xx1,yy1 = x+dx[i], y+dy[i], x1+dx[i], y1+dy[i]
-                
+				
 #                 if xx < 0 or yy < 0 or xx1 < 0 or yy1 < 0 or xx > n-1 or yy > n-1 or xx1 > n-1 or yy1 > n-1:
 #                     continue 
-                
+				
 #                 if i == 0 or i == 2: #북, 남
 #                     if board[xx][yy] == 0 and board[xx1][yy1] == 0:
 #                         q.append(((x,y),(xx,yy),1,t+1))
@@ -9617,7 +9617,7 @@
 #                 if i == 1 or i == 3: #동, 서
 #                     if board[xx1][yy1] == 0 or board[xx][yy] == 0:
 #                         q.append(((xx,yy),(xx1,yy1),0,t+1))
-        
+		
 #         else:
 #             for i in range(4):
 #                 xx,yy,xx1,yy1 = x+dx[i], y+dy[i], x1+dx[i], y1+dy[i]
@@ -9633,7 +9633,7 @@
 #                     if board[xx][yy] == 0 and board[xx1][yy1] == 0:
 #                         q.append(((x,y),(xx,yy),0,t+1))
 #                         q.append(((x1,y1),(xx1,yy1),0,t+1))
-        
+		
 
 # print(dfs(0, 0, 1, 1, 0, 0)) #sx,sy,sx1,sy1,direction,time -> direction가 0이면 가로 1이면 세로
 
@@ -9652,13 +9652,13 @@
 
 #         if board[pos1_next_x][pos1_next_y] == 0 and board[pos2_next_x][pos2_next_y] == 0:
 #             next_pos.append({(pos1_next_x,pos1_next_y),(pos2_next_x,pos2_next_y)})
-    
+	
 #     if pos1_x == pos2_x:
 #         for i in [-1,1]:
 #             if board[pos1_x+i][pos1_y] == 0 and board[pos2_x+i][pos2_y] == 0:
 #                 next_pos.append({(pos1_x,pos1_y),(pos1_x+i, pos1_y)})
 #                 next_pos.append({(pos2_x,pos2_y),(pos2_x+i, pos2_y)})
-    
+	
 #     elif pos1_y == pos2_y:
 #         for i in [-1, 1]:
 #             if board[pos1_x][pos1_y+i] == 0 and board[pos2_x][pos2_y+i] == 0:
@@ -9685,12 +9685,12 @@
 #         pos, cost = q.popleft() 
 #         if (n,n) in pos:
 #             return cost 
-        
+		
 #         for next_pos in get_next_pos(pos, new_board):
 #             if next_pos not in visited:
 #                 q.append((next_pos, cost+1))
 #                 visited.append(next_pos)
-    
+	
 #     return 0
 
 
@@ -9769,7 +9769,7 @@
 
 #         answer.append((i,fail))
 #         length -= count
-    
+	
 #     answer = sorted(answer, key=lambda t: t[1], reverse=True)
 #     answer = [i[0] for i in answer]
 #     return answer
@@ -9867,7 +9867,7 @@
 #                 board[nxx][nyy] = 2
 #                 square_area += 1  
 #                 q.append((nxx,nyy))
-    
+	
 
 #     return square_area 
 
@@ -9879,7 +9879,7 @@
 # area.sort() 
 # print(len(area))
 # print(*area)
-    
+	
 
 # 정렬된 배열에서 특정 수의 개수 구하기 
 #1.
@@ -9929,7 +9929,7 @@
 
 #     elif array[mid] >= f:
 #         return first(array, f, start, mid-1)
-    
+	
 #     else:
 #         return first(array, f, mid+1, end)
 
@@ -9942,7 +9942,7 @@
 
 #     if (mid == 0 or f < array[mid+1]) and array[mid] == f:
 #         return mid 
-    
+	
 #     elif array[mid] > f:
 #         return last(array, f, start, mid-1)
 
@@ -9956,7 +9956,7 @@
 #     a = first(array,x,0,n-1)
 #     if a == None:
 #         return 0 
-    
+	
 #     b = last(array,x,0,n-1)
 #     if b == None:
 #         return 0 
@@ -9995,7 +9995,7 @@
 # def sol(start, end):
 #     if start > end:
 #         return -1 
-    
+	
 #     mid = (start+end) // 2
 
 #     if mid == num[mid]:
@@ -10097,7 +10097,7 @@
 #             if (beadSum > mid):
 #                 cnt += 1 
 #                 beadSum = bead[b]
-            
+			
 
 #         if (cnt > m) or (check == 0):
 #             start = mid + 1 
@@ -10143,7 +10143,7 @@
 #     col = 0
 #     gold_idx = 0
 #     while True:
-        
+		
 #         if col == n:
 #             break
 
@@ -10177,7 +10177,7 @@
 # for _ in range(int(input())):
 #     n,m = map(int,input().split())
 #     golds = list(map(int,input().split()))
-    
+	
 
 #     gold_board = changeBoard(n,m,golds)
 
@@ -10210,14 +10210,14 @@
 #                 left_down = 0
 #             else:
 #                 left_down = dp[col+1][row-1]
-            
+			
 #             left = dp[col][row-1] 
 #             dp[col][row] = dp[col][row] + max(left_up, left_down, left)
 
 #     result = 0 
 #     for i in range(n):
 #         result = max(result, dp[i][m-1])
-    
+	
 #     print(result)
 
 # 가사 검색
@@ -10230,23 +10230,23 @@
 # def first(query,start,end, f):
 #     if start > end:
 #         return 0 
-    
+	
 #     mid = (start+end) // 2 
 
 #     if (query[mid] == f or mid == 0) and query[mid-1] != f:
 #         return mid 
-    
+	
 #     if query[mid-1] == f:
 #         return first(query, start, mid-1, f)
 
 #     else:
 #         return first(query, mid + 1, end, f)
-    
+	
 
 # def last(query, start, end, f):
 #     if start > end:
 #         return len(query)
-    
+	
 #     mid = (start + end) // 2 
 
 #     if mid == len(query)-1:
@@ -10293,7 +10293,7 @@
 #         arr[len(word)].append(word)
 #         reverse_arr[len(word)].append(word[::-1])
 
-    
+	
 #     for i in range(10001):
 #         arr[i].sort() 
 #         reverse_arr[i].sort() 
@@ -10328,7 +10328,7 @@
 #     for row in range(row_num):
 #         if row == 0:
 #             dp[col][row] = dp[col-1][row] + triangle[col][row]
-        
+		
 #         elif row == row_num-1:
 #             dp[col][row] = dp[col-1][row-1] + triangle[col][row]
 
@@ -10458,7 +10458,7 @@
 #     if value == v2:
 #         v2 = dp[i2]*2
 #         i2 +=1 
-    
+	
 #     if value == v3:
 #         v3 = dp[i3]*3 
 #         i3 += 1 
@@ -10584,7 +10584,7 @@
 #         for j in range(n):
 #             for k in range(n):
 #                 dist[j][k] = min(dist[j][k], dist[j][i]+dist[i][k])
-    
+	
 #     return dist 
 
 # for _ in range(m):
@@ -10693,7 +10693,7 @@
 
 #     while q:
 #         dist,x,y = heapq.heappop(q)
-        
+		
 #         if distance[x][y] < dist:
 #             continue
 
@@ -10714,52 +10714,105 @@
 
 #숨바꼭질
 
-import heapq 
+# import heapq 
 
-INF = int(1e9)
+# INF = int(1e9)
 
-n,m = map(int,input().split())
+# n,m = map(int,input().split())
 
-graph = [[] for _ in range(n+1)]
+# graph = [[] for _ in range(n+1)]
 
-for _ in range(m):
-    a,b = map(int,input().split())
-    graph[a].append(b)
-    graph[b].append(a)
+# for _ in range(m):
+#     a,b = map(int,input().split())
+#     graph[a].append(b)
+#     graph[b].append(a)
 
-def djikstra(start):
+# def djikstra(start):
 
-    wei = [INF]*(n+1)
-    wei[start] = 0
-    heap = [(0,start)]
+#     wei = [INF]*(n+1)
+#     wei[start] = 0
+#     heap = [(0,start)]
 
-    while heap:
-        cost, node = heapq.heappop(heap)
+#     while heap:
+#         cost, node = heapq.heappop(heap)
 
-        if wei[node] < cost:
-            continue 
+#         if wei[node] < cost:
+#             continue 
 
-        for n_node in graph[node]:
-            n_cost = cost + 1 
-            if wei[n_node] > n_cost:
-                wei[n_node] = n_cost
-                heapq.heappush(heap,(n_cost,n_node))
+#         for n_node in graph[node]:
+#             n_cost = cost + 1 
+#             if wei[n_node] > n_cost:
+#                 wei[n_node] = n_cost
+#                 heapq.heappush(heap,(n_cost,n_node))
 
-    return wei
+#     return wei
 
-distance = djikstra(1)
+# distance = djikstra(1)
 
-max_dist = 0 
-max_cnt = 0
-max_idx = 0
-max_idxs = []
+# max_dist = 0 
+# max_cnt = 0
+# max_idx = 0
+# max_idxs = []
 
-for i in range(1,n+1):
-    if distance[i] > max_dist:
-        max_dist = distance[i]
-        max_idxs = [i]
+# for i in range(1,n+1):
+#     if distance[i] > max_dist:
+#         max_dist = distance[i]
+#         max_idxs = [i]
 
-    elif distance[i] == max_dist:
-        max_idxs.append(i)
+#     elif distance[i] == max_dist:
+#         max_idxs.append(i)
 
-print(max_idxs[0], max_dist, len(max_idxs))
+# print(max_idxs[0], max_dist, len(max_idxs))
+
+
+# AL 프로그래밍 과제 1
+
+distance = [[6,7,12,5],[5,3,11,18],[7,17,3,3],[8,10,14,9]]
+before_route = [[(0,0)] * 5 for _ in range(5)]
+route = []
+dp = [[0] * 5 for _ in range(5)]
+
+def matrixPath(n):
+
+	for i in range(1, n):
+		for j in range(1, n):
+			if (dp[i-1][j] > dp[i][j-1]):
+				dp[i][j] = distance[i-1][j-1] + dp[i-1][j]
+				before_route[i][j] = (i-1,j)
+			else:
+				dp[i][j] = distance[i-1][j-1] + dp[i][j-1]
+				before_route[i][j] = (i, j-1)
+			
+	return dp[n-1][n-1]
+
+
+def path(x, y):
+	if x == 1 and y == 1:
+		return 0
+	route.append(before_route[x][y])
+	path(before_route[x][y][0], before_route[x][y][1])
+
+
+if __name__ == "__main__":
+# reverse 해서 출력만 하면 끝 
+
+	result = matrixPath(5)
+	path(4,4)
+	# path.append((1,1))
+	# path.reverse()
+	print("경로 상의 점수를 모두 더 했을 때 최대가 되는 경로의 행렬 요소")
+	# for p in path:
+	# 	print((p[0]-1, p[1]-1), end = ' ')
+	print("경로 상의 점수를 모두 더한 최대값: ",result)
+
+	for i in route:
+		print(i)
+	for i in range(5):
+		for j in range(5):
+			print(dp[i][j], end = ' ')
+		print()
+
+	for i in range(5):
+		for j in range(5):
+			print(before_route[i][j], end=' ')
+		print()
