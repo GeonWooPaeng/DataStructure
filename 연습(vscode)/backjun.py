@@ -10767,52 +10767,76 @@
 
 # AL 프로그래밍 과제 1
 
-distance = [[6,7,12,5],[5,3,11,18],[7,17,3,3],[8,10,14,9]]
-before_route = [[(0,0)] * 5 for _ in range(5)]
-route = []
-dp = [[0] * 5 for _ in range(5)]
+# distance = [[6,7,12,5],[5,3,11,18],[7,17,3,3],[8,10,14,9]]
+# before_route = [[(0,0)] * 5 for _ in range(5)] #backtracking
+# route = [] #경로
+# dp = [[0] * 5 for _ in range(5)]
 
-def matrixPath(n):
+# def matrixPath(n):
 
-	for i in range(1, n):
-		for j in range(1, n):
-			if (dp[i-1][j] > dp[i][j-1]):
-				dp[i][j] = distance[i-1][j-1] + dp[i-1][j]
-				before_route[i][j] = (i-1,j)
-			else:
-				dp[i][j] = distance[i-1][j-1] + dp[i][j-1]
-				before_route[i][j] = (i, j-1)
+# 	for i in range(1, n):
+# 		for j in range(1, n):
+# 			if (dp[i-1][j] > dp[i][j-1]):
+# 				dp[i][j] = distance[i-1][j-1] + dp[i-1][j]
+# 				before_route[i][j] = (i-1,j)
+# 			else:
+# 				dp[i][j] = distance[i-1][j-1] + dp[i][j-1]
+# 				before_route[i][j] = (i, j-1)
 			
-	return dp[n-1][n-1]
+# 	return dp[n-1][n-1]
+
+# def path(x, y):
+# 	if x == 1 and y == 1:
+# 		return 0
+# 	route.append(before_route[x][y])
+# 	path(before_route[x][y][0], before_route[x][y][1])
 
 
-def path(x, y):
-	if x == 1 and y == 1:
-		return 0
-	route.append(before_route[x][y])
-	path(before_route[x][y][0], before_route[x][y][1])
+# if __name__ == "__main__":
+# # reverse 해서 출력만 하면 끝 
 
+# 	result = matrixPath(5)
+# 	path(4,4)
+# 	print("path:",end = ' ')
+# 	for p in route[::-1]:
+# 		print((p[0]-1, p[1]-1), end = ' ')
+# 	print()
+# 	print("max value:",result)
+
+
+# AL 프로그래밍 과제 2
+
+stone_weight = [[6,7,12,-5,5,3,11,3],[-8,10,14,9,7,13,8,5],[11,12,7,4,8,-2,9,4]]
+dp = [[0] * 9 for _ in range(4)] #패턴 관련 되서 넣는 dp
+
+def peddle(n):
+	for i in range(3):
+		dp[i][0] = stone_weight[i][0]
+	dp[3][0] = stone_weight[0][0] + stone_weight[2][0]
+
+	for col in range(1, n):
+		for row in range(4):
+			if (row == 0):
+				dp[row][col] = max(dp[row+1][col-1], dp[row+2][col-1]) + stone_weight[row][col]
+			elif (row == 1):
+				dp[row][col] = max(dp[row-1][col-1], dp[row+1][col-1], dp[row+2][col-1]) + stone_weight[row][col]
+			elif (row == 2):
+				dp[row][col] = max(dp[row-2][col-1], dp[row-1][col-1]) + stone_weight[row][col]
+			else:
+				dp[row][col] = dp[row-2][col-1] + stone_weight[0][col] + stone_weight[2][col]
+
+	max_n = -2147483647
+	for i in range(4):
+		if max_n < dp[i][n-1]:
+			max_n = dp[i][n-1]
+
+	return max_n
 
 if __name__ == "__main__":
-# reverse 해서 출력만 하면 끝 
-
-	result = matrixPath(5)
-	path(4,4)
-	# path.append((1,1))
-	# path.reverse()
-	print("경로 상의 점수를 모두 더 했을 때 최대가 되는 경로의 행렬 요소")
-	# for p in path:
-	# 	print((p[0]-1, p[1]-1), end = ' ')
-	print("경로 상의 점수를 모두 더한 최대값: ",result)
-
-	for i in route:
-		print(i)
-	for i in range(5):
-		for j in range(5):
+	print(peddle(8))
+	
+	for i in range(4):
+		for j in range(8):
 			print(dp[i][j], end = ' ')
 		print()
-
-	for i in range(5):
-		for j in range(5):
-			print(before_route[i][j], end=' ')
-		print()
+	
