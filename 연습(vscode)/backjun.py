@@ -10785,58 +10785,108 @@
 			
 # 	return dp[n-1][n-1]
 
-# def path(x, y):
+# def backtracking(x, y):
 # 	if x == 1 and y == 1:
 # 		return 0
 # 	route.append(before_route[x][y])
-# 	path(before_route[x][y][0], before_route[x][y][1])
+# 	backtracking(before_route[x][y][0], before_route[x][y][1])
 
 
 # if __name__ == "__main__":
 # # reverse 해서 출력만 하면 끝 
 
 # 	result = matrixPath(5)
-# 	path(4,4)
+# 	backtracking(4,4)
 # 	print("path:",end = ' ')
-# 	for p in route[::-1]:
-# 		print((p[0]-1, p[1]-1), end = ' ')
+# 	for path in route[::-1]:
+# 		print((path[0]-1, path[1]-1), end = ' ')
 # 	print()
 # 	print("max value:",result)
 
 
 # AL 프로그래밍 과제 2
 
-stone_weight = [[6,7,12,-5,5,3,11,3],[-8,10,14,9,7,13,8,5],[11,12,7,4,8,-2,9,4]]
-dp = [[0] * 9 for _ in range(4)] #패턴 관련 되서 넣는 dp
+# stone_weight = [[6,7,12,-5,5,3,11,3],[-8,10,14,9,7,13,8,5],[11,12,7,4,8,-2,9,4]]
+# dp = [[0] * 9 for _ in range(4)] #패턴 관련 되서 넣는 dp
+# before_route = [[(0,0)] * 9 for _ in range(4)]
+# route_tmp = []
+# route = []
 
-def peddle(n):
-	for i in range(3):
-		dp[i][0] = stone_weight[i][0]
-	dp[3][0] = stone_weight[0][0] + stone_weight[2][0]
+# def compare_two(x1,y1,x2,y2):
+# 	if (max(dp[x1][y1], dp[x2][y2]) == dp[x1][y1]):
+# 		return (x1,y1)
+# 	else:
+# 		return (x2,y2)
 
-	for col in range(1, n):
-		for row in range(4):
-			if (row == 0):
-				dp[row][col] = max(dp[row+1][col-1], dp[row+2][col-1]) + stone_weight[row][col]
-			elif (row == 1):
-				dp[row][col] = max(dp[row-1][col-1], dp[row+1][col-1], dp[row+2][col-1]) + stone_weight[row][col]
-			elif (row == 2):
-				dp[row][col] = max(dp[row-2][col-1], dp[row-1][col-1]) + stone_weight[row][col]
-			else:
-				dp[row][col] = dp[row-2][col-1] + stone_weight[0][col] + stone_weight[2][col]
+# def compare_three(x1,y1,x2,y2,x3,y3):
+# 	if (max(dp[x1][y1], dp[x2][y2], dp[x3][y3]) == dp[x1][y1]):
+# 			return (x1, y1)
+# 	elif (max(dp[x1][y1], dp[x2][y2], dp[x3][y3]) == dp[x2][y2]):
+# 			return (x2, y2)
+# 	elif (max(dp[x1][y1], dp[x2][y2], dp[x3][y3]) == dp[x3][y3]):
+# 			return (x3, y3)
 
-	max_n = -2147483647
-	for i in range(4):
-		if max_n < dp[i][n-1]:
-			max_n = dp[i][n-1]
+# def peddle(n):
 
-	return max_n
+# 	for i in range(3):
+# 		dp[i][0] = stone_weight[i][0]
+# 	dp[3][0] = stone_weight[0][0] + stone_weight[2][0]
 
-if __name__ == "__main__":
-	print(peddle(8))
+# 	for col in range(1, n):
+# 		for row in range(4):
+# 			if (row == 0):
+# 				dp[row][col] = max(dp[row+1][col-1], dp[row+2][col-1]) + stone_weight[row][col]
+# 				before_route[row][col] = compare_two(row+1,col-1,row+2,col-1)
+# 			elif (row == 1):
+# 				dp[row][col] = max(dp[row-1][col-1], dp[row+1][col-1], dp[row+2][col-1]) + stone_weight[row][col]
+# 				before_route[row][col] = compare_three(row-1, col-1, row+1, col-1, row+2, col-1)
+# 			elif (row == 2):
+# 				dp[row][col] = max(dp[row-2][col-1], dp[row-1][col-1]) + stone_weight[row][col]
+# 				before_route[row][col] = compare_two(row-2,col-1,row-1,col-1)
+# 			else:
+# 				dp[row][col] = dp[row-2][col-1] + stone_weight[0][col] + stone_weight[2][col]
+# 				before_route[row][col] = (row-2,col-1)
+
+# 	max_n = -2147483647
+# 	for i in range(4):
+# 		if max_n < dp[i][n-1]:
+# 			max_n = dp[i][n-1]
+# 			x = i
+# 	return max_n, x
+
+# def backtracking(x,y):
+# 	if (y == 0):
+# 		return
 	
-	for i in range(4):
-		for j in range(8):
-			print(dp[i][j], end = ' ')
-		print()
-	
+# 	route_tmp.append(before_route[x][y])
+# 	backtracking(before_route[x][y][0], before_route[x][y][1])
+
+# def result_x_check(x):
+# 	if x == 3:
+# 		route.append((0,7))
+# 		route.append((2,7))
+# 	elif x == 2:
+# 		route.append((2,7))
+# 	elif x == 1:
+# 		route.append((1,7))
+# 	else:
+# 		route.append((0,7))
+
+# if __name__ == "__main__":
+# 	result, result_x = peddle(8)
+
+# 	print("max_value:",result)
+# 	backtracking(result_x,7)
+
+# 	for path in route_tmp[::-1]:
+# 		if path[0] == 3:
+# 			route.append((0,path[1]))
+# 			route.append((2,path[1]))
+# 		else:
+# 			route.append((path[0],path[1]))
+
+# 	print("path:",end = ' ')
+# 	result_x_check(result_x)
+# 	for path in route:
+# 		print(path, end=' ')
+
