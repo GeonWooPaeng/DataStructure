@@ -10890,3 +10890,44 @@
 # 	for path in route:
 # 		print(path, end=' ')
 
+#AL 과제 https://www.daleseo.com/sort-insertion/
+import sys
+
+def selection_sort(arr):
+	for i in range(len(arr) - 1):
+		least = i
+		for j in range(i+1, len(arr)):
+			if arr[j] < arr[least]:
+				least = j
+		arr[i], arr[least] = arr[least], arr[i]
+
+def bubble_sort(arr):
+	for i in range(1, len(arr)):
+		for j in range(len(arr) - i):
+			if arr[j] > arr[j + 1]:
+				arr[j], arr[j+1] = arr[j+1], arr[j]
+
+def insert_sort(arr):
+	for i in range(1, len(arr)):
+		for j in range(i, 0, -1):
+			if arr[j] < arr[j - 1]:
+				arr[j], arr[j - 1] = arr[j - 1], arr[j]
+
+def merge_sort():
+	pass
+
+def quick_sort():
+	pass
+
+numbers = list(map(int,input().split()))
+
+#error check
+if len(numbers) > 100:
+	sys.exit("[Error] over 100 count")
+
+for num in numbers:
+	if num > 100:
+		sys.exit("[Error] over 100 number")
+
+insert_sort(numbers)
+print(numbers)
