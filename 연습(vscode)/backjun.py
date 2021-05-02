@@ -10890,7 +10890,7 @@
 # 	for path in route:
 # 		print(path, end=' ')
 
-#AL 과제 https://www.daleseo.com/sort-insertion/
+#AL 과제
 import sys
 
 def selection_sort(arr):
@@ -10913,11 +10913,49 @@ def insert_sort(arr):
 			if arr[j] < arr[j - 1]:
 				arr[j], arr[j - 1] = arr[j - 1], arr[j]
 
-def merge_sort():
-	pass
+def merge_sort(arr):
+	if len(arr) < 2:
+		return arr
+	
+	mid = len(arr) // 2
+	left_arr = merge_sort(arr[:mid])
+	right_arr = merge_sort(arr[mid:])
 
-def quick_sort():
-	pass
+	result = []
+	left = right = 0
+	while (left < len(left_arr) and right < len(right_arr)):
+		if left_arr[left] < right_arr[right]:
+			result.append(left_arr[left])
+			left += 1
+		else:
+			result.append(right_arr[right])
+			right += 1
+
+	result += left_arr[left:]
+	result += right_arr[right:]
+
+	return result
+
+
+def quick_sort(arr):
+	if len(arr) < 2:
+		return arr
+
+	pivot = arr[len(arr) // 2]
+	
+	small_arr = []
+	large_arr = []
+	equal_arr = []
+	for num in arr:
+		if num < pivot:
+			small_arr.append(num)
+		elif num > pivot:
+			large_arr.append(num)
+		else:
+			equal_arr.append(num)
+	return quick_sort(small_arr) + equal_arr + quick_sort(large_arr)
+
+
 
 numbers = list(map(int,input().split()))
 
@@ -10929,5 +10967,6 @@ for num in numbers:
 	if num > 100:
 		sys.exit("[Error] over 100 number")
 
-insert_sort(numbers)
-print(numbers)
+
+print(merge_sort(numbers))
+
