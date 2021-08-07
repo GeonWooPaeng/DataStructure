@@ -1,0 +1,73 @@
+<!-- 1. -->
+<!-- <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(a, b, c){
+                let answer;
+                if (a < b) answer = a;
+                else answer = b;
+                if (answer > c) answer = c;
+                return answer;
+            }
+
+            console.log(solution(2, 5, 1));
+        </script>
+    </body>
+</html> -->
+
+<!-- 2. -->
+<!-- <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(a, b, c){
+                var sum = a + b + c;
+                var max_n = a;
+                let result;
+
+                if (max_n < b) { max_n = b };
+                if (max_n < c) { max_n = c };
+
+                if (sum < 2 * max_n) result = "NO";
+                else result = "YES";
+
+                return (result);
+            }
+
+            console.log(solution(6, 7, 11));
+        </script>
+    </body>
+</html> -->
+
+<!-- -------------------- -->
+<!-- <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(a, b, c){
+                let max;
+                let result = "YES";
+                let sum = a + b + c;
+
+                if (a > b) max = a;
+                else max = b;
+                if (c > max) max = c;
+                if ((sum - max) <= max) answer = "NO";
+
+                return (result);
+            }
+
+            console.log(solution(6, 7, 11));
+        </script>
+    </body>
+</html> -->

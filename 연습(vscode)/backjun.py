@@ -3167,7 +3167,7 @@
 # 		break 
 # print(ans + 1)
 
-1181.
+# 1181.
 # 1.
 # n = int(input())
 
@@ -4975,7 +4975,7 @@
 # print(result)
 
 
-11725
+# 11725
 #dfs, bfs 둘다 사용가능
 # 1.
 # import sys 
@@ -10891,82 +10891,90 @@
 # 		print(path, end=' ')
 
 #AL 과제
-import sys
+# import sys
 
-def selection_sort(arr):
-	for i in range(len(arr) - 1):
-		least = i
-		for j in range(i+1, len(arr)):
-			if arr[j] < arr[least]:
-				least = j
-		arr[i], arr[least] = arr[least], arr[i]
+# def selection_sort(arr):
+# 	for i in range(len(arr) - 1):
+# 		least = i
+# 		for j in range(i+1, len(arr)):
+# 			if arr[j] < arr[least]:
+# 				least = j
+# 		arr[i], arr[least] = arr[least], arr[i]
 
-def bubble_sort(arr):
-	for i in range(1, len(arr)):
-		for j in range(len(arr) - i):
-			if arr[j] > arr[j + 1]:
-				arr[j], arr[j+1] = arr[j+1], arr[j]
+# def bubble_sort(arr):
+# 	for i in range(1, len(arr)):
+# 		for j in range(len(arr) - i):
+# 			if arr[j] > arr[j + 1]:
+# 				arr[j], arr[j+1] = arr[j+1], arr[j]
 
-def insert_sort(arr):
-	for i in range(1, len(arr)):
-		for j in range(i, 0, -1):
-			if arr[j] < arr[j - 1]:
-				arr[j], arr[j - 1] = arr[j - 1], arr[j]
+# def insert_sort(arr):
+# 	for i in range(1, len(arr)):
+# 		for j in range(i, 0, -1):
+# 			if arr[j] < arr[j - 1]:
+# 				arr[j], arr[j - 1] = arr[j - 1], arr[j]
 
-def merge_sort(arr):
-	if len(arr) < 2:
-		return arr
+# def merge_sort(arr):
+# 	if len(arr) < 2:
+# 		return arr
 	
-	mid = len(arr) // 2
-	left_arr = merge_sort(arr[:mid])
-	right_arr = merge_sort(arr[mid:])
+# 	mid = len(arr) // 2
+# 	left_arr = merge_sort(arr[:mid])
+# 	right_arr = merge_sort(arr[mid:])
 
-	result = []
-	left = right = 0
-	while (left < len(left_arr) and right < len(right_arr)):
-		if left_arr[left] < right_arr[right]:
-			result.append(left_arr[left])
-			left += 1
-		else:
-			result.append(right_arr[right])
-			right += 1
+# 	result = []
+# 	left = right = 0
+# 	while (left < len(left_arr) and right < len(right_arr)):
+# 		if left_arr[left] < right_arr[right]:
+# 			result.append(left_arr[left])
+# 			left += 1
+# 		else:
+# 			result.append(right_arr[right])
+# 			right += 1
 
-	result += left_arr[left:]
-	result += right_arr[right:]
+# 	result += left_arr[left:]
+# 	result += right_arr[right:]
 
-	return result
+# 	return result
 
 
-def quick_sort(arr):
-	if len(arr) < 2:
-		return arr
+# def quick_sort(arr):
+# 	if len(arr) < 2:
+# 		return arr
 
-	pivot = arr[len(arr) // 2]
+# 	pivot = arr[len(arr) // 2]
 	
-	small_arr = []
-	large_arr = []
-	equal_arr = []
-	for num in arr:
-		if num < pivot:
-			small_arr.append(num)
-		elif num > pivot:
-			large_arr.append(num)
-		else:
-			equal_arr.append(num)
-	return quick_sort(small_arr) + equal_arr + quick_sort(large_arr)
+# 	small_arr = []
+# 	large_arr = []
+# 	equal_arr = []
+# 	for num in arr:
+# 		if num < pivot:
+# 			small_arr.append(num)
+# 		elif num > pivot:
+# 			large_arr.append(num)
+# 		else:
+# 			equal_arr.append(num)
+# 	return quick_sort(small_arr) + equal_arr + quick_sort(large_arr)
 
 
 
-numbers = list(map(int,input().split()))
+# numbers = list(map(int,input().split()))
 
-#error check
-if len(numbers) > 100:
-	sys.exit("[Error] over 100 count")
+# #error check
+# if len(numbers) > 100:
+# 	sys.exit("[Error] over 100 count")
 
-for num in numbers:
-	if num > 100:
-		sys.exit("[Error] over 100 number")
+# for num in numbers:
+# 	if num > 100:
+# 		sys.exit("[Error] over 100 number")
 
 
-print(merge_sort(numbers))
+# print(merge_sort(numbers))
+
+# 11943
+
+# board1 = list(map(int,input().split()))
+# board2 = list(map(int,input().split()))
+
+# result = min(board1[0] + board2[1], board1[1] + board2[0])
+# print(result)
 
