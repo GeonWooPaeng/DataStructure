@@ -71,3 +71,534 @@
         </script>
     </body>
 </html> -->
+
+<!-- 3. -->
+
+<!-- <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(n){
+                let answer;
+
+                answer = n / 12;
+                if (n % 12) {
+                    answer += 1;
+                }
+                return (parseInt(answer));
+            }
+            console.log(solution(25));
+        </script>
+    </body>
+</html> -->
+
+<!-- --------------- -->
+
+<!-- <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(n){
+                let answer;
+
+                answer = Math.ceil(n / 12);
+                return (answer);
+            }
+            console.log(solution(25));
+        </script>
+    </body>
+</html> -->
+
+
+<!-- 4. -->
+<!-- <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(n){
+                let answer=0;
+
+                for (let i = 1; i < n + 1; i++)
+                    answer += i;
+                return answer;
+            }
+
+            console.log(solution(6));
+        </script>
+    </body>
+</html> -->
+
+<!-- 5. -->
+
+<!-- <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(arr){         
+                let answer, min=Number.MAX_SAFE_INTEGER;
+                
+                for ( var e of arr) {
+                    if (e < min) {
+                        min = e;
+                    }
+                }
+                answer = min;
+                return answer;
+
+            }
+
+            let arr=[5, 3, 7, 11, 2, 15, 17];
+            console.log(solution(arr));
+        </script>
+    </body>
+</html> -->
+
+
+<!-- ---------------------- -->
+<!-- 
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(arr){         
+                let answer, min=Number.MAX_SAFE_INTEGER;
+                
+                for (let i = 0; i < arr.length; i++) {
+                    if (arr[i] < min)
+                        min = arr[i];
+                }
+                answer = min;
+                return answer;
+
+            }
+
+            let arr=[5, 3, 7, 11, 2, 15, 17];
+            console.log(solution(arr));
+        </script>
+    </body>
+</html> -->
+
+
+<!-- 6. -->
+
+<!-- <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(arr){
+                let answer=[];
+                let sumNum, min;
+                let n;
+
+                min = 100;
+                sumNum = 0;
+                for (n of arr) {
+                    if (n % 2) {
+                        sumNum += n;
+                        if (min > n)
+                            min = n;
+                    }
+                }
+                answer.push(sumNum);
+                answer.push(min);
+                return answer;
+            }
+            
+            arr=[12, 77, 38, 41, 53, 92, 85];
+            console.log(solution(arr));
+        </script>
+    </body>
+</html> -->
+
+
+<!-- 7. -->
+<!-- <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(day, arr){
+                let answer=0;
+                let num;
+
+                for (num of arr) {
+                    if (day === (num%10))
+                        answer += 1;
+                }
+                return answer;
+            }
+            
+            arr=[12, 20, 54, 30, 87, 91, 30];
+            console.log(solution(0, arr));
+        </script>
+    </body>
+</html> -->
+
+<!-- 8. -->
+
+<!-- <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(arr){
+                let answer = arr;
+                let sum = answer.reduce((acc, value) => {
+                    return acc + value;
+                }, 0);
+                for (h1 of answer) {
+                    for (h2 of answer) {
+                        if (h1 != h2) {
+                            if (sum - (h1 + h2) === 100) {
+                                console.log(h1, h2);
+                                answer = answer.filter((val) => {
+                                    if (h1 == val || h2 == val)
+                                        return ;
+                                    else return val;
+                                });
+                                break ;
+                            }
+                        }
+                    }
+                }
+                return answer;
+            }
+            
+            let arr=[20, 7, 23, 19, 10, 15, 25, 8, 13];
+            console.log(solution(arr));
+        </script>
+    </body>
+</html> -->
+
+<!-- --------------------- -->
+
+<!-- <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(arr){
+                let answer = arr;
+                let sum = arr.reduce((acc, val) => acc + val, 0);
+                for (let i = 0; i < 8; i++) {
+                    for (let j = i + 1; j < 9; j++) {
+                        if ((sum - (arr[i] + arr[j])) === 100) {
+                            arr.splice(j, 1);
+                            arr.splice(i, 1);
+                        }
+                    }
+                }
+                return answer;
+            }
+            let arr=[20, 7, 23, 19, 10, 15, 25, 8, 13];
+            console.log(solution(arr));
+        </script>
+    </body>
+</html> -->
+
+<!-- 9. -->
+
+<!-- <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(str){
+                // let answer = str.replace(/A/g, '#');
+                // return answer;
+                let answer = "";
+                for (let x of s) {
+                    if(x === 'A') answer+='#';
+                    else answer += x;
+                }
+                return answer;
+                }
+            let str="BANANA";
+            console.log(solution(str));
+        </script>
+    </body>
+</html> -->
+
+<!-- 10. -->
+
+<!-- <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(strs, t){
+                let answer = 0;
+                for (s of strs) {
+                    if (s === t) answer += 1;
+                }
+                return answer;
+            }
+            
+            let str="COMPUTERPROGRAMMING";
+            console.log(solution(str, 'R'));
+        </script>
+    </body>
+</html> -->
+
+<!-- 
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(s, t){
+                // let pos = s.indexOf(t);
+                // let answer = 0;
+                // while (pos !== -1) {
+                //     answer += 1;
+                //     pos = s.indexOf(t, pos + 1);
+                // }
+                // return answer;
+                let answer = s.split(t).length;
+                return answer - 1;
+            }
+            
+            let str="COMPUTERPROGRAMMING";
+            console.log(solution(str, 'R'));
+        </script>
+    </body>
+</html> -->
+
+<!-- 11. -->
+<!-- <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(s){         
+                let answer=0;
+                // for (let x of s) {
+                //     if (x === x.toUpperCase()) {
+                //         answer += 1;
+                //     }
+                for (let x of s) {
+                    let num = x.charCodeAt();
+                    if (num >= 65 && num <= 90) answer++;
+                }
+                return answer;
+            }
+
+            let str="KorEaTimeGood";
+            console.log(solution(str));
+        </script>
+    </body>
+</html> -->
+
+<!-- 12. -->
+<!-- <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(s){         
+                let answer = "";
+                // for (let x of s) {
+                //     if (x === x.toUpperCase())
+                //         answer += x;
+                //     else {
+                //         answer += x.toUpperCase();
+                //     }
+                // }
+                // let arr = s.split();
+                // arr.map((x) => {
+                //     return answer += s.toUpperCase();
+                // })
+                for (let x of s) {
+                    let num = x.charCodeAt();
+                    if (num >= 97 && num <= 122) answer += String.fromCharCode(num-32);
+                    else answer += x;
+                }
+                return answer;
+            }
+
+            let str="ItisTimeToStudy";
+            console.log(solution(str));
+        </script>
+    </body>
+</html> -->
+
+
+<!-- 13. -->
+<!-- <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(s){  
+                let answer = "";
+                for (let x of s) {
+                    if (x === x.toUpperCase()) {
+                        answer += x.toLowerCase();
+                    }
+                    else {
+                        answer += x.toUpperCase();
+                    }
+                }
+                return answer;
+            }
+            console.log(solution("StuDY"));
+        </script>
+    </body>
+</html> -->
+
+
+<!-- 14. -->
+
+<!-- <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(s){  
+                // let answer = 0;
+                // let max = Number.MIN_SAFE_INTEGER;
+                // let i;
+
+                // for (i = 0; i < s.length; i++) {
+                //     if (max < s[i].length) {
+                //         max = s[i].length;
+                //         answer = i;
+                //     }
+                // }
+                // answer = s[answer];
+                let answer, max=Number.MIN_SAFE_INTEGER;
+                for (let x of s) {
+                    if (x.length > max) {
+                        max = x.length;
+                        answer = x;
+                    }
+                }
+                return answer;
+            }
+            let str=["teacher", "time", "student", "beautiful", "good"];
+            console.log(solution(str));
+        </script>
+    </body>
+</html> -->
+
+<!-- 15. -->
+
+<!-- <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(s){
+                // let answer = "";
+                // let idx;
+
+                // idx = Math.floor(s.length / 2);
+                // if (s.length % 2 === 1) answer += s[idx];
+                // else answer += s.slice(idx - 1, idx+1);
+                let answer;
+                let mid = Math.floor(s.length / 2);
+                // if(s.length % 2 == 1) answer = s.substring(mid, mid+1);
+                // else answer = s.substring(mid-1, mid+1);
+                if (s.length % 2 == 1) answer = s.substr(mid, 1);
+                else answer = s.substr(mid-1, 2);
+                return answer;
+            }
+            console.log(solution("study"));
+        </script>
+    </body>
+</html> -->
+
+<!-- 16. -->
+<!-- <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(s){  
+                // let sArr = s.split('');
+                // let answer = [...new Set(sArr)].join('');
+
+                // return answer;
+                let answer = "";
+                for (let i =0; i <s.length; i++) {
+                    if(s.indexOf(s[i]) === i) {
+                        answer += s[i];
+                    }
+                }
+                }
+            console.log(solution("ksekkset"));
+        </script>
+    </body>
+</html> -->
+
+<!-- 17. -->
+<!-- <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(s){  
+                // let idx;
+                // let answer = [];
+
+                // for (idx = 0; idx < s.length; idx++) {
+                //     if (s.indexOf(s[idx]) === idx) {
+                //         answer.push(s[idx]);
+                //     }
+                // }
+                // return answer;
+                let answer;
+                answer = s.filter((val, idx) => {
+                    if (s.indexOf(val) === idx) return true;
+                })
+                return answer;
+            }
+            let str=["good", "time", "good", "time", "student"];
+            console.log(solution(str));
+        </script>
+    </body>
+</html> -->

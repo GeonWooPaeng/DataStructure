@@ -10978,3 +10978,8 @@
 # result = min(board1[0] + board2[1], board1[1] + board2[0])
 # print(result)
 
+
+
+subs = [[] for _ in range(3)]
+
+print(subs)
