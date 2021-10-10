@@ -10979,7 +10979,41 @@
 # print(result)
 
 
+# def solution(n, computers):
+# 	answer = 0
+# 	visited = [0 for _ in range(n)]
+# 	def dfs(computers, visited, i):
+# 		stack = [i]
+# 		while stack:
+# 			j = stack.pop()
+# 			if visited[j] == 0:
+# 				visited[j] = 1
+# 			for i in range(len(computers) - 1, -1, -1):
+# 				if computers[j][i] == 1 and visited[i] == 0:
+# 					stack.append(i)
 
-subs = [[] for _ in range(3)]
 
-print(subs)
+# 	i = 0
+# 	while 0 in visited:
+# 		if visited[i] == 0:
+# 			dfs()
+# 			answer += 1
+# 		i += 1
+
+# from collections import deque 
+
+# def solution(n, computers):
+# 	deq = deque()
+# 	check = [0] * n
+# 	deq.append(0)
+
+# 	answer = 0
+# 	while 0 in check:
+# 		deq.append(check.index(0))
+# 		while len(deq) != 0:
+# 			current = deq.popleft()
+# 			for j in range(n):
+# 				if computers[current][j] == 0 and check[j] == 0:
+# 					check[j] = 1
+# 					deq.append(j)
+# 		answer += 1
