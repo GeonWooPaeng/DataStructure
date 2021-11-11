@@ -11017,3 +11017,9 @@
 # 					check[j] = 1
 # 					deq.append(j)
 # 		answer += 1
+
+result = 0
+for i in range(100, 201):
+	result += i
+
+print(result)
