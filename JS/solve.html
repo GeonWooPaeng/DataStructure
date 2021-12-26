@@ -1060,3 +1060,162 @@
     </script>
   </body>
 </html> -->
+
+<!-- section3 - 2 유효한 팰린드룸 -->
+<!-- https://blog.naver.com/PostView.nhn?blogId=jwjung0723&logNo=221721325323 -->
+<!-- <html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(s) {
+        let answer = "YES";
+        let replaceStr = s
+          .replace(/[\[0-9\]:;, ]/gi, "")
+          .toLowerCase()
+          .split("");
+        let str = replaceStr.join("");
+        let reverseStr = replaceStr.reverse().join("");
+        if (str !== reverseStr) answer = "NO";
+        return answer;
+      }
+
+      let str = "found7, time: study; Yduts; emit, 7Dnuof";
+      console.log(solution(str));
+    </script>
+  </body>
+</html> -->
+<!-- --------------------- -->
+<!-- <html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(s) {
+        s = s.toLowerCase().replace(/[^a-z]/g, "");
+        if (s.split("").reverse().join("") !== s) return "NO";
+        return "YES";
+      }
+
+      let str = "found7, time: study; Yduts; emit, 7Dnuof";
+      console.log(solution(str));
+    </script>
+  </body>
+</html> -->
+<!-- section 3 - 3 숫자만 추출 -->
+<!-- <html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(str) {
+        let answer = parseInt(str.replace(/[^0-9]/g, ""));
+        console.log(answer);
+      }
+
+      let str = "g0en2T0s8eSoft";
+      console.log(solution(str));
+    </script>
+  </body>
+</html> -->
+<!-- ------------------- -->
+<!-- <html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(str) {
+        let answer = "";
+        for (let x of str) {
+          if (!isNaN(x)) answer += x;
+        }
+        return parseInt(answer);
+      }
+
+      let str = "g0en2T0s8eSoft";
+      console.log(solution(str));
+    </script>
+  </body>
+</html> -->
+
+<!-- section 3 - 4 가장 짧은 문자 거리 -->
+
+<!-- <html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function* range(start = 0, end = null, step = 1) {
+        if (end == null) {
+          end = start;
+          start = 0;
+        }
+        for (let i = start; i < end; i += step) yield i;
+      }
+
+      function solution(s, t) {
+        let answer = new Array(s.length).fill(Number.MAX_SAFE_INTEGER);
+        for (let i of range(s.length)) {
+          if (s[i] == t) {
+            for (let j of range(s.length)) {
+              let dist = i - j < 0 ? (i - j) * -1 : i - j;
+              console.log(dist);
+              if (answer[j] > dist) answer[j] = dist;
+            }
+          }
+        }
+        console.log(answer);
+      }
+
+      let str = "teachermode";
+      console.log(solution(str, "e"));
+    </script>
+  </body>
+</html> -->
+
+<!-- ----------------  -->
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(s, t) {
+        let answer = [];
+        let p = 1000;
+        for (let x of s) {
+          if (x === t) {
+            p = 0;
+            answer.push(p);
+          } else {
+            p++;
+            answer.push(p);
+          }
+        }
+        p = 1000;
+        for (let i = s.length - 1; i >= 0; i--) {
+          if (s[i] === t) p = 0;
+          else {
+            p++;
+            answer[i] = Math.min(answer[i], p);
+          }
+        }
+        return answer;
+      }
+
+      let str = "teachermode";
+      console.log(solution(str, "e"));
+    </script>
+  </body>
+</html>
