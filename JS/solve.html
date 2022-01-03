@@ -1184,7 +1184,7 @@
 </html> -->
 
 <!-- ----------------  -->
-<html>
+<!-- <html>
   <head>
     <meta charset="UTF-8" />
     <title>출력결과</title>
@@ -1218,4 +1218,251 @@
       console.log(solution(str, "e"));
     </script>
   </body>
-</html>
+</html> -->
+
+<!-- --------------------- -->
+
+<!-- section 3 - 5 문자열 압축 -->
+<!-- <html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function* range(start = 0, end = null, step = 1) {
+        if (end == null) {
+          end = start;
+          start = 0;
+        }
+        for (let i = start; i < end; i += step) yield i;
+      }
+
+      function solution(str) {
+        let cnt = 1;
+        let answer = "";
+
+        for (let i of range(str.length)) {
+          if (str[i] === str[i + 1]) {
+            cnt += 1;
+          } else {
+            answer += str[i];
+            if (cnt !== 1) answer += cnt;
+            cnt = 1;
+          }
+        }
+        return answer;
+      }
+
+      let str = "KKHSSSSSSSE";
+      console.log(solution(str));
+    </script>
+  </body>
+</html> -->
+
+<!-- ---------------------------- -->
+
+<!-- <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(s){
+              let answer = "";
+              let cnt = 1;
+              s = s + " ";
+              for (let i = 0; i < s.length - 1; i++) {
+                if (s[i] === s[i + 1]) cnt++;
+                else {
+                  answer += s[i];
+                  if (cnt > 1) answer += String(cnt);
+                  cnt = 1;
+                }
+              }
+              return answer;
+              }
+            
+            let str="KKHSSSSSSSE";
+            console.log(solution(str));
+        </script>
+    </body>
+</html> -->
+
+<!-- section 4 - 1 자릿수의 합 -->
+
+<!-- <html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(n, arr) {
+        let answer = Number.MIN_SAFE_INTEGER;
+        let max_sum = Number.MIN_SAFE_INTEGER;
+        for (let a of arr) {
+          let sum = 0,
+            tmp = a;
+          while (tmp / 10 > 0) {
+            sum += tmp % 10;
+            tmp = Math.floor(tmp / 10);
+          }
+          if (max_sum < sum) {
+            max_sum = sum;
+            answer = a;
+          } else if (max_sum === sum) {
+            if (answer < a) answer = a;
+          }
+        }
+        return answer;
+      }
+
+      let arr = [128, 460, 603, 40, 521, 137, 123];
+      console.log(solution(7, arr));
+    </script>
+  </body>
+</html> -->
+
+<!-- -------------------  -->
+<!-- <html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(n, arr) {
+        let answer,
+          max = Number.MIN_SAFE_INTEGER;
+        for (let x of arr) {
+          let sum = x
+            .toString()
+            .split("")
+            .reduce((acc, v) => acc + Number(v), 0);
+          
+          if (max < sum) {
+            max = sum;
+            answer = x;
+          } else if (max === sum) {
+            if (answer < x) answer = a;
+          }
+        }
+        return answer;
+      }
+
+      let arr = [128, 460, 603, 40, 521, 137, 123];
+      console.log(solution(7, arr));
+    </script>
+  </body>
+</html> -->
+
+<!-- section 4 - 2 뒤집은 소수 -->
+
+<!-- <html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function* range(start = 0, end = null, step = 1) {
+        if (end == null) {
+          end = start;
+          start = 0;
+        }
+        for (let i = start; i < end; i += step) yield i;
+      }
+      function isPrime(num) {
+        if (num < 2) return false;
+        for (let a of range(2, Math.floor(num / 2))) {
+          if (num % a == 0) return false;
+        }
+        return true;
+      }
+
+      function solution(arr) {
+        answer = [];
+        for (let a of arr) {
+          let num = Number(a.toString().split("").reverse().join(""));
+          console.log(num);
+          if (isPrime(num)) {
+            answer.push(num);
+          }
+        }
+        return answer.join(" ");
+      }
+
+      let arr = [32, 55, 62, 20, 250, 370, 200, 30, 100];
+      console.log(solution(arr));
+    </script>
+  </body>
+</html> -->
+
+<!-- ----------------- -->
+
+<!-- <html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function isPrime(num) {
+        if (num == 1) return false;
+        for (let i = 2; i <= parseInt(Math.sqrt(num)); i++) {
+          if (num % i === 0) return false;
+        }
+        return true;
+      }
+
+      function solution(arr) {
+        let answer = [];
+        for (let x of arr) {
+          let res = 0;
+          while (x) {
+            let t = x % 10;
+            res = res * 10 + t;
+            x = parseInt(x / 10);
+          }
+          if (isPrime(res)) answer.push(res);
+        }
+        return answer;
+      }
+
+      let arr = [32, 55, 62, 20, 250, 370, 200, 30, 100];
+      console.log(solution(arr));
+    </script>
+  </body>
+</html> -->
+
+<!-- ----------------- -->
+
+<!-- <html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function isPrime(num) {
+        if (num === 1) return false;
+        for (let i = 2; i <= parseInt(Math.sqrt(num)); i++) {
+          if (num % i === 0) return false;
+        }
+        return true;
+      }
+
+      function solution(arr) {
+        let answer = [];
+        for (let x of arr) {
+          let res = Number(x.toString().split("").reverse().join(""));
+          if (isPrime(res)) answer.push(res);
+        }
+      }
+      let arr = [32, 55, 62, 20, 250, 370, 200, 30, 100];
+      console.log(solution(arr));
+    </script>
+  </body>
+</html> -->
