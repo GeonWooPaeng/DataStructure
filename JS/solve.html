@@ -1505,9 +1505,8 @@
       }
 
       let arr = [
-        [3, 4, 1, 2],
-        [3, 4, 1, 2],
-        [3, 4, 1, 2],
+        [1, 2, 3, 4, 5],
+        [5, 4, 3, 2, 1],
       ];
       console.log(solution(arr));
     </script>
@@ -1553,3 +1552,236 @@
     </script>
   </body>
 </html> -->
+
+<!-- section 4 - 4 졸업선물 -->
+<!-- <html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function* range(start = 0, end = null, step = 1) {
+        if (end == null) {
+          end = start;
+          start = 0;
+        }
+        for (let i = start; i < end; i += step) yield i;
+      }
+
+      function sort(arr) {
+        let copy_arr = arr;
+        for (let i of range(copy_arr.length)) {
+          for (let j of range(i, copy_arr.length)) {
+            let sta_sum = copy_arr[i][0] + copy_arr[i][1];
+            let sum = copy_arr[j][0] + copy_arr[j][1];
+            if (sta_sum > sum) {
+              [copy_arr[i], copy_arr[j]] = [copy_arr[j], copy_arr[i]];
+            }
+          }
+        }
+        return copy_arr;
+      }
+
+      function solution(m, product) {
+        let max_result = 0;
+        let sort_product = sort(product);
+
+        for (let i = 0; i < sort_product.length; i++) {
+          let answer = 1;
+          let money = m - sort_product[i][0] / 2 + sort_product[i][1];
+          for (let j = 0; j < sort_product.length; j++) {
+            let sum = sort_product[j][0] + sort_product[j][1];
+            if (i !== j && sum > money) break;
+            if (i !== j && sum <= money) {
+              money -= sum;
+              answer++;
+            }
+          }
+          if (max_result < answer) max_result = answer;
+        }
+        return max_result;
+      }
+
+      let arr = [
+        [8, 6],
+        [2, 2],
+        [4, 3],
+        [4, 5],
+        [12, 1],
+      ];
+      console.log(solution(41, arr));
+    </script>
+  </body>
+</html> -->
+
+<!-- ---------------------------  -->
+
+<!-- <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(m, product){
+              let answer = 0;
+              let n = product.length;
+              product.sort((a, b) => (a[0] + a[1]) - (b[0] + b[1]));
+              for (let i = 0; i < n; i++) {
+                let money = m - (product[i][0] / 2 + product[i][1]);
+                let cnt = 1;
+                for (let j = 0; j < n; j++) {
+                  if (j !== i && (product[j][0] + product[j][1]) > money) break;
+                  if (j !== i && (product[j][0] + product[j][1]) <= money) {
+                    money -= (product[j][0] + product[j][1]);
+                    cnt++;
+                  }
+                }
+                answer = Math.max(answer, cnt);
+              }
+              return answer;
+            }
+            
+            let arr=[[6, 6], [2, 2], [4, 3], [4, 5], [10, 3]];
+            console.log(solution(28, arr));
+        </script>
+    </body>
+</html> -->
+
+<!-- section 4 - 5 K번째 큰 수 -->
+<!-- <html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function* range(start = 0, end = null, step = 1) {
+        if (end === null) {
+          end = start;
+          start = 0;
+        }
+        for (let i = start; i < end; i += step) yield i;
+      }
+
+      function solution(n, k, card) {
+        let answer = 0;
+        let sum_arr = new Set();
+        card.sort((a, b) => b - a);
+        for (let i = 0; i < n; i++) {
+          for (let j = i + 1; j < n; j++) {
+            for (let k = j + 1; k < n; k++) {
+              sum_arr.add(card[i] + card[j] + card[k]);
+            }
+          }
+        }
+        let a = [...sum_arr].sort((a, b) => b - a);
+        return a[k - 1];
+      }
+
+      let arr = [13, 15, 34, 23, 45, 65, 33, 11, 26, 42];
+      console.log(solution(10, 3, arr));
+    </script>
+  </body>
+</html> -->
+
+<!-- -----------------  -->
+<!-- 
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(n, k, card) {
+        let answer;
+        let tmp = new Set();
+        for (let i = 0; i < n; i++) {
+          for (let j = i + 1; j < n; j++) {
+            for (let k = j + 1; k < n; k++) {
+              tmp.add(card[i] + card[j] + card[k]);
+            }
+          }
+        }
+        let a = Array.from(tmp).sort((a, b) => b - a);
+        answer = a[k - 1];
+        return answer;
+      }
+
+      let arr = [13, 15, 34, 23, 45, 65, 33, 11, 26, 42];
+      console.log(solution(10, 3, arr));
+    </script>
+  </body>
+</html> -->
+
+<!-- section 5 - 1 두 배열 합치기 -->
+<!-- <html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(arr1, arr2) {
+        // let concat_arr = [...arr1, ...arr2];
+
+        // concat_arr.sort((a, b) => a - b);
+        // return concat_arr;
+
+        let concat_arr = [];
+        let p1 = (p2 = 0);
+        while (p1 < arr1.length && p2 < arr2.length) {
+          if (arr1[p1] < arr2[p2]) concat_arr.push(arr1[p1++]);
+          else concat_arr.push(arr2[p2++]);
+        }
+        while (p1 < arr1.length) concat_arr.push(arr[p1++]);
+        while (p2 < arr2.length) concat_arr.push(arr[p2++]);
+        return concat_arr;
+      }
+
+      let a = [1, 3, 5];
+      let b = [2, 3, 6, 7, 9];
+      console.log(solution(a, b));
+    </script>
+  </body>
+</html> -->
+
+<!-- section 5 - 2 공통원소 구하기 -->
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(arr1, arr2) {
+        // let same_arr = [];
+        // let length = arr1.length < arr2.length ? arr1.length : arr2.length;
+
+        // for (let i = 0; i < length; i++)
+        //   if (arr2.includes[arr1[i]]) same_arr.push(arr1[i]);
+        // same_arr.sort((a, b) => a - b);
+        // return same_arr;
+
+        let answer = [];
+        arr1.sort((a, b) => a - b);
+        arr2.sort((a, b) => a - b);
+        let p1 = (p2 = 0);
+        while (p1 < arr1.length && p2 < arr2.length) {
+          if (arr1[p1] == arr2[p2]) {
+            answer.push(arr1[p1++]);
+            p2++;
+          } else if (arr1[p1] < arr2[p2]) p1++;
+          else p2++;
+        }
+        return answer;
+      }
+
+      let a = [1, 3, 9, 5, 2];
+      let b = [3, 2, 5, 7, 8];
+      console.log(solution(a, b));
+    </script>
+  </body>
+</html>
