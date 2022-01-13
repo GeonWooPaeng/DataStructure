@@ -1749,7 +1749,7 @@
 </html> -->
 
 <!-- section 5 - 2 공통원소 구하기 -->
-<html>
+<!-- <html>
   <head>
     <meta charset="UTF-8" />
     <title>출력결과</title>
@@ -1784,4 +1784,62 @@
       console.log(solution(a, b));
     </script>
   </body>
-</html>
+</html> -->
+
+<!-- section 5 - 3 연속부분수열1 -->
+
+<!-- <html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(m, arr) {
+        let cnt = (sum = lt = 0);
+
+        for (let rt = 0; rt < arr.length; rt++) {
+          if (sum < m) sum += arr[rt];
+          if (sum === m) cnt++;
+          while (sum >= m) {
+            sum -= arr[lt++];
+            if (sum === m) cnt++;
+          }
+        }
+        return cnt;
+      }
+      let a = [1, 2, 1, 3, 1, 1, 1, 2];
+      console.log(solution(6, a));
+    </script>
+  </body>
+</html> -->
+
+<!-- -------------------  -->
+
+<!-- <html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(m, arr) {
+        let answer = 0,
+          lt = 0,
+          sum = 0;
+        for (let rt = 0; rt < arr.length; rt++) {
+          sum += arr[rt];
+          if (sum === m) answer++;
+          while (sum >= m) {
+            sum -= arr[lt++];
+            if (sum === m) answer++;
+          }
+        }
+        return answer;
+      }
+
+      let a = [1, 2, 1, 3, 1, 1, 1, 2];
+      console.log(solution(6, a));
+    </script>
+  </body>
+</html> -->
