@@ -1843,3 +1843,45 @@
     </script>
   </body>
 </html> -->
+
+<!-- section 5 - 4 연속부분수열2  -->
+
+<!-- <html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      // function solution(m, arr) {
+      //   let sum = (lt = cnt = 0);
+
+      //   for (let rt = 0; rt < arr.length; rt++) {
+      //     sum += arr[rt];
+      //     if (sum > m) {
+      //       sum -= arr[lt++];
+      //     }
+      //     cnt += lt - rt + 1;
+      //   }
+      //   return cnt;
+      // }
+      function solution(m, arr) {
+        let sum = (lt = rt = cnt = 0);
+
+        while (lt < arr.length) {
+          if (sum <= m) {
+            cnt += rt - lt + 1;
+            rt++;
+            sum += arr[rt];
+          } else {
+            sum -= arr[lt];
+            lt++;
+          }
+        }
+        return cnt;
+      }
+      let a = [10, 5, 2, 6];
+      console.log(solution(100, a));
+    </script>
+  </body>
+</html> -->
