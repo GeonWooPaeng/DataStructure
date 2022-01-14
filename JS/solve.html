@@ -2017,3 +2017,49 @@
     </script>
   </body>
 </html> -->
+
+<!-- section 5 - 7 아나그램 -->
+
+<!-- <html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      // function solution(str1, str2) {
+      //   const ana1 = new Map();
+      //   const ana2 = new Map();
+
+      //   for (let s1 of str1) {
+      //     if (ana1.has(s1)) ana1.set(s1, ana1.get(s1) + 1);
+      //     else ana1.set(s1, 1);
+      //   }
+      //   for (let s2 of str2) {
+      //     if (ana2.has(s2)) ana2.set(s2, ana2.get(s2) + 1);
+      //     else ana2.set(s2, 1);
+      //   }
+      //   for (let a1 of ana1) {
+      //     if (!ana2.has(a1[0]) || ana2.get(a1[0]) != a1[1]) return "NO";
+      //   }
+      //   return "YES";
+      // }
+      function solution(str1, str2) {
+        let answer = "YES";
+        let sH = new Map();
+        for (let x of str1) {
+          if (sH.has(x)) sH.set(x, sH.get(x) + 1);
+          else sH.set(x, 1);
+        }
+        for (let x of str2) {
+          if (!sH.has(x) || sH.get(x) == 0) return "NO";
+          sH.set(x, sH.get(x) - 1);
+        }
+        return answer;
+      }
+      let a = "AbaAeCe";
+      let b = "baeeACA";
+      console.log(solution(a, b));
+    </script>
+  </body>
+</html> -->
