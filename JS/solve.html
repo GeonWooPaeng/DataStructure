@@ -1913,7 +1913,7 @@
   </body>
 </html> -->
 
-<html>
+<!-- <html>
   <head>
     <meta charset="UTF-8" />
     <title>출력결과</title>
@@ -1936,4 +1936,84 @@
       console.log(solution(3, a));
     </script>
   </body>
-</html>
+</html> -->
+
+<!-- section 5 - 6 학급 회장(해쉬) -->
+<!-- 
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(str) {
+        // const votes = {};
+        // let result;
+        // let vote_num = 0;
+
+        // for (let s of str) {
+        //   if (votes.hasOwnProperty(s)) votes[s] += 1;
+        //   else votes[s] = 1;
+        // }
+        // for (let vote in votes) {
+        //   if (vote_num < votes[vote]) {
+        //     vote_num = votes[vote];
+        //     result = vote;
+        //   }
+        // }
+        // return result;
+        const votes = new Map();
+        let result;
+        let max_value = 0;
+
+        for (let s of str) {
+          if (votes.has(s)) votes.set(s, votes.get(s) + 1);
+          else votes.set(s, 1);
+        }
+        for (let [key, value] of votes) {
+          if (max_value < value) {
+            max_value = value;
+            result = key;
+          }
+        }
+        return result;
+      }
+
+      let str = "BACBACCACCBDEDE";
+      console.log(solution(str));
+    </script>
+  </body>
+</html> -->
+
+<!-- ---------------  -->
+
+<!-- <html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(s) {
+        let answer;
+        let sH = new Map();
+        for (let x of s) {
+          if (sH.has(x)) sH.set(x, sH.get(x) + 1);
+          else sH.set(x, 1);
+        }
+        let max = Number.MIN_SAFE_INTEGER;
+        for (let [key, val] of sH) {
+          if (val > max) {
+            max = val;
+            answer = key;
+          }
+        }
+        return answer;
+      }
+
+      let str = "BACBACCACCBDEDE";
+      console.log(solution(str));
+    </script>
+  </body>
+</html> -->
