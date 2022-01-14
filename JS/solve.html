@@ -1853,35 +1853,87 @@
   </head>
   <body>
     <script>
-      // function solution(m, arr) {
-      //   let sum = (lt = cnt = 0);
-
-      //   for (let rt = 0; rt < arr.length; rt++) {
-      //     sum += arr[rt];
-      //     if (sum > m) {
-      //       sum -= arr[lt++];
-      //     }
-      //     cnt += lt - rt + 1;
-      //   }
-      //   return cnt;
-      // }
       function solution(m, arr) {
-        let sum = (lt = rt = cnt = 0);
+        let sum = (lt = cnt = 0);
 
-        while (lt < arr.length) {
-          if (sum <= m) {
-            cnt += rt - lt + 1;
-            rt++;
-            sum += arr[rt];
-          } else {
-            sum -= arr[lt];
-            lt++;
+        for (let rt = 0; rt < arr.length; rt++) {
+          sum += arr[rt];
+          if (sum > m) {
+            sum -= arr[lt++];
           }
+          cnt += lt - rt + 1;
         }
         return cnt;
       }
+      // function solution(m, arr) {
+      //   let sum = (lt = rt = cnt = 0);
+
+      //   while (lt < arr.length) {
+      //     if (sum <= m) {
+      //       cnt += rt - lt + 1;
+      //       rt++;
+      //       sum += arr[rt];
+      //     } else {
+      //       sum -= arr[lt];
+      //       lt++;
+      //     }
+      //   }
+      //   return cnt;
+      // }
       let a = [10, 5, 2, 6];
       console.log(solution(100, a));
     </script>
   </body>
 </html> -->
+
+<!-- section 5 -5 최대 매출 -->
+<!-- <html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(k, arr) {
+        let result = (sum = lt = rt = 0);
+        while (rt < arr.length) {
+          sum += arr[rt];
+          if (rt - lt + 1 === k) {
+            result = Math.max(result, sum);
+            sum -= arr[lt++];
+          }
+          rt++;
+        }
+        return result;
+      }
+
+      let a = [12, 15, 11, 20, 25, 10, 20, 19, 13, 15];
+      console.log(solution(3, a));
+    </script>
+  </body>
+</html> -->
+
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(k, arr) {
+        let answer,
+          sum = 0;
+        for (let i = 0; i < k; i++) sum += arr[i];
+        answer = sum;
+        for (let i = k; i < arr.length; i++) {
+          sum += arr[i] - arr[i - k];
+          answer = Math.max(answer, sum);
+        }
+        return answer;
+      }
+
+      let a = [12, 15, 11, 20, 25, 10, 20, 19, 13, 15];
+      console.log(solution(3, a));
+    </script>
+  </body>
+</html>
