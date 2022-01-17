@@ -2327,3 +2327,73 @@
     </script>
   </body>
 </html> -->
+
+<!-- section 6 - 4 후위식 연산 -->
+
+<!-- <html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      const getElement = ([stack]) => stack;
+
+      function solution(str) {
+        let stack = [];
+        let answer;
+
+        for (let s of str) {
+          if (!isNaN(s)) stack.push(s);
+          else {
+            let a1 = Number(stack.pop());
+            let a2 = Number(stack.pop());
+
+            if (s === "+") stack.push(a2 + a1);
+            if (s === "-") stack.push(a2 - a1);
+            if (s === "*") stack.push(a2 * a1);
+            if (s === "/") stack.push(Math.floor(a2 / a1));
+          }
+        }
+        return getElement(stack);
+      }
+
+      let str = "352+*9-";
+      console.log(solution(str));
+    </script>
+  </body>
+</html> -->
+
+<!-- -----------------------  -->
+
+<!-- <html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(s) {
+        let answer;
+        let stack = [];
+        for (let x of s) {
+          if (!isNaN(x)) stack.push(Number(x));
+          else {
+            let rt = stack.pop();
+            let lt = stack.pop();
+
+            if (x === "+") stack.push(lt + rt);
+            else if (x === "-") stack.push(lt - rt);
+            else if (x === "*") stack.push(lt * rt);
+            else if (x === "/") stack.push(lt / rt);
+          }
+        }
+        answer = stack[0];
+        return answer;
+      }
+
+      let str = "352+*9-";
+      console.log(solution(str));
+    </script>
+  </body>
+</html> -->
