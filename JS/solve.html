@@ -2482,3 +2482,37 @@
     </script>
   </body>
 </html> -->
+
+<!-- section 6 - 7 교육과정설계 -->
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(need, plan) {
+        // let need_idx = 0;
+
+        // for (let p of plan) {
+        //   if (p === need[need_idx]) need_idx++;
+        // }
+        // if (need_idx == need.length) return "YES";
+        // return "NO";
+
+        let answer = "YES";
+        let queue = need.split("");
+        for (let x of plan) {
+          if (queue.includes(x)) {
+            if (x !== queue.shift()) return "NO";
+          }
+        }
+        return answer;
+      }
+
+      let a = "CAE";
+      let b = "CABG";
+      console.log(solution(a, b));
+    </script>
+  </body>
+</html>
