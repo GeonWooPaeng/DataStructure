@@ -2698,3 +2698,87 @@
     </script>
   </body>
 </html> -->
+
+<!-- section 7 - 5  LRU -->
+
+<!-- <html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(size, arr) {
+        let answer = [];
+
+        for (let cpu of arr) {
+          if (answer.length < size) answer.splice(0, 0, cpu);
+          else {
+            if (!answer.includes(cpu)) {
+              answer.pop();
+              answer.splice(0, 0, cpu);
+            }
+          }
+          if (answer.includes(cpu)) {
+            let idx = answer.indexOf(cpu),
+              j;
+            for (j = idx - 1; j > -1; j--) {
+              answer[j + 1] = answer[j];
+            }
+            answer[j + 1] = cpu;
+          }
+        }
+        console.log(answer);
+      }
+
+      let arr = [1, 2, 3, 2, 6, 2, 3, 5, 7];
+      console.log(solution(5, arr));
+    </script>
+  </body>
+</html> -->
+
+<!-- -----------------------------  -->
+<!-- <html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(size, arr) {
+        // let answer = Array.from({ length: size }, () => 0);
+        // arr.forEach((x) => {
+        //   let pos = -1;
+        //   for (let i = 0; i < size; i++) if (x === answer[i]) pos = i;
+        //   if (pos === -1) {
+        //     for (let i = size - 1; i > 0; i--) {
+        //       answer[i] = answer[i - 1];
+        //     }
+        //   } else {
+        //     for (let i = pos; i > 0; i--) {
+        //       answer[i] = answer[i - 1];
+        //     }
+        //   }
+        //   answer.unshift(x);
+        // });
+        // return answer;
+
+        let answer = [];
+        arr.forEach((x) => {
+          let pos = -1;
+          for (let i = 0; i < size; i++) if (x === answer[i]) pos = i;
+          if (pos === -1) {
+            answer.unshift(x);
+            if (answer.length > size) answer.pop();
+          } else {
+            answer.splice(pos, 1);
+            answer.unshift(x);
+          }
+        });
+      }
+
+      let arr = [1, 2, 3, 2, 6, 2, 3, 5, 7];
+      console.log(solution(5, arr));
+    </script>
+  </body>
+</html> -->
