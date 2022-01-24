@@ -2782,3 +2782,35 @@
     </script>
   </body>
 </html> -->
+
+<!-- section 7 - 6 장난꾸러기 현수 -->
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(arr) {
+        // let sort_arr = arr.slice().sort((a, b) => a - b);
+        // let answer = [];
+
+        // for (let i = 0; i < arr.length; i++) {
+        //   if (arr[i] !== sort_arr[i]) answer.push(i + 1);
+        // }
+        // return answer.join(" ");
+
+        let answer = [];
+        let sortArr = arr.slice();
+        sortArr.sort((a, b) => a - b);
+        for (let i = 0; i < arr.length; i++) {
+          if (arr[i] !== sortArr[i]) answer.push(i + 1);
+        }
+        return answer;
+      }
+
+      let arr = [120, 130, 150, 150, 130, 150];
+      console.log(solution(arr));
+    </script>
+  </body>
+</html>
