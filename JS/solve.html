@@ -3066,7 +3066,7 @@
 </html> -->
 
 <!-- section 7 - 12 마구간 정하기 -->
-<html>
+<!-- <html>
   <head>
     <meta charset="UTF-8" />
     <title>출력결과</title>
@@ -3123,6 +3123,29 @@
       }
       let arr = [1, 2, 8, 4, 9];
       console.log(solution(3, arr));
+    </script>
+  </body>
+</html> -->
+
+<!-- section 8 - 1 재귀 함수 -->
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(n) {
+        const DFS = (n) => {
+          if (n === 0) return;
+          else {
+            DFS(n - 1);
+            console.log(n);
+          }
+        };
+        DFS(n);
+      }
+      solution(3);
     </script>
   </body>
 </html>
