@@ -3128,7 +3128,7 @@
 </html> -->
 
 <!-- section 8 - 1 재귀 함수 -->
-<html>
+<!-- <html>
   <head>
     <meta charset="UTF-8" />
     <title>출력결과</title>
@@ -3148,4 +3148,31 @@
       solution(3);
     </script>
   </body>
+</html> -->
+
+<!-- section 8 - 2 이진수 출력 -->
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(n){
+              let answer = "";
+              const DFS = (L) => {
+                if (L === 0) return ;
+                else {
+                  DFS(parseInt(L / 2));
+                  answer += parseInt(L % 2);
+                }
+              }
+              DFS(n);
+              console.log(typeof(answer));
+              return answer;
+            }
+
+            console.log(solution(11));
+        </script>
+    </body>
 </html>
