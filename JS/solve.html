@@ -3136,13 +3136,13 @@
   <body>
     <script>
       function solution(n) {
-        const DFS = (n) => {
-          if (n === 0) return;
+        const DFS = (L) => {
+          if (L === 0) return ;
           else {
-            DFS(n - 1);
-            console.log(n);
+            DFS(L - 1);
+            console.log(L);
           }
-        };
+        }
         DFS(n);
       }
       solution(3);
