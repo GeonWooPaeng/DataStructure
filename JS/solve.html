@@ -3151,7 +3151,7 @@
 </html> -->
 
 <!-- section 8 - 2 이진수 출력 -->
-<html>
+<!-- <html>
     <head>
         <meta charset="UTF-8">
         <title>출력결과</title>
@@ -3175,4 +3175,97 @@
             console.log(solution(11));
         </script>
     </body>
-</html>
+</html> -->
+
+
+<!-- section 8 - 3 이진트리 순회(깊이우선탐색) -->
+<!-- <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(n){
+              const DFS = (L) => {
+                if (L > 7) return ;
+                else {
+                  // console.log(L);
+                  DFS(L * 2);
+                  // console.log(L);
+                  DFS(L * 2 + 1);
+                  console.log(L);
+                }
+              }
+              DFS(n);
+            }
+
+            console.log(solution(1));
+        </script>
+    </body>
+</html> -->
+
+<!-- section 8 - 6 바둑이 승차 -->
+<!-- <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(c, arr){
+              let answer = Number.MIN_SAFE_INTEGER;
+              let n = arr.length;
+              console.log(answer);
+              const DFS = (idx, sum) => {
+                if (sum > c) return;
+                if (idx === n) {
+                  answer = Math.max(answer, sum);
+                  return ;
+                }
+                else {
+                  DFS(idx + 1, sum + arr[idx]);
+                  DFS(idx + 1, sum);
+                }
+              };
+              DFS(0,0);
+              return answer;
+            }
+
+            let arr=[81, 58, 42, 33, 61];
+            console.log(solution(259, arr));
+        </script>
+    </body>
+</html> -->
+
+<!-- section 8 - 7 최대점수 구하기  -->
+<!-- <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(m, ps, pt){
+              let n = ps.length;`
+              let answer = Number.MIN_SAFE_INTEGER;
+              const DFS = (idx, scoreSum, timeSum) => {
+                if (timeSum > m) return;
+                if (idx === n) {
+                  answer = Math.max(answer, scoreSum);
+                  return ;
+                }
+                else {
+                  DFS(idx+1, scoreSum + ps[idx], timeSum+pt[idx]);
+                  DFS(idx + 1, scoreSum, timeSum);
+                }
+              }
+              DFS(0, 0, 0);
+            }
+
+            let ps=[10, 25, 15, 6, 7]; //점수
+            let pt=[5, 12, 8, 3, 4] // 시간
+            console.log(solution(20, ps, pt));
+        </script>
+    </body>
+</html> -->
