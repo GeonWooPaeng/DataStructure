@@ -3150,7 +3150,11 @@
   </body>
 </html> -->
 
+<<<<<<< HEAD
 <!-- section 8 - 2 이진수 출력 -->
+=======
+<!-- section 8 - 2  이진수 출력(재귀) -->
+>>>>>>> 9dd9d9ea73381215aa4c1d20f5e5d8cb95199b79
 <!-- <html>
     <head>
         <meta charset="UTF-8">
@@ -3180,33 +3184,66 @@
 
 <!-- section 8 - 3 이진트리 순회(깊이우선탐색) -->
 <!-- <html>
+  <head>
+    <meta charset="UTF-8">
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(n){
+        const DFS = (L) => {
+          if (L > 7) return ;
+          else {
+            // console.log(L);
+            DFS(L * 2);
+            // console.log(L);
+            DFS(L * 2 + 1);
+            console.log(L);
+          }
+        }
+        DFS(n);
+      }
+      
+      console.log(solution(1));
+    </script>
+  </body>
+  </html> -->
+  
+  <!-- section 8 - 4 부분집합 구하기 
+  <html>
     <head>
-        <meta charset="UTF-8">
-        <title>출력결과</title>
+      <meta charset="UTF-8" />
+      <title>출력결과</title>
     </head>
     <body>
-        <script>
-            function solution(n){
-              const DFS = (L) => {
-                if (L > 7) return ;
-                else {
-                  // console.log(L);
-                  DFS(L * 2);
-                  // console.log(L);
-                  DFS(L * 2 + 1);
-                  console.log(L);
-                }
+      <script>
+        function solution(n) {
+          let answer;
+          let ch = Array.from({ length: n + 1 }, () => 0);
+          const DFS = (v) => {
+            if (v === n + 1) {
+              let tmp = "";
+              for (let i = 1; i <= n; i++) {
+                if (ch[i] === 1) tmp += i + " ";
               }
-              DFS(n);
+              console.log(tmp);
+              return;
+            } else {
+              ch[v] = 1;
+              DFS(v + 1);
+              ch[v] = 0;
+              DFS(v + 1);
             }
-
-            console.log(solution(1));
-        </script>
+          };
+          DFS(1);
+        }
+  
+        console.log(solution(3));
+      </script>
     </body>
-</html> -->
-
-<!-- section 8 - 6 바둑이 승차 -->
-<!-- <html>
+  </html> -->
+  <!-- section 8 - 6 바둑이 승차 -->
+  <!-- <html>
     <head>
         <meta charset="UTF-8">
         <title>출력결과</title>
