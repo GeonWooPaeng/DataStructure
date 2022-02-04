@@ -3251,21 +3251,36 @@
     <body>
         <script>
             function solution(c, arr){
+              // let answer = Number.MIN_SAFE_INTEGER;
+              // let n = arr.length;
+              // console.log(answer);
+              // const DFS = (idx, sum) => {
+              //   if (sum > c) return;
+              //   if (idx === n) {
+              //     answer = Math.max(answer, sum);
+              //     return ;
+              //   }
+              //   else {
+              //     DFS(idx + 1, sum + arr[idx]);
+              //     DFS(idx + 1, sum);
+              //   }
+              // };
+              // DFS(0,0);
+              // return answer;
+
               let answer = Number.MIN_SAFE_INTEGER;
               let n = arr.length;
-              console.log(answer);
-              const DFS = (idx, sum) => {
-                if (sum > c) return;
-                if (idx === n) {
+              function DFS(L, sum) {
+                if (sum > c) return ;
+                if (L === n) {
                   answer = Math.max(answer, sum);
-                  return ;
                 }
                 else {
-                  DFS(idx + 1, sum + arr[idx]);
-                  DFS(idx + 1, sum);
+                  DFS(L +1, sum +arr[L]);
+                  DFS(L+1, sum);
                 }
-              };
-              DFS(0,0);
+              }
+              DFS(0, 0);
               return answer;
             }
 
@@ -3284,20 +3299,35 @@
     <body>
         <script>
             function solution(m, ps, pt){
-              let n = ps.length;`
+              // let n = ps.length;
+              // let answer = Number.MIN_SAFE_INTEGER;
+              // const DFS = (idx, scoreSum, timeSum) => {
+              //   if (timeSum > m) return;
+              //   if (idx === n) {
+              //     answer = Math.max(answer, scoreSum);
+              //     return ;
+              //   }
+              //   else {
+              //     DFS(idx+1, scoreSum + ps[idx], timeSum+pt[idx]);
+              //     DFS(idx + 1, scoreSum, timeSum);
+              //   }
+              // }
+              // DFS(0, 0, 0);
+
               let answer = Number.MIN_SAFE_INTEGER;
-              const DFS = (idx, scoreSum, timeSum) => {
-                if (timeSum > m) return;
-                if (idx === n) {
-                  answer = Math.max(answer, scoreSum);
-                  return ;
+              let n = ps.length;
+              function DFS(L, sum, time) {
+                if (time > m) return;
+                if (L === n) {
+                  answer = Math.max(answer, sum);
                 }
                 else {
-                  DFS(idx+1, scoreSum + ps[idx], timeSum+pt[idx]);
-                  DFS(idx + 1, scoreSum, timeSum);
+                  DFS(L+1, sum+ps[L], time+pt[L]);
+                  DFS(L+1, sum, time);
                 }
               }
-              DFS(0, 0, 0);
+              DFS(0,0,0);
+              return answer;
             }
 
             let ps=[10, 25, 15, 6, 7]; //점수
