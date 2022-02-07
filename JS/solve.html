@@ -3150,11 +3150,7 @@
   </body>
 </html> -->
 
-<<<<<<< HEAD
-<!-- section 8 - 2 이진수 출력 -->
-=======
 <!-- section 8 - 2  이진수 출력(재귀) -->
->>>>>>> 9dd9d9ea73381215aa4c1d20f5e5d8cb95199b79
 <!-- <html>
     <head>
         <meta charset="UTF-8">
@@ -3336,3 +3332,51 @@
         </script>
     </body>
 </html> -->
+
+<!-- section 8 - 8 중복순열 구하기 -->
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(n, m){
+              // let arr = Array.from({length: m}, () => 0);
+              // let cnt = 0;
+              // const DFS = (L) => {
+              //   if (L === m) {
+              //     console.log(...arr);
+              //     return ;
+              //   }
+              //   else {
+              //     for (let i = 1; i < n + 1; i++) {
+              //       arr[L] = i;
+              //       DFS(L + 1);
+              //     }
+              //   }
+              // }
+              // DFS(0);
+              // return cnt;
+              let answer = [];
+              let tmp = Array.from({length:m}, () => 0);
+              function DFS(L) {
+                if (L === m) {
+                  answer.push(tmp.slice());
+                }
+                else {
+                  for (let i = 1; i <= n; i++) {
+                    tmp[L] = i;
+                    DFS(L+1);
+                  }
+                }
+              }
+              DFS(0);
+              return answer;
+            }
+
+            console.log(solution(3, 3));
+        </script>
+    </body>
+</html>
+
