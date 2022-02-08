@@ -3430,7 +3430,7 @@
 </html> -->
 
 <!-- section 8 - 10 순열구하기 -->
-<html>
+<!-- <html>
     <head>
         <meta charset="UTF-8">
         <title>출력결과</title>
@@ -3507,6 +3507,37 @@
 
             let arr=[3, 6, 9];
             console.log(solution(2, arr));
+        </script>
+    </body>
+</html> -->
+
+<!-- section 8 - 11 팩토리얼 -->
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(n){
+              // const DFS = (L) => {
+              //   console.log(L);
+              //   if (L === 1) return 1;
+              //   else return L * DFS(L-1);
+              // }
+              // let answer = DFS(n);
+              // console.log(answer);
+              
+              let answer;
+              function DFS(n) {
+                if (n === 1) return 1;
+                else return n * DFS(n-1);
+              } 
+              answer = DFS(n);
+              return answer;
+            }
+
+            console.log(solution(5));
         </script>
     </body>
 </html>
