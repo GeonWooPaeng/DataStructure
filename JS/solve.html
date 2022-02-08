@@ -3382,7 +3382,7 @@
  -->
 
 <!-- section 8 - 9 동전교환 -->
-<html>
+<!-- <html>
     <head>
         <meta charset="UTF-8">
         <title>출력결과</title>
@@ -3425,6 +3425,88 @@
 
             let arr=[1, 2, 5];
             console.log(solution(15, arr));
+        </script>
+    </body>
+</html> -->
+
+<!-- section 8 - 10 순열구하기 -->
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            // function solution(m, arr){
+            //   let A = Array.from({length:m}, () => 0);
+            //   let answer = [];
+            //   let n = arr.length;
+            //   const DFS = (L) => {
+            //     if (L === m) {
+            //       answer.push(A.slice());
+            //       return;
+            //     }
+            //     else {
+            //       for (let i = 0; i < n+1; i++) {
+            //         if (!A.includes(arr[i])) {
+            //           A[L] = arr[i];
+            //           DFS(L+1);
+            //         }
+            //       }
+            //     }
+            //   }    
+            //   DFS(0);
+            //   answer = answer.filter((cur) => {
+            //     if (!cur.includes(undefined)) {
+            //       return cur;
+            //     }
+            //   })
+            //   console.log(answer);
+            // }
+            function solution(m, arr) {
+              // let A = [];
+              // let ch = Array.from({length:arr.length}, () => 0);
+              // let answer = [];
+              // const DFS = (L) => {
+              //   if (L === m) {
+              //     answer.push(A.slice());
+              //     return ;
+              //   }
+              //   else {
+              //     for (let i = 0; i < arr.length; i++) {
+              //       if (ch[i] === 0) {
+              //         ch[i] = 1;
+              //         A.push(arr[i]);
+              //         DFS(L+1);
+              //         ch[i] = 0;
+              //         A.pop();
+              //       }
+              //     }
+              //   }
+              // }
+              let answer = [];
+              n = arr.length;
+              let ch = Array.from({length:n}, () => 0);
+              let tmp = Array.from({length:m}, () =>0);
+
+              const DFS = (L) => {
+                if (L === m) answer.push(tmp.slice());
+                else {
+                  for (let i = 0; i< n; i++) {
+                    if (ch[i] === 0) {
+                      ch[i] = 1;
+                      tmp[L] = arr[i];
+                      DFS(L+1);
+                      ch[i] = 0;
+                    }
+                  }
+                }
+              }
+              DFS(0);
+            }
+
+            let arr=[3, 6, 9];
+            console.log(solution(2, arr));
         </script>
     </body>
 </html>
