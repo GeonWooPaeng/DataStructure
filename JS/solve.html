@@ -3512,7 +3512,7 @@
 </html> -->
 
 <!-- section 8 - 11 팩토리얼 -->
-<html>
+<!-- <html>
     <head>
         <meta charset="UTF-8">
         <title>출력결과</title>
@@ -3538,6 +3538,33 @@
             }
 
             console.log(solution(5));
+        </script>
+    </body>
+</html> -->
+
+<!-- section 8 - 12 조합수(메모이제이션) -->
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(n, r){
+              // const DFS = (n, r) => {
+              //   if (r === 0 || n === r) return 1;
+              //   else DFS(n-1, r-1) + DFS(n-1, r);
+              // }
+              // return DFS(n, r);
+              let dy = Array.from(Array(r), () => Array(n).fill(0));
+              const DFS = (n, r) => {
+                if (dy[n][r] != 0) return dy[n][r];
+                if (n === r || r === 0) return 1;
+                else return dy[n][r] = DFS(n-1, r-1) + DFS(n-1, r);
+              }
+            }
+
+            console.log(solution(5, 3));
         </script>
     </body>
 </html>
