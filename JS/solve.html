@@ -3136,13 +3136,13 @@
   <body>
     <script>
       function solution(n) {
-        const DFS = (n) => {
-          if (n === 0) return;
+        const DFS = (L) => {
+          if (L === 0) return ;
           else {
-            DFS(n - 1);
-            console.log(n);
+            DFS(L - 1);
+            console.log(L);
           }
-        };
+        }
         DFS(n);
       }
       solution(3);
@@ -3164,9 +3164,11 @@
                 if (L === 0) return ;
                 else {
                   DFS(parseInt(L / 2));
+                  answer += parseInt(L % 2);
                 }
               }
               DFS(n);
+              console.log(typeof(answer));
               return answer;
             }
 
@@ -3175,8 +3177,340 @@
     </body>
 </html> -->
 
-<!-- section 8 - 3 이진 트리 순회(깊이 우선 탐색)  -->
+<!-- section 8 - 3 이진트리 순회(깊이우선탐색) -->
+<!-- <html>
+  <head>
+    <meta charset="UTF-8">
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(n){
+        const DFS = (L) => {
+          if (L > 7) return ;
+          else {
+            // console.log(L);
+            DFS(L * 2);
+            // console.log(L);
+            DFS(L * 2 + 1);
+            console.log(L);
+          }
+        }
+        DFS(n);
+      }
+      
+      console.log(solution(1));
+    </script>
+  </body>
+  </html> -->
 
+<!-- section 8 - 4 부분집합 구하기 
+  <html>
+    <head>
+      <meta charset="UTF-8" />
+      <title>출력결과</title>
+    </head>
+    <body>
+      <script>
+        function solution(n) {
+          let answer;
+          let ch = Array.from({ length: n + 1 }, () => 0);
+          const DFS = (v) => {
+            if (v === n + 1) {
+              let tmp = "";
+              for (let i = 1; i <= n; i++) {
+                if (ch[i] === 1) tmp += i + " ";
+              }
+              console.log(tmp);
+              return;
+            } else {
+              ch[v] = 1;
+              DFS(v + 1);
+              ch[v] = 0;
+              DFS(v + 1);
+            }
+          };
+          DFS(1);
+        }
+  
+        console.log(solution(3));
+      </script>
+    </body>
+  </html> -->
+<!-- section 8 - 6 바둑이 승차 -->
+<!-- <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(c, arr){
+              // let answer = Number.MIN_SAFE_INTEGER;
+              // let n = arr.length;
+              // console.log(answer);
+              // const DFS = (idx, sum) => {
+              //   if (sum > c) return;
+              //   if (idx === n) {
+              //     answer = Math.max(answer, sum);
+              //     return ;
+              //   }
+              //   else {
+              //     DFS(idx + 1, sum + arr[idx]);
+              //     DFS(idx + 1, sum);
+              //   }
+              // };
+              // DFS(0,0);
+              // return answer;
+
+              let answer = Number.MIN_SAFE_INTEGER;
+              let n = arr.length;
+              function DFS(L, sum) {
+                if (sum > c) return ;
+                if (L === n) {
+                  answer = Math.max(answer, sum);
+                }
+                else {
+                  DFS(L +1, sum +arr[L]);
+                  DFS(L+1, sum);
+                }
+              }
+              DFS(0, 0);
+              return answer;
+            }
+
+            let arr=[81, 58, 42, 33, 61];
+            console.log(solution(259, arr));
+        </script>
+    </body>
+</html> -->
+
+<!-- section 8 - 7 최대점수 구하기  -->
+<!-- <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(m, ps, pt){
+              // let n = ps.length;
+              // let answer = Number.MIN_SAFE_INTEGER;
+              // const DFS = (idx, scoreSum, timeSum) => {
+              //   if (timeSum > m) return;
+              //   if (idx === n) {
+              //     answer = Math.max(answer, scoreSum);
+              //     return ;
+              //   }
+              //   else {
+              //     DFS(idx+1, scoreSum + ps[idx], timeSum+pt[idx]);
+              //     DFS(idx + 1, scoreSum, timeSum);
+              //   }
+              // }
+              // DFS(0, 0, 0);
+
+              let answer = Number.MIN_SAFE_INTEGER;
+              let n = ps.length;
+              function DFS(L, sum, time) {
+                if (time > m) return;
+                if (L === n) {
+                  answer = Math.max(answer, sum);
+                }
+                else {
+                  DFS(L+1, sum+ps[L], time+pt[L]);
+                  DFS(L+1, sum, time);
+                }
+              }
+              DFS(0,0,0);
+              return answer;
+            }
+
+            let ps=[10, 25, 15, 6, 7]; //점수
+            let pt=[5, 12, 8, 3, 4] // 시간
+            console.log(solution(20, ps, pt));
+        </script>
+    </body>
+</html> -->
+
+<!-- section 8 - 8 중복순열 구하기 -->
+<!-- <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(n, m){
+              // let arr = Array.from({length: m}, () => 0);
+              // let cnt = 0;
+              // const DFS = (L) => {
+              //   if (L === m) {
+              //     console.log(...arr);
+              //     return ;
+              //   }
+              //   else {
+              //     for (let i = 1; i < n + 1; i++) {
+              //       arr[L] = i;
+              //       DFS(L + 1);
+              //     }
+              //   }
+              // }
+              // DFS(0);
+              // return cnt;
+              let answer = [];
+              let tmp = Array.from({length:m}, () => 0);
+              function DFS(L) {
+                if (L === m) {
+                  answer.push(tmp.slice());
+                }
+                else {
+                  for (let i = 1; i <= n; i++) {
+                    tmp[L] = i;
+                    DFS(L+1);
+                  }
+                }
+              }
+              DFS(0);
+              return answer;
+            }
+
+            console.log(solution(3, 3));
+        </script>
+    </body>
+</html>
+ -->
+
+<!-- section 8 - 9 동전교환 -->
+<!-- <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(m, arr){
+              // let minCnt = Number.MAX_SAFE_INTEGER;
+
+              // const DFS = (cnt, price) => {
+              //   if (price > m) return;
+              //   if (price === m) {
+              //     minCnt = Math.min(minCnt, cnt);
+              //   }
+              //   else {
+              //     for (let i = 0; i < arr.length; i++) {
+              //       DFS(cnt + 1, price + arr[i]);
+              //     }
+              //   }
+              // }
+              // DFS(0,0);
+              // return (minCnt);
+              let answer = Number.MAX_SAFE_INTEGER;
+              let n = arr.length;
+              function DFS(L, sum) {
+                if (sum > m) return;
+                if (L >= answer) return;
+                if (sum === m) {
+                  answer = Math.min(answer, L);
+                }
+                else {
+                  for (let i = 0; i < n; i++) {
+                    DFS(L+1, sum+arr[i]);
+                  }
+                }
+              }
+              DFS(0, 0);
+              return answer;
+            }
+
+            let arr=[1, 2, 5];
+            console.log(solution(15, arr));
+        </script>
+    </body>
+</html> -->
+
+<!-- section 8 - 10 순열구하기 -->
+<!-- <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            // function solution(m, arr){
+            //   let A = Array.from({length:m}, () => 0);
+            //   let answer = [];
+            //   let n = arr.length;
+            //   const DFS = (L) => {
+            //     if (L === m) {
+            //       answer.push(A.slice());
+            //       return;
+            //     }
+            //     else {
+            //       for (let i = 0; i < n+1; i++) {
+            //         if (!A.includes(arr[i])) {
+            //           A[L] = arr[i];
+            //           DFS(L+1);
+            //         }
+            //       }
+            //     }
+            //   }    
+            //   DFS(0);
+            //   answer = answer.filter((cur) => {
+            //     if (!cur.includes(undefined)) {
+            //       return cur;
+            //     }
+            //   })
+            //   console.log(answer);
+            // }
+            function solution(m, arr) {
+              // let A = [];
+              // let ch = Array.from({length:arr.length}, () => 0);
+              // let answer = [];
+              // const DFS = (L) => {
+              //   if (L === m) {
+              //     answer.push(A.slice());
+              //     return ;
+              //   }
+              //   else {
+              //     for (let i = 0; i < arr.length; i++) {
+              //       if (ch[i] === 0) {
+              //         ch[i] = 1;
+              //         A.push(arr[i]);
+              //         DFS(L+1);
+              //         ch[i] = 0;
+              //         A.pop();
+              //       }
+              //     }
+              //   }
+              // }
+              let answer = [];
+              n = arr.length;
+              let ch = Array.from({length:n}, () => 0);
+              let tmp = Array.from({length:m}, () =>0);
+
+              const DFS = (L) => {
+                if (L === m) answer.push(tmp.slice());
+                else {
+                  for (let i = 0; i< n; i++) {
+                    if (ch[i] === 0) {
+                      ch[i] = 1;
+                      tmp[L] = arr[i];
+                      DFS(L+1);
+                      ch[i] = 0;
+                    }
+                  }
+                }
+              }
+              DFS(0);
+            }
+
+            let arr=[3, 6, 9];
+            console.log(solution(2, arr));
+        </script>
+    </body>
+</html> -->
+
+<!-- section 8 - 11 팩토리얼 -->
 <!-- <html>
     <head>
         <meta charset="UTF-8">
@@ -3185,59 +3519,29 @@
     <body>
         <script>
             function solution(n){
-              const DFS = (L) => {
-                if (L > 7) return ;
-                else {
-                  // console.log(L);
-                  DFS(L * 2);
-                  // console.log(L);
-                  DFS(L * 2 + 1);
-                  console.log(L);
-                }
-              }
-              DFS(n);
+              // const DFS = (L) => {
+              //   console.log(L);
+              //   if (L === 1) return 1;
+              //   else return L * DFS(L-1);
+              // }
+              // let answer = DFS(n);
+              // console.log(answer);
+              
+              let answer;
+              function DFS(n) {
+                if (n === 1) return 1;
+                else return n * DFS(n-1);
+              } 
+              answer = DFS(n);
+              return answer;
             }
 
-            console.log(solution(1));
+            console.log(solution(5));
         </script>
     </body>
 </html> -->
 
-<!-- section 8 - 4 부분집합 구하기  -->
-<!-- <html>
-  <head>
-    <meta charset="UTF-8" />
-    <title>출력결과</title>
-  </head>
-  <body>
-    <script>
-      function solution(n) {
-        let answer;
-        let ch = Array.from({ length: n + 1 }, () => 0);
-        const DFS = (v) => {
-          if (v === n + 1) {
-            let tmp = "";
-            for (let i = 1; i <= n; i++) {
-              if (ch[i] === 1) tmp += i + " ";
-            }
-            console.log(tmp);
-            return;
-          } else {
-            ch[v] = 1;
-            DFS(v + 1);
-            ch[v] = 0;
-            DFS(v + 1);
-          }
-        };
-        DFS(1);
-      }
-
-      console.log(solution(3));
-    </script>
-  </body>
-</html> -->
-
-<!-- section 8 - 5 합이 같은 부분집합  -->
+<!-- section 8 - 12 조합의 경우수(메모이제이션) -->
 <html>
   <head>
     <meta charset="UTF-8" />
@@ -3245,51 +3549,28 @@
   </head>
   <body>
     <script>
-      function solution(arr) {
-        // let answer = "NO",
-        //   check = 0;
-        // let n = arr.length;
-        // let total = arr.reduce((acc, cur) => acc + cur, 0);
+      function solution(n, r) {
+        // let arr = Array.from(Array(r), () => Array(n).fill(0));
+        // // const DFS = (n, r) => {
+        // //   if (arr[r][n] != 0) return arr[r][n];
+        // //   if (r === 0 || n == r) return 1;
+        // //   else arr[r][n] = DFS(n - 1, r - 1) + DFS(n - 1, r);
+        // // };
+        // // DFS(n, r);
+        // console.log(arr);
+        let answer = [];
+        let dy = Array.from(Array(35), () => Array(35).fill(0));
 
-        // const DFS = (idx, v) => {
-        //   if (check) return;
-        //   if (idx === n) {
-        //     if (total === 2 * v) {
-        //       answer = "YES";
-        //       check = 1;
-        //     }
-        //     return;
-        //   } else {
-        //     DFS(idx + 1, v + arr[idx]);
-        //     DFS(idx + 1, v);
-        //   }
-        // };
-        // DFS(0, 0);
-        // console.log(answer);
-
-        let answer = "NO",
-          flag = 0;
-        let total = arr.reduce((a, b) => a + b, 0);
-        let n = arr.length;
-
-        function DFS(L, sum) {
-          if (flag) return;
-          if (L === n) {
-            if (total - sum === sum) {
-              answer = "YES";
-              flag = 1;
-            }
-          } else {
-            DFS(L + 1, sum + arr[L]);
-            DFS(L + 1, sum);
-          }
+        function DFS(n, r) {
+          if (dy[n][r] > 0) return dy[n][r];
+          if (n === r || r === 0) return 1;
+          else return dy[n][r] = DFS(n - 1, r - 1) + DFS(n-1, r);
         }
-        DFS(0, 0);
+        answer = DFS(n, r);
         return answer;
       }
 
-      let arr = [1, 3, 5, 6, 6, 10];
-      console.log(solution(arr));
+      console.log(solution(5, 3));
     </script>
   </body>
 </html>
