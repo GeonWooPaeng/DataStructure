@@ -3542,7 +3542,7 @@
 </html> -->
 
 <!-- section 8 - 12 조합의 경우수(메모이제이션) -->
-<html>
+<!-- <html>
   <head>
     <meta charset="UTF-8" />
     <title>출력결과</title>
@@ -3573,4 +3573,105 @@
       console.log(solution(5, 3));
     </script>
   </body>
+</html> -->
+
+<!-- section 8 - 13 수열 추측하기 -->
+
+<!-- <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(n, f){         
+
+                return answer;
+            }
+
+            console.log(solution(4, 16));
+        </script>
+    </body>
+</html> -->
+
+<!-- section 8 - 14 조합구하기 -->
+<!-- <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(n, m){         
+              let arr = Array.from({length: m}, () => 0);
+              const DFS = (idx, start) => {
+                if (idx === m) {
+                  console.log(...arr);
+                  return ;
+                }
+                else {
+                  for (let i = start; i < n+1; i++) {
+                    arr[idx] = i;
+                    DFS(idx+1, i+1);
+                  }
+                }
+              };
+              DFS(0, 1);
+            }
+            console.log(solution(4, 2));
+        </script>
+    </body>
+</html> -->
+
+<!-- section 8 - 15 수들의 조합 -->
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(n, k, arr, m){         
+              // let comArr = Array.from({length: k}, () => 0);
+              // let cnt = 0;
+              // const DFS = (idx, startIdx, sum) => {
+              //   if (idx === k) {
+              //     if (sum % m === 0) cnt++;
+              //     return ;
+              //   }
+              //   else {
+              //     for (let i = startIdx; i < n; i++) {
+              //       comArr[idx] = arr[i];
+              //       DFS(idx + 1, i+1, sum += arr[i]);
+              //       sum -= arr[i];
+              //     }
+              //   }
+              // };
+              // DFS(0, 0, 0);
+              // return (cnt);
+              let answer = 0;
+              function DFS(L, s, sum) {
+                if (L === k) {
+                  if (sum % m === 0) answer++;
+                }
+                else {
+                  for (let i = s; i < n; i++) {
+                    DFS(L + 1, i + 1, sum + arr[i]);
+                  }
+                }
+              }
+              DFS(0,0,0);
+              return answer;
+            }
+
+            let arr=[2, 4, 5, 8, 12];
+            console.log(solution(5, 3, arr, 6));
+        </script>
+    </body>
 </html>
+
+
+
+
+
+
