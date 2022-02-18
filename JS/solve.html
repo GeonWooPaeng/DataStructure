@@ -3701,9 +3701,83 @@
     </body>
 </html> -->
 
+<!-- section 9 - 2 경로 탐색  -->
+<!-- <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(n, arr){
+              let graph = Array.from(Array(n+1), () => []);
+              let visit = Array.from({length: n+1}, () => 0);
+              let cnt = 0;
+              let path = [];
+
+              for (let [a,b] of arr) {
+                graph[a].push(b);
+              }
+
+              const DFS = (start, end) => {
+                if (start === end) {
+                  console.log(path);
+                  cnt++;
+                }
+                else {
+                  for (let i of graph[start]) {
+                    if(visit[i] === 0) {
+                      path.push(i);
+                      visit[i] = 1;
+                      DFS(i, end);
+                      path.pop();
+                      visit[i] = 0;
+                    }
+                  }
+                }
+              }
+              visit[1] = 1;
+              DFS(1, 5);
+              console.log(cnt);
+
+              // let answer = 0;
+              // let graph = Array.from(Array(n+1), () => Array(n+1).fill(0));
+              // let ch = Array.from({length: n+1}, () => 0);
+              // path = [];
+              // for (let [a, b] of arr) {
+              //   graph[a][b] = 1;
+              // }
+              // function DFS(v){
+              //   if (v === n) {
+              //     answer++;
+              //     console.log(path);
+              //   }
+              //   else {
+              //     for (let i = 1; i <= n; i++) {
+              //       if (graph[v][i] === 1 && ch[i] === 0) {
+              //         ch[i] = 1;
+              //         path.push(i);
+              //         DFS(i);
+              //         ch[i] = 0;
+              //         path.pop();
+              //       }
+              //     }
+              //   }
+              // }
+              // path.push(1);
+              // ch[1] = 1;
+              // DFS(1);
+              // return answer;
+            }
+
+            let arr=[[1, 2], [1, 3], [1, 4], [2, 1], [2, 3], [2, 5], [3, 4], [4, 2], [4, 5]];
+            console.log(solution(5, arr));
+        </script>
+    </body>
+</html> -->
 
 <!-- section 9 - 5 이진트리 넓이 우선 탐색 -->
-<html>
+<!-- <html>
     <head>
         <meta charset="UTF-8">
         <title>출력결과</title>
@@ -3711,28 +3785,39 @@
     <body>
         <script>
             function solution(){
+              // let answer = "";
+              // const BFS = (start) => {
+              //   let queue = [start];
+              //   console.log(queue);
+              //   while (queue.length) {
+              //     let nowV = queue.shift();
+              //     answer += `${nowV} `;
+              //     for (let nextV of [nowV * 2, nowV * 2 + 1]) {
+              //       console.log(nextV);
+              //       if (nextV > 7) continue;
+              //       queue.push(nextV);
+              //     }
+              //   }
+              // }
+              // BFS(1);
+              // console.log(answer);
+
               let answer = "";
-              const BFS = (start) => {
-                let queue = [start];
+              let queue = [];
+              queue.push(1);
+              while (queue.length) {
                 console.log(queue);
-                while (queue.length) {
-                  let nowV = queue.shift();
-                  answer += `${nowV} `;
-                  for (let nextV of [nowV * 2, nowV * 2 + 1]) {
-                    console.log(nextV);
-                    if (nextV > 7) continue;
-                    queue.push(nextV);
-                  }
+                let v = queue.shift();
+                answer += v + " ";
+                for (let nv of [v * 2, v * 2 + 1]) {
+                  if (nv > 7) continue;
+                  queue.push(nv);
                 }
               }
-              BFS(1);
-              console.log(answer);
+              return answer;
             }
 
             console.log(solution());
         </script>
     </body>
-</html>
-
-
-
+</html> -->
