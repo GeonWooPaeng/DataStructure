@@ -3823,7 +3823,7 @@
 </html> -->
 
 <!-- section 9 - 3 경로 탐색(인접리스트) -->
-<html>
+<!-- <html>
   <head>
     <meta charset="UTF-8" />
     <title>출력결과</title>
@@ -3905,16 +3905,80 @@
       console.log(solution(5, arr));
     </script>
   </body>
-</html>
-
-<!-- <html>
-  <head>
-    <meta charset="UTF-8" />
-    <title>출력결과</title>
-  </head>
-  <body>
-    <script>
-
-    </script>
-  </body>
 </html> -->
+
+<!-- section 9 - 4 미로탐색(DFS)  -->
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+          function *range(start = 0, end = null, step = 1) {
+            if (end === null) {
+              end = start;
+              start = 0;
+            }
+            for (let i = start; i < end; i+= step) yield i;
+          }
+          function solution(board){
+            // let cnt = 0;
+            // let dx = [-1, 0, 1, 0];
+            // let dy = [0, 1, 0, -1];
+            // const DFS = (sx, sy) => {
+            //   if (sx === 6 && sy === 6) {
+            //     cnt++;
+            //   }
+            //   else {
+            //     for (let i of range(4)) {
+            //       let nx = sx + dx[i];
+            //       let ny = sy + dy[i];
+                  
+            //       if (nx < 0 || ny < 0 || nx > 6 || ny > 6) continue;
+            //       if (board[nx][ny] === 0) {
+            //         board[nx][ny] = 1;
+            //         DFS(nx, ny);
+            //         board[nx][ny] = 0;
+            //       }
+            //     }
+            //   }
+            // };
+            // board[0][0] = 1;
+            // DFS(0, 0);
+            // console.log(cnt);
+
+            let answer = 0;
+            let dx = [-1, 0, 1, 0];
+            let dy = [0, 1, 0, -1];
+            function DFS(x, y) {
+              if (x === 6 && y === 6) answer++;
+              else {
+                for (let k = 0; k < 4; k++) {
+                  let nx = x + dx[k];
+                  let ny = y + dy[k];
+                  if (nx >= 0 && nx <= 6 && ny >= 0 && ny <= 6 && board[nx][ny] === 0) {
+                    board[nx][ny] = 1;
+                    DFS(nx, ny);
+                    board[nx][ny] = 0;
+                  }
+                }
+              }
+            }
+            board[0][0] = 1;
+            DFS(0, 0);
+            return answer;
+            }
+
+          let arr=[[0, 0, 0, 0, 0, 0, 0], 
+                   [0, 1, 1, 1, 1, 1, 0],
+                   [0, 0, 0, 1, 0, 0, 0],
+                   [1, 1, 0, 1, 0, 1, 1],
+                   [1, 1, 0, 0, 0, 0, 1],
+                   [1, 1, 0, 1, 1, 0, 0],
+                   [1, 0, 0, 0, 0, 0, 0]];
+
+          console.log(solution(arr));
+        </script>
+    </body>
+</html>
