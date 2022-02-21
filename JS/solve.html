@@ -3984,7 +3984,7 @@
 </html> -->
 
 <!-- section 9 - 6 송아지 찾기(BFS: 상태 트리 탐색) -->
-<html>
+<!-- <html>
     <head>
         <meta charset="UTF-8">
         <title>출력결과</title>
@@ -3992,19 +3992,20 @@
     <body>
         <script>
             function solution(s, e){
-              // let move = [1, -1, 5]
-              // let queue = [[s,0]];
+              let move = [1, -1, 5]
+              let queue = [[s,0]];
 
-              // while (queue.length) {
-              //   let [pos, cnt] = queue.shift();
+              while (queue.length) {
+                let [pos, cnt] = queue.shift();
+                console.log(pos, cnt);
 
-              //   if (pos === e) return cnt;
-              //   for (let i = 0; i < 3; i++) {
-              //     let nPos = pos + move[i];
-              //     queue.push([nPos, cnt+1]);
-              //     }
-              //   }
-              //   return 0;
+                if (pos === e) return cnt;
+                for (let i = 0; i < 3; i++) {
+                  let nPos = pos + move[i];
+                  queue.push([nPos, cnt+1]);
+                  }
+                }
+                return 0;
 
               // 2th
 
@@ -4032,26 +4033,102 @@
               
               //3rd
 
+              // let answer = 0;
+              // let ch = Array.from({length: 10001}, () => 0);
+              // let dis = Array.from({length: 10001}, () => 0);
+              // let queue = [];
+              // queue.push(s);
+              // ch[s] = 1;
+              // dis[s] = 0;
+              // while (queue.length) {
+              //   let x = queue.shift();
+              //   for (let nx of [x-1,x+1, x+5]) {
+              //     if (nx === e) return dis[x] + 1;
+              //     if (nx > 0 && nx < 10001 && ch[nx] === 0) {
+              //       ch[nx] = 1;
+              //       dis[nx] = dis[x] + 1;
+              //     }
+              //   }
+              // }
+              // return answer;
+            }
+            console.log(solution(8, 3));
+        </script>
+    </body>
+</html> -->
+
+<!-- section 9 - 7 섬나라 아일랜드(DFS활용) -->
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(board){
+              // let dx=[-1, -1, 0, 1, 1, 1, 0, -1];
+              // let dy=[0, 1, 1, 1, 0, -1, -1, -1];
+              // let n = board.length;
+              // let cnt = 0;
+
+              // const DFS = (sx, sy) => {
+              //   board[sx][sy] = 0;
+              //   for (let i = 0; i < 8; i++) {
+              //     let nx = sx + dx[i];
+              //     let ny = sy + dy[i];
+              //     if (nx < 0 || ny < 0 || nx > n - 1 || ny > n - 1) continue;
+              //     if (board[nx][ny] === 1) {
+              //       DFS(nx, ny);
+              //     }
+              //   }
+              // }
+              // for (let i = 0; i < n; i++) {
+              //   for (let j = 0; j < n; j++) {
+              //     if (board[i][j] === 1) {
+              //       cnt++;
+              //       DFS(i,j);
+              //       console.log(board);
+              //     }
+              //   }
+              // }
+              // console.log(cnt);
+
               let answer = 0;
-              let ch = Array.from({length: 10001}, () => 0);
-              let dis = Array.from({length: 10001}, () => 0);
-              let queue = [];
-              queue.push(s);
-              ch[s] = 1;
-              dis[s] = 0;
-              while (queue.length) {
-                let x = queue.shift();
-                for (let nx of [x-1,x+1, x+5]) {
-                  if (nx === e) return dis[x] + 1;
-                  if (nx > 0 && nx < 10001 && ch[nx] === 0) {
-                    ch[nx] = 1;
-                    dis[nx] = dis[x] + 1;
+              let n = board.length;
+              let dx = [-1, -1, 0, 1, 1, 1, 0, -1];
+              let dy = [0, 1, 1, 1, 0, -1, -1, -1];
+              function DFS(x, y) {
+                board[x][y] = 0;
+                for (let k = 0; k < 8; k++) {
+                  let nx = x + dx[k];
+                  let ny = y + dy[k];
+                  if (nx >= 0 && nx < n && ny >= 0 && ny < n && board[nx][ny] === 1) {
+                    DFS(nx, ny);
+                  }
+                }
+              }
+              for (let i = 0; i < n; i++) {
+                for (let j = 0; j < n; j++) {
+                  if (board[i][j] === 1) {
+                    board[i][j] = 0;
+                    answer++;
+                    DFS(i, j);
                   }
                 }
               }
               return answer;
             }
-            console.log(solution(8, 3));
+            
+
+            let arr=[[1, 1, 0, 0, 0, 1, 0], 
+                     [0, 1, 1, 0, 1, 1, 0],
+                     [0, 1, 0, 0, 0, 0, 0],
+                     [0, 0, 0, 1, 0, 1, 1],
+                     [1, 1, 0, 1, 1, 0, 0],
+                     [1, 0, 0, 0, 1, 0, 0],
+                     [1, 0, 1, 0, 1, 0, 0]];
+
+            console.log(solution(arr));
         </script>
     </body>
 </html>
