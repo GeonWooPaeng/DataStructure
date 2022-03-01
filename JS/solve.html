@@ -4248,7 +4248,7 @@
 </html> -->
 
 <!-- section 10 - 4 동전교환 -->
-<html>
+<!-- <html>
     <head>
         <meta charset="UTF-8">
         <title>출력결과</title>
@@ -4291,6 +4291,40 @@
             }
 
             let arr=[1, 2, 5];
+            console.log(solution(20, arr));
+        </script>
+    </body>
+</html> -->
+
+<!-- section 10 - 5 최대점수 구하기  -->
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(m, arr){
+              // let dy = Array.from({length: m + 1}, () => 0);
+              // for (let i = 0; i < arr.length; i++) {
+              //   for (let j = arr[i][1]; j < m + 1; j++) {
+              //     dy[j] = Math.max(dy[j], dy[j - arr[i][1]] + arr[i][0]);
+              //   }
+              //   console.log(JSON.stringify(dy));
+              // }
+              let answer = 0;
+              let dy = Array.from({length: m+1}, () => 0);
+              for (let i = 0; i < arr.length; i++) {
+                let ps = arr[i][0];
+                let pt = arr[i][1];
+                for (let j = m; j >= pt; j--) {
+                  dy[j] = Math.max(dy[j], dy[j - pt] + ps);
+                }
+              }
+              return dy[m]
+            }
+
+            let arr=[[10, 5], [25, 12], [15, 8], [6, 3], [7, 4]];
             console.log(solution(20, arr));
         </script>
     </body>
