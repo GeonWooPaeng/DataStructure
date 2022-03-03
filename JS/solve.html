@@ -4456,3 +4456,85 @@
         </script>
     </body>
 </html> -->
+
+<!-- section 1 - 6 홀수 -->
+<!-- <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(arr){
+              // let minNum = Number.MAX_SAFE_INTEGER;
+              // let sum = 0;
+              // arr.forEach((num) => {
+              //   if (num % 2 == 1) {
+              //     sum += num;
+              //     if (minNum > num) minNum = num;
+              //   }
+              // })
+              // console.log(sum, minNum);
+              let answer = [];
+              let sum = 0, min=1000;
+              for (let x of arr) {
+                if (x % 2 === 1) {
+                  sum+=x;
+                  if (x < min) min = x;
+                }
+              }
+              answer.push(sum);
+              answer.push(min);
+              return answer;
+            }
+            
+            arr=[12, 77, 38, 41, 53, 92, 85];
+            console.log(solution(arr));
+        </script>
+    </body>
+</html> -->
+
+<!-- section 1 - 7 10 부제 -->
+<!-- <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(day, arr){
+              // let answer = 0;
+              // arr.forEach((carNum) => {
+              //   if (carNum % 10 === day) answer++;
+              // })
+              // console.log(answer);
+              let answer = 0;
+              for (let x of arr) {
+                if (x % 10 === day) answer++;
+              }
+              return answer;
+            }
+            
+            arr=[25, 23, 11, 47, 53, 17, 33];
+            console.log(solution(3, arr));
+        </script>
+    </body>
+</html> -->
+
+<!-- section 1 - 8 일곱난쟁이 -->
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(arr){
+
+            }
+            
+            let arr=[20, 7, 23, 19, 10, 15, 25, 8, 13];
+            console.log(solution(arr));
+        </script>
+    </body>
+</html>
