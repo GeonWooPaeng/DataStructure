@@ -4522,19 +4522,196 @@
 </html> -->
 
 <!-- section 1 - 8 일곱난쟁이 -->
-<html>
+<!-- <html>
     <head>
         <meta charset="UTF-8">
         <title>출력결과</title>
     </head>
     <body>
         <script>
+          const getIdx = (arr) => {
+            let total = arr.reduce((acc, cur) => acc + cur);
+            for (let i = 0; i < arr.length - 1; i++) {
+              for (let j = i + 1; j < arr.length; j++) {
+                total -= (arr[i] + arr[j]);
+                if (total === 100) return [i, j];
+                total += (arr[i] + arr[j]);
+              }
+            }
+          }
             function solution(arr){
-
+              let resultIdx = getIdx(arr);
+              let result = [];
+              for (let i = 0; i < arr.length; i++) {
+                if (!resultIdx.includes(i)) result.push(arr[i]);
+              }
+              return result
             }
             
             let arr=[20, 7, 23, 19, 10, 15, 25, 8, 13];
             console.log(solution(arr));
         </script>
     </body>
-</html>
+</html> -->
+
+<!-- section 1 - 9 A를 #으로  -->
+<!-- <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(s){
+              let result = s.replace(/A/g, '#');
+              console.log(result);
+            }
+            
+            let str="BANANA";
+            console.log(solution(str));
+        </script>
+    </body>
+</html> -->
+
+<!-- <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(str){
+              let result = "";
+              for (let s of str) {
+                if (s === 'A') result+='#';
+                else result+=s;
+              }
+              console.log(result);
+            }
+            
+            let str="BANANA";
+            console.log(solution(str));
+        </script>
+    </body>
+</html> -->
+
+<!-- section 1 - 10 문자 찾기  -->
+<!-- <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(str, t){
+              let cnt = 0;
+              for (let s of str) {
+                if (s === t) cnt++;
+              }
+              console.log(cnt);
+            }
+            
+            let str="COMPUTERPROGRAMMING";
+            console.log(solution(str, 'R'));
+        </script>
+    </body>
+</html> -->
+
+<!-- <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(str, t){
+              let result = str.split(t).length - 1;
+              return result;
+            }
+            
+            let str="COMPUTERPROGRAMMING";
+            console.log(solution(str, 'R'));
+        </script>
+    </body>
+</html> -->
+
+<!-- section 1 - 11 대문자 찾기  -->
+<!-- <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(str){
+              let cnt = 0;
+              for (let s of str) {
+                let ascii = s.charCodeAt(0);
+                if (ascii > 64 && ascii < 91) cnt++;
+              }
+              return cnt;
+            }
+
+            let str="KoreaTimeGood";
+            console.log(solution(str));
+        </script>
+    </body>
+</html> -->
+
+<!-- section 1 - 12 대문자로 통일  -->
+<!-- <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(s){
+              // let result = s.toUpperCase();
+              // console.log(result);
+
+              let answer = "";
+              for (let x of s) {
+                let num = x.charCodeAt();
+                // if (num >= 97 && num <= 122) answer+= String.fromCharCode(num-32);
+                // else answer+=x;
+
+                if (x === x.toLowerCase()) answer+= x.toUpperCase();
+                else answer+=x;
+              }
+            }
+
+            let str="ItisTimeToStudy";
+            console.log(solution(str));
+        </script>
+    </body>
+</html> -->
+
+<!-- section 1 - 13 대소문자 변환  -->
+
+<!-- <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(s){  
+              // let answer = "";
+              // for (let x of s) {
+              //   if (x === x.toLowerCase()) answer += x.toUpperCase();
+              //   else answer += x.toLowerCase();
+              // }
+              // console.log(answer);
+              let answer = "";
+              for (let x of s) {
+                if (x === x.toUpperCase()) answer+=x.toLowerCase();
+                else answer+=toUpperCase();
+              }
+              return answer;
+            }
+
+            console.log(solution("StuDY"));
+        </script>
+    </body>
+</html> -->
