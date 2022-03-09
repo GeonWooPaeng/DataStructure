@@ -4715,3 +4715,114 @@
         </script>
     </body>
 </html> -->
+
+<!-- section 1 - 14 가장 긴 문자열 -->
+
+<!-- <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(s){
+              // let maxLen = Number.MIN_SAFE_INTEGER;
+              // let answer;
+              // for (let x of s) {
+              //   if (maxLen < x.length) {
+              //     maxLen = x.length;
+              //     answer = x;
+              //   }
+              // }
+              // return answer;
+              let answer = "", max=Number.MIN_SAFE_INTEGER;
+              for (let x of s) {
+                if (x.length > max) {
+                  max = x.length;
+                  answer = x;
+                }
+              }
+              return answer;
+            }
+            let str=["teacher", "time", "student", "beautiful", "good"];
+            console.log(solution(str));
+        </script>
+    </body>
+</html> -->
+
+<!-- section 1 - 15 가운데 문자 출력  -->
+
+<!-- <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(s){
+              // let n = s.length;
+              // let centerIdx = Math.floor(n / 2);
+              // let answer;
+              // if (n % 2 === 0) answer = s.slice(centerIdx - 1,centerIdx + 1);
+              // else answer = s.slice(centerIdx, centerIdx+1);
+              // console.log(answer);
+              let answer;
+              let mid = Math.floor(s.length / 2);
+              // if (s.length % 2 === 1) answer = s.substring(mid, mid+1);
+              // else answer = s.substring(mid - 1, mid + 1);
+              if (s.length % 2 === 1) answer = s.substr(mid, 1);
+              else answer = s.substr(mid - 1, 2);
+              return answer;
+            }
+            console.log(solution("stduy"));
+        </script>
+    </body>
+</html> -->
+
+<!-- section 1 - 16 중복문자제거  -->
+<!-- <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(s){  
+              // let answer = "";
+              // for (let i = 0; i < s.length; i++) {
+              //   if (s.indexOf(s[i]) === i) answer += s[i];
+              // }
+              // console.log(answer);
+            }
+            console.log(solution("ksekkset"));
+        </script>
+    </body>
+</html> -->
+
+<!-- section 1 - 17 중복단어 제거  -->
+<!-- <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(s){  
+              // let answer = [];
+              // for (let i = 0; i < s.length; i++) {
+              //   if (s.indexOf(s[i]) === i) answer.push(s[i]);
+              // }
+              // console.log(answer);
+              // let answer = new Set(s);
+              // console.log(answer);
+              let answer;
+
+              answer = s.filter((v,idx) => {
+                if (s.indexOf(v) === idx) return v;
+              })
+            }
+            let str=["good", "time", "good", "time", "student"];
+            console.log(solution(str));
+        </script>
+    </body>
+</html> -->
