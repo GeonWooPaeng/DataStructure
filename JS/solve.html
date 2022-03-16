@@ -4913,45 +4913,49 @@
 
 <!-- section 2 - 4 점수계산  -->
 <!-- <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>출력결과</title>
-    </head>
-    <body>
-        <script>
-            function solution(arr){         
-            }
-
-            let arr=[1, 0, 1, 1, 1, 0, 0, 1, 1, 0];
-            console.log(solution(arr));
-        </script>
-    </body>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(arr) {
+        // let answer = 0;
+        // let score = 0;
+        // for (let a of arr) {
+        //   if (a === 1) {
+        //     score++;
+        //   } else score = 0;
+        //   answer += score;
+        // }
+        let answer = 0,
+          cnt = 0;
+        for (let x of arr) {
+          if (x === 1) {
+            cnt++;
+            answer += cnt;
+          } else cnt = 0;
+        }
+        return answer;
+      }
+      let arr = [1, 0, 1, 1, 1, 0, 0, 1, 1, 1];
+      console.log(solution(arr));
+    </script>
+  </body>
 </html> -->
 
+<!-- section 2-5 등수 구하기  -->
 <html>
   <head>
     <meta charset="UTF-8" />
-    <script>
-      let req = XMLHttpRequest();
-      req.onreadystatechange = function a() {
-        console.log(this.readyState, this.status);
-        if (this.readyState == 4) {
-          console.log(this.response);
-          var data = JSON.stringify(this.response);
-          for (var i in data) {
-            var t = document.getElementById("template").cloneNode(true);
-            t.removeAttribute("id");
-            t.children[0].innerText = data[i].id;
-            t.children[1].innerText = data[i].msg;
-            document.body.appendChild(t);
-          }
-        }
-      };
-      req.open("GET", "./data.txt");
-      req.send();
-    </script>
+    <title>출력결과</title>
   </head>
   <body>
-    AJAX
+    <script>
+      function solution(arr) {}
+
+      let arr = [87, 89, 92, 100, 76];
+      console.log(solution(arr));
+    </script>
   </body>
 </html>
