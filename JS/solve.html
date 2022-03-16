@@ -4912,7 +4912,7 @@
 </html> -->
 
 <!-- section 2 - 4 점수계산  -->
-<html>
+<!-- <html>
     <head>
         <meta charset="UTF-8">
         <title>출력결과</title>
@@ -4926,4 +4926,32 @@
             console.log(solution(arr));
         </script>
     </body>
+</html> -->
+
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <script>
+      let req = XMLHttpRequest();
+      req.onreadystatechange = function a() {
+        console.log(this.readyState, this.status);
+        if (this.readyState == 4) {
+          console.log(this.response);
+          var data = JSON.stringify(this.response);
+          for (var i in data) {
+            var t = document.getElementById("template").cloneNode(true);
+            t.removeAttribute("id");
+            t.children[0].innerText = data[i].id;
+            t.children[1].innerText = data[i].msg;
+            document.body.appendChild(t);
+          }
+        }
+      };
+      req.open("GET", "./data.txt");
+      req.send();
+    </script>
+  </head>
+  <body>
+    AJAX
+  </body>
 </html>
