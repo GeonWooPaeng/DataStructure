@@ -4945,6 +4945,40 @@
 </html> -->
 
 <!-- section 2-5 등수 구하기  -->
+<!-- <html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(arr) {
+        // let grades = Array.from({ length: arr.length }, () => 0);
+        // for (let i = 0; i < arr.length; i++) {
+        //   let grade = 1;
+        //   for (let j = 0; j < arr.length; j++) {
+        //     if (arr[i] < arr[j]) grade += 1;
+        //   }
+        //   grades[i] = grade;
+        // }
+        // console.log(grades);
+        let n = arr.length;
+        let answer = Array.from({ length: n }, () => 1);
+        for (let i = 0; i < n; i++) {
+          for (let j = 0; j < n; j++) {
+            if (arr[j] > arr[i]) answer[i]++;
+          }
+        }
+        return answer;
+      }
+
+      let arr = [87, 89, 100, 100, 76];
+      console.log(solution(arr));
+    </script>
+  </body>
+</html> -->
+
+<!-- section 2-6 격자판 최대합  -->
 <html>
   <head>
     <meta charset="UTF-8" />
@@ -4952,10 +4986,59 @@
   </head>
   <body>
     <script>
-      function solution(arr) {}
+      function solution(arr) {
+        let n = arr.length;
+        let answer = 0;
+        for (let i = 0; i < n; i++) {
+          //col sum
+          let colSum = 0;
+          let rowSum = 0;
+          for (let j = 0; j < n; j++) {
+            colSum += arr[i][j];
+            rowSum += arr[j][i];
+          }
 
-      let arr = [87, 89, 92, 100, 76];
+          answer = Math.max(answer, colSum, rowSum);
+        }
+        let leftCross = 0;
+        let rightCross = 0;
+        for (let i = 0; i < n; i++) {
+          leftCross += arr[i][i];
+          rightCross += arr[i][n - 1 - i];
+        }
+        answer = Math.max(answer, leftCross, rightCross);
+      }
+
+      let arr = [
+        [10, 13, 10, 12, 15],
+        [12, 39, 30, 23, 11],
+        [11, 25, 50, 53, 15],
+        [19, 27, 29, 37, 27],
+        [19, 13, 30, 13, 19],
+      ];
       console.log(solution(arr));
     </script>
   </body>
 </html>
+
+<!-- section 2-7 봉우리  -->
+<!-- <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(arr){  
+
+            }
+
+            let arr=[[5, 3, 7, 2, 3], 
+                     [3, 7, 1, 6, 1],
+                     [7, 2, 5, 3, 4],
+                     [4, 3, 6, 4, 1],
+                     [8, 7, 3, 5, 2]];
+            console.log(solution(arr));
+        </script>
+    </body>
+</html> -->
