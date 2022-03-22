@@ -5098,6 +5098,9 @@
   </body>
 </html> -->
 
+<!-- 기본 과제 -->
+<!-- 개미수열 -->
+
 <html>
   <head>
     <meta charset="UTF-8" />
@@ -5105,7 +5108,33 @@
   </head>
   <body>
     <script>
-      ddd;
+      // const row = "AAAAAAADDDFCCCC";
+      // const regExp = /(.)\1*/g;
+
+      // const result = row.match(regExp);
+      // // .reduce((a, b) => a + `${b.length}${b.slice(0, 1)}`, "");
+
+      // console.log(result);
+
+      const changeAnt = (val) => {
+        const regExp = /(.)\1*/g;
+
+        let result = val
+          .match(regExp)
+          .reduce((a, b) => a + `${b.length}${b.slice(0, 1)}`, "");
+        return result;
+      };
+
+      const antSeq = (val, cnt) => {
+        if (cnt - 1 == 0) {
+          console.log(val);
+          return;
+        } else {
+          antSeq(changeAnt(val), cnt - 1);
+        }
+      };
+
+      antSeq("1", 5);
     </script>
   </body>
 </html>
