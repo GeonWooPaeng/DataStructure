@@ -5100,7 +5100,7 @@
 
 <!-- 기본 과제 -->
 <!-- 개미수열 -->
-
+<!-- 
 <html>
   <head>
     <meta charset="UTF-8" />
@@ -5116,25 +5116,170 @@
 
       // console.log(result);
 
-      const changeAnt = (val) => {
-        const regExp = /(.)\1*/g;
+      // const changeAnt = (val) => {
+      //   const regExp = /(.)\1*/g;
 
-        let result = val
-          .match(regExp)
-          .reduce((a, b) => a + `${b.length}${b.slice(0, 1)}`, "");
-        return result;
-      };
+      //   let result = val
+      //     .match(regExp)
+      //     .reduce((a, b) => a + `${b.length}${b.slice(0, 1)}`, "");
+      //   return result;
+      // };
 
-      const antSeq = (val, cnt) => {
-        if (cnt - 1 == 0) {
-          console.log(val);
-          return;
-        } else {
-          antSeq(changeAnt(val), cnt - 1);
-        }
-      };
+      // const antSeq = (val, cnt) => {
+      //   if (cnt - 1 == 0) {
+      //     console.log(val);
+      //     return;
+      //   } else {
+      //     antSeq(changeAnt(val), cnt - 1);
+      //   }
+      // };
 
-      antSeq("1", 5);
+      // antSeq("1", 5);
+      console.log('heloo');
     </script>
   </body>
-</html>
+</html> -->
+
+<!-- secion 10 - 1 -->
+<!-- 계단 오르기 -->
+<!-- <html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(n) {
+        // const result = [];
+        // result[0] = 0;
+        // result[1] = 1;
+        // result[2] = 2;
+        // for (let i = 3; i < n + 1; i++) {
+        //   result[i] = result[i - 1] + result[i - 2];
+        // }
+        // console.log(result[n]);
+        // -------
+
+        let answer = 0;
+        let dy = Array.from({ length: n + 1 }, () => 0);
+        dy[1] = 1;
+        dy[2] = 2;
+        for (let i = 3; i <= n; i++) {
+          dy[i] = dy[i - 2] + dy[i - 1];
+        }
+        answer = dy[n];
+        return answer;
+      }
+
+      console.log(solution(7));
+    </script>
+  </body>
+</html> -->
+
+<!-- 2. 돌다 건너기 -->
+<!-- <html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(n) {
+        let dy = Array.from({ length: n + 2 }, () => 0);
+        dy[1] = 1;
+        dy[2] = 2;
+        for (let i = 3; i < n + 2; i++) {
+          dy[i] = dy[i - 2] + dy[i - 1];
+        }
+        console.log(dy[n + 1]);
+      }
+
+      console.log(solution(7));
+    </script>
+  </body>
+</html> -->
+
+<!-- 3. 최대부분증가수열  -->
+<!-- <html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(arr) {
+        const dy = Array.from({ length: arr.length + 1 }, () => 0);
+        dy[0] = 1;
+        for (let i = 1; i < arr.length; i++) {
+          let max = dy[i];
+          for (let j = i - 1; j > -1; j--) {
+            if (arr[i] > arr[j] && dy[j] > max) {
+              max = dy[j];
+            }
+          }
+          dy[i] = max + 1;
+        }
+        return Math.max(...dy);
+      }
+
+      let arr = [5, 3, 7, 8, 6, 2, 9, 4];
+      console.log(solution(arr));
+    </script>
+  </body>
+</html> -->
+
+<!-- 4. 동전교환  -->
+<!-- <html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(m, coin) {
+        const dy = Array.from({ length: m + 1 }, () => 1000);
+        dy[0] = 0;
+        for (c of coin) {
+          for (let i = c; i < m + 1; i++) {
+            dy[i] = Math.min(dy[i], dy[i - c] + 1);
+          }
+        }
+        console.log(dy[m]);
+      }
+
+      let arr = [1, 2, 4, 7];
+      console.log(solution(30, arr));
+    </script>
+  </body>
+</html> -->
+
+<!-- 5. 최대 점수 구하기  -->
+<!-- <html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(m, arr) {
+        const dp = Array.from({ length: m + 1 }, () => 0);
+
+        for (a of arr) {
+          for (let i = m; i > a[1] - 1; i--) {
+            dp[i] = Math.max(dp[i], dp[i - a[1]] + a[0]);
+          }
+          console.log(dp);
+        }
+      }
+
+      let arr = [
+        [10, 5],
+        [25, 12],
+        [15, 8],
+        [6, 3],
+        [7, 4],
+      ];
+      console.log(solution(20, arr));
+    </script>
+  </body>
+</html> -->
