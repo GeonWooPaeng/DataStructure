@@ -5283,3 +5283,222 @@
     </script>
   </body>
 </html> -->
+
+<!-- section 9 -->
+<!-- 1. 경로탐색  -->
+<!-- <html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(n, arr) {
+        const graph = Array.from(Array(n), () => new Set());
+        const graph2 = Array.from(Array(n), () => Array(n).fill(0));
+        const ch = Array.from({ length: n + 1 }, () => 0);
+        let count = 0;
+        const path = [1];
+
+        for ([a, b] of arr) {
+          graph[a].add(b);
+          graph2[a][b] =1;
+        }
+        console.log(graph);
+        const DFS = (v) => {
+          console.log(v, ch);
+          if (v === n) {
+            count += 1;
+            console.log(path);
+            return;
+          } else {
+            for (let i of graph[v]) {
+              if (ch[i] === 0) {
+                ch[i] = 1;
+                path.push(i);
+                console.log('start .>>>>', i);
+                DFS(i);
+                console.log('end .>>>>', i);
+                ch[i] = 0;
+                path.pop();
+              }
+            }
+          }
+        };
+
+        ch[1] = 1;
+        DFS(1);
+        console.log(count)
+      }
+
+      let arr = [
+        [1, 2],
+        [1, 3],
+        [1, 4],
+        [2, 1],
+        [2, 3],
+        [2, 5],
+        [3, 4],
+        [4, 2],
+        [4, 5],
+      ];
+      console.log(solution(5, arr));
+    </script>
+  </body>
+</html> -->
+
+<!-- 2. 경로 탐색  -->
+<!-- <html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(n, arr) {
+        const graph = Array.from(Array(n), () => new Set());
+        const ch = Array.from({ length: n + 1 }, () => 0);
+        const path = [1];
+        let count = 0;
+
+        for (const [a, b] of arr) {
+          graph[a].add(b);
+        }
+
+        const DFS = (v) => {
+          if (v === n) {
+            count += 1;
+            console.log(path);
+          } else {
+            for (const i of graph[v]) {
+              if (ch[i] == 0) {
+                ch[i] = 1;
+                path.push(i);
+                DFS(i);
+                ch[i] = 0;
+                path.pop();
+              }
+            }
+          }
+        };
+
+        ch[1] = 1;
+        DFS(1);
+      }
+
+      let arr = [
+        [1, 2],
+        [1, 3],
+        [1, 4],
+        [2, 1],
+        [2, 3],
+        [2, 5],
+        [3, 4],
+        [4, 2],
+        [4, 5],
+      ];
+      console.log(solution(5, arr));
+    </script>
+  </body>
+</html> -->
+
+<!-- 3. 미로탐색  -->
+<!-- <html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      const dirs = [
+        [-1, 0],
+        [0, 1],
+        [1, 0],
+        [0, -1],
+      ];
+      function solution(board) {
+        // let count = 0;
+
+        // const DFS = (vx, vy) => {
+        //   if (vx === 6 && vy === 6) {
+        //     count += 1;
+        //     console.log(board);
+        //   } else {
+        //     for (const dir of dirs) {
+        //       const nx = vx + dir[0];
+        //       const ny = vy + dir[1];
+
+        //       if (nx < 0 || nx > 6 || ny < 0 || ny > 6) continue;
+        //       if (board[nx][ny] === 0) {
+        //         board[nx][ny] = 2;
+        //         path.push([nx, ny]);
+        //         DFS(nx, ny);
+        //         board[nx][ny] = 0;
+        //         path.pop();
+        //       }
+        //     }
+        //   }
+        // };
+        // board[0][0] = 1;
+        // DFS(0, 0);
+        // console.log(count);
+
+        // -----
+
+        let answer = 0;
+        let dx = [-1, 0, 1, 0];
+        let dy = [0, 1, 0, -1];
+        const DFS = (x, y) => {
+          if (x === 6 && y === 6) answer++;
+          else {
+            for (let k = 0; k < 4; k++) {
+              let nx = x + dx[k];
+              let ny = y + dy[k];
+              if (
+                nx >= 0 &&
+                nx <= 6 &&
+                ny >= 0 &&
+                ny <= 6 &&
+                board[nx][ny] === 0
+              ) {
+                board[nx][ny] = 1;
+                DFS(nx, ny);
+                board[nx][ny] = 0;
+              }
+            }
+          }
+        };
+        board[0][0] = 1;
+        DFS(0, 0);
+        return answer;
+      }
+
+      let arr = [
+        [0, 0, 0, 0, 0, 0, 0],
+        [0, 1, 1, 1, 1, 1, 0],
+        [0, 0, 0, 1, 0, 0, 0],
+        [1, 1, 0, 1, 0, 1, 1],
+        [1, 1, 0, 0, 0, 0, 1],
+        [1, 1, 0, 1, 1, 0, 0],
+        [1, 0, 0, 0, 0, 0, 0],
+      ];
+
+      console.log(solution(arr));
+    </script>
+  </body>
+</html> -->
+
+<!-- 4. 이진트리 넓이 우선탐색  -->
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution() {}
+
+      console.log(solution());
+    </script>
+  </body>
+</html>
