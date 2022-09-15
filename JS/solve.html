@@ -5489,16 +5489,249 @@
 </html> -->
 
 <!-- 4. 이진트리 넓이 우선탐색  -->
-<html>
+<!-- <html>
   <head>
     <meta charset="UTF-8" />
     <title>출력결과</title>
   </head>
   <body>
     <script>
-      function solution() {}
+      function solution() {
+        let answer = '';
+        const queue = [1];
+
+        while (queue.length) {
+          const value = queue.shift();
+          console.log(value);
+          answer += value + ' ';
+
+          for (let nv of [value * 2, value * 2 + 1]) {
+            if (nv > 7) continue;
+            queue.push(nv);
+          }
+        }
+      }
 
       console.log(solution());
     </script>
   </body>
-</html>
+</html> -->
+
+<!-- 5. 송아지 찾기  -->
+<!-- <html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(s, e) {
+        const queue = [s];
+        const ch = Array.from({ length: 10001 }, () => 0);
+        const dist = Array.from({ length: 10001 }, () => 0);
+        ch[s] = 1;
+
+        while (queue.length) {
+          const value = queue.shift();
+          for (const nv of [value + 1, value - 1, value + 5]) {
+            if (nv === e) return dist[value] + 1;
+            if (ch[nv] === 0) {
+              ch[nv] = 1;
+              dist[nv] = dist[value] + 1;
+              queue.push(nv);
+            }
+          }
+        }
+      }
+
+      console.log('result', solution(5, 14));
+    </script>
+  </body>
+</html> -->
+
+<!-- 6, 섬나라 아일랜드(BFS)  -->
+<!-- <html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      // const dist = [
+      //   [0, 1],
+      //   [1, 1],
+      //   [1, 0],
+      //   [1, -1],
+      //   [0, -1],
+      //   [-1, -1],
+      //   [-1, 0],
+      //   [-1, 1],
+      // ];
+
+      function solution(arr) {
+        //   let cnt = 0;
+        //   const BFS = (i, j) => {
+        //     const queue = [[i, j]];
+        //     console.log(i, j);
+        //     while (queue.length) {
+        //       const [vx, vy] = queue.shift();
+        //       for (const [dx, dy] of dist) {
+        //         const nx = vx + dx;
+        //         const ny = vy + dy;
+        //         if (
+        //           nx < 0 ||
+        //           nx > arr.length - 1 ||
+        //           ny < 0 ||
+        //           ny > arr.length - 1
+        //         )
+        //           continue;
+        //         if (arr[nx][ny] === 1) {
+        //           arr[nx][ny] = 0;
+        //           queue.push([nx, ny]);
+        //         }
+        //       }
+        //     }
+        //   };
+        //   for (let i = 0; i < arr.length; i++) {
+        //     for (let j = 0; j < arr.length; j++) {
+        //       if (arr[i][j] === 1) {
+        //         arr[i][j] = 1;
+        //         cnt += 1;
+        //         BFS(i, j);
+        //       }
+        //     }
+        //   }
+        //   console.log(cnt);
+
+        // -----------------
+
+        let answer = 0;
+        let n = board.length;
+        let dx = [-1, -1, 0, 1, 1, 1, 0, -1];
+        let dy = [0, 1, 1, 1, 0, -1, -1, -1];
+        let queue = [];
+        for (let i = 0; i < n; i++) {
+          for (let j = 0; j < n; j++) {
+            if (board[i][j] === 1) {
+              board[i][j] = 0;
+              queue.push([i, j]);
+              answer++;
+              while (queue.length) {
+                let x = queue.shift();
+                for (let k = 0; k < 8; k++) {
+                  let nx = x[0] + dx[k];
+                  let ny = x[1] + dy[k];
+                  if (nx >= 0 && nx < n && ny < n && board[nx][ny] === 1) {
+                    board[nx][ny] = 0;
+                    queue.push([nx, ny]);
+                  }
+                }
+              }
+            }
+          }
+        }
+        return answer;
+      }
+
+      let arr = [
+        [1, 1, 0, 0, 0, 1, 0],
+        [0, 1, 1, 0, 1, 1, 0],
+        [0, 1, 0, 0, 0, 0, 0],
+        [0, 0, 0, 1, 0, 1, 1],
+        [1, 1, 0, 1, 1, 0, 0],
+        [1, 0, 0, 0, 1, 0, 0],
+        [1, 0, 1, 0, 1, 0, 0],
+      ];
+
+      console.log(solution(arr));
+    </script>
+  </body>
+</html> -->
+
+<!-- 7, 섬나라 아일랜드(DFS)  -->
+<!-- <html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      // const dist = [
+      //   [0, 1],
+      //   [1, 1],
+      //   [1, 0],
+      //   [1, -1],
+      //   [0, -1],
+      //   [-1, -1],
+      //   [-1, 0],
+      //   [-1, 1],
+      // ];
+      function solution(board) {
+        // const n = board.length;
+        // let cnt = 0;
+
+        // const DFS = (vx, vy) => {
+        //   for (const [dx, dy] of dist) {
+        //     const nx = dx + vx;
+        //     const ny = dy + vy;
+        //     if (nx < 0 || nx > n - 1 || ny < 0 || ny > n-1) continue;
+        //     if (board[nx][ny] === 1) {
+        //       board[nx][ny] = 0;
+        //       DFS(nx, ny)
+        //     }
+        //   }
+        // };
+        // for (let i = 0; i < n; i++) {
+        //   for (let j = 0; j < n; j++) {
+        //     if (board[i][j] === 1) {
+        //       board[i][j] = 0;
+        //       DFS(i, j);
+        //       cnt += 1;
+        //     }
+        //   }
+        // }
+        // console.log(cnt)
+
+        //-------------
+
+        let answer = 0;
+        let n = board.length;
+        let dx = [-1, -1, 0, 1, 1, 1, 0, -1];
+        let dy = [0, 1, 1, 1, 0, -1, -1, -1];
+
+        const DFS = (x, y) => {
+          board[x][y] = 0;
+          for (let k = 0; k < 8; k++) {
+            let nx = x + dx[k];
+            let ny = y + dy[k];
+            if (nx >= 0 && ny < n && ny >= 0 && ny < n && board[nx][ny] === 1) {
+              DFS(nx, ny);
+            }
+          }
+        }
+        for (let i = 0; i < n; i++) {
+          for (let j = 0; j< n; j++) {
+            if (board[i][j] === 1) {
+              board[i][j] = 0;
+              answer++;
+              DFS(i, j);
+            }
+          }
+        }
+        return answer;
+      }
+
+      let arr = [
+        [1, 1, 0, 0, 0, 1, 0],
+        [0, 1, 1, 0, 1, 1, 0],
+        [0, 1, 0, 0, 0, 0, 0],
+        [0, 0, 0, 1, 0, 1, 1],
+        [1, 1, 0, 1, 1, 0, 0],
+        [1, 0, 0, 0, 1, 0, 0],
+        [1, 0, 1, 0, 1, 0, 0],
+      ];
+
+      console.log(solution(arr));
+    </script>
+  </body>
+</html -->
