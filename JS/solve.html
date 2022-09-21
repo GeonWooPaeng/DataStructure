@@ -5735,3 +5735,93 @@
     </script>
   </body>
 </html -->
+
+<!-- section 8 - 1  -->
+<!-- 재귀 함수  -->
+<!-- 
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(n) {
+        // const DFS = (v) => {
+        //   if (v == n + 1) return;
+        //   else {
+        //     console.log(v);
+        //     DFS(v + 1);
+        //   }
+        // };
+        // DFS(1);
+
+        //-------
+
+        const DFS = (v) => {
+          if (v === 0) return;
+          else {
+            DFS(v - 1);
+            console.log(v);
+          }
+        };
+        DFS(n);
+      }
+
+      solution(3);
+    </script>
+  </body>
+</html> -->
+
+<!-- section 8 - 2 -->
+<!-- 이진수 출력(재귀)  -->
+<!-- <html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(n) {
+        let answer = '';
+        const DFS = (v) => {
+          if (v === 0) return;
+          else {
+            DFS(parseInt(v / 2));
+            answer += v % 2;
+          }
+        };
+        DFS(n);
+        console.log(answer);
+      }
+
+      console.log(solution(12));
+    </script>
+  </body>
+</html> -->
+
+<!-- section 8 - 3  -->
+<!-- 이진트리 순회 -->
+<!-- <html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(n) {
+        const DFS = (v) => {
+          if (v > 7) return;
+          else {
+            DFS(parseInt(v * 2));
+            DFS(parseInt(v * 2 + 1));
+            console.log(v);
+          }
+        };
+        DFS(n);
+      }
+
+      console.log(solution(1));
+    </script>
+  </body>
+</html> -->
