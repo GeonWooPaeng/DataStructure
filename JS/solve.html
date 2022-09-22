@@ -5825,3 +5825,143 @@
     </script>
   </body>
 </html> -->
+
+<!-- section 8 - 4  -->
+<!-- 부분 집합 구하기  -->
+<!-- 
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(n) {
+        let answer = [];
+        const ch = Array.from({ length: n + 1 }, () => 0);
+
+        const DFS = (v) => {
+          if (v === n + 1) {
+            console.log(ch);
+            let tmp = '';
+            for (let i = 0; i < n + 1; i++) {
+              if (ch[i] === 1) tmp += `${i}`;
+            }
+            if (tmp) answer.push(tmp);
+          } else {
+            ch[v] = 1;
+            DFS(v + 1);
+            ch[v] = 0;
+            DFS(v + 1);
+          }
+        };
+        DFS(1);
+        console.log(answer);
+      }
+
+      console.log(solution(4));
+    </script>
+  </body>
+</html> -->
+
+<!-- section 8 - 5  -->
+<!-- 합이 같은 부분집합  -->
+<!-- <html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(arr) {
+        // const total = arr.reduce((acc, val) => (acc += val), 0);
+        // let answer = 'NO';
+        // let flag = 0;
+
+        // const DFS = (idx, sum) => {
+        //   if (idx === arr.length + 1) {
+        //     if (flag) return;
+        //     if (total - sum === sum) {
+        //       answer = 'YES';
+        //       flag = 1;
+        //     }
+        //   } else {
+        //     DFS(idx + 1, sum + arr[idx]);
+        //     DFS(idx + 1, sum);
+        //   }
+        // };
+        // DFS(0, 0);
+        // console.log(answer);
+
+        //-------------
+
+        let answer = 'NO',
+          flag = 0;
+        let total = arr.reduce((a, b) => a + b, 0);
+        let n = arr.length;
+        function DFS(L, sum) {
+          if (flag) return;
+          if (L === n) {
+            if (total - sum === sum) {
+              answer = 'YES';
+              flag = 1;
+            }
+          } else {
+            DFS(L + 1, sum + arr[L]);
+            DFS(L + 1, sum);
+          }
+        }
+        DFS(0, 0);
+      }
+
+      let arr = [1, 2, 9];
+      console.log(solution(arr));
+    </script>
+  </body>
+</html> -->
+
+<!-- section 8 - 6  -->
+<!-- 바둑이 승차  -->
+<!-- <html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(c, arr) {
+        // let answer = 0;
+        // const DFS = (idx, sum) => {
+        //   if (idx === arr.length) {
+        //     if (sum > c) return;
+        //     answer = answer < sum ? sum : answer;
+        //   } else {
+        //     DFS(idx + 1, sum + arr[idx]);
+        //     DFS(idx + 1, sum);
+        //   }
+        // };
+        // DFS(0, 0);
+        // console.log(answer);
+
+        //---------
+
+        let answer = Number.MIN_SAFE_INTEGER;
+        let n = arr.length;
+        function DFS(L, sum) {
+          if (sum > c) return;
+          if (L === n) {
+            answer = Math.max(answer, sum);
+          } else {
+            DFS(L + 1, sum + arr[L]);
+            DFS(L + 1, sum);
+          }
+        }
+        DFS(0, 0);
+        return answer;
+      }
+
+      let arr = [81, 58, 42, 33, 61];
+      console.log(solution(259, arr));
+    </script>
+  </body>
+</html> -->
