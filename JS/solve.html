@@ -5965,3 +5965,97 @@
     </script>
   </body>
 </html> -->
+
+<!-- section 8 - 7  -->
+<!-- 최대 점수 구하기  -->
+<!-- <html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(m, ps, pt) {
+        // let answer = Number.MIN_SAFE_INTEGER;
+
+        // const DFS = (idx, sum, time) => {
+        //   if (time > m) return;
+        //   if (idx === ps.length) {
+        //     answer = Math.max(answer, sum);
+        //   } else {
+        //     DFS(idx + 1, sum + ps[idx], time + pt[idx]);
+        //     DFS(idx + 1, sum, time);
+        //   }
+        // };
+        // DFS(0, 0, 0);
+        // console.log(answer);
+
+        //-------------
+
+        let answer = Number.MIN_SAFE_INTEGER;
+        let n = ps.length;
+        function DFS(L, sum, time) {
+          if (time > m) return;
+          if (L === n) {
+            answer = Math.max(answer, sum);
+          } else {
+            DFS(L + 1, sum + ps[L], time + pt[L]);
+            DFS(L + 1, sum, time);
+          }
+        }
+      }
+
+      let ps = [10, 25, 15, 6, 7, 2];
+      let pt = [5, 12, 8, 3, 4, 1];
+      console.log(solution(20, ps, pt));
+    </script>
+  </body>
+</html> -->
+
+<!-- section 8 - 8  -->
+<!-- 중복순열  -->
+<!-- <html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(n, m) {
+        // const value = Array.from({ length: m }, () => 0);
+
+        // const DFS = (idx) => {
+        //   if (idx === m) {
+        //     console.log(value);
+        //   } else {
+        //     for (let i = 1; i < n + 1; i++) {
+        //       value[idx] = i;
+        //       DFS(idx + 1);
+        //     }
+        //   }
+        // };
+        // DFS(0);
+
+        //--------
+
+        let answer = [];
+        let tmp = Array.from({length: m}, () => 0);
+
+        function DFS(L) {
+          if (L === m) {
+            answer.push(tmp.slice());
+          } else {
+            for (let i = 1; i <= n; i++) {
+              tmp[L] = i;
+              DFS(L + 1);
+            }
+          }
+        }
+        DFS(0);
+        return answer;
+      }
+
+      console.log(solution(3, 2));
+    </script>
+  </body>
+</html> -->
