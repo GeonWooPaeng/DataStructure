@@ -6059,3 +6059,94 @@
     </script>
   </body>
 </html> -->
+
+<!-- section 8 - 9  -->
+<!-- 동전교환  -->
+<!-- <html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(m, arr) {
+        let answer = Number.MAX_SAFE_INTEGER;
+
+        const DFS = (cnt, sum) => {
+          if (sum > m) return;
+          if (cnt >= answer) return;
+          if (sum === m) {
+            answer = Math.min(answer, cnt);
+          } else {
+            for (let i = 0; i < arr.length; i++) {
+              DFS(cnt + 1, sum + arr[i]);
+            }
+          }
+        };
+        DFS(0, 0);
+        console.log(answer);
+      }
+
+      let arr = [1, 2, 5];
+      console.log(solution(15, arr));
+    </script>
+  </body>
+</html> -->
+
+<!-- section 8 - 10  -->
+<!-- 순열 구하기  -->
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(m, arr) {
+        // const value = Array.from({ length: m }, () => 0);
+        // const ch = Array.from({ length: arr.length }, () => 0);
+
+        // const DFS = (idx) => {
+        //   if (idx === m) {
+        //     console.log(value);
+        //   } else {
+        //     for (let i = 0; i < arr.length; i++) {
+        //       if (ch[i] === 0) {
+        //         ch[i] = 1;
+        //         value[idx] = arr[i];
+        //         DFS(idx + 1);
+        //         ch[i] = 0;
+        //       }
+        //     }
+        //   }
+        // };
+        // DFS(0);
+
+        //--------------
+        let answer = [];
+        n = arr.length;
+        let ch = Array.from({length:n}, () => 0);
+        let tmp = [];
+        function DFS(L) {
+          if (L === m) {
+            answer.push(tmp.slice());
+          } else {
+            for (let i = 0; i < n; i++) {
+              if (ch[i] === 0) {
+                ch[i] = 1;
+                tmp.push(arr[i]);
+                DFS(L + 1);
+                ch[i] = 0;
+                tmp.pop();
+              }
+            }
+          }
+        }
+        DFS(0);
+      }
+
+      let arr = [3, 6, 9];
+      console.log(solution(2, arr));
+    </script>
+  </body>
+</html>
