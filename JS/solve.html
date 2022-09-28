@@ -6095,7 +6095,7 @@
 
 <!-- section 8 - 10  -->
 <!-- 순열 구하기  -->
-<html>
+<!-- <html>
   <head>
     <meta charset="UTF-8" />
     <title>출력결과</title>
@@ -6149,4 +6149,59 @@
       console.log(solution(2, arr));
     </script>
   </body>
-</html>
+</html> -->
+
+<!-- section 8 - 11  -->
+<!-- 팩토리얼  -->
+<!-- <html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(n) {
+        let answer;
+        const DFS = (v) => {
+          console.log(v);
+          if (v === 1) {
+            return 1;
+          } else {
+            return v * DFS(v - 1);
+          }
+        };
+        answer = DFS(n);
+        console.log(answer);
+      }
+
+      console.log(solution(5));
+    </script>
+  </body>
+</html> -->
+
+<!-- section 8 - 12  -->
+<!-- 조합의 경우수  -->
+<!-- <html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(n, r) {
+        let answer;
+        let dy = Array.from(Array(35), () => Array(35).fill(0));
+
+        function DFS(n, r) {
+          if (dy[n][r] > 0) return dy[n][r];
+          if (n === r || r === 0) return 1;
+          else return (dy[n][r] = DFS(n - 1, r - 1) + DFS(n - 1, r));
+        }
+        answer = DFS(n, r);
+        console.log(answer);
+      }
+
+      console.log(solution(5, 3));
+    </script>
+  </body>
+</html> -->
