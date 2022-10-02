@@ -6289,3 +6289,77 @@
     </script>
   </body>
 </html> -->
+
+<!-- section 8 - 14  -->
+<!-- 조합 구하기 -->
+<!-- <html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(n, m) {
+        const combi = Array.from({ length: m }, () => 0);
+
+        const DFS = (idx, v) => {
+          if (idx === m) {
+            console.log(combi);
+          } else {
+            for (let i = v + 1; i < n + 1; i++) {
+              combi[idx] = i;
+              DFS(idx + 1, i);
+            }
+          }
+        };
+        DFS(0, 0);
+        
+        let answer = [];
+        let tmp = Array.from({length: m}, () => 0);
+        function DFS(L, s) {
+          if (L === m) {
+            answer.push(tmp.slice());
+          } else {
+            for (let i = s; i <= n; i++) {
+              tmp[L] = i;
+              DFS(L + 1, i+1);
+            }
+          }
+        }
+        DFS(0, 1);
+      }
+
+      console.log(solution(5, 2));
+    </script>
+  </body>
+</html> -->
+
+<!-- section 8 - 15  -->
+<!-- 수들의 조합  -->
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(n, k, arr, m) {
+        const ch = Array.from({ length: n }, () => 0);
+
+        const DFS = (idx, s, sum) => {
+          if (idx === k) {
+            if (sum % m === 0) console.log(sum);
+          } else {
+            for (let i = s; i < n; i++) {
+              DFS(idx + 1, i + 1, sum + arr[i]);
+            }
+          }
+        };
+        DFS(0, 0, 0);
+      }
+
+      let arr = [2, 4, 5, 8, 12];
+      console.log(solution(5, 3, arr, 6));
+    </script>
+  </body>
+</html>
