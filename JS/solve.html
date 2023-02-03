@@ -6343,24 +6343,76 @@
   </head>
   <body>
     <script>
-      function solution(n, k, arr, m) {
-        const ch = Array.from({ length: n }, () => 0);
-
-        const DFS = (idx, s, sum) => {
-          if (idx === k) {
-            if (sum % m === 0) console.log(sum);
-          } else {
-            for (let i = s; i < n; i++) {
-              DFS(idx + 1, i + 1, sum + arr[i]);
-            }
-          }
-        };
-        DFS(0, 0, 0);
+      function solution(seconds) {
+        var delay = 0;
+        while (seconds >= 0) {
+          (function () {
+            var time = seconds;
+            setTimeout(function () {
+              console.log(time);
+            }, delay * 1000);
+            delay++;
+          })();
+          seconds--;
+        }
       }
 
       let arr = [2, 4, 5, 8, 12];
-      console.log(solution(5, 3, arr, 6));
+      console.log(solution(3));
     </script>
   </body>
 </html> -->
+<!-- <html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(m, arr) {
+        let answer = 0;
+        let dy = Array.from({ length: m + 1 }, () => 0);
+        for (let i = 0; i < arr.length; i++) {
+          let px = arr[i][0];
+          let pt = arr[i][1];
+          for (let j = m; j >= pt; j--) {
+            dy[j] = Math.max(dy[j], dy[j - pt] + px);
+          }
+          console.log(dy);
+        }
+      }
 
+      let arr = [
+        [10, 5],
+        [25, 12],
+        [15, 8],
+        [6, 3],
+        [7, 4],
+      ];
+      console.log(solution(20, arr));
+    </script>
+  </body>
+</html> -->
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(m, arr) {
+        let answer = 0;
+        let dy = Array.from({ length: m + 1 }, () => 1000);
+        dy[0] = 0;
+        for (let i = 1; i < arr.length; i++) {
+          for (let j = coin[i]; j <= m; j++) {
+            dy[j] = Math.min(dy[j], dy[j - coin[i]] + 1);
+          }
+        }
+      }
+
+      let arr = [1, 2, 5];
+      console.log(solution(15, arr));
+    </script>
+  </body>
+</html>
