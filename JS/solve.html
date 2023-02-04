@@ -6393,7 +6393,7 @@
     </script>
   </body>
 </html> -->
-<html>
+<!-- <html>
   <head>
     <meta charset="UTF-8" />
     <title>출력결과</title>
@@ -6415,4 +6415,114 @@
       console.log(solution(15, arr));
     </script>
   </body>
-</html>
+</html> -->
+<!-- <html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      const mx = [-1, -1, 0, 1, 1, 1, 0, -1];
+      const my = [0, 1, 1, 1, 0, -1, -1, -1];
+
+      function solution(board) {
+        // const row = board.length;
+        // const col = board[0].length;
+        // let answer = 0;
+        // const DFS = (sx, sy) => {
+        //   for (let i = 0; i < 8; i++) {
+        //     const nx = sx + mx[i];
+        //     const ny = sy + my[i];
+        //     if (nx > row - 1 || ny > col - 1 || nx < 0 || ny < 0) continue;
+        //     if (board[nx][ny] === 1) {
+        //       board[nx][ny] = 0;
+        //       DFS(nx, ny);
+        //     }
+        //   }
+        // };
+        // for (let i = 0; i < row; i++) {
+        //   for (let j = 0; j < col; j++) {
+        //     if (board[i][j] === 1) {
+        //       answer += 1;
+        //       board[i][j] = 0;
+        //       DFS(i, j);
+        //     }
+        //   }
+        // }
+        // console.log(answer);
+
+        // const row = board.length;
+        // const col = board[0].length;
+        // let answer = 0;
+
+        // const BFS = (sx, sy) => {
+        //   const queue = [[sx, sy]];
+        //   while (queue.length > 0) {
+        //     const [x, y] = queue.shift();
+        //     board[x][y] = 0;
+        //     for (let i = 0; i < 8; i++) {
+        //       const nx = x + mx[i];
+        //       const ny = y + my[i];
+        //       if (nx < 0 || ny < 0 || nx > row - 1 || ny > col - 1) continue;
+        //       if (board[nx][ny] === 1) {
+        //         queue.push([nx, ny]);
+        //       }
+        //     }
+        //   }
+        // };
+
+        // for (let i = 0; i < row; i++) {
+        //   for (let j = 0; j < col; j++) {
+        //     if (board[i][j] === 1) {
+        //       answer += 1;
+        //       BFS(i, j);
+        //     }
+        //   }
+        // }
+        // console.log(answer);
+        let answer = 0;
+        let n = board.length;
+        let queue = [];
+        for (let i = 0; i < n; i++) {
+          for (let j = 0; j < n; j++) {
+            if (board[i][j] === 1) {
+              board[i][j] = 0;
+              queue.push([i, j]);
+              answer++;
+              while (queue.length) {
+                let x = queue.shift();
+                for (let k = 0; k < 8; k++) {
+                  let nx = x[0] + dx[k];
+                  let ny = x[1] + dy[k];
+                  if (
+                    nx >= 0 &&
+                    nx < n &&
+                    ny >= 0 &&
+                    ny < n &&
+                    board[nx][ny] === 1
+                  ) {
+                    board[nx][ny] = 0;
+                    queue.push([nx, ny]);
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+
+      let arr = [
+        [1, 1, 0, 0, 0, 1, 0],
+        [0, 1, 1, 0, 1, 1, 0],
+        [0, 1, 0, 0, 0, 0, 0],
+        [0, 0, 0, 1, 0, 1, 1],
+        [1, 1, 0, 1, 1, 0, 0],
+        [1, 0, 0, 0, 1, 0, 0],
+        [1, 0, 1, 0, 1, 0, 0],
+      ];
+
+      console.log(solution(arr));
+    </script>
+  </body>
+</html> -->
