@@ -6526,3 +6526,156 @@
     </script>
   </body>
 </html> -->
+
+<!-- <html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      var Constructor = function (name) {
+        this.name = name;
+      };
+
+      Constructor.prototype.method1 = function () {};
+      Constructor.prototype.property1 = 'Constructor Prototype Property';
+
+      var instance = new Constructor('Instance');
+      console.dir(Constructor);
+      console.dir(instance);
+    </script>
+  </body>
+</html> -->
+
+<!-- <html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(m, arr) {
+        const answer = Array.from({ length: m }, () => 0);
+        const check = Array.from({ length: arr.length }, () => 0);
+        const DFS = (idx) => {
+          if (idx >= m) {
+            console.log(answer);
+          } else {
+            for (let i = 0; i < arr.length; i++) {
+              if (check[i] === 0) {
+                check[i] = 1;
+                answer[idx] = arr[i];
+                DFS(idx + 1);
+                check[i] = 0;
+              }
+            }
+          }
+        };
+        DFS(0);
+      }
+
+      let arr = [3, 6, 9];
+      console.log(solution(2, arr));
+    </script>
+  </body>
+</html> -->
+
+<!-- <html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(n, m) {
+        const arr = Array.from({ length: m }, () => 0);
+
+        const DFS = (s, idx) => {
+          if (idx === m) {
+            console.log(arr);
+          } else {
+            for (let i = s; i <= n; i++) {
+              arr[idx] = i;
+              DFS(s + 1, idx + 1);
+            }
+          }
+        };
+        DFS(1, 0);
+      }
+
+      console.log(solution(4, 2));
+    </script>
+  </body>
+</html> -->
+
+<!-- <html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(c, arr) {
+        // let answer = Number.MIN_SAFE_INTEGER;
+        // const DFS = (idx, sum) => {
+        //   if (idx > arr.length) return;
+        //   if (sum <= c) {
+        //     answer = Math.max(answer, sum);
+        //     console.log(sum);
+        //   }
+        //   DFS(idx + 1, sum + arr[idx]);
+        //   DFS(idx + 1, sum);
+        // };
+        // DFS(0, 0);
+        // console.log(answer);
+        // let answer = Array.from({ length: c + 1 }, () => 0);
+        // for (let a of arr) {
+        //   for (let i = c; i > a; i--) {
+        //     answer[i] = Math.max(answer[i], answer[i - a] + a);
+        //   }
+        //   console.log(answer);
+        // }
+      }
+
+      let arr = [81, 58, 42, 33, 61];
+      console.log(solution(259, arr));
+    </script>
+  </body>
+</html> -->
+
+<!-- <html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(s) {
+        const sSet = new Set(s.split(''));
+        const arr = [...sSet];
+        console.log(arr.join(''));
+        console.log(sSet);
+      }
+      console.log(solution('ksekkset'));
+    </script>
+  </body>
+</html> -->
+
+<!-- <html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(s) {
+        answer = s.filter((v, i) => {
+          if (s.indexOf(v) === i) return v;
+        })
+      }
+      let str = ['good', 'time', 'good', 'time', 'student'];
+      console.log(solution(str));
+    </script>
+  </body>
+</html> -->
